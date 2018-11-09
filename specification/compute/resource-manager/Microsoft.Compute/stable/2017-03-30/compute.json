@@ -90,7 +90,7 @@
         "tags": [
           "AvailabilitySets"
         ],
-        "operationId": "AvailabilitySets_Delete",
+        "operationId": "AvailabilitySets_CreateOrUpdate",
         "description": "Delete an availability set.",
         "parameters": [
           {
