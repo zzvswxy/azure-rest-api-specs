@@ -1,7 +1,7 @@
 {
   "parameters": {
     "resourceGroupName": "testrg",
-    "api-version": "2019-02-01",
+    "api-version": "2019-04-04",
     "subscriptionId": "subid",
     "loadBalancerName": "lb"
   },
