@@ -3,7 +3,7 @@
   "info": {
     "title": "ApiManagementClient",
     "description": "Use these REST APIs for performing operations on PortalSettings entity associated with your Azure API Management deployment. Using this entity you can manage settings for a Developer Portal.",
-    "version": "2018-01-01-preview"
+    "version": "2018-01-01"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -83,7 +83,7 @@
           "SignInSettings"
         ],
         "operationId": "SignInSettings_Get",
-        "description": "Get Sign In Settings for the Portal",
+        "description": "Get Sign-In settings.",
         "x-ms-examples": {
           "ApiManagementPortalSettingsGetSignIn": {
             "$ref": "./examples/ApiManagementPortalSettingsGetSignIn.json"
@@ -107,19 +107,13 @@
           "200": {
             "description": "Sign-In settings.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSigninSettings"
+              "$ref": "#/definitions/PortalSigninSettings"
             },
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
                 "type": "string"
               }
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "./apimanagement.json#/definitions/ErrorResponse"
             }
           }
         }
@@ -147,7 +141,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSigninSettings"
+              "$ref": "#/definitions/PortalSigninSettings"
             },
             "description": "Update Sign-In settings."
           },
@@ -196,12 +190,9 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSigninSettings"
+              "$ref": "#/definitions/PortalSigninSettings"
             },
             "description": "Create or update parameters."
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -214,7 +205,7 @@
           "200": {
             "description": "Sign-In settings was successfully updated.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSigninSettings"
+              "$ref": "#/definitions/PortalSigninSettings"
             }
           },
           "default": {
@@ -275,7 +266,7 @@
           "SignUpSettings"
         ],
         "operationId": "SignUpSettings_Get",
-        "description": "Get Sign Up Settings for the Portal",
+        "description": "Get Sign-Up settings.",
         "x-ms-examples": {
           "ApiManagementPortalSettingsGetSignUp": {
             "$ref": "./examples/ApiManagementPortalSettingsGetSignUp.json"
@@ -299,19 +290,13 @@
           "200": {
             "description": "Sign-Up settings.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSignupSettings"
+              "$ref": "#/definitions/PortalSignupSettings"
             },
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
                 "type": "string"
               }
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "./apimanagement.json#/definitions/ErrorResponse"
             }
           }
         }
@@ -339,7 +324,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSignupSettings"
+              "$ref": "#/definitions/PortalSignupSettings"
             },
             "description": "Update Sign-Up settings."
           },
@@ -388,12 +373,9 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSignupSettings"
+              "$ref": "#/definitions/PortalSignupSettings"
             },
             "description": "Create or update parameters."
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -406,7 +388,7 @@
           "200": {
             "description": "Sign-Up settings was successfully updated.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalSignupSettings"
+              "$ref": "#/definitions/PortalSignupSettings"
             }
           },
           "default": {
@@ -467,7 +449,7 @@
           "DelegationSettings"
         ],
         "operationId": "DelegationSettings_Get",
-        "description": "Get Delegation Settings for the Portal.",
+        "description": "Get Delegation settings.",
         "x-ms-examples": {
           "ApiManagementPortalSettingsGetDelegation": {
             "$ref": "./examples/ApiManagementPortalSettingsGetDelegation.json"
@@ -491,19 +473,13 @@
           "200": {
             "description": "Delegation settings.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalDelegationSettings"
+              "$ref": "#/definitions/PortalDelegationSettings"
             },
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
                 "type": "string"
               }
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "./apimanagement.json#/definitions/ErrorResponse"
             }
           }
         }
@@ -531,7 +507,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalDelegationSettings"
+              "$ref": "#/definitions/PortalDelegationSettings"
             },
             "description": "Update Delegation settings."
           },
@@ -580,12 +556,9 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalDelegationSettings"
+              "$ref": "#/definitions/PortalDelegationSettings"
             },
             "description": "Create or update parameters."
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -598,7 +571,7 @@
           "200": {
             "description": "Delegation settings was successfully updated.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/PortalDelegationSettings"
+              "$ref": "#/definitions/PortalDelegationSettings"
             }
           },
           "default": {
@@ -611,5 +584,130 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "PortalSigninSettings": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/PortalSigninSettingProperties",
+          "description": "Sign-in settings contract properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./apimanagement.json#/definitions/Resource"
+        }
+      ],
+      "description": "Sign-In settings for the Developer Portal."
+    },
+    "PortalSigninSettingProperties": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Redirect Anonymous users to the Sign-In page."
+        }
+      },
+      "description": "Sign-in settings contract properties."
+    },
+    "PortalSignupSettings": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/PortalSignupSettingsProperties",
+          "description": "Sign-up settings contract properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./apimanagement.json#/definitions/Resource"
+        }
+      ],
+      "description": "Sign-Up settings for a developer portal."
+    },
+    "PortalSignupSettingsProperties": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Allow users to sign up on a developer portal."
+        },
+        "termsOfService": {
+          "type": "object",
+          "$ref": "#/definitions/TermsOfServiceProperties",
+          "description": "Terms of service contract properties."
+        }
+      },
+      "description": "Sign-up settings contract properties."
+    },
+    "TermsOfServiceProperties": {
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "A terms of service text."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Display terms of service during a sign-up process."
+        },
+        "consentRequired": {
+          "type": "boolean",
+          "description": "Ask user for consent to the terms of service."
+        }
+      },
+      "description": "Terms of service contract properties."
+    },
+    "PortalDelegationSettings": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/PortalDelegationSettingsProperties",
+          "description": "Delegation settings contract properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./apimanagement.json#/definitions/Resource"
+        }
+      ],
+      "description": "Delegation settings for a developer portal."
+    },
+    "PortalDelegationSettingsProperties": {
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "A delegation Url."
+        },
+        "validationKey": {
+          "type": "string",
+          "description": "A base64-encoded validation key to validate, that a request is coming from Azure API Management."
+        },
+        "subscriptions": {
+          "$ref": "#/definitions/SubscriptionsDelegationSettingsProperties",
+          "description": "Subscriptions delegation settings."
+        },
+        "userRegistration": {
+          "$ref": "#/definitions/RegistrationDelegationSettingsProperties",
+          "description": "User registration delegation settings."
+        }
+      },
+      "description": "Delegation settings contract properties."
+    },
+    "SubscriptionsDelegationSettingsProperties": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable or disable delegation for subscriptions."
+        }
+      },
+      "description": "Subscriptions delegation settings properties."
+    },
+    "RegistrationDelegationSettingsProperties": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable or disable delegation for user registration."
+        }
+      },
+      "description": "User registration delegation settings properties."
+    }
+  }
 }
