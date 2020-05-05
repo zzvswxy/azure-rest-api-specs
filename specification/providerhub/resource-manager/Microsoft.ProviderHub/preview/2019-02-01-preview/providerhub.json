@@ -33,7 +33,7 @@
       "get": {
         "tags": ["defaultrollout"],
         "operationId": "DefaultRollouts_Get",
-        "description": "Gets the rollout details.",
+        "description": "Gets the default rollout details.",
         "x-ms-examples": {
           "DefaultRollouts_Get": {
             "$ref": "./examples/DefaultRollouts_Get.json"
