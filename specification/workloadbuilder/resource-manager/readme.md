@@ -1,4 +1,4 @@
-# vsonline
+# workloadbuilder
 
 > see https://aka.ms/autorest
 
@@ -55,7 +55,7 @@ swagger-to-sdk:
   - repo: azure-sdk-for-js
   - repo: azure-sdk-for-ruby
     after_scripts:
-      - bundle install && rake arm:regen_all_profiles['azure_mgmt_vsonline']
+      - bundle install && rake arm:regen_all_profiles['azure_mgmt_workloadbuilder']
 ```
 
 ## Go
