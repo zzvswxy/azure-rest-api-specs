@@ -6,6 +6,23 @@
       "workloadName": "MyJBossApp"
     },
     "responses": {
-        "204": { }
+      "200": {
+        "body": {
+          "location": "westus",
+          "properties": {
+            "workloadType": "Jboss",
+            "description": "My Jboss workload",
+            "creationTimeUtc": "2019-12-12T07:44:38.133Z",
+            "lastModifiedTimeUtc": "2019-12-12T07:44:38.133Z",
+            "provisioningState": "Deleted"
+          },
+          "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp",
+          "name": "MyJBossApp",
+          "type": "Microsoft.WorkloadBuilder/workloads",
+          "tags": {
+          }
+        }
+      },
+      "204": { }
     }
 }

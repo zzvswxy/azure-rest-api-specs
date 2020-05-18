@@ -5,7 +5,7 @@
       "resourceGroupName": "dummyrg",
       "workloadName": "MyJBossApp",
       "versionName": "v1",
-      "body": {
+      "VersionResource": {
         "properties": {
           "contentType": "Yaml",
           "specContent": "spec definition in yml format",
@@ -22,27 +22,12 @@
       "200": {
         "body": {
           "properties": {
-            "contentType": "yaml",
+            "contentType": "Yaml",
             "specContent": "",
             "specSummary": "Version spec infra summary",
             "keyVaultUri": "https://userkeyvault.vault.azure.net",
             "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
             "migrationPreRequisites": null,
-            "artifacts": [
-              {
-                "name": "infra1",
-                "artifactType": "Blueprint",
-                "purpose": "InfraCreation",
-                "executionOrder": 0,
-                "blueprintArmId": "",
-                "artifactContent": "",
-                "varsFileContent": "",
-                "hostsFiles": { },
-                "parameters": { },
-                "activityLog": { }
-              }
-            ],
-            "artifactsParameters": {},
             "description": "Sepc v1",
             "creationTimeUtc": "2019-12-12T12:12:36.209Z",
             "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
@@ -51,6 +36,7 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1",
           "name": "v1",
+          "location":"westus",
           "type": "Microsoft.WorkloadBuilder/workloads/versions",
           "tags": { }
         }
@@ -58,27 +44,12 @@
       "202": {
         "body": {
           "properties": {
-            "contentType": "yaml",
+            "contentType": "Yaml",
             "specContent": "",
             "specSummary": "Version spec infra summary",
             "keyVaultUri": "https://userkeyvault.vault.azure.net",
             "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
             "migrationPreRequisites": null,
-            "artifacts": [
-              {
-                "name": "infra1",
-                "artifactType": "Blueprint",
-                "purpose": "InfraCreation",
-                "executionOrder": 0,
-                "blueprintArmId": "",
-                "artifactContent": "",
-                "varsFileContent": "",
-                "hostsFiles": { },
-                "parameters": { },
-                "activityLog": { }
-              }
-            ],
-            "artifactsParameters": {},
             "description": "Sepc v1",
             "creationTimeUtc": "2019-12-12T12:12:36.209Z",
             "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
@@ -87,6 +58,7 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1",
           "name": "v1",
+          "location":"westus",
           "type": "Microsoft.WorkloadBuilder/workloads/versions",
           "tags": { }
         }

@@ -17,7 +17,7 @@
                 "blueprintArmId": "<published blueprint id>",
                 "artifactContent": "",
                 "parameters": { },
-                "activityLog": { },
+                "activityLog": [],
                 "creationTimeUtc": "2019-12-12T12:12:36.209Z",
                 "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
                 "provisioningState": "Succeeded"

@@ -5,7 +5,7 @@
       "resourceGroupName": "dummyrg",
       "workloadName": "MyJBossApp",
       "instanceName": "poc1",
-      "body": {
+      "InstanceResource": {
         "properties": {
           "versionId": "v1",
           "parameters": { },
@@ -20,7 +20,7 @@
         "body": {
           "properties": {
             "versionId": "v1",
-            "UserManagedIdentity": "",
+            "userManagedIdentity": "",
             "parameters": { },
             "artifactsStatus": {
               "infra1": {
@@ -31,7 +31,7 @@
                   "code": "",
                   "message": ""
                 },
-                "activityLog": {}
+                "activityLog": []
               }
             },
             "description": "POC deployment",
@@ -62,7 +62,7 @@
                   "code": "",
                   "message": ""
                 },
-                "activityLog": {}
+                "activityLog": []
               }
             },
             "description": "POC deployment",

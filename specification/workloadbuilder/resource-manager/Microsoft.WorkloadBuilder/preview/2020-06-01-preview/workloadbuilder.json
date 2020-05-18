@@ -520,10 +520,10 @@
       },
       "patch": {
         "tags": [
-          "Workloads"
+          "Instances"
         ],
-        "description": "Update a workload resource.",
-        "operationId": "Workloads_Update",
+        "description": "Update a instance resource.",
+        "operationId": "Instances_Update",
         "consumes": [
           "application/json"
         ],
@@ -786,10 +786,10 @@
       },
       "patch": {
         "tags": [
-          "Workloads"
+          "Versions"
         ],
         "description": "Update a workload resource.",
-        "operationId": "Workloads_Update",
+        "operationId": "Versions_Update",
         "consumes": [
           "application/json"
         ],
@@ -969,7 +969,7 @@
           "200": {
             "description": "OK -- list of artifact resources retrieved",
             "schema": {
-              "$ref": "#/definitions/InstanceResourcePageList"
+              "$ref": "#/definitions/ArtifactResourcePageList"
             }
           },
           "default": {

@@ -29,7 +29,7 @@
                         "code": "Success",
                         "message": ""
                       },
-                      "activityLog": {}
+                      "activityLog": []
                     }
                   },
                   "description": "POC deployment",
