@@ -495,8 +495,8 @@
               "$ref": "#/definitions/InstanceResource"
             }
           },
-          "202": {
-            "description": "Accepted -- instance resource creation accepted.",
+          "201": {
+            "description": "Created -- instance resource creation accepted.",
             "schema": {
               "$ref": "#/definitions/InstanceResource"
             }
@@ -758,8 +758,8 @@
               "$ref": "#/definitions/VersionResource"
             }
           },
-          "202": {
-            "description": "Accepted -- version resource creation accepted",
+          "201": {
+            "description": "Created -- version resource creation accepted",
             "schema": {
               "$ref": "#/definitions/VersionResource"
             }
