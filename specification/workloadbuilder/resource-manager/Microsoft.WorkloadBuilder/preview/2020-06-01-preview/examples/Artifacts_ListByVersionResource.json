@@ -25,8 +25,7 @@
                         },
                         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1/artifacts/infra1",
                         "name": "infra1",
-                        "type": "Microsoft.WorkloadBuilder/workloads/versions/artifacts",
-                        "tags": { }
+                        "type": "Microsoft.WorkloadBuilder/workloads/versions/artifacts"
                     }
                 ]
             }

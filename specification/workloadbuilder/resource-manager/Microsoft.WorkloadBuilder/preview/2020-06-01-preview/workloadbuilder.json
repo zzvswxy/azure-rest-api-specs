@@ -336,13 +336,10 @@
         ],
         "responses": {
           "204": {
-            "description": "No content"
+            "description": "Resource not found"
           },
           "200": {
-            "description": "OK -- Workload resource deleted",
-            "schema": {
-              "$ref": "#/definitions/WorkloadResource"
-            }
+            "description": "OK -- Workload resource deleted"
           },
           "default": {
             "description": "Resource provider error response about the failure.",
@@ -601,13 +598,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK -- instance resource deleted.",
-            "schema": {
-              "$ref": "#/definitions/InstanceResource"
-            }
+            "description": "OK -- instance resource deleted."
           },
           "204": {
-            "description": "No content"
+            "description": "Resource not found"
           },
           "default": {
             "description": "Resource provider error response about the failure.",
@@ -867,13 +861,10 @@
         ],
         "responses": {
           "204": {
-            "description": "No content."
+            "description": "Resource not found"
           },
           "200": {
-            "description": "OK -- resource deleted",
-            "schema": {
-              "$ref": "#/definitions/VersionResource"
-            }
+            "description": "OK -- resource deleted"
           },
           "default": {
             "description": "Resource provider error response about the failure.",
