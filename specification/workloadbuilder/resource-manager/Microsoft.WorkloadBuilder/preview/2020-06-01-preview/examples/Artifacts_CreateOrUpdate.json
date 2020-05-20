@@ -8,15 +8,6 @@
         "artifactName": "infra1",
         "ArtifactResource": {
             "properties": {
-                "artifactType": "Blueprint",
-                "purpose": "InfraCreation",
-                "executionOrder": 0,
-                "artifactContent": "<published blueprint id>",
-                "parameters": { },
-                "hostsFileContent": "",
-                "varsFileContent": "",
-                "creationTimeUtc": "2019-12-12T12:12:36.209Z",
-                "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z"
             }
         }
     },
