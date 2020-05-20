@@ -24,14 +24,14 @@
                 "errorDetails": {
                   "code": "",
                   "message": ""
-                },
-                "activityLog": []
+                }
               }
             },
             "description": "POC deployment",
             "creationTimeUtc": "2019-12-12T13:30:28.958Z",
             "lastModifiedTimeUtc": "2019-12-12T13:30:28.958Z",
             "lastAsyncOperationId": "",
+            "activityLog": [],
             "provisioningState": "Succeeded"
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",

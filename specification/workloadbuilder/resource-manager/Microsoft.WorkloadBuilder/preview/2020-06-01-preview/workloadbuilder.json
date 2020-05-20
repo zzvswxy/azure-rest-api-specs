@@ -974,7 +974,7 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "Versions": {
+          "Artifacts": {
             "$ref": "./examples/Artifacts_ListByVersionResource.json"
           }
         }
@@ -1025,8 +1025,121 @@
           }
         },
         "x-ms-examples": {
-          "Versions": {
+          "Artifacts": {
             "$ref": "./examples/Artifacts_Get.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Artifacts"
+        ],
+        "description": "Create or update an artifact resource.",
+        "operationId": "Artifacts_CreateOrUpdate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/WorkloadNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VersionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ArtifactNameParameter"
+          },
+          {
+            "in": "body",
+            "name": "ArtifactResource",
+            "description": "Artifact resource",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ArtifactResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- artifact resource retrieved",
+            "schema": {
+              "$ref": "#/definitions/ArtifactResource"
+            }
+          },
+          "201": {
+            "description": "Created -- Artifact resource created",
+            "schema": {
+              "$ref": "#/definitions/ArtifactResource"
+            }
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Artifacts": {
+            "$ref": "./examples/Artifacts_CreateOrUpdate.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Artifacts"
+        ],
+        "description": "Delete artifact resource.",
+        "operationId": "Artifacts_Delete",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/WorkloadNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VersionNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ArtifactNameParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource not found"
+          },
+          "200": {
+            "description": "OK -- resource deleted"
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Artifacts": {
+            "$ref": "./examples/Artifacts_Delete.json"
           }
         }
       }
@@ -1267,6 +1380,14 @@
           "description": "Last async operation status tracking Id of the resource.",
           "type": "string",
           "readOnly": true
+        },
+        "activityLog": {
+          "description": "Version creation activity log.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OperationActivityRecord"
+          },
+          "readOnly": true
         }
       },
       "allOf": [
@@ -1353,11 +1474,13 @@
       "properties": {
         "artifactType": {
           "description": "Artifact type",
-          "$ref": "#/definitions/ArtifactType"
+          "$ref": "#/definitions/ArtifactType",
+          "readOnly": true
         },
         "purpose": {
           "description": "Artifact purpose",
-          "$ref": "#/definitions/ArtifactPurpose"
+          "$ref": "#/definitions/ArtifactPurpose",
+          "readOnly": true
         },
         "executionOrder": {
           "format": "int32",
@@ -1367,14 +1490,8 @@
           "type": "integer",
           "readOnly": true
         },
-        "blueprintArmId": {
-          "description": "Blueprint resource Arm Id.",
-          "maxLength": 1024,
-          "type": "string",
-          "readOnly": true
-        },
         "artifactContent": {
-          "description": "Artifact definition content.\r\nFor example, if artifact type is 'AnsiblePlaybook'\r\nthen this field contains the play book yaml content.",
+          "description": "Artifact definition content.\r\nFor example, if artifact type is 'AnsiblePlaybook' then this field contains the play book yaml content.\r\n if artifact type is 'Blueprint' then this field holds published blueprint Arm id.",
           "type": "string",
           "readOnly": true
         },
@@ -1384,14 +1501,17 @@
           "additionalProperties": {
             "description": "Artifact parameters.",
             "$ref": "#/definitions/ParameterValue"
-          }
-        },
-        "activityLog": {
-          "description": "Artifact creation activity log.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OperationActivityRecord"
           },
+          "readOnly": true
+        },
+        "hostsFileContent": {
+          "description": "Hosts file content. This field is valid when ArtifactType is 'AnsiblePlaybook'.",
+          "type": "string",
+          "readOnly": true
+        },
+        "varsFileContent": {
+          "description": "Vars file content. This field is valid when ArtifactType is 'AnsiblePlaybook'.",
+          "type": "string",
           "readOnly": true
         }
       },
@@ -1485,6 +1605,14 @@
             "$ref": "#/definitions/ArtifactStatus"
           },
           "readOnly": true
+        },
+        "activityLog": {
+          "description": "Instance creation activity log.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OperationActivityRecord"
+          },
+          "readOnly": true
         }
       },
       "allOf": [
@@ -1499,7 +1627,8 @@
       "properties": {
         "state": {
           "description": "Artifact deployment state",
-          "$ref": "#/definitions/ArtifactDeploymentState"
+          "$ref": "#/definitions/ArtifactDeploymentState",
+          "readOnly": true
         },
         "startTimeUtc": {
           "format": "date-time",
@@ -1515,14 +1644,7 @@
         },
         "errorDetails": {
           "description": "Error details",
-          "$ref": "#/definitions/ErrorDetails"
-        },
-        "activityLog": {
-          "description": "Artifact execution activity log.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OperationActivityRecord"
-          },
+          "$ref": "#/definitions/ErrorDetails",
           "readOnly": true
         }
       }
