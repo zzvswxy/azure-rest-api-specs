@@ -1,4 +1,4 @@
-# workloadbuilder
+# Workloadbuilder
 
 > see https://aka.ms/autorest
 
@@ -26,16 +26,16 @@ These are the global settings for the cloudenvironment.
 
 ```yaml
 openapi-type: arm
-tag: package-2020-06-01-preview
+tag: package-2020-07-01-privatepreview
 ```
 
-### Tag: package-2020-06-01-preview
+### Tag: package-2020-07-01-privatepreview
 
-These settings apply only when `--tag=package-2020-06-01-preview` is specified on the command line.
+These settings apply only when `--tag=package-2020-07-01-privatepreview` is specified on the command line.
 
-```yaml $(tag) == 'package-2020-06-01-preview'
+```yaml $(tag) == 'package-2020-07-01-privatepreview'
 input-file:
-  - Microsoft.WorkloadBuilder\preview\2020-06-01-preview\workloadbuilder.json
+  - Microsoft.WorkloadBuilder\preview\2020-07-01-privatepreview\workloadbuilder.json
 ```
 
 ---
