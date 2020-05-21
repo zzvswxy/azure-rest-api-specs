@@ -881,54 +881,6 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/workloads/{workloadName}/Versions/{versionName}/getSpec": {
-      "post": {
-        "tags": [
-          "Versions"
-        ],
-        "description": "Returns version spec content.",
-        "operationId": "Versions_GetSpec",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/WorkloadNameParameter"
-          },
-          {
-            "$ref": "#/parameters/VersionNameParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK -- Version spec content returned.",
-            "schema": {
-              "$ref": "#/definitions/GetSpecResponseBody"
-            }
-          },
-          "default": {
-            "description": "Resource provider error response about the failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Versions": {
-            "$ref": "./examples/Versions_GetSpec.json"
-          }
-        }
-      }
-    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/workloads/{workloadName}/Versions/{versionName}/Artifacts": {
       "get": {
         "tags": [
@@ -1804,20 +1756,6 @@
       "x-ms-enum": {
         "name": "ResourceState",
         "modelAsString": true
-      }
-    },
-    "GetSpecResponseBody": {
-      "description": "GetSpec response body.",
-      "type": "object",
-      "properties": {
-        "contentType": {
-          "description": "Version spec content type.",
-          "$ref": "#/definitions/ContentType"
-        },
-        "specContent": {
-          "description": "Version spec content.",
-          "type": "string"
-        }
       }
     },
     "ResourcePatchRequestBody": {
