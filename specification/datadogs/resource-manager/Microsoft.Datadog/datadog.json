@@ -168,6 +168,60 @@
                 }
             }
         },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/listMonitoredResources": {
+            "get": {
+                "tags": [
+                    "MonitoredResources"
+                ],
+                "summary": "List the resources currently being monitored by the Datadog monitor resource.",
+                "operationId": "MonitoredResources_List",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "resourceGroupName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "monitorName",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/MonitoredResourceListResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Default error response.",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                },
+                "x-ms-examples": {
+                    "MonitoredResources_List": {
+                        "$ref": "./examples/MonitoredResources_List.json"
+                    }
+                }
+            }
+        },
         "/providers/Microsoft.Datadog/operations": {
             "get": {
                 "tags": [
@@ -758,6 +812,37 @@
                 }
             }
         },
+        "MonitoredResource": {
+            "description": "The properties of a resource currently being monitored by the Datadog monitor resource.",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "The ARM id of the resource.",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "The location of the resource.",
+                    "type": "string"
+                }
+            }
+        },
+        "MonitoredResourceListResponse": {
+            "description": "Response of a list operation.",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "description": "Results of a list operation.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MonitoredResource"
+                    }
+                },
+                "nextLink": {
+                    "description": "Link to the next set of results, if any.",
+                    "type": "string"
+                }
+            }
+        },
         "OperationDisplay": {
             "description": "The object that represents the operation.",
             "type": "object",
@@ -818,7 +903,8 @@
                 "Deleting",
                 "Succeeded",
                 "Failed",
-                "Canceled"
+                "Canceled",
+                "Deleted"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -868,6 +954,56 @@
                 }
             }
         },
+        "BillingTermType": {
+            "enum": [
+                "Yearly",
+                "Monthly"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+                "modelAsString": true
+            }
+        },
+        "BillingTerm": {
+            "type": "object",
+            "properties": {
+                "termType": {
+                    "$ref": "#/definitions/BillingTermType"
+                },
+                "termId": {
+                    "type": "string"
+                }
+            }
+        },
+        "BillingProperties": {
+            "type": "object",
+            "properties": {
+                "planId": {
+                    "description": "Pricing Plan of the resource.",
+                    "type": "string"
+                },
+                "billingTerm": {
+                    "$ref": "#/definitions/BillingTerm"
+                }
+            }
+        },
+        "UserInfo": {
+            "type": "object",
+            "properties": {
+                "userName": {
+                    "description": "Name of the user",
+                    "type": "string"
+                },
+                "userEmail": {
+                    "description": "Email of the user used by Datadog for contacting them if needed",
+                    "type": "string"
+                },
+                "userPhone": {
+                    "description": "Phone number of the user used by Datadog for contacting them if needed",
+                    "type": "string"
+                }
+            }
+        },
         "MonitorProperties": {
             "description": "Properties specific to the monitor resource.",
             "type": "object",
@@ -877,6 +1013,12 @@
                 },
                 "datadogOrganizationProperties": {
                     "$ref": "#/definitions/DatadogOrganizationProperties"
+                },
+                "billingProperties": {
+                    "$ref": "#/definitions/BillingProperties"
+                },
+                "userInfo": {
+                    "$ref": "#/definitions/UserInfo"
                 }
             }
         },
@@ -894,7 +1036,7 @@
             "type": "object",
             "properties": {
                 "principalId": {
-                    "description": "The identity Id",
+                    "description": "The identity ID.",
                     "type": "string",
                     "readOnly": true
                 },
@@ -1019,7 +1161,7 @@
                     "type": "boolean"
                 },
                 "filteringTags": {
-                    "description": "List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources.If Include actions are specified, the rules will only include resources with the associated tags.",
+                    "description": "List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/FilteringTag"
