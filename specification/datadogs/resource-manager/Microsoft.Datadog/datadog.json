@@ -990,15 +990,15 @@
         "UserInfo": {
             "type": "object",
             "properties": {
-                "userName": {
+                "name": {
                     "description": "Name of the user",
                     "type": "string"
                 },
-                "userEmail": {
+                "emailAddress": {
                     "description": "Email of the user used by Datadog for contacting them if needed",
                     "type": "string"
                 },
-                "userPhone": {
+                "phoneNumber": {
                     "description": "Phone number of the user used by Datadog for contacting them if needed",
                     "type": "string"
                 }
