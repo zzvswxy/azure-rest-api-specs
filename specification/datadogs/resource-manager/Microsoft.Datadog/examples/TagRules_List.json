@@ -15,10 +15,25 @@
                         "type": "Microsoft.Datadog/monitors/tagRules",
                         "properties": {
                             "logRules": {
-                                "Environment": "Dev"
+                                "sendAadLogs": false,
+                                "sendSubscriptionLogs": true,
+                                "sendActivityLogs": true,
+                                "filteringTags": [
+                                    {
+                                        "name": "Environment",
+                                        "value": "Prod",
+                                        "action": "Include"
+                                    },
+                                    {
+                                        "name": "Environment",
+                                        "value": "Dev",
+                                        "action": "Exclude"
+                                    }
+                                ]
                             },
                             "metricRules": {
-                                "Environment": "Prod"
+                                "filteringTags": [
+                                ]
                             }
                         }
                     }

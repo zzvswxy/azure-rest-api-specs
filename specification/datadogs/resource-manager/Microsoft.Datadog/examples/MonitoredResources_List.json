@@ -8,10 +8,12 @@
     "responses": {
         "200": {
             "body": {
-                "created_by": "john@example.com",
-                "name": "<API_KEY_NAME>",
-                "key": "1111111111111111aaaaaaaaaaaaaaaa",
-                "created": "2019-04-05 09:20:30"
+                "value": [
+                    {
+                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVault",
+                        "location": "East US"
+                    }
+                ]
             }
         }
     }
