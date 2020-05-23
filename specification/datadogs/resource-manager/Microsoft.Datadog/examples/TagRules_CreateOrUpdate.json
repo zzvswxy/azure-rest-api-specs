@@ -7,10 +7,10 @@
         "ruleSetName": "default",
         "requestBody": {
             "properties": {
-                "logTags": {
+                "logRules": {
                     "Environment": "Dev"
                 },
-                "metricTags": {
+                "metricRules": {
                     "Environment": "Prod"
                 }
             }
@@ -23,10 +23,10 @@
                 "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/tagRules/default",
                 "type": "Microsoft.Datadog/monitors/tagRules",
                 "properties": {
-                    "logTags": {
+                    "logRules": {
                         "Environment": "Dev"
                     },
-                    "metricTags": {
+                    "metricRules": {
                         "Environment": "Prod"
                     }
                 }
