@@ -903,6 +903,7 @@
             ],
             "type": "string",
             "x-ms-enum": {
+                "name": "ProvisioningState",
                 "modelAsString": true
             }
         },
@@ -914,6 +915,7 @@
             ],
             "type": "string",
             "x-ms-enum": {
+                "name": "DatadogSubscriptionTypes",
                 "modelAsString": true
             }
         },
@@ -956,6 +958,7 @@
             ],
             "type": "string",
             "x-ms-enum": {
+                "name": "BillingTermType",
                 "modelAsString": true
             }
         },
@@ -1024,6 +1027,7 @@
             ],
             "type": "string",
             "x-ms-enum": {
+                "name": "ManagedIdentityTypes",
                 "modelAsString": true
             }
         },
@@ -1119,6 +1123,7 @@
             ],
             "type": "string",
             "x-ms-enum": {
+                "name": "TagAction",
                 "modelAsString": true
             }
         },
