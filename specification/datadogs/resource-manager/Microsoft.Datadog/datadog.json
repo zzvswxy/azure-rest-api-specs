@@ -214,11 +214,6 @@
                 },
                 "x-ms-pageable": {
                     "nextLinkName": "nextLink"
-                },
-                "x-ms-examples": {
-                    "MonitoredResources_List": {
-                        "$ref": "./examples/MonitoredResources_List.json"
-                    }
                 }
             }
         },
