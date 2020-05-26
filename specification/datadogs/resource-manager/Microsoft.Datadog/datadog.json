@@ -215,10 +215,10 @@
                 "x-ms-pageable": {
                     "nextLinkName": "nextLink"
                 },
-                "x-ms-examples": {	
-                    "MonitoredResources_List": {	
-                        "$ref": "./examples/MonitoredResources_List.json"	
-                    }	
+                "x-ms-examples": {
+                    "MonitoredResources_List": {
+                        "$ref": "./examples/MonitoredResources_List.json"
+                    }
                 }
             }
         },
@@ -1205,15 +1205,18 @@
             "properties": {
                 "name": {
                     "description": "Name of the rule set.",
-                    "type": "string"
+                    "type": "string",
+                    "readOnly": true
                 },
                 "id": {
                     "description": "The id of the rule set.",
-                    "type": "string"
+                    "type": "string",
+                    "readOnly": true
                 },
                 "type": {
                     "description": "The type of the rule set.",
-                    "type": "string"
+                    "type": "string",
+                    "readOnly": true
                 },
                 "properties": {
                     "$ref": "#/definitions/MonitoringTagRulesProperties"
