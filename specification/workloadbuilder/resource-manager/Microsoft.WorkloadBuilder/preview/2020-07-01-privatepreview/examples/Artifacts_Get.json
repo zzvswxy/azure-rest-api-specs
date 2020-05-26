@@ -16,8 +16,8 @@
                 "executionOrder": 0,
                 "artifactContent": "<published blueprint id>",
                 "parameters": { },
-                "hostsFileContent": "",
-                "varsFileContent": "",
+                "artifactDependencies": [],
+                "isArtifactRunnable": true,
                 "creationTimeUtc": "2019-12-12T12:12:36.209Z",
                 "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
                 "provisioningState": "Succeeded"
