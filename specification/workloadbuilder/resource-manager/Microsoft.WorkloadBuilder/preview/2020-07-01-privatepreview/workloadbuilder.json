@@ -1379,8 +1379,8 @@
           "description": "Migrating VMs assessment Id.",
           "type": "string"
         },
-        "deploymentLocation": {
-          "description": "Deployment location where the workload will be migrated.",
+        "deploymentResourceGroupName": {
+          "description": "Deployment resource group name where migrating workload infra resources will be created.",
           "type": "string"
         }
       }
@@ -1437,8 +1437,6 @@
         "executionOrder": {
           "format": "int32",
           "description": "Artifact execution order.",
-          "maximum": 1024,
-          "minimum": 0,
           "type": "integer",
           "readOnly": true
         },
@@ -1456,14 +1454,17 @@
           },
           "readOnly": true
         },
-        "hostsFileContent": {
-          "description": "Hosts file content. This field is valid when ArtifactType is 'AnsiblePlaybook'.",
-          "type": "string",
+        "artifactDependencies": {
+          "description": "List of artifacts the current artifact depends on.\r\nFor example, 'AnsiblePlaybook' type artifact depends on 'AnsibleVarsFile' artifact type.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
           "readOnly": true
         },
-        "varsFileContent": {
-          "description": "Vars file content. This field is valid when ArtifactType is 'AnsiblePlaybook'.",
-          "type": "string",
+        "isArtifactRunnable": {
+          "description": "Indicates if this artifact is runnable or holds only re-usable content such as 'AnsibleVarsFile' type.",
+          "type": "boolean",
           "readOnly": true
         }
       },
@@ -1667,6 +1668,8 @@
       "description": "Type of supported workload artifact types.",
       "enum": [
         "AnsiblePlaybook",
+        "AnsibleHostsFile",
+        "AnsibleVarsFile",
         "Blueprint",
         "ShellScript",
         "PowershellScript"
