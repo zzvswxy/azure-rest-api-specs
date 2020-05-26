@@ -72,6 +72,13 @@
                         "datadogSubscriptionType": "pro",
                         "apiKey": null,
                         "applicationKey": null
+                    },
+                    "billingProperties": {
+                        "planId": "free",
+                        "billingTerm": {
+                            "termType": "Monthly",
+                            "termId": "hjdtn7tfnxcy"
+                        }
                     }
                 },
                 "tags": {
