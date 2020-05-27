@@ -610,7 +610,6 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Instances": {
             "$ref": "./examples/Instances_Delete.json"
@@ -873,7 +872,6 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Versions": {
             "$ref": "./examples/Versions_Delete.json"
@@ -1171,7 +1169,8 @@
         },
         "provisioningState": {
           "description": "Resource provisioning state.",
-          "$ref": "#/definitions/ResourceState"
+          "$ref": "#/definitions/ResourceState",
+          "readOnly": true
         }
       }
     },
