@@ -738,8 +738,8 @@
               "description": "Specifies the default environment sku name for this plan.",
               "type": "string"
             },
-            "vnetInjectionProperties":{
-              "$ref": "#/definitions/vnetProperties",
+            "vnetProperties":{
+              "$ref": "#/definitions/VnetProperties",
               "description": "Specifies the vnet injection properties for this plan."
             }
           }
@@ -784,8 +784,8 @@
               "description": "Specifies the default environment sku name for this plan.",
               "type": "string"
             },
-            "vnetInjectionProperties":{
-              "$ref": "#/definitions/vnetProperties",
+            "vnetProperties":{
+              "$ref": "#/definitions/VnetProperties",
               "description": "Specifies the vnet injection properties for this plan."
             }
           }
