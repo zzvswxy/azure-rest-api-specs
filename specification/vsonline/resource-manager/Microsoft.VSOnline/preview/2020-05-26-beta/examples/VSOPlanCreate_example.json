@@ -7,7 +7,8 @@
     "vsonlinePlan":{
       "location":"eastus",
       "properties":{
-        "userId": "user1"
+        "userId": "user1",
+        "defaultEnvironmentSku": "standardLinux"
       }
     },
     "tags":{}
