@@ -8,8 +8,7 @@
             "name": "myMonitor",
             "plan":{
                 "name": "Datadog Plan 1",
-                "publisher": "Datadog",
-                "product": "free",
+                "tier": "free",
                 "termType": "Monthly",
                 "termId":"hjdtn7tfnxcy"
             },
@@ -36,10 +35,9 @@
                 "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
                 "name": "myMonitor",
                 "type": "Microsoft.Datadog/monitors",
-                "plan":{
+                "sku":{
                     "name": "Datadog Plan 1",
-                    "publisher": "Datadog",
-                    "product": "free",
+                    "tier": "free",
                     "termType": "Monthly",
                     "termId":"hjdtn7tfnxcy"
                 },
@@ -66,8 +64,7 @@
                 "type": "Microsoft.Datadog/monitors",
                 "plan":{
                     "name": "Datadog Plan 1",
-                    "publisher": "Datadog",
-                    "product": "free",
+                    "tier": "free",
                     "termType": "Monthly",
                     "termId":"hjdtn7tfnxcy"
                 },
