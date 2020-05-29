@@ -169,7 +169,7 @@
             }
         },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/listMonitoredResources": {
-            "get": {
+            "post": {
                 "tags": [
                     "MonitoredResources"
                 ],
@@ -895,6 +895,41 @@
                 }
             }
         },
+        "BillingTermType": {
+            "enum": [
+                "Yearly",
+                "Monthly"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+                "modelAsString": true,
+                "name": "BillingTermType"
+            }
+        },
+        "BillingPlan": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name of the billing plan.",
+                    "type": "string"
+                },
+                "publisher": {
+                    "description": "Publisher of the plan.",
+                    "type": "string"
+                },
+                "product": {
+                    "description": "Id of the billing plan.",
+                    "type": "string"
+                },
+                "termType": {
+                    "$ref": "#/definitions/BillingTermType"
+                },
+                "termId": {
+                    "description": "Id of the billing term.",
+                    "type": "string"
+                }
+            }
+        },
         "ProvisioningState": {
             "enum": [
                 "Accepted",
@@ -908,8 +943,8 @@
             ],
             "type": "string",
             "x-ms-enum": {
-                "name": "ProvisioningState",
-                "modelAsString": true
+                "modelAsString": true,
+                "name": "ProvisioningState"
             }
         },
         "DatadogSubscriptionTypes": {
@@ -920,8 +955,8 @@
             ],
             "type": "string",
             "x-ms-enum": {
-                "name": "DatadogSubscriptionTypes",
-                "modelAsString": true
+                "modelAsString": true,
+                "name": "DatadogSubscriptionTypes"
             }
         },
         "DatadogOrganizationProperties": {
@@ -956,40 +991,6 @@
                 }
             }
         },
-        "BillingTermType": {
-            "enum": [
-                "Yearly",
-                "Monthly"
-            ],
-            "type": "string",
-            "x-ms-enum": {
-                "name": "BillingTermType",
-                "modelAsString": true
-            }
-        },
-        "BillingTerm": {
-            "type": "object",
-            "properties": {
-                "termType": {
-                    "$ref": "#/definitions/BillingTermType"
-                },
-                "termId": {
-                    "type": "string"
-                }
-            }
-        },
-        "BillingProperties": {
-            "type": "object",
-            "properties": {
-                "planId": {
-                    "description": "Pricing Plan of the resource.",
-                    "type": "string"
-                },
-                "billingTerm": {
-                    "$ref": "#/definitions/BillingTerm"
-                }
-            }
-        },
         "UserInfo": {
             "type": "object",
             "properties": {
@@ -1017,9 +1018,6 @@
                 "datadogOrganizationProperties": {
                     "$ref": "#/definitions/DatadogOrganizationProperties"
                 },
-                "billingProperties": {
-                    "$ref": "#/definitions/BillingProperties"
-                },
                 "userInfo": {
                     "$ref": "#/definitions/UserInfo"
                 }
@@ -1032,8 +1030,8 @@
             ],
             "type": "string",
             "x-ms-enum": {
-                "name": "ManagedIdentityTypes",
-                "modelAsString": true
+                "modelAsString": true,
+                "name": "ManagedIdentityTypes"
             }
         },
         "IdentityProperties": {
@@ -1074,6 +1072,9 @@
                     "description": "The type of the monitor resource.",
                     "type": "string",
                     "readOnly": true
+                },
+                "plan": {
+                    "$ref": "#/definitions/BillingPlan"
                 },
                 "properties": {
                     "$ref": "#/definitions/MonitorProperties"
@@ -1128,8 +1129,8 @@
             ],
             "type": "string",
             "x-ms-enum": {
-                "name": "TagAction",
-                "modelAsString": true
+                "modelAsString": true,
+                "name": "TagAction"
             }
         },
         "FilteringTag": {
