@@ -906,18 +906,14 @@
                 "name": "BillingTermType"
             }
         },
-        "BillingPlan": {
+        "Sku": {
             "type": "object",
             "properties": {
                 "name": {
                     "description": "Name of the billing plan.",
                     "type": "string"
                 },
-                "publisher": {
-                    "description": "Publisher of the plan.",
-                    "type": "string"
-                },
-                "product": {
+                "tier": {
                     "description": "Id of the billing plan.",
                     "type": "string"
                 },
@@ -1073,8 +1069,8 @@
                     "type": "string",
                     "readOnly": true
                 },
-                "plan": {
-                    "$ref": "#/definitions/BillingPlan"
+                "sku": {
+                    "$ref": "#/definitions/Sku"
                 },
                 "properties": {
                     "$ref": "#/definitions/MonitorProperties"
