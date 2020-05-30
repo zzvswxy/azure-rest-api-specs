@@ -13,7 +13,9 @@
           "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
           "description": "Sepc v1",
           "migrationPreRequisites": null
-        }
+        },
+        "location":"westus",
+        "tags": {}
       }
     },
     "responses": {
@@ -34,7 +36,9 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1",
           "name": "v1",
-          "type": "Microsoft.WorkloadBuilder/workloads/versions"
+          "type": "Microsoft.WorkloadBuilder/workloads/versions",
+          "location":"westus",
+          "tags": {}
         }
       },
       "201": {
@@ -54,7 +58,9 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1",
           "name": "v1",
-          "type": "Microsoft.WorkloadBuilder/workloads/versions"
+          "type": "Microsoft.WorkloadBuilder/workloads/versions",
+          "location":"westus",
+          "tags": {}
         }
       }
     }
