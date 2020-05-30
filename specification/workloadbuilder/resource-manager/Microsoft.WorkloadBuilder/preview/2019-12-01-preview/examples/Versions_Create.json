@@ -12,9 +12,7 @@
           "keyVaultUri": "https://userkeyvault.vault.azure.net",
           "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
           "description": "Sepc v1"
-        },
-        "location":"westus",
-        "tags": { }
+        }
       }
     },
     "responses": {
@@ -23,7 +21,7 @@
           "properties": {
             "contentType": "yaml",
             "specContent": "",
-			"specSummary": "",
+			      "specSummary": "",
             "keyVaultUri": "https://userkeyvault.vault.azure.net",
             "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
             "artifacts": [
@@ -46,8 +44,7 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1",
           "name": "v1",
-          "type": "Microsoft.WorkloadBuilder/workloads/versions",
-          "tags": { }
+          "type": "Microsoft.WorkloadBuilder/workloads/versions"
         }
       },
       "201": {
@@ -55,7 +52,7 @@
           "properties": {
             "contentType": "yaml",
             "specContent": "",
-			"specSummary": "",
+			      "specSummary": "",
             "keyVaultUri": "https://userkeyvault.vault.azure.net",
             "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
             "artifacts": [
@@ -78,8 +75,7 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/versions/v1",
           "name": "v1",
-          "type": "Microsoft.WorkloadBuilder/workloads/versions",
-          "tags": { }
+          "type": "Microsoft.WorkloadBuilder/workloads/versions"
         }
       }
     }

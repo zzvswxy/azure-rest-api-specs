@@ -546,7 +546,6 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Instances": {
             "$ref": "./examples/Instances_Delete.json"
@@ -748,70 +747,9 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Versions": {
             "$ref": "./examples/Versions_Delete.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/workloads/{workloadName}/Versions/{versionName}/getSpecSAS": {
-      "post": {
-        "tags": [
-          "Versions"
-        ],
-        "description": "Retrieves SAS blob uri of a version spec-content.",
-        "operationId": "Versions_GetSpecSAS",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupName"
-          },
-          {
-            "$ref": "#/parameters/workloadName"
-          },
-          {
-            "$ref": "#/parameters/versionName"
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Get Spec SAS request body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/GetSpecSASRequestBody"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK -- SAS uri returned.",
-            "schema": {
-              "$ref": "#/definitions/GetSpecSASResponseBody"
-            }
-          },
-          "default": {
-            "description": "Resource provider error response about the failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Versions": {
-            "$ref": "./examples/Versions_GetSpecSAS.json"
           }
         }
       }
@@ -1238,12 +1176,6 @@
           "$ref": "#/definitions/InstanceProperties",
           "x-ms-client-flatten": true
         },
-        "location": {
-          "description": "Resource location.",
-          "maxLength": 256,
-          "type": "string",
-          "x-ms-mutability":["create","read"]
-        },
         "id": {
           "description": "Resource Id.",
           "type": "string",
@@ -1259,13 +1191,6 @@
           "description": "Resource type.",
           "type": "string",
           "readOnly": true
-        },
-        "tags": {
-          "description": "Resource tags.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
         }
       },
       "x-ms-azure-resource": true
@@ -1387,11 +1312,11 @@
           "type": "string",
           "x-ms-mutability": ["create", "read"]
         },
-		"specSummary":{
-		  "description": "Estimated summary of the given spec infra",
-          "type": "string",
-          "readOnly": true
-		},
+        "specSummary":{
+          "description": "Estimated summary of the given spec infra",
+              "type": "string",
+              "readOnly": true
+        },
         "contentType": {
           "description": "Content type",
           "x-ms-mutability": ["create", "read"],
@@ -1462,12 +1387,6 @@
           "$ref": "#/definitions/VersionProperties",
           "x-ms-client-flatten": true
         },
-        "location": {
-          "description": "Resource location.",
-          "maxLength": 256,
-          "type": "string",
-          "x-ms-mutability":["create","read"]
-        },
         "id": {
           "description": "Resource Id.",
           "type": "string",
@@ -1483,13 +1402,6 @@
           "description": "Resource type.",
           "type": "string",
           "readOnly": true
-        },
-        "tags": {
-          "description": "Resource tags.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
         }
       },
       "x-ms-azure-resource": true
@@ -1510,37 +1422,6 @@
           "description": "Link to next page of resources.",
           "type": "string",
           "readOnly": true
-        }
-      }
-    },
-    "GetSpecSASRequestBody": {
-      "description": "GetSpecSAS Rest API request body.",
-      "type": "object",
-      "properties": {
-        "sasDuration": {
-          "format": "int64",
-          "description": "SAS duration in seconds.",
-          "type": "integer"
-        }
-      }
-    },
-    "GetSpecSASResponseBody": {
-      "description": "GetSpecSAS Rest API response body.",
-      "type": "object",
-      "properties": {
-        "sasStartTimeUtc": {
-          "format": "date-time",
-          "description": "SAS start time in Utc.",
-          "type": "string"
-        },
-        "sasDuration": {
-          "format": "int64",
-          "description": "SAS duration in seconds.",
-          "type": "integer"
-        },
-        "sasUri": {
-          "description": "Blob SAS Uri.",
-          "type": "string"
         }
       }
     },
