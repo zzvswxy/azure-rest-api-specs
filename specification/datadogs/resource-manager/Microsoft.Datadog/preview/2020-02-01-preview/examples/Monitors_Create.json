@@ -6,17 +6,15 @@
         "monitorName": "myMonitor",
         "requestBody": {
             "name": "myMonitor",
+            "sku":{
+                "name": "Datadog Plan 1",
+                "tier": "free",
+                "size": "Monthly"
+            },
             "properties": {
                 "datadogOrganizationProperties": {
                     "name": "myOrg",
                     "subscription": "pro"
-                },
-                "billingProperties": {
-                    "planId": "free",
-                    "billingTerm": {
-                        "termType": "Monthly",
-                        "termId": "hjdtn7tfnxcy"
-                    }
                 },
                 "userInfo": {
                     "name": "Alice",
@@ -36,6 +34,11 @@
                 "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
                 "name": "myMonitor",
                 "type": "Microsoft.Datadog/monitors",
+                "sku":{
+                    "name": "Datadog Plan 1",
+                    "tier": "free",
+                    "size": "Monthly"
+                },
                 "properties": {
                     "provisioningState": "Succeeded",
                     "datadogOrganizationProperties": {
@@ -44,13 +47,6 @@
                         "datadogSubscriptionType": "pro",
                         "apiKey": null,
                         "applicationKey": null
-                    },
-                    "billingProperties": {
-                        "planId": "free",
-                        "billingTerm": {
-                            "termType": "Monthly",
-                            "termId": "hjdtn7tfnxcy"
-                        }
                     }
                 },
                 "tags": {
@@ -64,6 +60,11 @@
                 "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
                 "name": "myMonitor",
                 "type": "Microsoft.Datadog/monitors",
+                "sku":{
+                    "name": "Datadog Plan 1",
+                    "tier": "free",
+                    "size": "Monthly"
+                },
                 "properties": {
                     "provisioningState": "Accepted",
                     "datadogOrganizationProperties": {
@@ -72,13 +73,6 @@
                         "datadogSubscriptionType": "pro",
                         "apiKey": null,
                         "applicationKey": null
-                    },
-                    "billingProperties": {
-                        "planId": "free",
-                        "billingTerm": {
-                            "termType": "Monthly",
-                            "termId": "hjdtn7tfnxcy"
-                        }
                     }
                 },
                 "tags": {
