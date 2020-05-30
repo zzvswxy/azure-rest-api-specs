@@ -10,7 +10,9 @@
           "versionId": "v1",
           "parameters": { },
           "description": "POC deployment"
-        }
+        },
+        "location":"westus",
+        "tags": { }
       }
     },
     "responses": {
@@ -43,7 +45,9 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",
           "name": "poc1",
-          "type": "Microsoft.WorkloadBuilder/Workloads/instances"
+          "type": "Microsoft.WorkloadBuilder/Workloads/instances",
+          "location":"westus",
+          "tags": { }
        }
       },
       "201": {
@@ -75,7 +79,9 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",
           "name": "poc1",
-          "type": "Microsoft.WorkloadBuilder/Workloads/instances"
+          "type": "Microsoft.WorkloadBuilder/Workloads/instances",
+          "location":"westus",
+          "tags": { }
       }
     }
   }

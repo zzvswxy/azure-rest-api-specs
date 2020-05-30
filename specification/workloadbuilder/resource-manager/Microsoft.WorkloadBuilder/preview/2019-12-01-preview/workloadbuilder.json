@@ -1191,6 +1191,19 @@
           "description": "Resource type.",
           "type": "string",
           "readOnly": true
+        },
+        "location": {
+          "description": "Resource location.",
+          "maxLength": 256,
+          "type": "string",
+          "x-ms-mutability":["create","read"]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       },
       "x-ms-azure-resource": true
@@ -1402,6 +1415,19 @@
           "description": "Resource type.",
           "type": "string",
           "readOnly": true
+        },
+        "location": {
+          "description": "Resource location.",
+          "maxLength": 256,
+          "type": "string",
+          "x-ms-mutability":["create","read"]
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       },
       "x-ms-azure-resource": true

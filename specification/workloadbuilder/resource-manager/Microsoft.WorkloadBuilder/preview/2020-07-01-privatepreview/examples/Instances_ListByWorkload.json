@@ -39,7 +39,9 @@
                 },
                 "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",
                 "name": "poc1",
-                "type": "Microsoft.WorkloadBuilder/Workloads/instances"
+                "type": "Microsoft.WorkloadBuilder/Workloads/instances",
+                "location":"westus",
+                "tags": {}
              }
           ]
         }
