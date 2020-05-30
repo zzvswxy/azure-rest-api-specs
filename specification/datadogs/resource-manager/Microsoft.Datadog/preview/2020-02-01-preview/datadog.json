@@ -917,12 +917,8 @@
                     "description": "Id of the billing plan.",
                     "type": "string"
                 },
-                "termType": {
+                "size": {
                     "$ref": "#/definitions/BillingTermType"
-                },
-                "termId": {
-                    "description": "Id of the billing term.",
-                    "type": "string"
                 }
             }
         },
