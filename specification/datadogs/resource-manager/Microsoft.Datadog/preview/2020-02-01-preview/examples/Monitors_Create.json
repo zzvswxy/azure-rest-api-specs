@@ -9,8 +9,7 @@
             "sku":{
                 "name": "Datadog Plan 1",
                 "tier": "free",
-                "termType": "Monthly",
-                "termId":"hjdtn7tfnxcy"
+                "size": "Monthly"
             },
             "properties": {
                 "datadogOrganizationProperties": {
@@ -38,8 +37,7 @@
                 "sku":{
                     "name": "Datadog Plan 1",
                     "tier": "free",
-                    "termType": "Monthly",
-                    "termId":"hjdtn7tfnxcy"
+                    "size": "Monthly"
                 },
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -65,8 +63,7 @@
                 "sku":{
                     "name": "Datadog Plan 1",
                     "tier": "free",
-                    "termType": "Monthly",
-                    "termId":"hjdtn7tfnxcy"
+                    "size": "Monthly"
                 },
                 "properties": {
                     "provisioningState": "Accepted",
