@@ -788,6 +788,12 @@
                             "$ref": "#/definitions/DatadogSingleSignOnResource"
                         }
                     },
+                    "202": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/DatadogSingleSignOnResource"
+                        }
+                    },
                     "default": {
                         "description": "Default error response.",
                         "schema": {
@@ -795,6 +801,7 @@
                         }
                     }
                 },
+                "x-ms-long-running-operation": true,
                 "x-ms-examples": {
                     "SingleSignOn_Configure": {
                         "$ref": "./examples/SingleSignOn_Configure.json"
