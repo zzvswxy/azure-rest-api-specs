@@ -1,0 +1,25 @@
+{
+    "parameters": {
+        "api-version": "2020-02-01-preview",
+        "subscriptionId": "00000000-0000-0000-0000-000000000000",
+        "resourceGroupName": "myResourceGroup",
+        "monitorName": "myMonitor",
+        "requestBody": {
+            "enable": true,
+            "metadataXML": "<xml>some long string......</xml>",
+            "enterpriseAppId": "00000000-0000-0000-0000-000000000000",
+        }
+    },
+    "responses": {
+        "200": {
+            "body": {
+                "enable": true,
+                "metadataXML": null,
+                "enterpriseAppId": "00000000-0000-0000-0000-000000000000",
+                "singleSignOnUrl": null,
+                "monitorId": "null",
+                "organizationId": "myOrg",
+            }
+        }
+    }
+}
