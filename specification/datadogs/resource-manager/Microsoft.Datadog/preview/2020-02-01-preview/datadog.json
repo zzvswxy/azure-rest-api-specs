@@ -742,57 +742,6 @@
             }
         }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/getSingleSignOn": {
-      "post": {
-        "tags": [
-          "SingleSignOn"
-        ],
-        "summary": "Gets the single sign on URL of the resource.",
-        "operationId": "SingleSignOn_Get",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "subscriptionId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "monitorName",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/DatadogSingleSignOnResource"
-            }
-          },
-          "default": {
-            "description": "Default error response.",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "SingleSignOn_Get": {
-            "$ref": "./examples/SingleSignOn_Get.json"
-          }
-        }
-      }
-    },
     "definitions": {
         "DatadogApiKey": {
             "required": [
@@ -1031,14 +980,6 @@
                     "x-ms-mutability": [
                         "create"
                     ]
-                },
-                "idpMetadata": {
-                  "description": "The XML metadata required to setup single sign on during organization creation.",
-                  "type": "string"
-                },
-                "enterpriseAppId": {
-                  "description": "The Id of the Enterprise App used for Single sign on.",
-                  "type": "string"
                 }
             }
         },
@@ -1291,46 +1232,6 @@
                     "type": "string"
                 }
             }
-        },
-       "DatadogSingleSignOnResource": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "ARM id of the resource.",
-              "type": "string",
-              "readOnly": true
-            },
-            "type": {
-              "description": "The type of the resource.",
-              "type": "string",
-              "readOnly": true
-            },
-            "enable": {
-              "description": "The current state of the single sign-on for the monitor resource.",
-              "type": "boolean"
-            },
-            "metadataXML": {
-              "description": "The metadataXML from the Azure AD app to setup SSO.",
-              "type": "string"
-            },
-            "enterpriseAppId": {
-              "description": "The Id of the Enterprise App used for Single sign on.",
-              "type": "string"
-            },
-            "singleSignOnUrl": {
-              "format": "uri",
-              "description": "The login URL specific to this Datadog Organization.",
-              "type": "string"
-            },
-            "monitorId": {
-              "description": "The Datadog Monitor resource id.",
-              "type": "string"
-            },
-            "organizationId": {
-              "description": "The public ID of a datadog organization.",
-              "type": "string"
-            }
-          }
         }
     }
 }
