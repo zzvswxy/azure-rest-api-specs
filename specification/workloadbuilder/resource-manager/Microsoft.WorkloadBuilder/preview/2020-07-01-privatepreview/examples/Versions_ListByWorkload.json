@@ -18,8 +18,6 @@
                   "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
                   "migrationPreRequisites": null,
                   "description": "Sepc v1",
-                  "creationTimeUtc": "2019-12-12T12:12:36.209Z",
-                  "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
                   "activityLog": [],
                   "provisioningState": "Succeeded"
                 },
