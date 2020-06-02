@@ -21,7 +21,6 @@
                 "artifactContent": "<published blueprint id>",
                 "parameters": { },
                 "artifactDependencies": [],
-                "isArtifactRunnable": true,
                 "creationTimeUtc": "2019-12-12T12:12:36.209Z",
                 "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
                 "provisioningState": "Succeeded"
@@ -40,7 +39,6 @@
                 "artifactContent": "<published blueprint id>",
                 "parameters": { },
                 "artifactDependencies": [],
-                "isArtifactRunnable": true,
                 "creationTimeUtc": "2019-12-12T12:12:36.209Z",
                 "lastModifiedTimeUtc": "2019-12-12T12:12:36.209Z",
                 "provisioningState": "Succeeded"
