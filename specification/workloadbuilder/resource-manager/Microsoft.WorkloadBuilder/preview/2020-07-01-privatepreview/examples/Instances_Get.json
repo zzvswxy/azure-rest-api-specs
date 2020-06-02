@@ -14,9 +14,9 @@
               "userManagedIdentity": "",
               "parameters": {
                 "infra1": {
-                  "vm1.name": {
-                      "value": "node1"
-                    }
+                  "ResourceGroup": { 
+                    "value":"deployment-rg"
+                  }
                 }
                },
               "artifactsStatus": {

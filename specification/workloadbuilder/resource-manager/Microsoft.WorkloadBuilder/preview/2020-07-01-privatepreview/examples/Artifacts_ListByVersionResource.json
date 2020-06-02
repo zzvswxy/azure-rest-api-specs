@@ -15,8 +15,12 @@
                             "artifactType": "Blueprint",
                             "purpose": "InfraCreation",
                             "executionOrder": 0,
-                            "artifactContent": "<published blueprint id>",
-                            "parameters": { },
+                            "artifactContent": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/workloadBuilder-bt/versions/DefaultVersion",
+                            "parameters": {
+                                "ResourceGroup": { 
+                                    "value":"deployment-rg"
+                                }
+                            },
                             "artifactDependencies": [],
                             "provisioningState": "Succeeded"
                         },

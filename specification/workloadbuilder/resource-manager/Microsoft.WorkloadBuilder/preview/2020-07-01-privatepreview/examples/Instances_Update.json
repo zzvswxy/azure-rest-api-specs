@@ -15,7 +15,13 @@
           "properties": {
             "versionId": "v1",
             "userManagedIdentity": "",
-            "parameters": { },
+            "parameters": {
+              "infra1": {
+                "ResourceGroup": { 
+                  "value":"deployment-rg"
+                }
+              }
+             },
             "artifactsStatus": {
               "infra1": {
                 "state": "NotStarted",

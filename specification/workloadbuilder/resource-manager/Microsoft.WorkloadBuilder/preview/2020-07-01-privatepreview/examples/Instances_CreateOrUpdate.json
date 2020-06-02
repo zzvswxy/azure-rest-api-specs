@@ -8,7 +8,13 @@
       "InstanceResource": {
         "properties": {
           "versionId": "v1",
-          "parameters": { },
+          "parameters": {
+            "infra1": {
+              "ResourceGroup": { 
+                "value":"deployment-rg"
+              }
+            }
+           },
           "description": "POC deployment"
         },
         "location":"westus",
@@ -21,7 +27,13 @@
           "properties": {
             "versionId": "v1",
             "userManagedIdentity": "",
-            "parameters": { },
+            "parameters": {
+              "infra1": {
+                "ResourceGroup": { 
+                  "value":"deployment-rg"
+                }
+              }
+             },
             "artifactsStatus": {
               "infra1": {
                 "state": "NotStarted",
@@ -49,7 +61,13 @@
           "properties": {
             "versionId": "v1",
             "userManagedIdentity": "",
-            "parameters": { },
+            "parameters": {
+              "infra1": {
+                "ResourceGroup": { 
+                  "value":"deployment-rg"
+                }
+              }
+             },
             "artifactsStatus": {
               "infra1": {
                 "state": "NotStarted",
