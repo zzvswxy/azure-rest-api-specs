@@ -20,6 +20,16 @@
                 "monitorId": "null",
                 "organizationId": "myOrg"
             }
+        },
+        "202": {
+            "body": {
+                "enable": true,
+                "metadataXML": null,
+                "enterpriseAppId": "00000000-0000-0000-0000-000000000000",
+                "singleSignOnUrl": null,
+                "monitorId": "null",
+                "organizationId": "myOrg"
+            }
         }
     }
 }
