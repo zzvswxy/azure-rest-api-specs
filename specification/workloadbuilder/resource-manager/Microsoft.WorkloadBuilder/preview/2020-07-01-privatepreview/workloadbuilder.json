@@ -1194,10 +1194,6 @@
           "description": "Workload resource properties",
           "$ref": "#/definitions/WorkloadProperties",
           "x-ms-client-flatten": true
-        },
-        "systemData": {
-          "description": "System metadata of the resource",
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
         }
       },
       "allOf": [
@@ -1260,10 +1256,6 @@
           "description": "Version resource properties",
           "$ref": "#/definitions/VersionProperties",
           "x-ms-client-flatten": true
-        },
-        "systemData": {
-          "description": "System metadata of the resource",
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
         }
       },
       "allOf": [
@@ -1402,10 +1394,6 @@
           "description": "Artifact resource propeties",
           "$ref": "#/definitions/ArtifactProperties",
           "x-ms-client-flatten": true
-        },
-        "systemData": {
-          "description": "System metadata of the resource",
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
         }
       },
       "allOf": [
@@ -1490,10 +1478,6 @@
           "description": "Instance resource propeties",
           "$ref": "#/definitions/InstanceProperties",
           "x-ms-client-flatten": true
-        },
-        "systemData": {
-          "description": "System metadata of the resource",
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
         }
       },
       "allOf": [
