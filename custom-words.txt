@@ -1,4 +1,7 @@
-﻿AADDS
+﻿A128CBCPAD
+A192CBCPAD
+A256CBCPAD
+AADDS
 aadiam
 AADP
 AATP
@@ -115,6 +118,7 @@ australiaeast
 australiasoutheast
 authenticatable
 Authenticode
+authorityURL
 authorizationrules
 authprovider
 authproviders
@@ -264,6 +268,8 @@ CIDR
 CIDRs
 CIFS
 ciphertext
+claimCondition
+claimType
 clfs
 Clickthrough
 clientaccesspolicy
@@ -290,6 +296,7 @@ cntk
 CODEGEN
 codegeneration
 codemirror
+codepackage
 cognitiveservices
 colls
 colocation
@@ -329,6 +336,8 @@ costcenter
 costinsights
 costmanagement
 Couchbase
+cpim
+CPIM
 creatable
 createconsumergroup
 createorupdate
@@ -412,6 +421,7 @@ deletedsecrets
 deletedstorage
 deletefailed
 deleteissuers
+deleteprivateendpointconnection
 deletesas
 demorun
 denylist
@@ -484,6 +494,7 @@ endswith
 endtime
 Enein
 engagementfabric
+endzone
 enquoted
 entitydocument
 entitysearch
@@ -519,6 +530,7 @@ exportstatus
 externaldatasources
 externalDNSIPAddress01
 externalDNSIPAddress02
+extranet
 EYWQ
 faceapi
 facelists
@@ -558,6 +570,7 @@ Français
 frontdoor
 fsaction
 Fulfilment
+fullmetadata
 Fulltext
 fullyqualified
 functionappsettings
@@ -586,9 +599,12 @@ GETFILESTATUS
 getissuers
 getjob
 getkey
+getprivateendpointconnection
+getprivatelinkresources
 getsas
 getskus
 getssotoken
+gettestresultfile
 getvpnclientipsecparameters
 getvpnprofilepackageurl
 gibibytes
@@ -624,6 +640,7 @@ Hardenings
 hbase
 hbasephoenix
 hcatalog
+HCRP
 HDFS
 hdinsight
 Headnode
@@ -649,6 +666,7 @@ hybridconnection
 hybriddata
 hybriddatamanager
 Hyperdrive
+Hypernet
 Hyperscale
 hyperv
 Iaas
@@ -695,6 +713,7 @@ iothub
 iothubprovisioningservices
 iotspaces
 iotspacesservice
+ipam
 ipconfig
 ipconfiguration
 ipconfigurations
@@ -702,6 +721,7 @@ ipfilterrules
 Ipsec
 ipssl
 ipgroups
+IPAM
 iscloneable
 Iscsi
 iscsiservers
@@ -752,9 +772,11 @@ Kiswahili
 Knowledgebase
 knowledgebases
 koelner
+Kölner
 koreacentral
 koreasouth
 Kpis
+Kraaij
 Ksettings
 kstem
 kube
@@ -796,6 +818,8 @@ listissuers
 listjobs
 listkeys
 listprebuilts
+listprivateendpointconnections
+listprivatelinkresources
 listsas
 listsecrets
 LISTSTATUS
@@ -966,6 +990,7 @@ nodeconfiguration
 nodecounts
 Nodeploy
 nodrm
+nometadata
 nonadmin
 NONCLUSTERED
 nonincreasing
@@ -1071,6 +1096,7 @@ pixelated
 pkcs
 playready
 Plex
+Pohlmann
 policyassignments
 policydefinitions
 policyinsights
@@ -1111,6 +1137,7 @@ pricesheets
 pricings
 primarybytes
 privatedns
+privatelinks
 privatepreview
 projectable
 Protectable
@@ -1153,7 +1180,9 @@ RAGRS
 RAGZRS
 randint
 Rankable
+ratelimit
 ravbhatnagar
+rawwebsockets
 rawxml
 rbac
 rdbms
@@ -1235,8 +1264,10 @@ resourcename
 resourceregion
 resourcetype
 Responsys
+RESTAPI
 restoreheartbeat
 Restproxy
+restype
 resumable
 resync
 resynchronization
@@ -1261,6 +1292,8 @@ rosettanetprocessconfigurations
 rotatediskencryptionkey
 routable
 routingendpointhealth
+rpki
+RPKI
 rpns
 RSAES
 RSASSA
@@ -1500,7 +1533,9 @@ testall
 testallroutes
 testnew
 testnewroute
+testresultfile
 textanalytics
+TFIDF
 Tful
 Tfvc
 timeframe
@@ -1588,6 +1623,7 @@ unvalidated
 unwrapkey
 updatecertificate
 updatehostname
+updateprivateendpointconnection
 updateproperties
 upgradeos
 uploadbatchservicelogs
@@ -1684,6 +1720,7 @@ websearch
 webservices
 Webspace
 webtest
+webtestresult
 webtests
 westcentralus
 westeurope
@@ -1737,3 +1774,12 @@ cloudManifestFiles
 highestcriticalimpact
 apiserver
 kubeadmin
+AzureAD
+PrivateLink
+privateLinkForAzureAd
+userprincipalname
+sessionstate
+sessionhosts
+hostpool
+sparkr
+ambari

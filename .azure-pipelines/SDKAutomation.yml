@@ -8,8 +8,8 @@ pr:
   autoCancel: false
 
 variables:
-  IMAGE: azopenapi.azurecr.io/openapi/sdk-automation:prod
-  REGISTRY_ENDPOINT: azopenapi-registry
+  IMAGE: azopenapitest.azurecr.io/openapi/sdk-automation:test
+  REGISTRY_ENDPOINT: openapi platform test acr registry
 
 jobs:
 - job: "SDKAutomation"
@@ -26,6 +26,7 @@ jobs:
       BLOB_STORAGE_PREFIX: sdkautomation-pipeline
       SPEC_REPO: $(Build.Repository.Name)
       PR_NUMBER: $(System.PullRequest.PullRequestNumber)
+      BUILD_ID: $(Build.BuildId)
   strategy:
     matrix:
       Net:
@@ -36,10 +37,14 @@ jobs:
         SDK_REPO_NAME: azure-sdk-for-js
       Python:
         SDK_REPO_NAME: azure-sdk-for-python
+      PythonTrack2:
+        SDK_REPO_NAME: azure-sdk-for-python-track2
       Cliextension:
         SDK_REPO_NAME: azure-cli-extensions
       Go:
         SDK_REPO_NAME: azure-sdk-for-go
+      Trenton:
+        SDK_REPO_NAME: azure-sdk-for-trenton
   steps:
   - checkout: none
   - script: |
@@ -53,7 +58,7 @@ jobs:
     displayName: Login into ACR
     inputs:
       command: login
-      containerRegistry: $(REGISTRY_ENDPOINT)
+      containerRegistry: openapi platform test acr registry
   - script: |
       docker pull $IMAGE
       docker tag $IMAGE sdk-automation:latest
@@ -70,6 +75,7 @@ jobs:
         -e SPEC_REPO \
         -e PR_NUMBER \
         -e SDK_REPO_NAME \
+        -e AZURE_DEVOPS_EXT_PAT \
         sdk-automation:latest npm start
     env:
       BLOB_STORAGE_NAME: $(blob-storage-name)
@@ -77,4 +83,6 @@ jobs:
       GITHUB_COMMENT_AUTHOR_NAME: $(github-comment-author-name)
       GITHUBAPP_ID: $(githubapp-id)
       GITHUBAPP_PRIVATE_KEY: $(githubapp-private-key)
+      AZURE_DEVOPS_EXT_PAT: $(azure-devops-ext-pat)
+      BUILD_ID: $(Build.BuildId)
     displayName: SDK Automation
