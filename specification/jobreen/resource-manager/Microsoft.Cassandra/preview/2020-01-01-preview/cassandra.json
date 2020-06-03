@@ -1,0 +1,967 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Cassandra",
+      "description": "The Microsoft.Cassandra Rest API spec.",
+      "version": "2020-01-01-preview",
+      "x-ms-code-generation-settings": {
+        "name": "CassandraClient"
+      }
+    },
+    "host": "management.azure.com",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cassandra/cassandraDataCenters/{CassandraDataCenterName}": {
+        "get": {
+          "operationId": "CassandraDataCenter_Retrieve",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/CassandraDataCenterNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Retrieves the CassandraDataCenter resource.",
+              "schema": {
+                "$ref": "#/definitions/CassandraDataCenter"
+              }
+            }
+          }
+        },
+        "put": {
+          "operationId": "CassandraDataCenter_CreateOrUpdate",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/CassandraDataCenterNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "name": "CassandraDataCenter",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/CassandraDataCenter"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Updates the CassandraDataCenter resource.",
+              "schema": {
+                "$ref": "#/definitions/CassandraDataCenter"
+              }
+            },
+            "201": {
+              "description": "Creates the CassandraDataCenter resource.",
+              "schema": {
+                "$ref": "#/definitions/CassandraDataCenter"
+              }
+            }
+          }
+        },
+        "delete": {
+          "operationId": "CassandraDataCenter_Delete",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/CassandraDataCenterNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Deletes the CassandraDataCenter resource.",
+              "schema": {}
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cassandra/cassandraDataCenters": {
+        "get": {
+          "operationId": "CassandraDataCenter_ListByResourceGroup",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Lists all CassandraDataCenter under the resouce group.",
+              "schema": {
+                "$ref": "#/definitions/CassandraDataCenterListResult"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Cassandra/cassandraDataCenters": {
+        "get": {
+          "operationId": "CassandraDataCenter_ListBySubscription",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Lists all CassandraDataCenter under the subscription.",
+              "schema": {
+                "$ref": "#/definitions/CassandraDataCenterListResult"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          }
+        }
+      },
+      "/providers/Microsoft.Cassandra/operations": {
+        "get": {
+          "operationId": "Operations_List",
+          "parameters": [
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Describe the result of a successful operation.",
+              "schema": {
+                "$ref": "#/definitions/ResourceProviderOperationList"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          }
+        }
+      }
+    },
+    "definitions": {
+      "CassandraDataCenterProperties": {
+        "properties": {
+          "cassandraAuth": {
+            "type": "object",
+            "properties": {
+              "authenticator": {
+                "type": "string"
+              },
+              "authorizer": {
+                "type": "string"
+              },
+              "roleManager": {
+                "type": "string"
+              }
+            }
+          },
+          "cassandraEnv": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the environment variable. Must be a C_IDENTIFIER."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
+                  },
+                  "valueFrom": {
+                    "type": "object",
+                    "properties": {
+                      "configMapKeyRef": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "The key to select."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?"
+                          },
+                          "optional": {
+                            "type": "boolean",
+                            "description": "Specify whether the ConfigMap or it's key must be defined"
+                          }
+                        }
+                      },
+                      "fieldRef": {
+                        "type": "object",
+                        "properties": {
+                          "apiVersion": {
+                            "type": "string",
+                            "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
+                          },
+                          "fieldPath": {
+                            "type": "string",
+                            "description": "Path of the field to select in the specified API version."
+                          }
+                        }
+                      },
+                      "resourceFieldRef": {
+                        "type": "object",
+                        "properties": {
+                          "containerName": {
+                            "type": "string",
+                            "description": "Container name: required for volumes, optional for env vars"
+                          },
+                          "divisor": {
+                            "type": "string",
+                            "description": "Specifies the output format of the exposed resources, defaults to \"1\""
+                          },
+                          "resource": {
+                            "type": "string",
+                            "description": "Required: resource to select"
+                          }
+                        }
+                      },
+                      "secretKeyRef": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "The key of the secret to select from.  Must be a valid secret key."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?"
+                          },
+                          "optional": {
+                            "type": "boolean",
+                            "description": "Specify whether the Secret or it's key must be defined"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "cassandraImage": {
+            "type": "string"
+          },
+          "dataVolumeClaimSpec": {
+            "type": "object",
+            "properties": {
+              "accessModes": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "dataSource": {
+                "type": "object",
+                "properties": {
+                  "apiGroup": {
+                    "type": "string",
+                    "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required."
+                  },
+                  "kind": {
+                    "type": "string",
+                    "description": "Kind is the type of resource being referenced"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name is the name of resource being referenced"
+                  }
+                }
+              },
+              "resources": {
+                "type": "object",
+                "properties": {
+                  "limits": {
+                    "type": "object",
+                    "properties": {
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "requests": {
+                    "type": "object",
+                    "properties": {
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "selector": {
+                "type": "object",
+                "properties": {
+                  "matchExpressions": {
+                    "type": "object",
+                    "properties": {
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "key is the label key that the selector applies to."
+                          },
+                          "operator": {
+                            "type": "string",
+                            "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist."
+                          },
+                          "values": {
+                            "type": "object",
+                            "properties": {
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "matchLabels": {
+                    "type": "object",
+                    "properties": {
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "storageClassName": {
+                "type": "string",
+                "description": "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1"
+              },
+              "volumeMode": {
+                "type": "string",
+                "description": "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature."
+              },
+              "volumeName": {
+                "type": "string",
+                "description": "VolumeName is the binding reference to the PersistentVolume backing this claim."
+              }
+            }
+          },
+          "deletePVCs": {
+            "type": "boolean"
+          },
+          "dummyVolume": {
+            "type": "object",
+            "properties": {
+              "medium": {
+                "type": "string",
+                "description": "What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir"
+              },
+              "sizeLimit": {
+                "type": "string",
+                "description": "Total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir"
+              }
+            }
+          },
+          "fsGroup": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imagePullPolicy": {
+            "type": "string",
+            "description": "PullPolicy describes a policy for if/when to pull a container image"
+          },
+          "imagePullSecrets": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?"
+                  }
+                }
+              }
+            }
+          },
+          "nodes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operatorAnnotations": {
+            "type": "object",
+            "properties": {
+              "nodesService": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "podTemplate": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "prometheusService": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "seedNodesService": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "statefulSet": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "operatorLabels": {
+            "type": "object",
+            "properties": {
+              "nodesService": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "podTemplate": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "prometheusService": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "seedNodesService": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "statefulSet": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "optimizeKernelParams": {
+            "type": "boolean"
+          },
+          "prometheusSupport": {
+            "type": "boolean"
+          },
+          "racks": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "labels": {
+                    "type": "object",
+                    "properties": {
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "resources": {
+            "type": "object",
+            "properties": {
+              "limits": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "requests": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "restore": {
+            "type": "object",
+            "properties": {
+              "backupName": {
+                "type": "string"
+              },
+              "secret": {
+                "type": "string"
+              }
+            }
+          },
+          "serviceAccountName": {
+            "type": "string"
+          },
+          "sidecarEnv": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the environment variable. Must be a C_IDENTIFIER."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\"."
+                  },
+                  "valueFrom": {
+                    "type": "object",
+                    "properties": {
+                      "configMapKeyRef": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "The key to select."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?"
+                          },
+                          "optional": {
+                            "type": "boolean",
+                            "description": "Specify whether the ConfigMap or it's key must be defined"
+                          }
+                        }
+                      },
+                      "fieldRef": {
+                        "type": "object",
+                        "properties": {
+                          "apiVersion": {
+                            "type": "string",
+                            "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\"."
+                          },
+                          "fieldPath": {
+                            "type": "string",
+                            "description": "Path of the field to select in the specified API version."
+                          }
+                        }
+                      },
+                      "resourceFieldRef": {
+                        "type": "object",
+                        "properties": {
+                          "containerName": {
+                            "type": "string",
+                            "description": "Container name: required for volumes, optional for env vars"
+                          },
+                          "divisor": {
+                            "type": "string",
+                            "description": "Specifies the output format of the exposed resources, defaults to \"1\""
+                          },
+                          "resource": {
+                            "type": "string",
+                            "description": "Required: resource to select"
+                          }
+                        }
+                      },
+                      "secretKeyRef": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "The key of the secret to select from.  Must be a valid secret key."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?"
+                          },
+                          "optional": {
+                            "type": "boolean",
+                            "description": "Specify whether the Secret or it's key must be defined"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "sidecarImage": {
+            "type": "string"
+          },
+          "sidecarResources": {
+            "type": "object",
+            "properties": {
+              "limits": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "requests": {
+                "type": "object",
+                "properties": {
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "sidecarSecretVolumeSource": {
+            "type": "object",
+            "properties": {
+              "defaultMode": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "The key to project."
+                      },
+                      "mode": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+                      },
+                      "path": {
+                        "type": "string",
+                        "description": "The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'."
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": {
+                "type": "boolean",
+                "description": "Specify whether the Secret or it's keys must be defined"
+              },
+              "secretName": {
+                "type": "string",
+                "description": "Name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret"
+              }
+            }
+          },
+          "userConfigMapVolumeSource": {
+            "type": "object",
+            "properties": {
+              "defaultMode": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "The key to project."
+                      },
+                      "mode": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+                      },
+                      "path": {
+                        "type": "string",
+                        "description": "The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'."
+                      }
+                    }
+                  }
+                }
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?"
+              },
+              "optional": {
+                "type": "boolean",
+                "description": "Specify whether the ConfigMap or it's keys must be defined"
+              }
+            }
+          },
+          "userSecretVolumeSource": {
+            "type": "object",
+            "properties": {
+              "defaultMode": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "The key to project."
+                      },
+                      "mode": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+                      },
+                      "path": {
+                        "type": "string",
+                        "description": "The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'."
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": {
+                "type": "boolean",
+                "description": "Specify whether the Secret or it's keys must be defined"
+              },
+              "secretName": {
+                "type": "string",
+                "description": "Name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret"
+              }
+            }
+          },
+          "status": {
+            "type": "object",
+            "description": "CassandraDataCenterStatus defines the observed state of CassandraDataCenter"
+          }
+        }
+      },
+      "CassandraDataCenter": {
+        "type": "object",
+        "properties": {
+          "properties": {
+            "$ref": "#/definitions/CassandraDataCenterProperties"
+          },
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Resource Id"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Resource Name"
+          },
+          "type": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Resource Type"
+          },
+          "location": {
+            "type": "string"
+          },
+          "extendedLocation": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "The extended location type."
+              },
+              "name": {
+                "type": "string",
+                "description": "The extended location name."
+              }
+            }
+          }
+        },
+        "required": [
+          "location"
+        ],
+        "description": "The CassandraDataCenter resource definition."
+      },
+      "CassandraDataCenterListResult": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CassandraDataCenter"
+            }
+          },
+          "nextLink": {
+            "type": "string"
+          }
+        }
+      },
+      "ResourceProviderOperationList": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ResourceProviderOperation"
+            }
+          },
+          "nextLink": {
+            "type": "string"
+          }
+        },
+        "description": "Results of the request to list operations."
+      },
+      "ResourceProviderOperation": {
+        "type": "object",
+        "properties": {
+          "isDataAction": {
+            "type": "string",
+            "description": "Indicates whether the operation applies to data-plane."
+          },
+          "name": {
+            "type": "string",
+            "description": "Operation name, in format of {provider}/{resource}/{operation}"
+          },
+          "display": {
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "string",
+                "description": "The resource provider."
+              },
+              "resource": {
+                "type": "string",
+                "description": "Resource on which the operation is performed."
+              },
+              "operation": {
+                "type": "string",
+                "description": "Type of operation: get, read, delete, etc."
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of this operation."
+              }
+            },
+            "description": "Display metadata associated with the operation."
+          }
+        },
+        "description": "Results of the request to list operations."
+      }
+    },
+    "parameters": {
+      "CassandraDataCenterNameParameter": {
+        "name": "CassandraDataCenterName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "maxLength": 64,
+        "minLength": 3
+      },
+      "SubscriptionIdParameter": {
+        "name": "subscriptionId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)"
+      },
+      "ResourceGroupNameParameter": {
+        "name": "resourceGroupName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the resource group."
+      },
+      "ApiVersionParameter": {
+        "name": "api-version",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "The API version to be used with the HTTP request."
+      }
+    }
+  }
