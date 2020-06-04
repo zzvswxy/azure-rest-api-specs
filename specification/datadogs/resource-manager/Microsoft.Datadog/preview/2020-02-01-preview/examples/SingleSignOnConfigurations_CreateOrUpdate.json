@@ -4,8 +4,9 @@
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
         "resourceGroupName": "myResourceGroup",
         "monitorName": "myMonitor",
+        "configurationName": "default",
         "requestBody": {
-            "enable": true,
+            "SingleSignOnState": "Enable",
             "metadataXML": "<xml>some long string......</xml>",
             "enterpriseAppId": "00000000-0000-0000-0000-000000000000"
         }
@@ -13,22 +14,22 @@
     "responses": {
         "200": {
             "body": {
-                "enable": true,
+                "name": "default",
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/singleSignOnConfigurations/default",
+                "SingleSignOnState":  "Enable",
                 "metadataXML": null,
                 "enterpriseAppId": "00000000-0000-0000-0000-000000000000",
-                "singleSignOnUrl": null,
-                "monitorId": "null",
-                "organizationId": "myOrg"
+                "singleSignOnUrl": null
             }
         },
-        "202": {
+        "201": {
             "body": {
-                "enable": true,
+                "name": "default",
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/singleSignOnConfigurations/default",
+                "SingleSignOnState":  "Enable",
                 "metadataXML": null,
                 "enterpriseAppId": "00000000-0000-0000-0000-000000000000",
-                "singleSignOnUrl": null,
-                "monitorId": "null",
-                "organizationId": "myOrg"
+                "singleSignOnUrl": null
             }
         }
     }
