@@ -1014,30 +1014,15 @@
                 }
             }
         },
-        "BillingTermType": {
-            "enum": [
-                "Yearly",
-                "Monthly"
+        "ResourceSku": {
+            "required": [
+                "name"
             ],
-            "type": "string",
-            "x-ms-enum": {
-                "modelAsString": true,
-                "name": "BillingTermType"
-            }
-        },
-        "Sku": {
             "type": "object",
             "properties": {
                 "name": {
-                    "description": "Name of the billing plan.",
+                    "description": "Name of the SKU.",
                     "type": "string"
-                },
-                "tier": {
-                    "description": "Id of the billing plan.",
-                    "type": "string"
-                },
-                "size": {
-                    "$ref": "#/definitions/BillingTermType"
                 }
             }
         },
@@ -1099,14 +1084,6 @@
                     "x-ms-mutability": [
                         "create"
                     ]
-                },
-                "idpMetadata": {
-                    "description": "The XML metadata required to setup single sign on during organization creation.",
-                    "type": "string"
-                },
-                "enterpriseAppId": {
-                    "description": "The Id of the Enterprise App used for Single sign on.",
-                    "type": "string"
                 }
             }
         },
@@ -1115,14 +1092,17 @@
             "properties": {
                 "name": {
                     "description": "Name of the user",
+                    "maxLength": 50,
                     "type": "string"
                 },
                 "emailAddress": {
                     "description": "Email of the user used by Datadog for contacting them if needed",
+                    "pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$",
                     "type": "string"
                 },
                 "phoneNumber": {
                     "description": "Phone number of the user used by Datadog for contacting them if needed",
+                    "pattern": "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
                     "type": "string"
                 }
             }
@@ -1193,7 +1173,7 @@
                     "readOnly": true
                 },
                 "sku": {
-                    "$ref": "#/definitions/Sku"
+                    "$ref": "#/definitions/ResourceSku"
                 },
                 "properties": {
                     "$ref": "#/definitions/MonitorProperties"
