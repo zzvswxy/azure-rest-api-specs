@@ -741,6 +741,60 @@
                 }
             }
         },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/singleSignOnConfigurations": {
+            "get": {
+                "tags": [
+                    "SingleSignOn"
+                ],
+                "summary": "List the single sign-on configurations for a given monitor resource.",
+                "operationId": "SingleSignOnConfigurations_List",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "resourceGroupName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "monitorName",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/DatadogSingleSignOnResourceListResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Default error response.",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                },
+                "x-ms-examples": {
+                    "SingleSignOnConfigurations_List": {
+                        "$ref": "./examples/SingleSignOnConfigurations_List.json"
+                    }
+                }
+            }
+        },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/singleSignOnConfigurations/{configurationName}": {
             "put": {
                 "tags": [
@@ -1368,21 +1422,24 @@
                     "type": "string",
                     "readOnly": true
                 },
-                "singleSignOnState": {
-                    "description": "This state of single sign-on funtionality, \"Enabled\"/\"Disabled\".",
-                    "type": "string"
+                "properties": {
+                    "$ref": "#/definitions/DatadogSingleSignOnProperties"
+                }
+            }
+        },
+        "DatadogSingleSignOnResourceListResponse": {
+            "description": "Response of a list operation.",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "description": "Results of a list operation.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DatadogSingleSignOnResource"
+                    }
                 },
-                "metadataXML": {
-                    "description": "The metadataXML from the Azure AD app to setup SSO.",
-                    "type": "string"
-                },
-                "enterpriseAppId": {
-                    "description": "The Id of the Enterprise App used for Single sign-on.",
-                    "type": "string"
-                },
-                "singleSignOnUrl": {
-                    "format": "uri",
-                    "description": "The login URL specific to this Datadog Organization.",
+                "nextLink": {
+                    "description": "Link to the next set of results, if any.",
                     "type": "string"
                 }
             }
