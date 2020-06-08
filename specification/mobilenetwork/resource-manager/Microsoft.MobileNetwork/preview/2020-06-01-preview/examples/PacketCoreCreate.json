@@ -1,0 +1,47 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "packetCoreName": "TestPacketCore",
+    "parameters": {
+      "properties": {
+        "mobileNetworkId": "TestMobileNetworkId",
+        "vendor": "TestVendor",
+        "vendorSku": "TestVendorSku"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestPacketCore",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore",
+        "type": "Microsoft.MobileNetwork/packetCores",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "mobileNetworkId": "TestMobileNetworkId",
+          "vendor": "TestVendor",
+          "vendorSku": "TestVendorSku"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestPacketCore",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore",
+        "type": "Microsoft.MobileNetwork/packetCores",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "mobileNetworkId": "TestMobileNetworkId",
+          "vendor": "TestVendor",
+          "vendorSku": "TestVendorSku"
+        }
+      }
+    }
+  }
+}

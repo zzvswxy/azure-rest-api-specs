@@ -1,0 +1,59 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "simProfileName": "TestSimProfile",
+    "parameters": {
+      "properties": {
+        "integratedCircuitCardIdentifier": "TestIccId",
+        "internationalMobileSubscriberIdentity": "TestImsi",
+        "voiceNumber": "TestVoiceNumber",
+        "deviceActivationCode": "TestDeviceActivationCode",
+        "mobileDeviceId": "TestMobileDeviceId",
+        "tarrif": "TestTarrif",
+        "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestSimProfile",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simProfiles/TestSimProfile",
+        "type": "Microsoft.MobileNetwork/simProfiles",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "integratedCircuitCardIdentifier": "TestIccId",
+          "internationalMobileSubscriberIdentity": "TestImsi",
+          "voiceNumber": "TestVoiceNumber",
+          "deviceActivationCode": "TestDeviceActivationCode",
+          "mobileDeviceId": "TestMobileDeviceId",
+          "tarrif": "TestTarrif",
+          "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestSimProfile",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simProfiles/TestSimProfile",
+        "type": "Microsoft.MobileNetwork/simProfiles",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "integratedCircuitCardIdentifier": "TestIccId",
+          "internationalMobileSubscriberIdentity": "TestImsi",
+          "voiceNumber": "TestVoiceNumber",
+          "deviceActivationCode": "TestDeviceActivationCode",
+          "mobileDeviceId": "TestMobileDeviceId",
+          "tarrif": "TestTarrif",
+          "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+        }
+      }
+    }
+  }
+}

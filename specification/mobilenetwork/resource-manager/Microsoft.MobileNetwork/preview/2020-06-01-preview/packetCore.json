@@ -1,0 +1,430 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MobileNetworkManagementClient",
+    "description": "The resources in this swagger specification will be used to manage packets core packet core resources",
+    "version": "2020-06-01-preview"
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCores/{packetCoreName}": {
+      "delete": {
+        "tags": [
+          "PacketCores"
+        ],
+        "operationId": "PacketCores_Delete",
+        "description": "Deletes the specified packet core.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete packet core resource": {
+            "$ref": "./examples/PacketCoreDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "PacketCores"
+        ],
+        "operationId": "PacketCores_Get",
+        "description": "Gets information about the specified packet core.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of packet core."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting packet core resource.",
+            "schema": {
+              "$ref": "#/definitions/PacketCore"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get packet core": {
+            "$ref": "./examples/PacketCoreGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PacketCores"
+        ],
+        "operationId": "PacketCores_CreateOrUpdate",
+        "description": "Creates or updates a PacketCore.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core resource."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PacketCore"
+            },
+            "description": "Parameters supplied to the create or update packet core operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting packet core resource.",
+            "schema": {
+              "$ref": "#/definitions/PacketCore"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting packet core resource.",
+            "schema": {
+              "$ref": "#/definitions/PacketCore"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create packet core": {
+            "$ref": "./examples/PacketCoreCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "PacketCores"
+        ],
+        "operationId": "PacketCores_UpdateTags",
+        "description": "Updates a PacketCore update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update PacketCore tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting packet core resource.",
+            "schema": {
+              "$ref": "#/definitions/PacketCore"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update packet core tags": {
+            "$ref": "./examples/PacketCoreUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/packetCores": {
+      "get": {
+        "tags": [
+          "PacketCores"
+        ],
+        "operationId": "PacketCores_ListBySubscription",
+        "description": "Lists all the packetCores in a subscription.",
+        "parameters": [
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of packet core resources.",
+            "schema": {
+              "$ref": "#/definitions/PacketCoreListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List all packetCores": {
+            "$ref": "./examples/PacketCoreListBySubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCores": {
+      "get": {
+        "tags": [
+          "PacketCores"
+        ],
+        "operationId": "PacketCores_ListByResourceGroup",
+        "description": "Gets all the MobileNetworks in a subscription.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of packet core resources.",
+            "schema": {
+              "$ref": "#/definitions/PacketCoreListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List packet cores in resource group": {
+            "$ref": "./examples/PacketCoreListByResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PacketCore": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/PacketCorePropertiesFormat",
+          "description": "Packet core Properties."
+        },
+        "etag": {
+          "type": "string",
+          "description": "A unique read-only string that changes whenever the resource is updated."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "Packet core resource."
+    },
+    "PacketCorePropertiesFormat": {
+      "description": "PacketCore properties.",
+      "properties": {
+        "resourceGuid": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The resource GUID property of the PacketCore resource."
+        },
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the packet core resource."
+        },
+        "vendorProvisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The vendor provisioning state of the packet core resource."
+        },
+        "mobileNetworkId": {
+          "type": "string",
+          "description": "The unique id of the mobile network"
+        },
+        "networkType": {
+          "$ref": "./common.json#/definitions/NetworkType",
+          "description": "The type of the packet core."
+        },
+        "vendor": {
+          "type": "string",
+          "description": "The packet core vendor."
+        },
+        "vendorSku": {
+          "type": "string",
+          "description": "The packet core sku."
+        },
+        "packetCoreId": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the packet core network function"
+        }
+      }
+    },
+    "PacketCoreListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PacketCore"
+          },
+          "description": "A list of packet cores in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for packet cores API service call."
+    }
+  }
+}
