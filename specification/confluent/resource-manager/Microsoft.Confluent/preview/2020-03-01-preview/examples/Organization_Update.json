@@ -26,6 +26,7 @@
             "publisherId": "string",
             "id": "string",
             "planId": "string",
+            "planName": "string",
             "termUnit": "string"
           },
           "userDetail": {
