@@ -53,7 +53,7 @@
         },
         "x-ms-examples": {
           "ConfigurationStores_List": {
-            "$ref": "./examples/ConfigurationStoresList_nonexist.json"
+            "$ref": "./examples/ConfigurationStoresList.json"
           }
         },
         "x-ms-pageable": {
@@ -116,7 +116,7 @@
           "ConfigurationStores"
         ],
         "description": "Gets the properties of the specified configuration store.",
-        "operationId": "ConfigurationStores_Get",
+        "operationId": "ConfigurationStores_Getxxx",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
