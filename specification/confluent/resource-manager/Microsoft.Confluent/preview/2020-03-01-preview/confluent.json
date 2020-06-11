@@ -1,4 +1,4 @@
-﻿{
+{
   "swagger": "2.0",
   "info": {
     "title": "Microsoft.Confluent",
@@ -452,11 +452,13 @@
         "Deleting",
         "Succeeded",
         "Failed",
-        "Canceled"
+        "Canceled",
+        "Deleted"
       ],
       "type": "string",
       "x-ms-enum": {
-        "modelAsString": true
+        "modelAsString": true,
+        "name": "ProvisioningState"
       }
     },
     "OfferDetail": {
@@ -475,6 +477,11 @@
         },
         "planId": {
           "description": "Offer Plan Id",
+          "maxLength": 50,
+          "type": "string"
+        },
+        "planName": {
+          "description": "Offer Plan Name",
           "maxLength": 50,
           "type": "string"
         },

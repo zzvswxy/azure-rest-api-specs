@@ -7,9 +7,7 @@
         "requestBody": {
             "name": "myMonitor",
             "sku":{
-                "name": "Datadog Plan 1",
-                "tier": "free",
-                "size": "Monthly"
+                "name": "free_Monthly"            
             },
             "properties": {
                 "datadogOrganizationProperties": {
@@ -35,9 +33,7 @@
                 "name": "myMonitor",
                 "type": "Microsoft.Datadog/monitors",
                 "sku":{
-                    "name": "Datadog Plan 1",
-                    "tier": "free",
-                    "size": "Monthly"
+                    "name": "free_Monthly"
                 },
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -61,9 +57,7 @@
                 "name": "myMonitor",
                 "type": "Microsoft.Datadog/monitors",
                 "sku":{
-                    "name": "Datadog Plan 1",
-                    "tier": "free",
-                    "size": "Monthly"
+                    "name": "free_Monthly"
                 },
                 "properties": {
                     "provisioningState": "Accepted",
