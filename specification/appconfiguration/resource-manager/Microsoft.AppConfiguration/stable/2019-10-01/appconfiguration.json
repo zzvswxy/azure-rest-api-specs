@@ -53,7 +53,7 @@
         },
         "x-ms-examples": {
           "ConfigurationStores_List": {
-            "$ref": "./examples/ConfigurationStoresList.json"
+            "$ref": "./examples/ConfigurationStoresList_nonexist.json"
           }
         },
         "x-ms-pageable": {
@@ -614,7 +614,8 @@
             "Deleting",
             "Succeeded",
             "Failed",
-            "Canceled"
+            "Canceled",
+            "failed"
           ],
           "type": "string",
           "readOnly": true,
