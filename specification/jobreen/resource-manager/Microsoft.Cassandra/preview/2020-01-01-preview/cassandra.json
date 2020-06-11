@@ -262,6 +262,13 @@
           "location": {
             "type": "string"
           },
+          "tags": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            },
+            "description": "Resource tags"
+          },
           "extendedLocation": {
             "type": "object",
             "properties": {
