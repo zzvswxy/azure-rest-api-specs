@@ -741,13 +741,67 @@
                 }
             }
         },
-        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/configureSingleSignOn": {
-            "post": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/singleSignOnConfigurations": {
+            "get": {
+                "tags": [
+                    "SingleSignOn"
+                ],
+                "summary": "List the single sign-on configurations for a given monitor resource.",
+                "operationId": "SingleSignOnConfigurations_List",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "resourceGroupName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "monitorName",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/DatadogSingleSignOnResourceListResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Default error response.",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                },
+                "x-ms-examples": {
+                    "SingleSignOnConfigurations_List": {
+                        "$ref": "./examples/SingleSignOnConfigurations_List.json"
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/singleSignOnConfigurations/{configurationName}": {
+            "put": {
                 "tags": [
                     "SingleSignOn"
                 ],
                 "summary": "Configures single-sign-on for this resource.",
-                "operationId": "SingleSignOn_Configure",
+                "operationId": "SingleSignOnConfigurations_CreateOrUpdate",
                 "consumes": [
                     "application/json"
                 ],
@@ -774,6 +828,12 @@
                         "type": "string"
                     },
                     {
+                        "in": "path",
+                        "name": "configurationName",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "in": "body",
                         "name": "body",
                         "schema": {
@@ -788,7 +848,7 @@
                             "$ref": "#/definitions/DatadogSingleSignOnResource"
                         }
                     },
-                    "202": {
+                    "201": {
                         "description": "Success",
                         "schema": {
                             "$ref": "#/definitions/DatadogSingleSignOnResource"
@@ -803,19 +863,17 @@
                 },
                 "x-ms-long-running-operation": true,
                 "x-ms-examples": {
-                    "SingleSignOn_Configure": {
-                        "$ref": "./examples/SingleSignOn_Configure.json"
+                    "SingleSignOnConfigurations_CreateOrUpdate": {
+                        "$ref": "./examples/SingleSignOnConfigurations_CreateOrUpdate.json"
                     }
                 }
-            }
-        },
-        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/getSingleSignOn": {
-            "post": {
+            },
+            "get": {
                 "tags": [
                     "SingleSignOn"
                 ],
-                "summary": "Gets the single sign on URL of the resource.",
-                "operationId": "SingleSignOn_Get",
+                "summary": "Gets the datadog single sign-on resource for the given Monitor.",
+                "operationId": "SingleSignOnConfigurations_Get",
                 "produces": [
                     "application/json"
                 ],
@@ -837,6 +895,12 @@
                         "name": "monitorName",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "configurationName",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -854,8 +918,8 @@
                     }
                 },
                 "x-ms-examples": {
-                    "SingleSignOn_Get": {
-                        "$ref": "./examples/SingleSignOn_Get.json"
+                    "SingleSignOnConfigurations_Get": {
+                        "$ref": "./examples/SingleSignOnConfigurations_Get.json"
                     }
                 }
             }
@@ -1014,30 +1078,15 @@
                 }
             }
         },
-        "BillingTermType": {
-            "enum": [
-                "Yearly",
-                "Monthly"
+        "ResourceSku": {
+            "required": [
+                "name"
             ],
-            "type": "string",
-            "x-ms-enum": {
-                "modelAsString": true,
-                "name": "BillingTermType"
-            }
-        },
-        "Sku": {
             "type": "object",
             "properties": {
                 "name": {
-                    "description": "Name of the billing plan.",
+                    "description": "Name of the SKU.",
                     "type": "string"
-                },
-                "tier": {
-                    "description": "Id of the billing plan.",
-                    "type": "string"
-                },
-                "size": {
-                    "$ref": "#/definitions/BillingTermType"
                 }
             }
         },
@@ -1099,14 +1148,6 @@
                     "x-ms-mutability": [
                         "create"
                     ]
-                },
-                "idpMetadata": {
-                    "description": "The XML metadata required to setup single sign on during organization creation.",
-                    "type": "string"
-                },
-                "enterpriseAppId": {
-                    "description": "The Id of the Enterprise App used for Single sign on.",
-                    "type": "string"
                 }
             }
         },
@@ -1115,14 +1156,17 @@
             "properties": {
                 "name": {
                     "description": "Name of the user",
+                    "maxLength": 50,
                     "type": "string"
                 },
                 "emailAddress": {
                     "description": "Email of the user used by Datadog for contacting them if needed",
+                    "pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$",
                     "type": "string"
                 },
                 "phoneNumber": {
                     "description": "Phone number of the user used by Datadog for contacting them if needed",
+                    "pattern": "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
                     "type": "string"
                 }
             }
@@ -1193,7 +1237,7 @@
                     "readOnly": true
                 },
                 "sku": {
-                    "$ref": "#/definitions/Sku"
+                    "$ref": "#/definitions/ResourceSku"
                 },
                 "properties": {
                     "$ref": "#/definitions/MonitorProperties"
@@ -1360,6 +1404,28 @@
                 }
             }
         },
+        "DatadogSingleSignOnProperties": {
+            "type": "object",
+            "properties": {
+                "singleSignOnState": {
+                    "description": "This state of single sign-on funtionality, \"Enabled\"/\"Disabled\".",
+                    "type": "string"
+                },
+                "metadataXML": {
+                    "description": "The metadataXML from the Azure AD app to setup SSO.",
+                    "type": "string"
+                },
+                "enterpriseAppId": {
+                    "description": "The Id of the Enterprise App used for Single sign-on.",
+                    "type": "string"
+                },
+                "singleSignOnUrl": {
+                    "format": "uri",
+                    "description": "The login URL specific to this Datadog Organization.",
+                    "type": "string"
+                }
+            }
+        },
         "DatadogSingleSignOnResource": {
             "type": "object",
             "properties": {
@@ -1368,34 +1434,34 @@
                     "type": "string",
                     "readOnly": true
                 },
+                "name": {
+                    "description": "Name of the configuration.",
+                    "type": "string",
+                    "readOnly": true
+                },
                 "type": {
                     "description": "The type of the resource.",
                     "type": "string",
                     "readOnly": true
                 },
-                "enable": {
-                    "description": "The current state of the single sign-on for the monitor resource.",
-                    "type": "boolean"
+                "properties": {
+                    "$ref": "#/definitions/DatadogSingleSignOnProperties"
+                }
+            }
+        },
+        "DatadogSingleSignOnResourceListResponse": {
+            "description": "Response of a list operation.",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "description": "Results of a list operation.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DatadogSingleSignOnResource"
+                    }
                 },
-                "metadataXML": {
-                    "description": "The metadataXML from the Azure AD app to setup SSO.",
-                    "type": "string"
-                },
-                "enterpriseAppId": {
-                    "description": "The Id of the Enterprise App used for Single sign on.",
-                    "type": "string"
-                },
-                "singleSignOnUrl": {
-                    "format": "uri",
-                    "description": "The login URL specific to this Datadog Organization.",
-                    "type": "string"
-                },
-                "monitorId": {
-                    "description": "The Datadog Monitor resource id.",
-                    "type": "string"
-                },
-                "organizationId": {
-                    "description": "The public ID of a datadog organization.",
+                "nextLink": {
+                    "description": "Link to the next set of results, if any.",
                     "type": "string"
                 }
             }
