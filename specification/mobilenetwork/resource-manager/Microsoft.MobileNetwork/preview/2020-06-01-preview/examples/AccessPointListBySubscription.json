@@ -1,0 +1,27 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestAccessPoint",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/accessPoints",
+            "type": "Microsoft.MobileNetwork/accessPoints",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Succeeded",
+              "packetDataNetworkName": "TestPdn",
+              "dnsAddresses": ["TestDnsAddress"],
+              "dnsProvider": "TestDnsProvider"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

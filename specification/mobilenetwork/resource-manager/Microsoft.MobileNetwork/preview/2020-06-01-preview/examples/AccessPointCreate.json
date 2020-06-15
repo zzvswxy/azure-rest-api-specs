@@ -1,0 +1,47 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "accessPointName": "TestAccessPoint",
+    "parameters": {
+      "properties": {
+        "packetDataNetworkName": "TestPdn",
+        "dnsAddresses": ["TestDnsAddress"],
+        "dnsProvider": "TestDnsProvider"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestAccessPoint",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/accessPoints/TestAccessPoint",
+        "type": "Microsoft.MobileNetwork/accessPoints",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "packetDataNetworkName": "TestPdn",
+          "dnsAddresses": ["TestDnsAddress"],
+          "dnsProvider": "TestDnsProvider"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestAccessPoint",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/accessPoints/TestAccessPoint",
+        "type": "Microsoft.MobileNetwork/accessPoints",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "packetDataNetworkName": "TestPdn",
+          "dnsAddresses": ["TestDnsAddress"],
+          "dnsProvider": "TestDnsProvider"
+        }
+      }
+    }
+  }
+}

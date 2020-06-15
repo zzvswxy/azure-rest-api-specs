@@ -1,0 +1,44 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "mobileNetworkName": "TestMobileNetwork",
+    "parameters": {
+      "properties": {
+        "plmnId": "TestPlm",
+        "spectrumAccessProvider": "TestSpectrumAccessProvider"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestMobileNetwork",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/TestMobileNetwork",
+        "type": "Microsoft.MobileNetwork/mobileNetworks",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "plmnId": "TestPlm",
+          "spectrumAccessProvider": "TestSpectrumAccessProvider"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestMobileNetwork",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/TestMobileNetwork",
+        "type": "Microsoft.MobileNetwork/mobileNetworks",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "plmnId": "TestPlm",
+          "spectrumAccessProvider": "TestSpectrumAccessProvider"
+        }
+      }
+    }
+  }
+}
