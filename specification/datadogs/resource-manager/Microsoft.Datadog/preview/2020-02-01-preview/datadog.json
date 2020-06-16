@@ -1151,11 +1151,17 @@
                 },
                 "idpMetadata": {
                     "description": "The XML metadata required to setup single sign on during organization creation.",
-                    "type": "string"
+                    "type": "string",
+                    "x-ms-mutability": [
+                        "create"
+                    ]
                 },
                 "enterpriseAppId": {
                     "description": "The Id of the Enterprise App used for Single sign on.",
-                    "type": "string"
+                    "type": "string",
+                    "x-ms-mutability": [
+                        "create"
+                    ]
                 }
             }
         },
