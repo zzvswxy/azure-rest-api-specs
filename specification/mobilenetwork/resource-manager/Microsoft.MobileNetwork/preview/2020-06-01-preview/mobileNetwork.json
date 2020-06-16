@@ -356,11 +356,6 @@
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/MobileNetworkPropertiesFormat",
           "description": "Mobile network Properties."
-        },
-        "etag": {
-          "type": "string",
-          "readOnly": true,
-          "description": "A unique read-only string that changes whenever the resource is updated."
         }
       },
       "allOf": [
