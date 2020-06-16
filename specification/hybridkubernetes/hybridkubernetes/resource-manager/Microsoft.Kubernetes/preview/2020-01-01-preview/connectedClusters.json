@@ -477,6 +477,28 @@
           "$ref": "#/definitions/ConnectedClusterIdentity",
           "description": "The identity of the connected cluster."
         },
+        "sku": {
+          "title": "sku",
+          "type": "object",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/Sku",
+          "description": "Temp change for workaround"
+        },
+        "plan": {
+          "title": "plan",
+          "type": "object",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/Plan",
+          "description": "Temp change for workaround"
+        },
+        "scale": {
+          "title": "scale",
+          "type": "object",
+          "properties": {
+            "value": {
+              "description": "Parameters for scale",
+              "type": "string"
+            }
+          }
+        },
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/ConnectedClusterProperties",
