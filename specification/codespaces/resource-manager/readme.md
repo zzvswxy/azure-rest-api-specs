@@ -77,11 +77,11 @@ tag: package-2020-06-16-privatepreview
 
 ### Tag: package-2020-06-01-privatepreview
 
-These settings apply only when `--tag=package-2019-07-01-privatepreview` is specified on the command line.
+These settings apply only when `--tag=package-2020-06-16-privatepreview` is specified on the command line.
 
-```yaml $(tag) == 'package-2019-07-01-privatepreview'
+```yaml $(tag) == 'package-2020-06-16-privatepreview'
 input-file:
-  - Microsoft.Codespaces/preview/2019-07-01-privatepreview/codespaces.json
+  - Microsoft.Codespaces/preview/2020-06-16-privatepreview/codespaces.json
 ```
 
 # Code Generation

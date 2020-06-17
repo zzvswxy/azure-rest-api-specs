@@ -638,7 +638,7 @@
       "type": "object",
       "description": "Model representing Vnet Injection properties for Codespaces Plan.",
       "properties": {
-        "SubnetId": {
+        "subnetId": {
           "type": "string",
           "description": "The ARM resource identifier of the virtual network subnet which the codespaces of the Codespaces Plan will join. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/{provider}/virtualNetworks/{network}/subnets/{subnet}.The virtual network must be in the same region and subscription as the Codespaces Plan."
          }
