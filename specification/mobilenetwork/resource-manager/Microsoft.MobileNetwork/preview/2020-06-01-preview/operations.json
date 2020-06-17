@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "HybridNetworkManagementClient",
+    "title": "MobileNetworkManagementClient",
     "description": "The resources in this swagger specification will be used to manage the operations.",
-    "version": "2020-01-01-preview"
+    "version": "2020-06-01-preview"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -34,7 +34,7 @@
     }
   },
   "paths": {
-    "/providers/Microsoft.HybridNetwork/operations": {
+    "/providers/Microsoft.MobileNetwork/operations": {
       "get": {
         "tags": [
           "operations"
@@ -65,7 +65,7 @@
             "$ref": "./examples/GetOperations.json"
           }
         },
-		"x-ms-pageable": {
+        "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
@@ -85,7 +85,7 @@
           "properties": {
             "provider": {
               "type": "string",
-              "description": "Service provider: Microsoft.HybridNetwork"
+              "description": "Service provider: Microsoft.MobileNetwork"
             },
             "resource": {
               "type": "string",
@@ -103,7 +103,7 @@
         }
       },
       "type": "object",
-      "description": "Object that describes a single Microsoft.HybridNetwork operation."
+      "description": "Object that describes a single Microsoft.MobileNetwork operation."
     },
     "OperationList": {
       "properties": {
@@ -113,11 +113,12 @@
           "items": {
             "$ref": "#/definitions/Operation"
           },
-          "description": "List of Microsoft.HybridNetwork operations."
+          "description": "List of Microsoft.MobileNetwork operations."
         },
         "nextLink": {
           "type": "string",
-          "description": "The Url to get the next set of results."
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
         }
       },
       "type": "object",
