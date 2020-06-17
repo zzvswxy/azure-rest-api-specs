@@ -5,7 +5,7 @@
     "subscriptionId": "0000000-0000-0000-0000-000000000000",
     "resourceGroupName": "resourceGroup",
     "location": "eastus",
-    "vsonlinePlanUpdateParameters": {
+    "codespacesPlanUpdateParameters": {
       "tags": {
         "key1": "value1",
         "key2": "value2"
