@@ -64,6 +64,9 @@
           "Get Registration Operations": {
             "$ref": "./examples/GetOperations.json"
           }
+        },
+		"x-ms-pageable": {
+          "nextLinkName": "nextLink"
         }
       }
     }
@@ -111,6 +114,10 @@
             "$ref": "#/definitions/Operation"
           },
           "description": "List of Microsoft.HybridNetwork operations."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "The Url to get the next set of results."
         }
       },
       "type": "object",

@@ -452,8 +452,10 @@
       }
     },
     "HybridNetworkPatchDevice": {
+	  "description": "Hybrid network patch device properties.",
       "properties": {
         "properties": {
+		  "x-ms-client-flatten": true,
           "type": "object",
           "description": "hybrid network device Properties."
         },
@@ -475,30 +477,30 @@
         }
       }
     },
-      "VNFRef": {
-        "description": "Vnf reference",
-        "properties": {
-          "vnfRef": {
-            "type": "string",
-            "description": "The reference to to Vnf deployed on the hybrid network device."
-          }
+    "VNFRef": {
+      "description": "Vnf reference",
+      "properties": {
+        "vnfRef": {
+          "type": "string",
+          "description": "The reference to to Vnf deployed on the hybrid network device."
+        }
+      }
+    },
+    "HybridNetworkDeviceListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HybridNetworkDevice"
+          },
+          "description": "A list of hybrid network devices in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "The Url to get the next set of results."
         }
       },
-      "HybridNetworkDeviceListResult": {
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/HybridNetworkDevice"
-            },
-            "description": "A list of hybrid network devices in a resource group."
-          },
-          "nextLink": {
-            "type": "string",
-            "description": "The Url to get the next set of results."
-          }
-        },
-        "description": "Response for hybrid network devices Api service call."
-      }
+      "description": "Response for hybrid network devices Api service call."
     }
+  }
 }
