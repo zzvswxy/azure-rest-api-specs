@@ -453,7 +453,8 @@
         "Succeeded",
         "Failed",
         "Canceled",
-        "Deleted"
+        "Deleted",
+        "NotSpecified"
       ],
       "type": "string",
       "x-ms-enum": {
