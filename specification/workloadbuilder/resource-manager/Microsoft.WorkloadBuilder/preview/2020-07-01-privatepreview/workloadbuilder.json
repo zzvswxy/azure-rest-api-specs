@@ -515,64 +515,6 @@
           }
         }
       },
-      "patch": {
-        "tags": [
-          "Instances"
-        ],
-        "description": "Update a instance resource.",
-        "operationId": "Instances_Update",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/WorkloadNameParameter"
-          },
-          {
-            "$ref": "#/parameters/InstanceNameParameter"
-          },
-          {
-            "in": "body",
-            "name": "ResourcePatchRequestBody",
-            "description": "Instance resource update data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ResourcePatchRequestBody"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK -- resource updated",
-            "schema": {
-              "$ref": "#/definitions/InstanceResource"
-            }
-          },
-          "default": {
-            "description": "Resource provider error response about the failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Workloads": {
-            "$ref": "./examples/Instances_Update.json"
-          }
-        }
-      },
       "delete": {
         "tags": [
           "Instances"
@@ -774,64 +716,6 @@
         "x-ms-examples": {
           "Versions": {
             "$ref": "./examples/Versions_CreateOrUpdate.json"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Versions"
-        ],
-        "description": "Update a workload resource.",
-        "operationId": "Versions_Update",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/WorkloadNameParameter"
-          },
-          {
-            "$ref": "#/parameters/VersionNameParameter"
-          },
-          {
-            "in": "body",
-            "name": "ResourcePatchRequestBody",
-            "description": "Instance resource update data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ResourcePatchRequestBody"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK -- resource updated",
-            "schema": {
-              "$ref": "#/definitions/VersionResource"
-            }
-          },
-          "default": {
-            "description": "Resource provider error response about the failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Workloads": {
-            "$ref": "./examples/Versions_Update.json"
           }
         }
       },
@@ -1260,7 +1144,7 @@
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/TrackedResource"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ProxyResource"
         }
       ]
     },
@@ -1268,7 +1152,7 @@
       "description": "Workload version resource properties.",
       "required": [
         "contentType",
-        "keyVaultUri",
+        "keyVaultId",
         "appInsightsInstrumentationKey"
       ],
       "type": "object",
@@ -1299,7 +1183,7 @@
             ],
           "$ref": "#/definitions/ContentType"
         },
-        "keyVaultUri": {
+        "keyVaultId": {
           "description": "Key-vault resource id.\r\n\r\nKey-vault will be used to store secrets like private ssh keys or\r\npasswords for the vms created in user's subscription.",
           "type": "string",
           "x-ms-mutability": [
@@ -1359,10 +1243,6 @@
         },
         "assessmentId": {
           "description": "Migrating VMs assessment Id.",
-          "type": "string"
-        },
-        "deploymentResourceGroupName": {
-          "description": "Deployment resource group name where migrating workload infra resources will be created.",
           "type": "string"
         }
       }
@@ -1482,14 +1362,15 @@
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/TrackedResource"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ProxyResource"
         }
       ]
     },
     "InstanceProperties": {
       "description": "Instance resource properties.",
       "required": [
-        "versionId"
+        "versionId",
+        "targetResourceGroupId"
       ],
       "type": "object",
       "properties": {
@@ -1500,6 +1381,14 @@
         },
         "versionId": {
           "description": "Workload version Id for this instance.",
+          "type": "string",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ]
+        },
+        "targetResourceGroupId": {
+          "description": "Target resource group Id where workload infra resources will be created.",
           "type": "string",
           "x-ms-mutability": [
             "create",

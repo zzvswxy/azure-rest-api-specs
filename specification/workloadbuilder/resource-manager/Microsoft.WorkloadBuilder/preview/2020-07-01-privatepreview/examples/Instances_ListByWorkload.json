@@ -12,14 +12,15 @@
               {
                 "properties": {
                   "versionId": "v1",
+                  "targetResourceGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deployment-rg",
                   "userManagedIdentity": "",
                   "parameters": {
                     "infra1": {
-                      "ResourceGroup": { 
-                        "value":"deployment-rg"
+                      "param-a": { 
+                        "value":"value-for-param-a"
                       }
                     }
-                   },
+                  },
                   "artifactsStatus": {
                     "infra1": {
                       "state": "Succeeded",
@@ -37,9 +38,7 @@
                 },
                 "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",
                 "name": "poc1",
-                "type": "Microsoft.WorkloadBuilder/Workloads/instances",
-                "location":"westus",
-                "tags": {}
+                "type": "Microsoft.WorkloadBuilder/Workloads/instances"
              }
           ]
         }
