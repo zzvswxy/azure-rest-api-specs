@@ -7,7 +7,6 @@
     "codespacesPlan":{
       "location":"eastus",
       "properties":{
-        "userId": "user1"
       }
     },
     "tags":{}
@@ -20,7 +19,6 @@
         "name":"myPlan",
         "location": "eastus",
           "properties":{
-            "userId": "user1"
           },
           "tags":{}
       }
