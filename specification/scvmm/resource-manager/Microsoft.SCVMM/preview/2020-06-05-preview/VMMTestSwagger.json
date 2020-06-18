@@ -197,10 +197,6 @@
           },
           "description": "CredentialsSecretRef is the reference to the Kubernetes secret that has the 'username' and 'password' key/value pairs to use for connecting to vCenter."
         },
-        "foo": {
-          "type": "string",
-          "description": "Foo is an example field of VMMServer. Edit VMMServer_types.go to remove/update"
-        },
         "fqdn": {
           "type": "string",
           "description": "Fqdn is the hostname/ip of the vCenter.",
@@ -210,8 +206,8 @@
           "type": "integer",
           "format": "int32",
           "description": "Port is the port on which the vCenter server is listening.",
-          "maximum": 65535,
-          "minimum": 1
+          "maximum": 65535.0,
+          "minimum": 1.0
         },
         "status": {
           "type": "object",
@@ -225,10 +221,6 @@
                 "Connected",
                 "Disconnected"
               ]
-            },
-            "result": {
-              "type": "string",
-              "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modify"
             },
             "errorMessage": {
               "type": "string",
