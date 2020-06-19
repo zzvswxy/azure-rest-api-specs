@@ -717,7 +717,7 @@
               "description": "Specifies auto suspend interval for codespaces in this plan.",
               "type": "integer"
             },
-            "defaultEnvironmentSku": {
+            "defaultCodespaceSku": {
               "description": "Specifies the default codespace sku name for this plan.",
               "type": "string"
             },
@@ -754,7 +754,7 @@
               "description": "Specifies auto suspend interval for codespaces in this plan.",
               "type": "integer"
             },
-            "defaultEnvironmentSku": {
+            "defaultCodespaceSku": {
               "description": "Specifies the default codespace sku name for this plan.",
               "type": "string"
             },
