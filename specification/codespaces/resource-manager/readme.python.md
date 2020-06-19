@@ -10,7 +10,7 @@ python:
   payload-flattening-threshold: 2
   namespace: Microsoft.Codespaces
   package-name: codespaces
-  package-version: 2020-06-16-preview
+  package-version: 2020-06-16
   clear-output-folder: true
 ```
 

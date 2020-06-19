@@ -1,7 +1,7 @@
 {
   "parameters": {
     "planName": "myPlan",
-    "api-version": "2020-06-16-preview",
+    "api-version": "2020-06-16",
     "subscriptionId": "0000000-0000-0000-0000-000000000000",
     "resourceGroupName": "resourceGroup",
     "location": "eastus",
@@ -13,7 +13,7 @@
       "sku": { "name": "Preview" },
       "properties": {
         "defaultAutoSuspendDelayMinutes": 5,
-        "defaultEnvironmentSku": "linux"
+        "defaultCodespaceSku": "linux"
       }
     }
   },

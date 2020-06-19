@@ -26,16 +26,16 @@ These are the global settings for the codespaces.
 
 ```yaml
 openapi-type: arm
-tag: package-2020-06-16-preview
+tag: package-2020-06-16
 ```
 
-### Tag: package-2019-07-01
+### Tag: package-2020-06-16
 
-These settings apply only when `--tag=package-2020-06-16-preview` is specified on the command line.
+These settings apply only when `--tag=package-2020-06-16` is specified on the command line.
 
-```yaml $(tag) == 'package-2020-06-16-preview'
+```yaml $(tag) == 'package-2020-06-16'
 input-file:
-  - Microsoft.Codespaces/preview/2020-06-16-preview/codespaces.json
+  - Microsoft.Codespaces/stable/2020-06-16/codespaces.json
 ```
 
 ---
