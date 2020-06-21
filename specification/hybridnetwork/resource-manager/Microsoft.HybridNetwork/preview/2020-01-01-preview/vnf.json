@@ -476,17 +476,20 @@
           "type": "string",
           "description": "The vendor Sku type"
         }
-      }
+      },
+      "description": "The vendor Sku."
     },
     "VirtualNetworkFunctionVendorPropertiesFormat": {
       "properties": {
         "skuNameType": {
+		  "description": "The vendor Sku name type",
           "type": "array",
           "items": {
             "$ref": "#/definitions/SKUNameType"
           }
         }
-      }
+      },
+      "description": "Vnf property format."
     },
     "VirtualNetworkFunctionVendor": {
       "properties": {
@@ -500,7 +503,8 @@
         {
           "$ref": "./common.json#/definitions/Resource"
         }
-      ]
+      ],	  
+	  "description": "Vendor vnf."
     },
     "VirtualNetworkFunctionVendorListResult": {
       "properties": {
@@ -515,7 +519,8 @@
           "type": "string",
           "description": "The Url to get the next set of results."
         }
-      }
+      },	  
+	  "description": "Vnf vendor list."
     }
   }
 }

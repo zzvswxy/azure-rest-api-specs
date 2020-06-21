@@ -1,0 +1,33 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "mobileNetworkName": "TestMobileNetwork",
+    "parameters": {
+      "tags": {
+        "tag1": "value1",
+        "tag2": "value2"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestMobileNetwork",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/TestMobileNetwork",
+        "type": "Microsoft.MobileNetwork/mobileNetworks",
+        "location": "eastus",
+        "tags": {
+          "tag1": "value1",
+          "tag2": "value2"
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "plmnId": "TestPlm",
+          "spectrumAccessProvider": "TestSpectrumAccessProvider"
+        }
+      }
+    }
+  }
+}

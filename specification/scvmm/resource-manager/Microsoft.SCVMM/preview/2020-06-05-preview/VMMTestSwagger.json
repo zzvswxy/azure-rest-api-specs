@@ -1,0 +1,398 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "SCVMM",
+    "description": "The Microsoft.SCVMM Rest API spec.",
+    "version": "2020-06-05-preview",
+    "x-ms-code-generation-settings": {
+      "name": "SCVMMClient"
+    }
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMMServers/{VMMServersName}": {
+      "get": {
+        "operationId": "VMMServers_Retrieve",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VMMServersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieves the VMMServers resource.",
+            "schema": {
+              "$ref": "#/definitions/VMMServers"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "VMMServers_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VMMServersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "VMMServers",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VMMServers"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the VMMServers resource.",
+            "schema": {
+              "$ref": "#/definitions/VMMServers"
+            }
+          },
+          "201": {
+            "description": "Creates the VMMServers resource.",
+            "schema": {
+              "$ref": "#/definitions/VMMServers"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "VMMServers_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VMMServersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes the VMMServers resource."
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMMServers": {
+      "get": {
+        "operationId": "VMMServers_ListByResourceGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lists all VMMServers under the resouce group.",
+            "schema": {
+              "$ref": "#/definitions/VMMServersListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VMMServers": {
+      "get": {
+        "operationId": "VMMServers_ListBySubscription",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lists all VMMServers under the subscription.",
+            "schema": {
+              "$ref": "#/definitions/VMMServersListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.SCVMM/operations": {
+      "get": {
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Describe the result of a successful operation.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderOperationList"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "VMMServersProperties": {
+      "properties": {
+        "credentialsSecretRef": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of resource that is being referred."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "Namespace of resource that is being referred."
+            }
+          },
+          "description": "CredentialsSecretRef is the reference to the Kubernetes secret that has the 'username' and 'password' key/value pairs to use for connecting to vCenter."
+        },
+        "fqdn": {
+          "type": "string",
+          "description": "Fqdn is the hostname/ip of the vCenter.",
+          "minLength": 1
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Port is the port on which the vCenter server is listening.",
+          "maximum": 65535.0,
+          "minimum": 1.0
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "connectionStatus": {
+              "type": "string",
+              "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+              "enum": [
+                "NotAttempted",
+                "Connecting",
+                "Connected",
+                "Disconnected"
+              ]
+            },
+            "errorMessage": {
+              "type": "string",
+              "description": "ErrorMessage will be set in the event that there is a terminal problem reconciling the vCenter and will contain a more verbose string suitable for logging and human consumption. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the vCenter's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of vCenters can be added as events to the vCenter object and/or logged in the controller's output."
+            },
+            "instanceUUID": {
+              "type": "string",
+              "description": "InstanceUUID is the managed object reference ID of the vCenter server  modeled by this resource."
+            },
+            "observedGeneration": {
+              "type": "integer",
+              "format": "int64",
+              "description": "ObservedGeneration is the last known generation observed in the vCenter resource."
+            },
+            "version": {
+              "type": "string",
+              "description": "Version is the version of the VMMServer server modeled by this resource."
+            }
+          },
+          "description": "VMMServerStatus defines the observed state of VMMServer"
+        },
+        "provisioningState": {
+          "type": "string"
+        }
+      }
+    },
+    "VMMServers": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/VMMServersProperties"
+        },
+        "id": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource Id"
+        },
+        "name": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource Name"
+        },
+        "type": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource Type"
+        },
+        "location": {
+          "type": "string",
+          "description": "The resource location"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        },
+        "extendedLocation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The extended location type."
+            },
+            "name": {
+              "type": "string",
+              "description": "The extended location name."
+            }
+          }
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "description": "The VMMServers resource definition."
+    },
+    "VMMServersListResult": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VMMServers"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      }
+    },
+    "ResourceProviderOperationList": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceProviderOperation"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      },
+      "description": "Results of the request to list operations."
+    },
+    "ResourceProviderOperation": {
+      "type": "object",
+      "properties": {
+        "isDataAction": {
+          "type": "string",
+          "description": "Indicates whether the operation applies to data-plane."
+        },
+        "name": {
+          "type": "string",
+          "description": "Operation name, in format of {provider}/{resource}/{operation}"
+        },
+        "display": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "The resource provider."
+            },
+            "resource": {
+              "type": "string",
+              "description": "Resource on which the operation is performed."
+            },
+            "operation": {
+              "type": "string",
+              "description": "Type of operation: get, read, delete, etc."
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of this operation."
+            }
+          },
+          "description": "Display metadata associated with the operation."
+        }
+      },
+      "description": "Results of the request to list operations."
+    }
+  },
+  "parameters": {
+    "VMMServersNameParameter": {
+      "name": "VMMServersName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "maxLength": 64,
+      "minLength": 3
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)"
+    },
+    "ResourceGroupNameParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The name of the resource group."
+    },
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "The API version to be used with the HTTP request (e.g. YYYY-MM-DD)."
+    }
+  }
+}

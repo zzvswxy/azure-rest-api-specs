@@ -1,0 +1,28 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestPacketCore",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores",
+            "type": "Microsoft.MobileNetwork/packetCores",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Accepted",
+              "mobileNetworkId": "TestMobileNetworkId",
+              "vendor": "TestVendor",
+              "vendorSku": "TestVendorSku"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
