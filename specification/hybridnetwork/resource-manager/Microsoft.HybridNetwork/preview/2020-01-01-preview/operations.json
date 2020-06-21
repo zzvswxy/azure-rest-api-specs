@@ -65,7 +65,7 @@
             "$ref": "./examples/GetOperations.json"
           }
         },
-        "x-ms-pageable": {
+		"x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
       }
@@ -117,8 +117,7 @@
         },
         "nextLink": {
           "type": "string",
-          "readOnly": true,
-          "description": "The URL to get the next set of results."
+          "description": "The Url to get the next set of results."
         }
       },
       "type": "object",
