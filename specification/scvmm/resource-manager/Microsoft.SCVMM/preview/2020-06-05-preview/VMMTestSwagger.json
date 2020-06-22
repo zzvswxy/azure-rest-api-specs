@@ -318,7 +318,7 @@
           "nextLinkName": "nextLink"
         }
       }
-    }
+    },
 	 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualNetworks/{VirtualNetworksName}": {
       "get": {
         "operationId": "VirtualNetworks_Retrieve",
