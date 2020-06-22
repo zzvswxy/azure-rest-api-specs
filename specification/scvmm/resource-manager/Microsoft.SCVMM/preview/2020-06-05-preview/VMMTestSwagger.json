@@ -159,6 +159,7 @@
       }
     },
     "/providers/Microsoft.SCVMM/operations": {
+	
       "get": {
         "operationId": "Operations_List",
         "parameters": [
@@ -171,6 +172,145 @@
             "description": "Describe the result of a successful operation.",
             "schema": {
               "$ref": "#/definitions/ResourceProviderOperationList"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds/{CloudsName}": {
+      "get": {
+        "operationId": "Clouds_Retrieve",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/CloudsNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieves the Clouds resource.",
+            "schema": {
+              "$ref": "#/definitions/Clouds"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "Clouds_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/CloudsNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "Clouds",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Clouds"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the Clouds resource.",
+            "schema": {
+              "$ref": "#/definitions/Clouds"
+            }
+          },
+          "201": {
+            "description": "Creates the Clouds resource.",
+            "schema": {
+              "$ref": "#/definitions/Clouds"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Clouds_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/CloudsNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes the Clouds resource."
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds": {
+      "get": {
+        "operationId": "Clouds_ListByResourceGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lists all Clouds under the resouce group.",
+            "schema": {
+              "$ref": "#/definitions/CloudsListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/Clouds": { 
+	"get": {
+        "operationId": "Clouds_ListBySubscription",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lists all Clouds under the subscription.",
+            "schema": {
+              "$ref": "#/definitions/CloudsListResult"
             }
           }
         },
@@ -327,6 +467,660 @@
       },
       "description": "Results of the request to list operations."
     },
+	 "CloudsProperties": {
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "description": "Unique ID of resource pool.",
+          "minLength": 1
+        },
+        "vmmServerRef": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of resource that is being referred."
+            },
+            "namespace": {
+              "type": "string",
+              "description": "Namespace of resource that is being referred."
+            }
+          },
+          "description": "VMMServer ResourceReference contains resource information such as name and namespace."
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "cpuCount": {
+              "type": "integer",
+              "format": "int64",
+              "description": "Number of CPUs allocated in the cloud"
+            },
+            "memLimitMB": {
+              "type": "integer",
+              "format": "int64",
+              "description": "MemLimitMB specifies a memory usage limit in megabytes."
+            },
+            "name": {
+              "type": "string",
+              "description": "Name of the cloud."
+            },
+            "observedGeneration": {
+              "type": "integer",
+              "format": "int64",
+              "description": "ObservedGeneration is the last known generation observed for the resource."
+            },
+            "resourceStatus": {
+              "type": "object",
+              "properties": {
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "CreatedAt is time at which resource was previously created."
+                },
+                "lastConfigurationAttempt": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Message contains information about error that has occurred."
+                        },
+                        "reason": {
+                          "type": "string",
+                          "description": "Reason is a camel case string value indicating reason for current error state.",
+                          "enum": [
+                            "VMMServerNotReachable",
+                            "ResourceNotFound",
+                            "DatacenterNotFound",
+                            "VMMServerNotFound",
+                            "ResourceDeletedOutOfBand",
+                            "CreateFailed",
+                            "ConfigureFailed",
+                            "SyncFailed",
+                            "DeleteFailed"
+                          ]
+                        }
+                      },
+                      "description": "Error contains the error details of the last configure attempt."
+                    },
+                    "startedAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "StartedAt is UTC time at which this phase started."
+                    },
+                    "taskInfo": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "errorMessage": {
+                          "type": "string"
+                        },
+                        "isSuccess": {
+                          "type": "boolean",
+                          "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                        },
+                        "progress": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "taskRef": {
+                          "type": "string"
+                        },
+                        "taskType": {
+                          "type": "string"
+                        }
+                      },
+                      "description": "TaskInfo holds the details of last configured task."
+                    }
+                  },
+                  "description": "LastConfigurationAttempt indicates the details of the last configuration attempt."
+                },
+                "lastSyncAttempt": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Message contains information about error that has occurred."
+                        },
+                        "reason": {
+                          "type": "string",
+                          "description": "Reason is a camel case string value indicating reason for current error state.",
+                          "enum": [
+                            "VMMServerNotReachable",
+                            "ResourceNotFound",
+                            "DatacenterNotFound",
+                            "VMMServerNotFound",
+                            "ResourceDeletedOutOfBand",
+                            "CreateFailed",
+                            "ConfigureFailed",
+                            "SyncFailed",
+                            "DeleteFailed"
+                          ]
+                        }
+                      },
+                      "description": "Error contains the error details of the last sync attempt."
+                    },
+                    "startedAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "StartedAt is UTC time at which this phase started."
+                    }
+                  },
+                  "description": "LastSyncAttempt indicates the details of the last sync attempt."
+                },
+                "state": {
+                  "type": "object",
+                  "properties": {
+                    "configuring": {
+                      "type": "object",
+                      "properties": {
+                        "phase": {
+                          "type": "object",
+                          "properties": {
+                            "configuring": {
+                              "type": "object",
+                              "properties": {
+                                "waitingOn": {
+                                  "type": "object",
+                                  "properties": {
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "errorMessage": {
+                                      "type": "string"
+                                    },
+                                    "isSuccess": {
+                                      "type": "boolean",
+                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                                    },
+                                    "progress": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "taskRef": {
+                                      "type": "string"
+                                    },
+                                    "taskType": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "TaskInfo describes the VMMServer task info."
+                                }
+                              },
+                              "description": "Configuring indicates resource configuration is underway."
+                            },
+                            "syncing": {
+                              "type": "object",
+                              "properties": {
+                                "startedAt": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "StartedAt is UTC time at which this phase started."
+                                }
+                              },
+                              "description": "Syncing indicates resource configuration is syncing."
+                            }
+                          },
+                          "description": "Phase is the ResourceStateConfiguring substate."
+                        },
+                        "startedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "StartedAt is UTC time at which this state started."
+                        }
+                      },
+                      "description": "Contains details about Configuring state."
+                    },
+                    "createError": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Message contains information about error that has occurred."
+                        },
+                        "reason": {
+                          "type": "string",
+                          "description": "Reason is a camel case string value indicating reason for current error state.",
+                          "enum": [
+                            "VMMServerNotReachable",
+                            "ResourceNotFound",
+                            "DatacenterNotFound",
+                            "VMMServerNotFound",
+                            "ResourceDeletedOutOfBand",
+                            "CreateFailed",
+                            "ConfigureFailed",
+                            "SyncFailed",
+                            "DeleteFailed"
+                          ]
+                        }
+                      },
+                      "description": "Contains details about CreateError state."
+                    },
+                    "creating": {
+                      "type": "object",
+                      "properties": {
+                        "phase": {
+                          "type": "object",
+                          "properties": {
+                            "creating": {
+                              "type": "object",
+                              "properties": {
+                                "waitingOn": {
+                                  "type": "object",
+                                  "properties": {
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "errorMessage": {
+                                      "type": "string"
+                                    },
+                                    "isSuccess": {
+                                      "type": "boolean",
+                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                                    },
+                                    "progress": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "taskRef": {
+                                      "type": "string"
+                                    },
+                                    "taskType": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "TaskInfo describes the VMMServer task info."
+                                }
+                              },
+                              "description": "Creating indicates resource creation is underway."
+                            },
+                            "customizing": {
+                              "type": "object",
+                              "properties": {
+                                "waitingOn": {
+                                  "type": "object",
+                                  "properties": {
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "errorMessage": {
+                                      "type": "string"
+                                    },
+                                    "isSuccess": {
+                                      "type": "boolean",
+                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                                    },
+                                    "progress": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "taskRef": {
+                                      "type": "string"
+                                    },
+                                    "taskType": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "TaskInfo describes the VMMServer task info."
+                                }
+                              },
+                              "description": "Customizing indicates resource customization is underway."
+                            },
+                            "postCreating": {
+                              "type": "object",
+                              "properties": {
+                                "startedAt": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "StartedAt is UTC time at which this phase started."
+                                }
+                              },
+                              "description": "PostCreating indicates resource post create activities are underway."
+                            },
+                            "poweringUp": {
+                              "type": "object",
+                              "properties": {
+                                "waitingOn": {
+                                  "type": "object",
+                                  "properties": {
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "errorMessage": {
+                                      "type": "string"
+                                    },
+                                    "isSuccess": {
+                                      "type": "boolean",
+                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                                    },
+                                    "progress": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "taskRef": {
+                                      "type": "string"
+                                    },
+                                    "taskType": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "TaskInfo describes the VMMServer task info."
+                                }
+                              },
+                              "description": "PoweringUp indicates resource power up is underway."
+                            },
+                            "syncing": {
+                              "type": "object",
+                              "properties": {
+                                "startedAt": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "description": "Syncing indicates resource is syncing."
+                            }
+                          },
+                          "description": "Phase is the ResourceStateCreating substate."
+                        },
+                        "startedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "StartedAt is UTC time at which this state started."
+                        }
+                      },
+                      "description": "Contains details about Creating state."
+                    },
+                    "deleteError": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Message contains information about error that has occurred."
+                        },
+                        "reason": {
+                          "type": "string",
+                          "description": "Reason is a camel case string value indicating reason for current error state.",
+                          "enum": [
+                            "VMMServerNotReachable",
+                            "ResourceNotFound",
+                            "DatacenterNotFound",
+                            "VMMServerNotFound",
+                            "ResourceDeletedOutOfBand",
+                            "CreateFailed",
+                            "ConfigureFailed",
+                            "SyncFailed",
+                            "DeleteFailed"
+                          ]
+                        }
+                      },
+                      "description": "Contains details about DeleteError state."
+                    },
+                    "deletePreflight": {
+                      "type": "object",
+                      "properties": {
+                        "startedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "StartedAt is UTC time at which this state started."
+                        }
+                      },
+                      "description": "Contains details about DeletePreflight state."
+                    },
+                    "deleting": {
+                      "type": "object",
+                      "properties": {
+                        "phase": {
+                          "type": "object",
+                          "properties": {
+                            "deleting": {
+                              "type": "object",
+                              "properties": {
+                                "waitingOn": {
+                                  "type": "object",
+                                  "properties": {
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "errorMessage": {
+                                      "type": "string"
+                                    },
+                                    "isSuccess": {
+                                      "type": "boolean",
+                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                                    },
+                                    "progress": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "taskRef": {
+                                      "type": "string"
+                                    },
+                                    "taskType": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "TaskInfo describes the VMMServer task info."
+                                }
+                              },
+                              "description": "Deleting indicates current resource configuration is deleting."
+                            },
+                            "poweringOff": {
+                              "type": "object",
+                              "properties": {
+                                "waitingOn": {
+                                  "type": "object",
+                                  "properties": {
+                                    "description": {
+                                      "type": "string"
+                                    },
+                                    "errorMessage": {
+                                      "type": "string"
+                                    },
+                                    "isSuccess": {
+                                      "type": "boolean",
+                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
+                                    },
+                                    "progress": {
+                                      "type": "integer",
+                                      "format": "int32"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "taskRef": {
+                                      "type": "string"
+                                    },
+                                    "taskType": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description": "TaskInfo describes the VMMServer task info."
+                                }
+                              },
+                              "description": "PoweringOff indicates resource power off is underway."
+                            },
+                            "retry": {
+                              "type": "object",
+                              "properties": {
+                                "nextRetryAt": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                }
+                              },
+                              "description": "Retry indicates retry the delete operation."
+                            }
+                          },
+                          "description": "Phase is the ResourceStateDeleting substate."
+                        },
+                        "retryAttempt": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "startedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "StartedAt is UTC time at which this state started."
+                        }
+                      },
+                      "description": "Contains details about Deleting state."
+                    },
+                    "ok": {
+                      "type": "object",
+                      "properties": {
+                        "nextSyncAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "NextSyncAt is UTC time at or after which the next sync should happen."
+                        }
+                      },
+                      "description": "Contains details about OK state."
+                    },
+                    "syncError": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "description": "Message contains information about error that has occurred."
+                        },
+                        "reason": {
+                          "type": "string",
+                          "description": "Reason is a camel case string value indicating reason for current error state.",
+                          "enum": [
+                            "VMMServerNotReachable",
+                            "ResourceNotFound",
+                            "DatacenterNotFound",
+                            "VMMServerNotFound",
+                            "ResourceDeletedOutOfBand",
+                            "CreateFailed",
+                            "ConfigureFailed",
+                            "SyncFailed",
+                            "DeleteFailed"
+                          ]
+                        }
+                      },
+                      "description": "Contains details about SyncError state."
+                    },
+                    "syncing": {
+                      "type": "object",
+                      "properties": {
+                        "startedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "StartedAt is UTC time at which this state started."
+                        }
+                      },
+                      "description": "Contains details about Syncing state."
+                    }
+                  },
+                  "description": "ResourceState defines various states for a resource. Only one of the fields below is set."
+                }
+              },
+              "description": "ResourceStatus defines appropriate status fields for a resource."
+            },
+            "vmCount": {
+              "type": "integer",
+              "format": "int64",
+              "description": "VMCount gives the max number of VMs"
+            }
+          },
+          "description": "CloudStatus defines the observed state of Cloud"
+        },
+        "provisioningState": {
+          "type": "string"
+        }
+      }
+    },
+    "Clouds": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/CloudsProperties"
+        },
+        "id": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource Id"
+        },
+        "name": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource Name"
+        },
+        "type": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Resource Type"
+        },
+        "location": {
+          "type": "string",
+          "description": "The resource location"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        },
+        "extendedLocation": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The extended location type."
+            },
+            "name": {
+              "type": "string",
+              "description": "The extended location name."
+            }
+          }
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "description": "The Clouds resource definition."
+    },
+    "CloudsListResult": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Clouds"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      }
+    },
     "ResourceProviderOperation": {
       "type": "object",
       "properties": {
@@ -367,6 +1161,14 @@
   "parameters": {
     "VMMServersNameParameter": {
       "name": "VMMServersName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "maxLength": 64,
+      "minLength": 3
+    },
+	 "CloudsNameParameter": {
+      "name": "CloudsName",
       "in": "path",
       "required": true,
       "type": "string",
