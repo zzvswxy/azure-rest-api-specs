@@ -634,6 +634,19 @@
         }
       }
     },
+    "Identity": {
+      "type": "object",
+      "description": "Model representing Identity for Codespaces Plan.",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "description": "The type of identity",
+          "type": "string"
+        }
+      }
+    },
     "VnetProperties": {
       "type": "object",
       "description": "Model representing Vnet Injection properties for Codespaces Plan.",
@@ -744,6 +757,10 @@
         "sku": {
           "$ref": "#/definitions/Sku",
           "description": "SKU of the service."
+        },
+        "identity":{
+          "$ref": "#/definitions/Identity",
+          "description": "The type of identity used for the resource. "
         },
         "properties":{
           "type": "object",
