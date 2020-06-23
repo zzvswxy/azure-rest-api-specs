@@ -39,6 +39,15 @@
             "in": "path",
             "required": true,
             "x-nullable": true
+          },
+          {
+            "name": "merchantId",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/MerchantAccount"
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
