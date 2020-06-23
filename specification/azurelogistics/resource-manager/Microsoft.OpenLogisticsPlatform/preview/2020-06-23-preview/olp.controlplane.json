@@ -6,11 +6,8 @@
     "description": "OLPControlPlaneServiceAPI",
     "version": "2020-06-23-preview"
   },
-  "produces": [
-    "text/plain",
-    "application/json",
-    "text/json"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/merchants/{merchantName}": {
       "get": {
@@ -23,43 +20,37 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "merchantName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
-            "name": "merchantId",
+            "name": "merchantAccount",
             "in": "body",
-            "required": false,
+            "required": true,
             "schema": {
               "$ref": "#/definitions/MerchantAccount"
-            },
-            "x-nullable": true
+            }
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
             "description": "",
             "schema": {
               "$ref": "#/definitions/MerchantAccount"
             }
           },
           "default": {
-            "x-nullable": false,
             "description": "",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
@@ -72,31 +63,24 @@
           "MerchantAccount"
         ],
         "operationId": "MerchantAccount_Put",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "merchantName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "name": "merchantId",
@@ -135,21 +119,18 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "merchantId",
-            "in": "query",
-            "x-nullable": true
+            "in": "query"
           },
           {
             "type": "string",
@@ -187,15 +168,13 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           }
         ],
         "responses": {
@@ -230,8 +209,7 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           }
         ],
         "responses": {
