@@ -4,6 +4,7 @@
     "resourceGroupName": "k8sc-rg",
     "clusterName": "testCluster",
     "api-version": "2020-06-22-preview",
+    "namespaceName":"default",
     "Namespace": {
       "name": "default",
       "type": "Microsoft.Kubernetes/conenctedClusters/namespace",

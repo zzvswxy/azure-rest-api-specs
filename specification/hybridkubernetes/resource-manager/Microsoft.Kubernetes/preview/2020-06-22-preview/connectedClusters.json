@@ -947,6 +947,9 @@
           "readOnly": true,
           "type": "string"
         },
+        "id":{
+          "type":"string"
+        },
         "properties": {
           "description": "Namespace Metadata",
           "$ref": "#/definitions/NamespaceMetadata"
