@@ -172,10 +172,7 @@
             "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/MerchantAccount"
-              }
+                "$ref": "#/definitions/MerchantAccountList"
             }
           },
           "default": {
@@ -207,10 +204,7 @@
             "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/MerchantAccount"
-              }
+                "$ref": "#/definitions/MerchantAccountList"
             }
           },
           "default": {
@@ -327,6 +321,23 @@
               "type": "string",
               "readOnly": false
             }
+          }
+        }
+      }
+    },
+    "MerchantAccountList": {
+      "description": "The list of merchant account resources.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of merchant account resources list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of merchant accounts.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MerchantAccount"
           }
         }
       }
