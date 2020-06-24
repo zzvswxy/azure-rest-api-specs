@@ -33,14 +33,6 @@
             "name": "merchantName",
             "in": "path",
             "required": true
-          },
-          {
-            "name": "merchantAccount",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MerchantAccount"
-            }
           }
         ],
         "responses": {
@@ -83,13 +75,12 @@
             "required": true
           },
           {
-            "name": "merchantId",
+            "name": "merchantAccount",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "x-nullable": false
+              "$ref": "#/definitions/MerchantAccount"
+            }
           }
         ],
         "responses": {
@@ -136,8 +127,7 @@
             "type": "string",
             "name": "merchantName",
             "in": "path",
-            "required": true,
-            "x-nullable": false
+            "required": true
           }
         ],
         "responses": {
