@@ -954,12 +954,6 @@
         "properties": {
           "description": "Namespace Properties",
           "$ref": "#/definitions/NamespaceProperties"
-        },
-        "Spec":{
-          "$ref":"#/definitions/NamespaceSpec"
-        },
-        "Status":{
-          "$ref":"#/definitions/NamespaceStatus"
         }
       }
     },
@@ -1012,6 +1006,12 @@
           "items": {
             "$ref": "#/definitions/namespaceAnnotation"
           }
+        },
+        "Spec":{
+          "$ref":"#/definitions/NamespaceSpec"
+        },
+        "Status":{
+          "$ref":"#/definitions/NamespaceStatus"
         }
       }
     },
