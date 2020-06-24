@@ -960,7 +960,7 @@
     "NamespaceSpec":{
       "type":"object",
       "properties":{
-        "Finalizers":{
+        "finalizers":{
           "type":"string"
         }
       }
@@ -968,7 +968,7 @@
     "NamespaceStatus":{
       "type":"object",
       "properties":{
-        "Phase":{
+        "phase":{
           "type":"string"
         }
       }
@@ -1007,10 +1007,10 @@
             "$ref": "#/definitions/namespaceAnnotation"
           }
         },
-        "Spec":{
+        "spec":{
           "$ref":"#/definitions/NamespaceSpec"
         },
-        "Status":{
+        "status":{
           "$ref":"#/definitions/NamespaceStatus"
         }
       }
