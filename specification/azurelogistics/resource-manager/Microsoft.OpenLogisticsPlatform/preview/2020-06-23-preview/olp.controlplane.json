@@ -233,6 +233,16 @@
           "type": "string",
           "readOnly": true
         },
+        "subscriptionId": {
+          "description": "Azure rubscription Id.",
+          "type": "string",
+          "readOnly": true
+        },
+        "resourceGroup": {
+          "description": "Azure resource group.",
+          "type": "string",
+          "readOnly": true
+        },
         "name": {
           "description": "Azure resource name.",
           "type": "string",
@@ -243,8 +253,33 @@
           "type": "string",
           "readOnly": true
         },
+        "sku": {
+          "description": "Sku of resource definition",
+          "type": "string",
+          "readOnly": true
+        },
+        "managedBy": {
+          "description": "Who manages the resource",
+          "type": "string",
+          "readOnly": true
+        },
         "location": {
           "description": "Location of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "zone": {
+          "description": "Availability zone of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "plan": {
+          "description": "The resource plan",
+          "type": "string",
+          "readOnly": false
+        },
+        "etag": {
+          "description": "The etag",
           "type": "string",
           "readOnly": false
         },
@@ -255,6 +290,16 @@
           "additionalProperties": {
             "type": "string"
           }
+        },
+        "scale": {
+          "description": "The scale",
+          "type": "string",
+          "readOnly": false
+        },
+        "identity": {
+          "description": "The resource identity",
+          "type": "string",
+          "readOnly": false
         }
       },
       "x-ms-azure-resource": true
