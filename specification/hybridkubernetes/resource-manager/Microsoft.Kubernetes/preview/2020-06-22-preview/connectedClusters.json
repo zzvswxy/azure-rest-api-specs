@@ -956,10 +956,10 @@
           "$ref": "#/definitions/NamespaceProperties"
         },
         "Spec":{
-          "$ref":"#definitions/NamespaceSpec"
+          "$ref":"#/definitions/NamespaceSpec"
         },
         "Status":{
-          "$ref":"#definitions/NamespaceStatus"
+          "$ref":"#/definitions/NamespaceStatus"
         }
       }
     },
