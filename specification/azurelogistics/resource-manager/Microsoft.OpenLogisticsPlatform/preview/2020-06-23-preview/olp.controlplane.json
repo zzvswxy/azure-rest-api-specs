@@ -268,26 +268,21 @@
       ],
       "properties": {
         "properties": {
-          "merchantId": {
-            "type": "string",
-            "readOnly": true,
-          },
-          "name": {
-            "type": "string",
-            "readOnly": true,
-          },
-          "provisioningState": {
-            "type": "string",
-            "readOnly": true,
+          "type": "object",
+          "properties": {
+            "merchantId": {
+              "type": "string",
+              "readOnly": true
+            },
+            "name": {
+              "type": "string",
+              "readOnly": true
+            },
+            "provisioningState": {
+              "type": "string",
+              "readOnly": true
+            }
           }
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "$ref": "#/definitions/ErrorObject"
         }
       }
     },
@@ -299,6 +294,14 @@
         },
         "message": {
           "type": "string"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorObject"
         }
       }
     }
