@@ -948,6 +948,7 @@
           "type": "string"
         },
         "id":{
+          "readOnly":true,
           "type":"string"
         },
         "properties": {
