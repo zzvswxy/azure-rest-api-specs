@@ -11,7 +11,6 @@
       "body": {
         "name": "default",
         "type": "Microsoft.Kubernetes/connectedClusters/namespace",
-        "tags": {},
         "identity": {
           "type": "SystemAssigned"
         }
