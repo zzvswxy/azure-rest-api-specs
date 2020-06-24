@@ -225,18 +225,61 @@
     }
   },
   "definitions": {
-    "MerchantAccount": {
-      "type": "object",
-      "required": [
-        "name"
-      ],
+    "Resource": {
+      "description": "An Azure resource.",
       "properties": {
-        "merchantId": {
-          "type": "string"
+        "id": {
+          "description": "Azure resource Id.",
+          "type": "string",
+          "readOnly": true
         },
         "name": {
+          "description": "Azure resource name.",
           "type": "string",
-          "minLength": 1
+          "readOnly": true
+        },
+        "type": {
+          "description": "Azure resource type.",
+          "type": "string",
+          "readOnly": true
+        },
+        "location": {
+          "description": "Location of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "tags": {
+          "description": "resource tags.",
+          "type": "object",
+          "readOnly": false,
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "MerchantAccount": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "merchantId": {
+            "type": "string",
+            "readOnly": true,
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true,
+          },
+          "provisioningState": {
+            "type": "string",
+            "readOnly": true,
+          }
         }
       }
     },
