@@ -271,16 +271,13 @@
           "type": "object",
           "properties": {
             "merchantId": {
-              "type": "string",
-              "readOnly": true
+              "type": "string"
             },
             "name": {
-              "type": "string",
-              "readOnly": true
+              "type": "string"
             },
             "provisioningState": {
-              "type": "string",
-              "readOnly": true
+              "type": "string"
             }
           }
         }
