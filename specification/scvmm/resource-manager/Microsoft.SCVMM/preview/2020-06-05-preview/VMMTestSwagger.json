@@ -597,9 +597,9 @@
         }
       }
     },
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMTemplates/{VMTemplatesName}": {
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates/{VirtualMachineTemplatesName}": {
       "get": {
-        "operationId": "VMTemplates_Retrieve",
+        "operationId": "VirtualMachineTemplates_Retrieve",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -608,7 +608,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VMTemplatesNameParameter"
+            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -616,15 +616,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Retrieves the VMTemplates resource.",
+            "description": "Retrieves the VirtualMachineTemplates resource.",
             "schema": {
-              "$ref": "#/definitions/VMTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplates"
             }
           }
         }
       },
       "put": {
-        "operationId": "VMTemplates_CreateOrUpdate",
+        "operationId": "VirtualMachineTemplates_CreateOrUpdate",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -633,37 +633,37 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VMTemplatesNameParameter"
+            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "VMTemplates",
+            "name": "VirtualMachineTemplates",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VMTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplates"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the VMTemplates resource.",
+            "description": "Updates the VirtualMachineTemplates resource.",
             "schema": {
-              "$ref": "#/definitions/VMTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplates"
             }
           },
           "201": {
-            "description": "Creates the VMTemplates resource.",
+            "description": "Creates the VirtualMachineTemplates resource.",
             "schema": {
-              "$ref": "#/definitions/VMTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplates"
             }
           }
         }
       },
       "delete": {
-        "operationId": "VMTemplates_Delete",
+        "operationId": "VirtualMachineTemplates_Delete",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -672,7 +672,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VMTemplatesNameParameter"
+            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -680,14 +680,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Deletes the VMTemplates resource."
+            "description": "Deletes the VirtualMachineTemplates resource."
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMTemplates": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates": {
       "get": {
-        "operationId": "VMTemplates_ListByResourceGroup",
+        "operationId": "VirtualMachineTemplates_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -701,9 +701,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all VMTemplates under the resouce group.",
+            "description": "Lists all VirtualMachineTemplates under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/VMTemplatesListResult"
+              "$ref": "#/definitions/VirtualMachineTemplatesListResult"
             }
           }
         },
@@ -712,9 +712,9 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VMTemplates": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualMachineTemplates": {
       "get": {
-        "operationId": "VMTemplates_ListBySubscription",
+        "operationId": "VirtualMachineTemplates_ListBySubscription",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -725,9 +725,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all VMTemplates under the subscription.",
+            "description": "Lists all VirtualMachineTemplates under the subscription.",
             "schema": {
-              "$ref": "#/definitions/VMTemplatesListResult"
+              "$ref": "#/definitions/VirtualMachineTemplatesListResult"
             }
           }
         },
@@ -3177,7 +3177,7 @@
         }
       }
     },
-	"VMTemplatesProperties": {
+	"VirtualMachineTemplatesProperties": {
       "properties": {
         "uuid": {
           "type": "string",
@@ -3908,11 +3908,11 @@
         }
       }
     },
-    "VMTemplates": {
+    "VirtualMachineTemplates": {
       "type": "object",
       "properties": {
         "properties": {
-          "$ref": "#/definitions/VMTemplatesProperties"
+          "$ref": "#/definitions/VirtualMachineTemplatesProperties"
         },
         "id": {
           "type": "string",
@@ -3957,15 +3957,15 @@
       "required": [
         "location"
       ],
-      "description": "The VMTemplates resource definition."
+      "description": "The VirtualMachineTemplates resource definition."
     },
-    "VMTemplatesListResult": {
+    "VirtualMachineTemplatesListResult": {
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VMTemplates"
+            "$ref": "#/definitions/VirtualMachineTemplates"
           }
         },
         "nextLink": {
@@ -4043,8 +4043,8 @@
       "maxLength": 64,
       "minLength": 3
     },
-	"VMTemplatesNameParameter": {
-      "name": "VMTemplatesName",
+	"VirtualMachineTemplatesNameParameter": {
+      "name": "VirtualMachineTemplatesName",
       "in": "path",
       "required": true,
       "type": "string",
