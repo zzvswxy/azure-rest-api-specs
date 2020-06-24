@@ -317,12 +317,15 @@
           "properties": {
             "merchantId": {
               "type": "string"
+              "readOnly": false
             },
             "merchantName": {
               "type": "string"
+              "readOnly": false
             },
             "provisioningState": {
               "type": "string"
+              "readOnly": false
             }
           }
         }
