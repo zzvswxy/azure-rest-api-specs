@@ -236,32 +236,32 @@
         "subscriptionId": {
           "description": "Azure rubscription Id.",
           "type": "string",
-          "readOnly": true
+          "readOnly": false
         },
         "resourceGroup": {
           "description": "Azure resource group.",
           "type": "string",
-          "readOnly": true
+          "readOnly": false
         },
         "name": {
           "description": "Azure resource name.",
           "type": "string",
-          "readOnly": true
+          "readOnly": false
         },
         "type": {
           "description": "Azure resource type.",
           "type": "string",
-          "readOnly": true
+          "readOnly": false
         },
         "sku": {
           "description": "Sku of resource definition",
           "type": "string",
-          "readOnly": true
+          "readOnly": false
         },
         "managedBy": {
           "description": "Who manages the resource",
           "type": "string",
-          "readOnly": true
+          "readOnly": false
         },
         "location": {
           "description": "Location of the resource.",
@@ -316,13 +316,16 @@
           "type": "object",
           "properties": {
             "merchantId": {
-              "type": "string"
+              "type": "string",
+              "readOnly": false
             },
             "merchantName": {
-              "type": "string"
+              "type": "string",
+              "readOnly": false
             },
             "provisioningState": {
-              "type": "string"
+              "type": "string",
+              "readOnly": false
             }
           }
         }
