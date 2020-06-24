@@ -6,15 +6,18 @@
     "clusterName": "testCluster",
     "namespaceName": "default",
     "NamespacePatch":{
-      "tags": {}
+      "properties":{
+        "internalMetadata":{
+          "lastUpdateTimestamp": "2020-05-22T05:09:42Z"
+        }
+      }
     }
   },
   "responses": {
     "200":{
       "body": {
         "name":"default",
-        "type":"Microsoft.Kubernetes/connectedClusters/namespace",
-        "tags": {}
+        "type":"Microsoft.Kubernetes/connectedClusters/namespace"
       }
     }
   }
