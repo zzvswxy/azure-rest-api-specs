@@ -952,16 +952,40 @@
           "type":"string"
         },
         "properties": {
-          "description": "Namespace Metadata",
-          "$ref": "#/definitions/NamespaceMetadata"
+          "description": "Namespace Properties",
+          "$ref": "#/definitions/NamespaceProperties"
+        },
+        "Spec":{
+          "$ref":"#definitions/NamespaceSpec"
+        },
+        "Status":{
+          "$ref":"#definitions/NamespaceStatus"
         }
       }
     },
-    "NamespaceMetadata": {
+    "NamespaceSpec":{
+      "type":"object",
+      "properties":{
+        "Finalizers":{
+          "type":"string"
+        }
+      }
+    },
+    "NamespaceStatus":{
+      "type":"object",
+      "properties":{
+        "Phase":{
+          "type":"string"
+        }
+      }
+    },
+    "NamespaceProperties": {
       "description": "Metadata describing the namespace",
       "type": "object",
       "properties": {
-
+        "name":{
+          "type":"string"
+        },
         "selfLink": {
           "type": "string"
         },
