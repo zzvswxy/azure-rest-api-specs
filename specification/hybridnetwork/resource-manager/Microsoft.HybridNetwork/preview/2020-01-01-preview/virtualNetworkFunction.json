@@ -446,7 +446,6 @@
       "properties": {
         "roleName": {
           "type": "string",
-          "readOnly": true,
           "description": "The name of the virtual network function role."
         },
         "userDataParameters": {
