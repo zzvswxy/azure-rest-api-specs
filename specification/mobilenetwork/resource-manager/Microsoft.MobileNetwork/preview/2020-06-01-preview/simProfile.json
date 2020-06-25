@@ -356,10 +356,6 @@
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/SimProfilePropertiesFormat",
           "description": "Sim profile Properties."
-        },
-        "etag": {
-          "type": "string",
-          "description": "A unique read-only string that changes whenever the resource is updated."
         }
       },
       "allOf": [
