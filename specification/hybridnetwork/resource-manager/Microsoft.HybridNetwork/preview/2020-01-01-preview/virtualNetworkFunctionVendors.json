@@ -241,7 +241,7 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VirtualNetworkFunctionVendor"
+            "$ref": "#/definitions/VendorDetails"
           },
           "description": "A list of available hybrid network virtual network function vendors and skus."
         },
