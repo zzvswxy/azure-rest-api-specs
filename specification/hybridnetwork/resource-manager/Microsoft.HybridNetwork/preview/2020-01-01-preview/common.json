@@ -116,7 +116,6 @@
     },
     "VendorProvisioningState": {
       "type": "string",
-      "readOnly": true,
       "description": "The current vendor provisioning state.",
       "enum": [
         "Unknown",
