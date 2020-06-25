@@ -244,14 +244,14 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}/readAllEnvironments": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}/readAllCodespaces": {
       "post": {
         "tags": [
           "CodespacesPlan"
         ],
         "summary": "Get Codespaces Plan read codespaces access token.",
         "description": "Get Codespaces Plan access token which allows listing all codespaces in the Plan.",
-        "operationId": "Plan_ReadAllEnvironmentsAction",
+        "operationId": "Plan_ReadAllCodespacesAction",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -285,20 +285,20 @@
           }
         },
         "x-ms-examples": {
-          "CodespacesPlanActions_ReadAllEnvironments": {
+          "CodespacesPlanActions_ReadAllCodespaces": {
             "$ref": "./examples/CodespacesPlanActions_AccessToken_example.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}/writeEnvironments": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}/writeCodespaces": {
       "post": {
         "tags": [
           "CodespacesPlan"
         ],
         "summary": "Get Codespaces Plan write codespaces access token.",
         "description": "Get Codespaces Plan access token which allows creating, updating, deleting and connecting to codespaces owned by the user.",
-        "operationId": "Plan_WriteEnvironmentsAction",
+        "operationId": "Plan_WriteCodespacesAction",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -332,20 +332,20 @@
           }
         },
         "x-ms-examples": {
-          "CodespacesPlanActions_WriteEnvironments": {
+          "CodespacesPlanActions_WriteCodespaces": {
             "$ref": "./examples/CodespacesPlanActions_AccessToken_example.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}/deleteAllEnvironments": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}/deleteAllCodespaces": {
       "post": {
         "tags": [
           "CodespacesPlan"
         ],
         "summary": "Get Codespaces Plan read and delete codespaces access token.",
         "description": "Get Codespaces Plan access token which allows reading and deleting all codespaces in the Plan.",
-        "operationId": "Plan_DeleteAllEnvironmentsAction",
+        "operationId": "Plan_DeleteAllCodespacesAction",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -379,7 +379,7 @@
           }
         },
         "x-ms-examples": {
-          "CodespacesPlanActions_DeleteAllEnvironments": {
+          "CodespacesPlanActions_DeleteAllCodespaces": {
             "$ref": "./examples/CodespacesPlanActions_AccessToken_example.json"
           }
         }
@@ -432,7 +432,7 @@
           }
         },
         "x-ms-examples": {
-          "CodespacesPlanActions_WriteEnvironmentsDelegate": {
+          "CodespacesPlanActions_WriteCodespacesDelegate": {
             "$ref": "./examples/CodespacesPlanActions_DelegatedAccessToken_example.json"
           }
         }
@@ -634,6 +634,19 @@
         }
       }
     },
+    "Identity": {
+      "type": "object",
+      "description": "Model representing Identity for Codespaces Plan.",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "description": "The type of identity",
+          "type": "string"
+        }
+      }
+    },
     "VnetProperties": {
       "type": "object",
       "description": "Model representing Vnet Injection properties for Codespaces Plan.",
@@ -744,6 +757,10 @@
         "sku": {
           "$ref": "#/definitions/Sku",
           "description": "SKU of the service."
+        },
+        "identity":{
+          "$ref": "#/definitions/Identity",
+          "description": "The type of identity used for the resource. "
         },
         "properties":{
           "type": "object",

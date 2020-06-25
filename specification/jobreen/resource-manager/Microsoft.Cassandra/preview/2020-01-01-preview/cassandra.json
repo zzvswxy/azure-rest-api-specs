@@ -235,6 +235,9 @@
               },
               "sidecarImage": {
                 "type": "string"
+              },
+              "provisioningState": {
+                "type": "string"
               }
         }
       },
