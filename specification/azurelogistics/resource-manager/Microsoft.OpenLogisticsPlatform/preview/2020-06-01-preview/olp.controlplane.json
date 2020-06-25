@@ -4,7 +4,7 @@
   "info": {
     "title": "OLPControlPlaneServiceAPI",
     "description": "OLPControlPlaneServiceAPI",
-    "version": "2020-06-23-preview"
+    "version": "2020-06-01-preview"
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
