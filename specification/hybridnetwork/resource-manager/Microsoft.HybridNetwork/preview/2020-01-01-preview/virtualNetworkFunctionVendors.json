@@ -210,16 +210,18 @@
     },
     "VendorDetails": {
       "properties": {
-        "vendorName": {
-          "type": "string",
-          "description": "The virtual network function vendor name."
-        },
-        "skuList": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SkuOverview"
+        "properties": {
+          "vendorName": {
+            "type": "string",
+            "description": "The virtual network function vendor name."
           },
-          "description": "The virtual network function sku list."
+          "skuList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/SkuOverview"
+            },
+            "description": "The virtual network function sku list."
+          }
         }
       },
       "description": "The virtual network function vendor details."
