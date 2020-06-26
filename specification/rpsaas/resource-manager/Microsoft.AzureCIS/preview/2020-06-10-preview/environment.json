@@ -30,7 +30,6 @@
       "put": {
         "description": "Create Update environment.",
         "operationId": "Environment_CreateUpdate",
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Create or update environment": {
             "$ref": "./examples/createOrUpdateEnvironment.json"
