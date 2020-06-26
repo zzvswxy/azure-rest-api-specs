@@ -60,7 +60,7 @@
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "description": "Environment Resource create response.",
             "schema": {
               "$ref": "#/definitions/AutopilotEnvironmentResponse"
@@ -136,7 +136,7 @@
           }
         ],
         "responses": {
-          "202": {
+          "200": {
             "description": "Delete Environment.",
             "schema": {
               "$ref": "#/definitions/AutopilotEnvironmentResponse"
