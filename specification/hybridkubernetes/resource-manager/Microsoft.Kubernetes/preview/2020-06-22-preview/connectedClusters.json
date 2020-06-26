@@ -987,16 +987,20 @@
           "type":"string"
         },
         "selfLink": {
-          "type": "string"
+          "type": "string",
+          "required":true
         },
         "resourceVersion": {
-          "type": "string"
+          "type": "string",
+          "required":true
         },
         "uid":{
-          "type":"string"
+          "type":"string",
+          "required":true
         },
         "creationTimestamp": {
           "type": "string",
+          "required":true,
           "description": "Timestamp when namespace was created"
         },
         "labels": {
