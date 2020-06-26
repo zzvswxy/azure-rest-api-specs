@@ -113,7 +113,6 @@
       "delete": {
         "description": "Delete Environment",
         "operationId": "Environment_Delete",
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Delete environment": {
             "$ref": "./examples/deleteEnvironment.json"
