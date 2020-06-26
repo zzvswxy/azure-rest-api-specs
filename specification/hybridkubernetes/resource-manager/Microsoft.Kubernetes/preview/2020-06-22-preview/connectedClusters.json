@@ -993,20 +993,16 @@
           "type":"string"
         },
         "selfLink": {
-          "type": "string",
-          "required":true
-        },
+          "type": "string"
+       },
         "resourceVersion": {
-          "type": "string",
-          "required":true
-        },
+          "type": "string"
+       },
         "uid":{
-          "type":"string",
-          "required":true
-        },
+          "type":"string"
+       },
         "creationTimestamp": {
           "type": "string",
-          "required":true,
           "description": "Timestamp when namespace was created"
         },
         "labels": {
