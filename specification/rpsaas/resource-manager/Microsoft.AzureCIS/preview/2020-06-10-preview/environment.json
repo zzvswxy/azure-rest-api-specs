@@ -30,6 +30,7 @@
       "put": {
         "description": "Create Update environment.",
         "operationId": "Environment_CreateUpdate",
+        "x-ms-long-running-operation": false,
         "x-ms-examples": {
           "Create or update environment": {
             "$ref": "./examples/createOrUpdateEnvironment.json"
@@ -76,6 +77,7 @@
       "get": {
         "description": "Returns an Environment info",
         "operationId": "EnvironmentInfo_Get",
+        "x-ms-long-running-operation": false,
         "x-ms-examples": {
           "Get environment": {
             "$ref": "./examples/getEnvironment.json"
@@ -113,6 +115,7 @@
       "delete": {
         "description": "Delete Environment",
         "operationId": "Environment_Delete",
+        "x-ms-long-running-operation": false,
         "x-ms-examples": {
           "Delete environment": {
             "$ref": "./examples/deleteEnvironment.json"
@@ -145,75 +148,6 @@
               "$ref": "#/definitions/ErrorResponse"
             }
           }
-        }
-      }
-    },
-    "/providers/Microsoft.AzureCIS/locations/{location}/operationsStatus/{operationId}": {
-      "get": {
-        "description": "Get Operation Status",
-        "operationId": "OperationStatus_Get",
-        "x-ms-examples": {
-          "Get environment": {
-            "$ref": "./examples/getOperationStatus.json"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/OperationIdParameter"
-          },
-          {
-            "$ref": "#/parameters/LocationParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Get Operation ID",
-            "schema": {
-              "$ref": "#/definitions/OperationStatusResponse"
-            }
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/providers/Microsoft.AzureCIS/Operations": {
-      "get": {
-        "description": "List operations",
-        "operationId": "Operations_List",
-        "x-ms-examples": {
-          "Get environment": {
-            "$ref": "./examples/getOperationList.json"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List Operations",
-            "schema": {
-              "$ref": "#/definitions/OperationListResult"
-            }
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
         }
       }
     }
