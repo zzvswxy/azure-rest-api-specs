@@ -215,12 +215,6 @@
           },
           "204": {
             "description": "The resource was not found but the request is well formed"
-          },
-          "default": {
-            "description": "Resource Provider error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           }
         },
         "x-ms-long-running-operation": true,
