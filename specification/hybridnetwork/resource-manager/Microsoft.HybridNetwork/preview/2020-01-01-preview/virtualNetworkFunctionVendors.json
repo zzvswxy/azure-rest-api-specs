@@ -210,28 +210,26 @@
     },
     "VendorDetails": {
       "properties": {
-        "vendorName": {
-          "type": "string",
-          "description": "The virtual network function vendor name."
-        },
-        "skuList": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SkuOverview"
+          "vendorName": {
+            "type": "string",
+            "description": "The virtual network function vendor name."
           },
-          "description": "The virtual network function sku list."
-        }
+          "skuList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/SkuOverview"
+            },
+            "description": "The virtual network function sku list."
+          }
       },
       "description": "The virtual network function vendor details."
     },
     "VirtualNetworkFunctionVendor": {
       "properties": {
-        "vendors": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VendorDetails"
-          },
-          "description": "An array of vendor details."
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/VendorDetails",
+          "description": "Vendors of the hybrid network service provider."
         }
       },
       "description": "The virtual network function vendor."
@@ -241,7 +239,7 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VendorDetails"
+            "$ref": "#/definitions/VirtualNetworkFunctionVendor"
           },
           "description": "A list of available hybrid network virtual network function vendors and skus."
         },
