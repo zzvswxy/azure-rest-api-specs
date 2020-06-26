@@ -4,13 +4,10 @@
   "info": {
     "title": "OLPControlPlaneServiceAPI",
     "description": "OLPControlPlaneServiceAPI",
-    "version": "v1"
+    "version": "2020-06-01-preview"
   },
-  "produces": [
-    "text/plain",
-    "application/json",
-    "text/json"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/merchants/{merchantName}": {
       "get": {
@@ -23,34 +20,29 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "merchantName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
             "description": "",
             "schema": {
               "$ref": "#/definitions/MerchantAccount"
             }
           },
           "default": {
-            "x-nullable": false,
             "description": "",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
@@ -63,40 +55,32 @@
           "MerchantAccount"
         ],
         "operationId": "MerchantAccount_Put",
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
         "parameters": [
           {
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "merchantName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
-            "name": "merchantId",
+            "name": "merchantAccount",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "x-nullable": false
+              "$ref": "#/definitions/MerchantAccount"
+            }
           }
         ],
         "responses": {
@@ -126,28 +110,24 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "merchantId",
-            "in": "query",
-            "x-nullable": true
+            "in": "query"
           },
           {
             "type": "string",
             "name": "merchantName",
             "in": "path",
-            "required": true,
-            "x-nullable": false
+            "required": true
           }
         ],
         "responses": {
@@ -178,15 +158,13 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           },
           {
             "type": "string",
             "name": "resourceGroupName",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           }
         ],
         "responses": {
@@ -194,10 +172,7 @@
             "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/MerchantAccount"
-              }
+                "$ref": "#/definitions/MerchantAccountList"
             }
           },
           "default": {
@@ -221,8 +196,7 @@
             "type": "string",
             "name": "subscriptionId",
             "in": "path",
-            "required": true,
-            "x-nullable": true
+            "required": true
           }
         ],
         "responses": {
@@ -230,10 +204,7 @@
             "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/MerchantAccount"
-              }
+                "$ref": "#/definitions/MerchantAccountList"
             }
           },
           "default": {
@@ -248,26 +219,126 @@
     }
   },
   "definitions": {
-    "MerchantAccount": {
-      "type": "object",
-      "required": [
-        "name"
-      ],
+    "Resource": {
+      "description": "An Azure resource.",
       "properties": {
-        "merchantId": {
-          "type": "string"
+        "id": {
+          "description": "Azure resource Id.",
+          "type": "string",
+          "readOnly": true
+        },
+        "subscriptionId": {
+          "description": "Azure rubscription Id.",
+          "type": "string",
+          "readOnly": false
+        },
+        "resourceGroup": {
+          "description": "Azure resource group.",
+          "type": "string",
+          "readOnly": false
         },
         "name": {
+          "description": "Azure resource name.",
           "type": "string",
-          "minLength": 1
+          "readOnly": false
+        },
+        "type": {
+          "description": "Azure resource type.",
+          "type": "string",
+          "readOnly": false
+        },
+        "sku": {
+          "description": "Sku of resource definition",
+          "type": "string",
+          "readOnly": false
+        },
+        "managedBy": {
+          "description": "Who manages the resource",
+          "type": "string",
+          "readOnly": false
+        },
+        "location": {
+          "description": "Location of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "zone": {
+          "description": "Availability zone of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "plan": {
+          "description": "The resource plan",
+          "type": "string",
+          "readOnly": false
+        },
+        "etag": {
+          "description": "The etag",
+          "type": "string",
+          "readOnly": false
+        },
+        "tags": {
+          "description": "resource tags.",
+          "type": "object",
+          "readOnly": false,
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "scale": {
+          "description": "The scale",
+          "type": "string",
+          "readOnly": false
+        },
+        "identity": {
+          "description": "The resource identity",
+          "type": "string",
+          "readOnly": false
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "MerchantAccount": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "merchantId": {
+              "type": "string",
+              "readOnly": false
+            },
+            "merchantName": {
+              "type": "string",
+              "readOnly": false
+            },
+            "provisioningState": {
+              "type": "string",
+              "readOnly": false
+            }
+          }
         }
       }
     },
-    "ErrorResponse": {
+    "MerchantAccountList": {
+      "description": "The list of merchant account resources.",
       "type": "object",
       "properties": {
-        "error": {
-          "$ref": "#/definitions/ErrorObject"
+        "nextLink": {
+          "description": "The link used to get the next page of merchant account resources list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of merchant accounts.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MerchantAccount"
+          }
         }
       }
     },
@@ -279,6 +350,14 @@
         },
         "message": {
           "type": "string"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorObject"
         }
       }
     }
