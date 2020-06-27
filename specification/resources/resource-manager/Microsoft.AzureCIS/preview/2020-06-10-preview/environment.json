@@ -26,16 +26,10 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureCIS/autopilotEnvironments/{resourceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureCIS/autopilot/{resourceName}": {
       "put": {
         "description": "Create Update environment.",
         "operationId": "Environment_CreateUpdate",
-        "x-ms-long-running-operation": false,
-        "x-ms-examples": {
-          "Create or update environment": {
-            "$ref": "./examples/createOrUpdateEnvironment.json"
-          }
-        },
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -77,12 +71,6 @@
       "get": {
         "description": "Returns an Environment info",
         "operationId": "EnvironmentInfo_Get",
-        "x-ms-long-running-operation": false,
-        "x-ms-examples": {
-          "Get environment": {
-            "$ref": "./examples/getEnvironment.json"
-          }
-        },
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -115,12 +103,6 @@
       "delete": {
         "description": "Delete Environment",
         "operationId": "Environment_Delete",
-        "x-ms-long-running-operation": false,
-        "x-ms-examples": {
-          "Delete environment": {
-            "$ref": "./examples/deleteEnvironment.json"
-          }
-        },
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -253,27 +235,6 @@
         "environmentResource": {
           "$ref": "#/definitions/EnvironmentResource",
           "description": "EnvironmentResource detail"
-        }
-      }
-    },
-    "OperationListResult": {
-      "required": [
-        "nextLink",
-        "value"
-      ],
-      "type": "object",
-      "description": "Autopilot Environment Response",
-      "properties": {
-        "nextLink": {
-          "type": "string",
-          "description": "URL to get the next set of operation list results if there are any."
-        },
-        "value": {
-          "description": "List of Microsoft.AzureCIS operations.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Operation"
-          }
         }
       }
     },
