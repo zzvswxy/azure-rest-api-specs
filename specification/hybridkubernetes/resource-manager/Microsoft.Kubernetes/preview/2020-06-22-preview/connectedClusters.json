@@ -982,26 +982,25 @@
     "NamespaceProperties": {
       "description": "Metadata describing the namespace",
       "type": "object",
-      "required":[
-        "selfLink",
-        "resourceVersion",
-        "uid",
-        "creationTimestamp"
-      ],
       "properties": {
         "name":{
+          "readOnly":true,
           "type":"string"
         },
         "selfLink": {
+          "readOnly":true,
           "type": "string"
        },
         "resourceVersion": {
+          "readOnly":true,
           "type": "string"
        },
         "uid":{
+          "readOnly":true,
           "type":"string"
        },
         "creationTimestamp": {
+          "readOnly":true,
           "type": "string",
           "description": "Timestamp when namespace was created"
         },
