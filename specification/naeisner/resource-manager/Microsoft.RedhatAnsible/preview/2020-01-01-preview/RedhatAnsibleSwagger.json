@@ -187,6 +187,30 @@
           "type": "string",
           "pattern": "^(tower|awx)(-)?.*$"
         },
+        "tower_ingress_type": {
+          "type": "string"
+        },
+        "tower_secret_key": {
+          "type": "string"
+        },
+        "tower_broadcast_websocket_secret": {
+          "type": "string"
+        },
+        "tower_admin_user": {
+          "type": "string"
+        },
+        "tower_admin_email": {
+          "type": "string"
+        },
+        "tower_admin_password": {
+          "type": "string"
+        },
+        "tower_task_image": {
+          "type": "string"
+        },
+        "tower_web_image": {
+          "type": "string"
+        },
         "provisioningState": {
           "type": "string"
         }
