@@ -190,6 +190,12 @@
         "tower_ingress_type": {
           "type": "string"
         },
+        "tower_task_privileged": {
+          "type": "boolean"
+        },
+        "tower_hostname": {
+          "type": "string"
+        },
         "tower_secret_key": {
           "type": "string"
         },
@@ -209,6 +215,33 @@
           "type": "string"
         },
         "tower_web_image": {
+          "type": "string"
+        },
+        "tower_web_mem_request": {
+          "type": "string"
+        },
+        "tower_web_cpu_request": {
+          "type": "string"
+        },
+        "tower_create_preload_data": {
+          "type": "boolean"
+        },
+        "tower_memcached_image": {
+          "type": "string"
+        },
+        "tower_redis_image": {
+          "type": "string"
+        },
+        "tower_postgres_pass": {
+          "type": "string"
+        },
+        "tower_postgres_image": {
+          "type": "string"
+        },
+        "tower_postgres_storage_request": {
+          "type": "string"
+        },
+        "tower_postgres_storage_class": {
           "type": "string"
         },
         "provisioningState": {
