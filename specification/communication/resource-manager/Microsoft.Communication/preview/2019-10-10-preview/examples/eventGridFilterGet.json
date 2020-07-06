@@ -30,12 +30,6 @@
           }
         }
       }
-    },
-    "default": {
-      "body": {
-        "code": "NotFound",
-        "message": "Requested resource not found"
-      }
     }
   }
 }

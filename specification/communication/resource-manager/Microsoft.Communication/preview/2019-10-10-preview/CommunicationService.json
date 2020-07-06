@@ -150,7 +150,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Communication/CommunicationServices": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Communication/communicationServices": {
       "get": {
         "description": "Handles requests to list all resources in a subscription.",
         "operationId": "CommunicationService_ListBySubscription",
@@ -189,7 +189,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices": {
       "get": {
         "description": "Handles requests to list all resources in a resource group.",
         "operationId": "CommunicationService_ListByResourceGroup",
@@ -231,7 +231,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}": {
       "patch": {
         "description": "Operation to update an existing CommunicationService.",
         "operationId": "CommunicationService_Update",
@@ -416,6 +416,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "The delete operation was successful."
+          },
           "202": {
             "description": "The delete operation is being performed in the background.",
             "headers": {
@@ -447,7 +450,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}/listKeys": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}/listKeys": {
       "post": {
         "description": "Get the access keys of the CommunicationService resource.",
         "operationId": "CommunicationService_ListKeys",
@@ -489,7 +492,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}/regenerateKey": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}/regenerateKey": {
       "post": {
         "description": "Regenerate CommunicationService access key. PrimaryKey and SecondaryKey cannot be regenerated at the same time.",
         "operationId": "CommunicationService_RegenerateKey",
@@ -553,13 +556,18 @@
       "description": "Error response indicating why the requested operation could not be performed.",
       "type": "object",
       "properties": {
-        "code": {
-          "description": "Error code.",
-          "type": "string"
-        },
-        "message": {
-          "description": "Error message indicating why the operation failed.",
-          "type": "string"
+        "error": {
+          "description": "The error",
+          "properties": {
+            "code": {
+              "description": "Error code.",
+              "type": "string"
+            },
+            "message": {
+              "description": "Error message indicating why the operation failed.",
+              "type": "string"
+            }
+          }
         }
       }
     },
@@ -805,7 +813,8 @@
         },
         "error": {
           "description": "Operation Error message",
-          "$ref": "#/definitions/ErrorResponse"
+          "$ref": "#/definitions/ErrorResponse",
+          "x-ms-client-flatten": true
         }
       }
     },

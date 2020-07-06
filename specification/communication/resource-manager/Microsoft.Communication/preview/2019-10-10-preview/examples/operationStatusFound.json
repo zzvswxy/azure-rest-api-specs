@@ -16,8 +16,10 @@
       },
       "404": {
         "body": {
-          "code": "OperationNotFound",
-          "message": "The requested async operation was not found"
+          "error": {
+            "code": "OperationNotFound",
+            "message": "The requested async operation was not found"
+          }
         }
       }
     }
