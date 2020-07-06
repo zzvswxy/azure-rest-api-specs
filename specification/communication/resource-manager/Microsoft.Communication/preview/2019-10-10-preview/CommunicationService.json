@@ -261,8 +261,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success. The response describes a CommunicationService which is not up-to-date.",
+          "201": {
+            "description": "The update request was accepted",
+            "headers": {
+              "location": {
+                "description": "URL to query for status of the operation.",
+                "type": "string"
+              },
+              "Azure-AsyncOperation": {
+                "description": "URL to query for status of the operation.",
+                "type": "string"
+              }
+            },
             "schema": {
               "$ref": "#/definitions/CommunicationServiceResource"
             }
@@ -279,7 +289,8 @@
           "Update resource": {
             "$ref": "./examples/update.json"
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "get": {
         "description": "Get the CommunicationService and its properties.",
@@ -351,8 +362,18 @@
         ],
         "consumes": [ "application/json" ],
         "responses": {
-          "200": {
-            "description": "An existing resource was updated. The response describes the existing service and contains an Azure-AsyncOperation header to query the operation result.",
+          "201": {
+            "description": "The create or update request was accepted",
+            "headers": {
+              "location": {
+                "description": "URL to query for status of the operation.",
+                "type": "string"
+              },
+              "Azure-AsyncOperation": {
+                "description": "URL to query for status of the operation.",
+                "type": "string"
+              }
+            },
             "schema": {
               "$ref": "#/definitions/CommunicationServiceResource"
             }
@@ -395,11 +416,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "The resource has been deleted successfully."
-          },
           "202": {
-            "description": "The delete operation is being performed in the background."
+            "description": "The delete operation is being performed in the background.",
+            "headers": {
+              "location": {
+                "description": "URL to query for status of the operation.",
+                "type": "string"
+              },
+              "Azure-AsyncOperation": {
+                "description": "URL to query for status of the operation.",
+                "type": "string"
+              }
+            }
           },
           "204": {
             "description": "The resource did not exist."

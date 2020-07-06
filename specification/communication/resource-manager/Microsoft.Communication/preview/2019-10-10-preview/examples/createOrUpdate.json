@@ -11,9 +11,10 @@
     }
   },
   "responses": {
-    "200": {
+    "201": {
       "headers": {
-        "Azure-AsyncOperation": "http://management.azure.com/subscriptions/12345/providers/Microsoft.Communication/operations/67890"
+        "Location": "https://management.azure.com/providers/Microsoft.Communication/locations/westus/operationStatuses/ed5d502c-acaa-42ec-ad61-0d8488a9fd1d",
+        "Azure-AsyncOperation": "https://management.azure.com/providers/Microsoft.Communication/locations/westus/operationStatuses/ed5d502c-acaa-42ec-ad61-0d8488a9fd1d"
       },
       "body": {
         "id": "/subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource",
@@ -21,9 +22,7 @@
         "type": "Microsoft.Communication/CommunicationServices",
         "location": "West US",
         "properties": {
-          "provisioningState": "Succeeded",
-          "hostName": "mycommunicationservice.comms.azure.net",
-          "version": "0.2.0"
+          "provisioningState": "Accepted"
         }
       }
     }
