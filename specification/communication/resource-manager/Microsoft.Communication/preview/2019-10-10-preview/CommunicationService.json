@@ -244,7 +244,7 @@
             "description": "Parameters for the update operation",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/CommunicationServiceResource"
+              "$ref": "#/definitions/TaggedResource"
             }
           },
           {
