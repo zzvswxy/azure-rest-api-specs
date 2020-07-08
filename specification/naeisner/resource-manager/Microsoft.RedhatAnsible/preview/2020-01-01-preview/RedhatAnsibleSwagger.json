@@ -181,6 +181,46 @@
     }
   },
   "definitions": {
+    "ansiblecondition": {
+      "type": "object",
+      "properties": {
+        "ansibleResult": {
+          "type": "object",
+          "properties": {
+            "changed":{
+              "type": "integer"
+            },
+            "completion": {
+              "type": "string"
+            },
+            "failures": {
+              "type": "integer"
+            },
+            "ok": {
+              "type": "integer"
+            },
+            "skipped": {
+              "type": "integer"
+            }
+          }
+        },
+        "lastTransitionTime": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "reason":{
+          "type":"string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
     "ansibletowersProperties": {
       "properties": {
         "deployment_type": {
@@ -246,6 +286,17 @@
         },
         "provisioningState": {
           "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ansiblecondition"
+              }
+            }
+          }
         }
       }
     },
