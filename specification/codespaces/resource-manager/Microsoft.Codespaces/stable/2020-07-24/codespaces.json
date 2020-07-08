@@ -438,7 +438,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans": {
       "get": {
         "tags": [
           "CodespacesPlan"
@@ -480,7 +480,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Codespaces/plans/": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Codespaces/plans": {
       "get": {
         "tags": [
           "CodespacesPlan"
