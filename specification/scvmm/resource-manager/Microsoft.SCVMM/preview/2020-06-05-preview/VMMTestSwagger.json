@@ -822,7 +822,8 @@
                   "enum": [
                     "Provisioning",
                     "Succeeded",
-                    "Failed"
+                    "Failed",
+                    "Cancelled"
                   ]
                 }
               },
