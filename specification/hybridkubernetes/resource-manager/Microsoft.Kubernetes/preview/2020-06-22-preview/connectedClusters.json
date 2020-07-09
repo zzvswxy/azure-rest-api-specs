@@ -1043,7 +1043,7 @@
           "$ref": "#/definitions/NamespaceMetadata"
         },
         "spec": {
-          "$ref": "#definitions/NamespaceSpec"
+          "$ref": "#/definitions/NamespaceSpec"
         },
         "status": {
           "$ref": "#/definitions/NamespaceStatus"
