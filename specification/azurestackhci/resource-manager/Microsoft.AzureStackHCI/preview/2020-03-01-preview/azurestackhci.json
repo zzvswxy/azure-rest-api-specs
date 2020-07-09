@@ -356,8 +356,10 @@
           "description": "Status of the cluster agent.",
           "type": "string",
           "enum": [
-            "Connected",
-            "Disconnected",
+            "NeverConnected",
+            "ConnectedRecently",
+            "NotConnectedRecently",
+            "Expired",
             "Error"
           ],
           "x-ms-enum": {
