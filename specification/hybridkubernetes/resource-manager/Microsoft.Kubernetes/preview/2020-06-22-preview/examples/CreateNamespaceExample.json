@@ -9,10 +9,13 @@
       "name": "default",
       "type": "Microsoft.Kubernetes/conenctedClusters/namespace",
       "properties": {
-        "selfLink": "/api/v1/namespaces/default",
-        "resourceVersion": "1473818",
-        "uid": "2ba3e3f3-cd02-4387-9d6f-1003fbd319b7",
-        "creationTimestamp": "2020-05-22T05:09:42Z"
+        "metadata":{
+          "name": "default",
+          "selfLink": "/api/v1/namespaces/default",
+          "resourceVersion": "1473818",
+          "uid": "2ba3e3f3-cd02-4387-9d6f-1003fbd319b7",
+          "creationTimestamp": "2020-05-22T05:09:42Z"
+        }
       }
     }
   },
