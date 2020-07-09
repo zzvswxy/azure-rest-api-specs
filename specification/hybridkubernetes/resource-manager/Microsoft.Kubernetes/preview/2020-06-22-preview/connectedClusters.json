@@ -983,40 +983,8 @@
       "description": "Metadata describing the namespace",
       "type": "object",
       "properties": {
-        "name":{
-          "readOnly":true,
-          "type":"string"
-        },
-        "selfLink": {
-          "readOnly":true,
-          "type": "string"
-       },
-        "resourceVersion": {
-          "readOnly":true,
-          "type": "string"
-       },
-        "uid":{
-          "readOnly":true,
-          "type":"string"
-       },
-        "creationTimestamp": {
-          "readOnly":true,
-          "type": "string",
-          "description": "Timestamp when namespace was created"
-        },
-        "labels": {
-          "description": "Labels on the namespace",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/namespaceLabel"
-          }
-        },
-        "annotations": {
-          "description": "Annotations on the namespace",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/namespaceAnnotation"
-          }
+        "metadata":{
+          "$ref": "#/definitions/NamespaceMetadata"
         },
         "spec":{
           "$ref":"#/definitions/NamespaceSpec"
@@ -1070,6 +1038,55 @@
       "properties": {
         "internalMetadata": {
           "$ref": "#/definitions/NamespaceInternalMetadata"
+        },
+        "metadata": {
+          "$ref": "#/definitions/NamespaceMetadata"
+        },
+        "spec": {
+          "$ref": "#definitions/NamespaceSpec"
+        },
+        "status": {
+          "$ref": "#/definitions/NamespaceStatus"
+        }
+      }
+    },
+    "NamespaceMetadata":{
+      "type": "object",
+      "properties": {
+        "name":{
+          "readOnly":true,
+          "type":"string"
+        },
+        "selfLink": {
+          "readOnly":true,
+          "type": "string"
+       },
+        "resourceVersion": {
+          "readOnly":true,
+          "type": "string"
+       },
+        "uid":{
+          "readOnly":true,
+          "type":"string"
+       },
+        "creationTimestamp": {
+          "readOnly":true,
+          "type": "string",
+          "description": "Timestamp when namespace was created"
+        },
+        "labels": {
+          "description": "Labels on the namespace",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/namespaceLabel"
+          }
+        },
+        "annotations": {
+          "description": "Annotations on the namespace",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/namespaceAnnotation"
+          }
         }
       }
     },
