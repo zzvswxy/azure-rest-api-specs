@@ -514,33 +514,39 @@
                   "description": "The host name of the machine",
                   "readOnly": true
                 },
-                "osFamily":{
-                  "type":"string",
-                  "description": "Family of the OS will be Windows or Linux. Assessment of Linux machines not supported for now",
-                  "enum": [
-                    "Windows",
-                    "Linux"
-                  ],
-                  "x-ms-enum":{
-                    "name":"OsFamily",
-                    "modelAsString":false
-                  },
-                  "readOnly": true
-                },
-                "osSkuName":{
-                  "type":"string",
-                  "description": "The OS sku name of the machine",
-                  "readOnly": true
-                },
-                "osVersion":{
-                  "type":"string",
-                  "description": "The version of the OS",
-                  "readOnly": true
-                },
-                "osBuildNumber":{
-                  "type":"string",
-                  "description": "The build number of the OS",
-                  "readOnly": true
+                "osDetails":{
+                  "type":"object",
+                  "description": "Operating system details",
+                  "properties": {
+                    "family":{
+                      "type":"string",
+                      "description": "Family of the OS will be Windows or Linux. Assessment of Linux machines not supported for now",
+                      "enum": [
+                        "Windows",
+                        "Linux"
+                      ],
+                      "x-ms-enum":{
+                        "name":"OsFamily",
+                        "modelAsString":false
+                      },
+                      "readOnly": true
+                    },
+                    "skuName":{
+                      "type":"string",
+                      "description": "The OS sku name of the machine",
+                      "readOnly": true
+                    },
+                    "version":{
+                      "type":"string",
+                      "description": "The version of the OS",
+                      "readOnly": true
+                    },
+                    "buildNumber":{
+                      "type":"string",
+                      "description": "The build number of the OS",
+                      "readOnly": true
+                    }
+                  }
                 },
                 "appraiser":{
                   "type":"object",
