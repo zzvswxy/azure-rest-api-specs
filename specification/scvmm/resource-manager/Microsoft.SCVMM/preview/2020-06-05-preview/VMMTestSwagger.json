@@ -99,9 +99,16 @@
           {
             "$ref": "#/parameters/ApiVersionParameter"
           }
-		"patch": {
-		  "operationId": "VMMServers_Update",
-		  "parameters": [
+		],
+        "responses": {
+          "200": {
+            "description": "Deletes the VMMServers resource."
+          }
+		}
+	  },
+	  "patch": {
+		"operationId": "VMMServers_Update",
+		"parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
@@ -129,14 +136,7 @@
             "description": "Successful.",
             "schema": {
               "$ref": "#/definitions/VMMServers"
-              }
             }
-          }
-        }
-        ],
-        "responses": {
-          "200": {
-            "description": "Deletes the VMMServers resource."
           }
         }
       }
@@ -301,7 +301,7 @@
           }
         }
       },
-	   "patch": {
+	  "patch": {
         "description": "Update cloud details.",
         "operationId": "Clouds_Update",
         "parameters": [
@@ -475,7 +475,7 @@
           }
         }
       },
-	   "patch": {
+	  "patch": {
         "description": "Update virtual network details.",
         "operationId": "VirtualNetworks_Update",
         "parameters": [
