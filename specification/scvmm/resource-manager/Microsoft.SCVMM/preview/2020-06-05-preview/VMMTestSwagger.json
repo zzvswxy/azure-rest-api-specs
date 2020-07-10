@@ -99,6 +99,40 @@
           {
             "$ref": "#/parameters/ApiVersionParameter"
           }
+		"patch": {
+		  "operationId": "VMMServers_Update",
+		  "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/VMMServersNameParameter"
+          },
+          {
+            "name": "VMMServersPatchResource",
+            "description": "VMMServers patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VMMServers"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/VMMServers"
+              }
+            }
+          }
+        }
         ],
         "responses": {
           "200": {
@@ -266,6 +300,41 @@
             "description": "Deletes the Clouds resource."
           }
         }
+      },
+	   "patch": {
+        "description": "Update cloud details.",
+        "operationId": "Clouds_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/CloudsNameParameter"
+          },
+          {
+            "name": "CloudsPatchResource",
+            "description": "Clouds patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Clouds"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/Clouds"
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds": {
@@ -403,6 +472,41 @@
         "responses": {
           "200": {
             "description": "Deletes the VirtualNetworks resource."
+          }
+        }
+      },
+	   "patch": {
+        "description": "Update virtual network details.",
+        "operationId": "VirtualNetworks_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworksNameParameter"
+          },
+          {
+            "name": "VirtualNetworksPatchResource",
+            "description": "VirtualNetworks patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworks"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworks"
+            }
           }
         }
       }
@@ -544,6 +648,41 @@
             "description": "Deletes the VirtualMachines resource."
           }
         }
+      },
+	  "patch": {
+        "description": "Update nested resource type details.",
+        "operationId": "VirtualMachines_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualMachinesNameParameter"
+          },
+          {
+            "name": "VirtualMachinesPatchResource",
+            "description": "VirtualMachines patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualMachines"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachines"
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachines": {
@@ -681,6 +820,41 @@
         "responses": {
           "200": {
             "description": "Deletes the VirtualMachineTemplates resource."
+          }
+        }
+      },
+	  "patch": {
+        "description": "Update virtual machine template details.",
+        "operationId": "VirtualMachineTemplates_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
+          },
+          {
+            "name": "VirtualMachineTemplatesPatchResource",
+            "description": "VirtualMachineTemplates patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineTemplates"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/VirtualMachineTemplates"
+            }
           }
         }
       }
