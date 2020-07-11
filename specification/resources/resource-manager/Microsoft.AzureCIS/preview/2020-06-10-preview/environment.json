@@ -44,12 +44,12 @@
             "$ref": "#/parameters/ResourceNameParameter"
           },
           {
-            "name": "EnvironmentResource",
+            "name": "EnvironmentResponse",
             "description": "Environment details.",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/EnvironmentResource"
+              "$ref": "#/definitions/EnvironmentResponse"
             }
           }
         ],
@@ -135,13 +135,16 @@
     }
   },
   "definitions": {
+    "EnvironmentResponse": {
+      "description": "Error response indicates that the service is not able to process the incoming request.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/EnvironmentResource",
+          "description": "The error details."
+        }
+      }
+    },
     "EnvironmentResource": {
-      "required": [
-        "modelEnvironment",
-        "mode",
-        "enlistmentType",
-        "naming"
-      ],
       "type": "object",
       "description": "Environment details",
       "properties": {
