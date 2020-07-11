@@ -66,7 +66,7 @@
             "$ref": "#/definitions/ErrorResponse"
             }
           }
-        },
+        }
       },
       "get": {
         "description": "Returns an Environment info",
@@ -190,7 +190,7 @@
           "type": "string",
           "description": "Location"
         },
-        "provisioningState": {
+        "status": {
           "type": "string",
           "description": "RP defined values | Succeeded | Failed | Canceled"
         },
@@ -238,52 +238,6 @@
         }
       }
     },
-    "Operation": {
-      "required": [
-        "name",
-        "display"
-      ],
-      "type": "object",
-      "description": "Autopilot Environment Response",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Operation name: {provider}/{resource}/{operation}"
-        },
-        "display": {
-          "$ref": "#/definitions/Display",
-          "description": "The object that represents the operation."
-        }
-      }
-    },
-    "Display": {
-      "required": [
-        "description",
-        "operation",
-        "provider",
-        "resource"
-      ],
-      "type": "object",
-      "description": "The object that represents the operation.",
-      "properties": {
-        "description": {
-          "type": "string",
-          "description": "Description of the operation."
-        },
-        "operation": {
-          "type": "string",
-          "description": "Operation type: Read, write, delete, etc."
-        },
-        "provider": {
-          "type": "string",
-          "description": "Service provider: Microsoft.AzureCIS"
-        },
-        "resource": {
-          "type": "string",
-          "description": "Resource on which the operation is performed: Profile, endpoint, etc."
-        },
-      }
-    },
     "ErrorResponse": {
       "description": "Error response indicates that the service is not able to process the incoming request.",
       "properties": {
@@ -305,13 +259,6 @@
           "description": "Description of the error.",
           "type": "string",
           "readOnly": true
-        },
-        "details": {
-          "description": "Internal error details.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ErrorDefinition"
-          }
         }
       }
     }
