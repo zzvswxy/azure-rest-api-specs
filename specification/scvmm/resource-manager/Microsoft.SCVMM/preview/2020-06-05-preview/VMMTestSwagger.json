@@ -940,6 +940,9 @@
           "maximum": 65535.0,
           "minimum": 1.0
         },
+		"provisioningState": {
+          "type": "string"
+        },
         "status": {
           "type": "object",
           "properties": {
@@ -1108,6 +1111,9 @@
             }
           },
           "description": "VMMServer ResourceReference contains resource information such as name and namespace."
+        },
+		"provisioningState": {
+          "type": "string"
         },
         "status": {
           "type": "object",
@@ -1722,6 +1728,9 @@
             }
           },
           "description": "VMMServer ResourceReference contains resource information such as name and namespace."
+        },
+		"provisioningState": {
+          "type": "string"
         },
         "status": {
           "type": "object",
@@ -2481,7 +2490,10 @@
           },
           "description": "VMMServerRef is the resource reference to the SCVMM server on which the virtual machine is created/located."
         },
-        "status": {
+        "provisioningState": {
+          "type": "string"
+        },
+		"status": {
           "type": "object",
           "properties": {
             "cpuCount": {
@@ -3270,6 +3282,9 @@
             }
           },
           "description": "VMMServer ResourceReference contains resource information such as name and namespace."
+        },
+		"provisioningState": {
+          "type": "string"
         },
         "status": {
           "type": "object",
