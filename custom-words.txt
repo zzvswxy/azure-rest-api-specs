@@ -56,6 +56,7 @@ AND'ed
 Annotatable
 anomalydetector
 anomalyfinder
+antimeridian
 APAC
 APACHEAVRO
 API's
@@ -190,6 +191,7 @@ baremetal
 BATCHAI
 batchmanaged
 BAYESIANOPTIMIZATION
+bbox
 BCDR
 BCWG
 beider
@@ -234,6 +236,8 @@ Bokmaal
 Bootstrappers
 bot's
 botservice
+boundingbox
+boundingzoom
 brazilsouth
 browsable
 bruceper
@@ -266,6 +270,7 @@ certificatescreateorupdate
 certificatesdelete
 Certificatethumbprint
 certverify
+Chademo
 chainer
 changestate
 CHECKACCESS
@@ -351,6 +356,7 @@ Cran
 creatable
 createconsumergroup
 createorupdate
+createpreview
 credativ
 crossdomain
 csname
@@ -377,6 +383,7 @@ CUTOVER
 CVEs
 CVSS
 Cyrl
+darkgrey
 databox
 Databricks
 datacatalog
@@ -395,6 +402,7 @@ Datamasking
 datamigration
 datapoint
 Dataset
+datasetid
 datasets
 datasource
 Datasources
@@ -453,6 +461,7 @@ devicetemplates
 devspaces
 devtestlab
 devtestlabs
+dewpoint
 dhcp
 diagnosticcontext
 digitaltwins
@@ -491,6 +500,7 @@ Edgenode
 edgenodes
 EDIFACT
 EDMX
+Einsteinweg
 Ekaterinburg
 ekus
 Eloqua
@@ -511,6 +521,7 @@ entitydocument
 entitysearch
 entrypoint
 environmentsettings
+EPSG
 errordetail
 errored
 ErrorMesssage
@@ -580,6 +591,7 @@ FPGA
 fqdn
 FQDNs
 Français
+freeflow
 frontdoor
 fsaction
 Fulfilment
@@ -599,10 +611,16 @@ generatelivetoken
 generateverificationcode
 generatevpnclientpackage
 generatevpnprofile
+geobias
+geocode
+geocodes
 Geofence
+geofences
 Geofencing
+geojson
 georegions
 georeplication
+geospatial
 GETACLSTATUS
 getactivationkey
 getavailablebillingfeatures
@@ -611,8 +629,10 @@ getconsumergroup
 GETCONTENTSUMMARY
 GETFILESTATUS
 getissuers
+getitems
 getjob
 getkey
+getmaptile
 getprivateendpointconnection
 getprivatelinkresources
 getsas
@@ -640,10 +660,12 @@ Groupby
 groupedby
 GRPC
 GSMT
+GTFS
 guestconfiguration
 GUID
 GUIDs
 GZRS
+Haag
 haase
 Había
 hadoop
@@ -674,6 +696,7 @@ Horovod
 hostnames
 Hotfix
 hotfixes
+HSLA
 HSMs
 Hubspot
 hybridconnection
@@ -745,6 +768,7 @@ isdirectory
 ishostingenvironmentnameavailable
 ishostnameavailable
 isnullable
+isochrone
 isordered
 issqlcompression
 istransitioning
@@ -785,6 +809,7 @@ keyvaulturi
 keyversion
 KHTML
 Kiswahili
+KMPH
 Knowledgebase
 knowledgebases
 koelner
@@ -822,6 +847,7 @@ libtrust
 lifecycle
 lifetimejobstats
 lifetimepoolstats
+Linestring
 linkedservices
 linkexpiryinminutes
 LISTAFTERID
@@ -888,12 +914,14 @@ managementgroups
 managementpartner
 managementpolicy
 manualupgrade
+mapbox
 mapred
 mapreduce
 mariadb
 Marketo
 marketplaceagreementsapi
 marketplaceordering
+maxcoordinates
 MAXERRORS
 maximumblobsize
 maxmemory
@@ -922,9 +950,11 @@ microservices
 microsofttranslator
 migratemysql
 migratetoaad
+mincoordinates
 minidump
 minimalmetadata
 ministamps
+Minkowski
 mixedreality
 Mkdirs
 mktorest
@@ -936,6 +966,7 @@ MODIFYACLENTRIES
 monitoringconfiguration
 monitoringconfigurations
 Monospace
+mountainview
 MPNS
 MRAN
 MSAZR
@@ -951,6 +982,8 @@ Multiclass
 MULTIJSON
 Multilabel
 multipart
+multipoint
+multipoints
 Multiset
 multistep
 multivalued
@@ -982,10 +1015,12 @@ n'recognition
 nagios
 namespace's
 nanoserver
+Napoli
 nbformat
 Nccl
 nchar
 ndjson
+Neighbourhood
 netapp
 netezza
 networkruleset
@@ -1025,6 +1060,7 @@ notificationchannels
 notificationhubs
 notstarted
 nouploadcache
+nowcasts
 nsdname
 nsku
 nsxt
@@ -1063,6 +1099,7 @@ operationresults
 operationsmanagement
 operationstatuses
 opid
+openlr
 oplog
 Optimised
 Optimiser
@@ -1079,6 +1116,8 @@ overprovision
 overprovisioned
 overprovisioning
 overridable
+overviewbox
+overviewzoom
 OWASP
 oxxm
 pageable
@@ -1118,6 +1157,7 @@ pkcs
 playready
 Plex
 Pohlmann
+pois
 policyassignments
 policydefinitions
 policyinsights
@@ -1291,6 +1331,7 @@ Responsys
 RESTAPI
 restoreheartbeat
 Restproxy
+restrant
 restype
 resumable
 resync
@@ -1323,6 +1364,7 @@ RPKI
 rpns
 RSAES
 RSASSA
+rstrnt
 rscc
 rscd
 rsce
@@ -1353,12 +1395,14 @@ sawinvm
 SBEH
 Scaleset
 scalesets
+Scame
 scanability
 SCMS
 SCOM
 scopemap
 SCSV
 sdks
+searchbuffer
 searchindex
 searchmanagementclient
 searchservice
@@ -1471,6 +1515,9 @@ starttask
 starttaskfailed
 starttime
 stateful
+stateset
+statesets
+statetile
 staticsite
 statusdir
 stderror
@@ -1491,6 +1538,7 @@ streamanalytics
 streamingendpoint
 streamingjobs
 streamingservice
+subcause
 subcomponent
 subdir
 subdomain
@@ -1558,6 +1606,7 @@ templatelink
 templeton
 temporarydisk
 tensorflow
+TEPCO's
 teradata
 terminatejob
 Termlist
@@ -1571,6 +1620,8 @@ textanalytics
 TFIDF
 Tful
 Tfvc
+tileset
+tilesets
 timeframe
 timegrain
 timeseries
@@ -1584,11 +1635,13 @@ tombstoned
 toolchain
 toolset
 tooltips
+TPEG
 traceback
 traceroute
 trafficmanager
 trafficmanageranalytics
 trafficmanagerprofiles
+trafficmodelid
 tráfico
 transcoding
 transcodes
@@ -1600,7 +1653,10 @@ triggerruns
 TSVE
 Turbonomic
 Txns
+typeahead
 Typeless
+udid
+udids
 UEBA
 Uint
 uksouth
@@ -1618,6 +1674,7 @@ unexamined
 Unigrams
 uniqueidentifier
 uniquestring
+unitless
 unixtime
 UNKNOWON
 unlocalized
@@ -1674,7 +1731,10 @@ userid
 userpreference
 usersetting
 usermanaged
+usertime
 USQL
+uturn
+UUIDs
 VAIDK
 varbinary
 varchar
@@ -1690,6 +1750,7 @@ Vertica
 Vfyc
 vhds
 videosearch
+viewp
 virtualclusters
 virtualip
 virtualmachine
@@ -1739,6 +1800,8 @@ waitingforstarttask
 WANAs
 WANs
 WASB
+waypoint
+waypoints
 WDATP
 WEBAPICONTAINER
 webapplicationfirewall
@@ -1769,6 +1832,7 @@ Whitelistings
 whitespaces
 Whois
 Widevine
+windingness
 windowsazuremediaservices
 windowsesu
 wlmengg
@@ -1786,7 +1850,9 @@ XBing
 Xeon
 Xero
 XSMB
+Xstr
 XVCJ
+Yazaki
 Yucatec
 Ywhk
 YYMMDD
@@ -1795,6 +1861,7 @@ Zerto
 Zilla
 ziplist
 Zoho
+zoneinfo
 zset
 MSAZRUSGO
 hypervcollectors
