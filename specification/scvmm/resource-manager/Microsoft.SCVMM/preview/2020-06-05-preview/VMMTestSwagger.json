@@ -752,26 +752,29 @@
               "description": "Namespace of resource that is being referred."
             }
           },
-          "description": "CredentialsSecretRef is the reference to the Kubernetes secret that has the 'username' and 'password' key/value pairs to use for connecting to vCenter."
+          "description": "CredentialsSecretRef is the reference to the Kubernetes secret that has the 'username' and 'password' key/value pairs to use for connecting to vmmServer."
         },
         "fqdn": {
           "type": "string",
-          "description": "Fqdn is the hostname/ip of the vCenter.",
+          "description": "Fqdn is the hostname/ip of the vmmServer.",
           "minLength": 1
         },
         "port": {
           "type": "integer",
           "format": "int32",
-          "description": "Port is the port on which the vCenter server is listening.",
+          "description": "Port is the port on which the vmmServer is listening.",
           "maximum": 65535.0,
           "minimum": 1.0
+        },
+        "provisioningState": {
+          "type": "string"
         },
         "status": {
           "type": "object",
           "properties": {
             "connectionStatus": {
               "type": "string",
-              "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+              "description": "define observed state of cluster",
               "enum": [
                 "NotAttempted",
                 "Connecting",
@@ -781,26 +784,57 @@
             },
             "errorMessage": {
               "type": "string",
-              "description": "ErrorMessage will be set in the event that there is a terminal problem reconciling the vCenter and will contain a more verbose string suitable for logging and human consumption. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the vCenter's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of vCenters can be added as events to the vCenter object and/or logged in the controller's output."
+              "description": "ErrorMessage will be set in the event that there is a terminal problem reconciling the vmmServer and will contain a more verbose string suitable for logging and human consumption. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the vmmServer's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of vmmServers can be added as events to the vmmServer object and/or logged in the controller's output."
             },
             "instanceUUID": {
               "type": "string",
-              "description": "InstanceUUID is the managed object reference ID of the vCenter server  modeled by this resource."
+              "description": "InstanceUUID is the managed object reference ID of the vmmServer  modeled by this resource."
             },
             "observedGeneration": {
               "type": "integer",
               "format": "int64",
-              "description": "ObservedGeneration is the last known generation observed in the vCenter resource."
+              "description": "ObservedGeneration is the last known generation observed in the vmmServer resource."
+            },
+            "provisioningStatus": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "Code contains any error code associated with the message."
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Message contains the string suitable for logging and human consumption."
+                    }
+                  },
+                  "description": "Error will be set in the event that there is a terminal problem reconciling the resource."
+                },
+                "operationID": {
+                  "type": "string",
+                  "description": "OperationID is the unique identifier for tracking any operation associated with this resource."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Status describes the job completion status. Only one of the following provisioning status may be specified.",
+                  "enum": [
+                    "Provisioning",
+                    "Succeeded",
+                    "Failed",
+                    "Cancelled"
+                  ]
+                }
+              },
+              "description": "ProvisioningStatus describes the provisioning status of the resource."
             },
             "version": {
               "type": "string",
-              "description": "Version is the version of the VMMServer server modeled by this resource."
+              "description": "Version is the version of the VMMServer modeled by this resource."
             }
           },
           "description": "VMMServerStatus defines the observed state of VMMServer"
-        },
-        "provisioningState": {
-          "type": "string"
         }
       }
     },

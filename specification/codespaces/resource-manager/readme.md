@@ -26,7 +26,62 @@ These are the global settings for the codespaces.
 
 ```yaml
 openapi-type: arm
-tag: package-2020-06-16
+tag: package-2020-07-24
+```
+
+### Tag: package-2020-07-24
+
+These settings apply only when `--tag=package-2020-07-24` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-07-24'
+input-file:
+  - Microsoft.Codespaces/stable/2020-07-24/codespaces.json
+```
+
+---
+```yaml
+openapi-type: arm
+tag: package-2020-07-24-alpha
+```
+
+### Tag: package-2020-07-24-alpha
+
+These settings apply only when `--tag=package-2020-07-24-alpha` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-07-24-alpha'
+input-file:
+  - Microsoft.Codespaces/preview/2020-07-24-alpha/codespaces.json
+```
+
+---
+```yaml
+openapi-type: arm
+tag: package-2020-07-24-beta
+```
+
+### Tag: package-2020-07-24-beta
+
+These settings apply only when `--tag=package-2020-07-24-beta` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-07-24-beta'
+input-file:
+  - Microsoft.Codespaces/preview/2020-07-24-beta/codespaces.json
+```
+
+
+---
+```yaml
+openapi-type: arm
+tag: package-2020-07-24-privatepreview
+```
+
+### Tag: package-2020-06-01-privatepreview
+
+These settings apply only when `--tag=package-2020-07-24-privatepreview` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-07-24-privatepreview'
+input-file:
+  - Microsoft.Codespaces/preview/2020-07-24-privatepreview/codespaces.json
 ```
 
 ### Tag: package-2020-06-16
