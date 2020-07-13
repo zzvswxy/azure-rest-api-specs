@@ -2335,11 +2335,7 @@
           "format": "int64"
         },
         "dynamicMemoryEnabled": {
-          "type": "boolean",
-          "enum": [
-            "true",
-            "false"
-          ]
+          "type": "boolean"
         },
         "dynamicMemoryMaxMB": {
           "type": "integer",
@@ -2569,11 +2565,7 @@
               "description": "Disks is a list consisting of information about virtual disks for the virtual machine."
             },
             "dynamicMemoryEnabled": {
-              "type": "boolean",
-              "enum": [
-                "true",
-                "false"
-              ]
+              "type": "boolean"
             },
             "dynamicMemoryMaximumMB": {
               "type": "integer",
@@ -2588,11 +2580,7 @@
               "format": "int64"
             },
             "isHighlyAvailable": {
-              "type": "boolean",
-              "enum": [
-                "true",
-                "false"
-              ]
+              "type": "boolean"
             },
             "memoryMB": {
               "type": "integer",
@@ -3452,7 +3440,7 @@
               "format": "int64",
               "description": "ObservedGeneration is the last known generation observed for the resource."
             },
-            "osProfile": {
+            "operatingSystem": {
               "type": "object",
               "properties": {
                 "computerName": {
