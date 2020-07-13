@@ -22,10 +22,12 @@
                             "virtualizationHost":"host",
                             "machineName":"computer-001",
                             "hostName":"test-pc",
-                            "osFamily":"Windows",
-                            "osSkuName":"Microsoft Windows Server 2012 Data Center",
-                            "osVersion":"2012",
-                            "osBuildNumber":"1233",
+                            "osDetails":{
+                                "family":"Windows",
+                                "skuName":"Microsoft Windows Server 2012 Data Center",
+                                "version":"2012",
+                                "buildNumber":"1233"
+                            },
                             "appraiser":{
                                 "version":"12.3.4",
                                 "lastRunTimestamp":"2020-01-12T23:09:00Z",
