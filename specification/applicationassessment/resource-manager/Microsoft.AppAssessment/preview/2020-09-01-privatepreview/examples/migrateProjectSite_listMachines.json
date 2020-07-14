@@ -6,7 +6,6 @@
         "projectName": "test",
         "siteName":"vmware-site-001",
         "$top":1,
-        "$skip":0,
         "$filter":null
     },
     "responses":{

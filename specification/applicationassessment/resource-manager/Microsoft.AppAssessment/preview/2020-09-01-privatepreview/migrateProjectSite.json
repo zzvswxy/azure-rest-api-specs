@@ -348,9 +348,6 @@
                   "$ref": "definitions.json#/parameters/TopParameter"
                 },
                 {
-                  "$ref": "definitions.json#/parameters/SkipParameter"
-                },
-                {
                   "$ref": "definitions.json#/parameters/FilterParameter"
                 }
               ],

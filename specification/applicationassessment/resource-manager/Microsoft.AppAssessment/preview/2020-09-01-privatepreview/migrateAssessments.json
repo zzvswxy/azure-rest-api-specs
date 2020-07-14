@@ -412,7 +412,7 @@
                     "description": "The status of the assessment",
                     "enum": [
                         "Initiated",
-                        "Started",
+                        "Processing",
                         "Completed",
                         "Failed"
                     ],

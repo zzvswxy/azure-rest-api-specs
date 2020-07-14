@@ -39,6 +39,8 @@ input-file:
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateProjects.json
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateProjectSite.json
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateAssessments.json
+  - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateAssessmentsApplications.json
+  - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateAssessmentsMachines.json
 ```
 
 ---
