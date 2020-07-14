@@ -3398,6 +3398,9 @@
                   },
                   "networkName": {
                     "type": "string"
+                  },
+                  "vmNetwork": {
+                    "type": "string"
                   }
                 },
                 "description": "NetworkDeviceStatus provides information about one of a VM's network devices."
