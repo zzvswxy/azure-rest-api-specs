@@ -36,6 +36,7 @@ These settings apply only when `--tag=package-2020-09-01-privatepreview` is spec
 ```yaml $(tag) == 'package-2020-09-01-privatepreview'
 input-file:
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/operations.json
+  - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/configs.json
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateProjects.json
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateProjectSite.json
   - Microsoft.AppAssessment/preview/2020-09-01-privatepreview/migrateAssessments.json
