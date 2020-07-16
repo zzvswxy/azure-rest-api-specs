@@ -914,19 +914,36 @@
   "definitions": {
     "VMMServersProperties": {
       "properties": {
-        "credentialsSecretRef": {
+        "credential": {
           "type": "object",
           "properties": {
-            "name": {
+            "username": {
               "type": "string",
-              "description": "Name of resource that is being referred."
+              "description": "Username to use to connect to VMMServer"
             },
-            "namespace": {
-              "type": "string",
-              "description": "Namespace of resource that is being referred."
+            "passwordRef": {
+              "type": "object",
+              "properties": {
+                "apiGroup": {
+                  "type": "string",
+                  "description": "Api resource group."
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Type of resource."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of resource that is being referred."
+                },
+                "namespace": {
+                  "type": "string",
+                  "description": "Namespace of resource that is being referred."
+                }
+              },
+              "description": "PasswordRef is the reference to the Kubernetes secret that has the 'password' to use for connecting to vmmServer."
             }
-          },
-          "description": "CredentialsSecretRef is the reference to the Kubernetes secret that has the 'username' and 'password' key/value pairs to use for connecting to vmmServer."
+          }
         },
         "fqdn": {
           "type": "string",
