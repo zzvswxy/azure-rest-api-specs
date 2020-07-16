@@ -181,14 +181,122 @@
     }
   },
   "definitions": {
+    "ansiblecondition": {
+      "type": "object",
+      "properties": {
+        "ansibleResult": {
+          "type": "object",
+          "properties": {
+            "changed":{
+              "type": "integer"
+            },
+            "completion": {
+              "type": "string"
+            },
+            "failures": {
+              "type": "integer"
+            },
+            "ok": {
+              "type": "integer"
+            },
+            "skipped": {
+              "type": "integer"
+            }
+          }
+        },
+        "lastTransitionTime": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "reason":{
+          "type":"string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
     "ansibletowersProperties": {
       "properties": {
         "deployment_type": {
           "type": "string",
           "pattern": "^(tower|awx)(-)?.*$"
         },
+        "tower_ingress_type": {
+          "type": "string"
+        },
+        "tower_task_privileged": {
+          "type": "boolean"
+        },
+        "tower_hostname": {
+          "type": "string"
+        },
+        "tower_secret_key": {
+          "type": "string"
+        },
+        "tower_broadcast_websocket_secret": {
+          "type": "string"
+        },
+        "tower_admin_user": {
+          "type": "string"
+        },
+        "tower_admin_email": {
+          "type": "string"
+        },
+        "tower_admin_password": {
+          "type": "string"
+        },
+        "tower_task_image": {
+          "type": "string"
+        },
+        "tower_web_image": {
+          "type": "string"
+        },
+        "tower_web_mem_request": {
+          "type": "string"
+        },
+        "tower_web_cpu_request": {
+          "type": "string"
+        },
+        "tower_create_preload_data": {
+          "type": "boolean"
+        },
+        "tower_memcached_image": {
+          "type": "string"
+        },
+        "tower_redis_image": {
+          "type": "string"
+        },
+        "tower_postgres_pass": {
+          "type": "string"
+        },
+        "tower_postgres_image": {
+          "type": "string"
+        },
+        "tower_postgres_storage_request": {
+          "type": "string"
+        },
+        "tower_postgres_storage_class": {
+          "type": "string"
+        },
         "provisioningState": {
           "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "properties": {
+            "conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ansiblecondition"
+              }
+            }
+          }
         }
       }
     },
