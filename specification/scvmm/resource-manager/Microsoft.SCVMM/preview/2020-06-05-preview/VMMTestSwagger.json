@@ -921,27 +921,9 @@
               "type": "string",
               "description": "Username to use to connect to VMMServer"
             },
-            "passwordRef": {
-              "type": "object",
-              "properties": {
-                "apiGroup": {
-                  "type": "string",
-                  "description": "Api resource group."
-                },
-                "kind": {
-                  "type": "string",
-                  "description": "Type of resource."
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name of resource that is being referred."
-                },
-                "namespace": {
-                  "type": "string",
-                  "description": "Namespace of resource that is being referred."
-                }
-              },
-              "description": "PasswordRef is the reference to the Kubernetes secret that has the 'password' to use for connecting to vmmServer."
+            "password": {
+              "type": "string",
+              "description": "Password"
             }
           }
         },
