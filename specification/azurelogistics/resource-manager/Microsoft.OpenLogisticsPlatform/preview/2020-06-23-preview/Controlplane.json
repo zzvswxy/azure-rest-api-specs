@@ -216,89 +216,88 @@
           }
         }
       }
-    }
-  },
-  "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/locations/{location}/checkNameAvailability": {
-    "post": {
-      "tags": [
-        "MerchantAccount"
-      ],
-      "operationId": "MerchantAccount_CheckNameAvailability",
-      "description": "Check the name availability in the target location.",
-      "parameters": [
-        {
-          "name": "location",
-          "in": "path",
-          "required": true,
-          "type": "string",
-          "description": "The region name which the operation will lookup into."
-        },
-        {
-          "name": "serverParameters",
-          "in": "body",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/CheckServerNameAvailabilityParameters"
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/checkNameAvailability": {
+      "post": {
+        "tags": [
+          "CheckNameAvailability Namespaces"
+        ],
+        "operationId": "Namespaces_CheckNameAvailability",
+        "description": "Check the give Namespace name availability.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           },
-          "description": "Contains the information used to provision the Analysis Services server."
-        },
-        {
-          "$ref": "#/parameters/ApiVersionParameter"
-        },
-        {
-          "$ref": "#/parameters/SubscriptionIdParameter"
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK. The request has succeeded.",
-          "schema": {
-            "$ref": "#/definitions/CheckServerNameAvailabilityResult"
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityParameter"
+            },
+            "description": "Parameters to check availability of the given Namespace name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "check availability returned successfully.",
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityResult"
+            }
+          },
+          "default": {
+            "description": "Eventhub error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
-    }
-  },
-  "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/locations/{location}/operationstatus/{operationStatusId}": {
-    "get": {
-      "tags": [
-        "MerchantAccount"
-      ],
-      "operationId": "MerchantAccount_OperationStatus",
-      "description": "The status of provisioning operation.",
-      "parameters": [
-        {
-          "name": "location",
-          "in": "path",
-          "required": true,
-          "type": "string",
-          "description": "The region name which the operation will lookup into."
-        },
-        {
-          "name": "operationStatusId",
-          "in": "path",
-          "required": true,
-          "type": "string",
-          "description": "The target operation status Id."
-        },
-        {
-          "$ref": "#/parameters/ApiVersionParameter"
-        },
-        {
-          "$ref": "#/parameters/SubscriptionIdParameter"
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "OK. The operation completed.",
-          "schema": {
-            "$ref": "#/definitions/OperationStatus"
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/locations/{location}/operationstatus/{operationStatusId}": {
+      "get": {
+        "tags": [
+          "MerchantAccount"
+        ],
+        "operationId": "MerchantAccount_OperationStatus",
+        "description": "The status of provisioning operation.",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The region name which the operation will lookup into."
+          },
+          {
+            "name": "operationStatusId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The target operation status Id."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
           }
-        },
-        "202": {
-          "description": "Accepted. The operation is ongoing.",
-          "schema": {
-            "$ref": "#/definitions/OperationStatus"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The operation completed.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            }
+          },
+          "202": {
+            "description": "Accepted. The operation is ongoing.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            }
           }
         }
       }
@@ -447,41 +446,51 @@
         }
       }
     },
-    "CheckServerNameAvailabilityParameters": {
-      "description": "Details of server name request body.",
-      "type": "object",
+    "CheckNameAvailabilityParameter": {
       "properties": {
         "name": {
           "type": "string",
-          "pattern": "^[a-z][a-z0-9]*$",
-          "minLength": 3,
-          "maxLength": 64,
-          "description": "Name for checking availability."
-        },
-        "type": {
-          "type": "string",
-          "default": "Microsoft.OpenLogisticsPlatform/merchants",
-          "description": "The resource type of merchant account."
+          "description": "Name to check the namespace name availability"
         }
-      }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Parameter supplied to check Namespace name availability operation "
     },
-    "CheckServerNameAvailabilityResult": {
-      "description": "The checking result of server name availability.",
-      "type": "object",
+    "UnavailableReason": {
+      "type": "string",
+      "enum": [
+        "None",
+        "InvalidName",
+        "SubscriptionIsDisabled",
+        "NameInUse",
+        "NameInLockdown",
+        "TooManyNamespaceInCurrentSubscription"
+      ],
+      "x-ms-enum": {
+        "name": "UnavailableReason",
+        "modelAsString": false
+      },
+      "description": "Specifies the reason for the unavailability of the service."
+    },
+    "CheckNameAvailabilityResult": {
       "properties": {
-        "nameAvailable": {
-          "type": "boolean",
-          "description": "Indicator of available of the server name."
-        },
-        "reason": {
-          "type": "string",
-          "description": "The reason of unavailability."
-        },
         "message": {
           "type": "string",
-          "description": "The detailed message of the request unavailability."
+          "readOnly": true,
+          "description": "The detailed info regarding the reason associated with the Namespace."
+        },
+        "nameAvailable": {
+          "type": "boolean",
+          "description": "Value indicating Namespace is availability, true if the Namespace is available; otherwise, false."
+        },
+        "reason": {
+          "$ref": "#/definitions/UnavailableReason",
+          "description": "The reason for unavailability of a Namespace."
         }
-      }
+      },
+      "description": "The Result of the CheckNameAvailability operation"
     },
     "OperationStatus": {
       "description": "The status of operation.",
