@@ -216,46 +216,88 @@
           }
         }
       }
-    }
-  },
-  "/providers/Microsoft.OpenLogisticsPlatform/locations/{locationName}/operationStatuses/{operationStatusId}": {
-    "patch": {
-      "tags": [
-        "operationStatus"
-      ],
-      "description": "Patches a given operationStatus.",
-      "operationId": "OperationStatuses_Update",
-      "parameters": [
-        {
-          "$ref": "#/parameters/LocationNameParameter"
-        },
-        {
-          "$ref": "#/parameters/OperationStatusIdParameter"
-        },
-        {
-          "$ref": "#/parameters/ApiVersionParameter"
-        },
-        {
-          "name": "operationStatus",
-          "description": "operationStatus details.",
-          "in": "body",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/OperationStatus"
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/checkNameAvailability": {
+      "post": {
+        "tags": [
+          "CheckNameAvailability Namespaces"
+        ],
+        "operationId": "Namespaces_CheckNameAvailability",
+        "description": "Check the give Namespace name availability.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityParameter"
+            },
+            "description": "Parameters to check availability of the given Namespace name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "check availability returned successfully.",
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityResult"
+            }
+          },
+          "default": {
+            "description": "Eventhub error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
-      ],
-      "responses": {
-        "200": {
-          "description": "operationStatus details.",
-          "schema": {
-            "$ref": "#/definitions/OperationStatus"
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/locations/{location}/operationstatus/{operationStatusId}": {
+      "get": {
+        "tags": [
+          "MerchantAccount"
+        ],
+        "operationId": "MerchantAccount_OperationStatus",
+        "description": "The status of provisioning operation.",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The region name which the operation will lookup into."
+          },
+          {
+            "name": "operationStatusId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The target operation status Id."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
           }
-        },
-        "default": {
-          "description": "Error response describing the reason for operation failure.",
-          "schema": {
-            "$ref": "#/definitions/ErrorResponse"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The operation completed.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            }
+          },
+          "202": {
+            "description": "Accepted. The operation is ongoing.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            }
           }
         }
       }
@@ -385,37 +427,6 @@
         }
       }
     },
-    "OperationStatusError": {
-      "description": "operation status error",
-      "properties": {
-        "code": {
-          "description": "An invariant error code used for error troubleshooting, aggregation, and analysis.",
-          "type": "string"
-        },
-        "message": {
-          "description": "An actionable error message indicating what error occurred.",
-          "type": "string"
-        }
-      }
-    },
-    "OperationStatus": {
-      "description": "operation status object",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Operation Id",
-          "type": "string"
-        },
-        "status": {
-          "description": "Operation Status",
-          "type": "string"
-        },
-        "error": {
-          "description": "Error happened during provisioning a resource",
-          "type": "object",
-          "$ref": "#/definitions/OperationStatusError"
-        }
-      },
     "ErrorObject": {
       "type": "object",
       "properties": {
@@ -434,31 +445,99 @@
           "$ref": "#/definitions/ErrorObject"
         }
       }
+    },
+    "CheckNameAvailabilityParameter": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name to check the namespace name availability"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "Parameter supplied to check Namespace name availability operation "
+    },
+    "UnavailableReason": {
+      "type": "string",
+      "enum": [
+        "None",
+        "InvalidName",
+        "SubscriptionIsDisabled",
+        "NameInUse",
+        "NameInLockdown",
+        "TooManyNamespaceInCurrentSubscription"
+      ],
+      "x-ms-enum": {
+        "name": "UnavailableReason",
+        "modelAsString": false
+      },
+      "description": "Specifies the reason for the unavailability of the service."
+    },
+    "CheckNameAvailabilityResult": {
+      "properties": {
+        "message": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The detailed info regarding the reason associated with the Namespace."
+        },
+        "nameAvailable": {
+          "type": "boolean",
+          "description": "Value indicating Namespace is availability, true if the Namespace is available; otherwise, false."
+        },
+        "reason": {
+          "$ref": "#/definitions/UnavailableReason",
+          "description": "The reason for unavailability of a Namespace."
+        }
+      },
+      "description": "The Result of the CheckNameAvailability operation"
+    },
+    "OperationStatus": {
+      "description": "The status of operation.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The operation Id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The operation name."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The start time of the operation."
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The end time of the operation."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the operation."
+        },
+        "error": {
+          "type": "object",
+          "description": "The error detail of the operation if any.",
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      }
     }
   },
-  "parameters": {
+  "parameters":{
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+    },
     "ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
       "required": true,
       "type": "string",
-      "description": "Client Api Version."
+      "description": "The client API version."
     },
-    "LocationNameParameter": {
-      "name": "locationName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The name of the location",
-      "x-ms-parameter-location": "method"
-    },
-    "OperationStatusIdParameter": {
-      "name": "operationStatusId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The id of the operationStatus",
-      "x-ms-parameter-location": "method"
-    }
   }
 }
