@@ -3,7 +3,7 @@
   "info": {
     "title": "IIDTManagementClient",
     "description": "Intelligent IT Digital Twin (IIDT) uses our proprietary discovery tool for corporate on-prem infrastructure and provisions its light-weight twin in Azure.",
-    "version": "2020-06-10-privatepreview"
+    "version": "2020-07-01-privatepreview"
   },
   "host": "management.azure.com",
   "schemes": [
