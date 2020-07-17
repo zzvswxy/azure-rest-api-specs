@@ -1109,7 +1109,7 @@
           "format": "int64",
           "description": "MemLimitMB specifies a memory usage limit in megabytes."
         },
-        "name": {
+        "cloudName": {
           "type": "string",
           "description": "Name of the cloud."
         },
