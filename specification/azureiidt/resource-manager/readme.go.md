@@ -28,3 +28,12 @@ namespace: Microsoft.IntelligentITDigitalTwin
 output-folder: $(go-sdks-folder)/azureiidt/Generated
 ```
 
+### Tag: package-2020-07-15 and go
+
+These settings apply only when `--tag=package-2020-07-15 --go` is specified on the command line.
+Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
+
+```yaml $(tag) == 'package-2020-07-15' && $(go)
+namespace: Microsoft.IntelligentITDigitalTwin
+output-folder: $(go-sdks-folder)/azureiidt/Generated
+```

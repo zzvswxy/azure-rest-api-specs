@@ -26,8 +26,18 @@ These are the global settings for the azureiidt.
 
 ```yaml
 openapi-type: arm
-tag: package-2020-07-01-privatepreview
+tag: package-2020-07-15-privatepreview
 ```
+
+### Tag: package-2020-07-15-privatepreview
+
+These settings apply only when `--tag=package-2020-07-15-privatepreview` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-07-15-privatepreview'
+input-file:
+  - Microsoft.IntelligentITDigitalTwin/preview/2020-07-15-privatepreview/azureiidt.json
+```
+
 
 
 ### Tag: package-2020-07-01-privatepreview
