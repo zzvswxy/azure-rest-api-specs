@@ -1353,10 +1353,27 @@
           "type": "string",
           "description": "The managed disk name."
         },
+        "createOption": {
+          "type": "string",
+          "description": "The create option.",
+          "enum": [
+            "Empty",
+            "Import"
+          ],
+          "x-ms-enum": {
+            "name": "ManagedDiskCreateOptions",
+            "modelAsString": true
+          }
+        },
         "diskSizeGB": {
           "type": "integer",
           "format": "int32",
           "description": "If createOption is Empty, this field is mandatory and it indicates the size of the disk to create."
+
+        },
+        "sourceUri": {
+          "type": "string",
+          "description": "If createOption is Import, this field is mandatory and it is the uri of the vhd."
 
         }
       },
