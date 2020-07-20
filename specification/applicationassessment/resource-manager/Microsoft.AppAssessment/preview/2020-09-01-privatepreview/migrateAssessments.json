@@ -411,6 +411,7 @@
                     "type":"string",
                     "description": "The status of the assessment",
                     "enum": [
+                        "New",
                         "Initiated",
                         "Processing",
                         "Completed",
@@ -426,6 +427,11 @@
                     "type":"string",
                     "description": "The date the assessment was created e.g. 2020-01-12T23:09:00Z",
                     "readOnly": true
+                },
+                "processingStartDate":{
+                  "type":"string",
+                  "description": "The date of the last assessment processing start date e.g. 2020-01-12T23:09:00Z",
+                  "readOnly": true
                 },
                 "dateCompleted":{
                     "type":"string",
