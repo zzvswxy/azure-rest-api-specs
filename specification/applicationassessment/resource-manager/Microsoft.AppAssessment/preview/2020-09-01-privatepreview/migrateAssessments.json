@@ -237,7 +237,7 @@
           "post": {
             "tags": [ "migrateProjectsAssessment" ],
             "operationId": "migrateProjectsAssessment_updateMachines",
-            "description": "Sets the machines in an assessment. This action will cause the assessment to be recalculated",
+            "description": "Sets the machines in an assessment",
             "x-ms-examples": {
               "migrateAssessment_updateMachines": { "$ref": "./examples/migrateAssessment_updateMachines.json" }
             },
@@ -341,13 +341,13 @@
             }
           }
         },
-        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppAssessment/migrateProjects/{projectName}/assessments/{assessmentName}/recalculate":{
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppAssessment/migrateProjects/{projectName}/assessments/{assessmentName}/calculate":{
           "post": {
             "tags": [ "migrateProjectsAssessment" ],
-            "operationId": "migrateProjectsAssessment_recalculate",
-            "description": "Recalculates the assessment, used when we have new data from the machines and we want to check if the results have changed",
+            "operationId": "migrateProjectsAssessment_calculate",
+            "description": "Calculates the assessment",
             "x-ms-examples": {
-              "migrateAssessment_recalculate": { "$ref": "./examples/migrateAssessment_recalculate.json" }
+              "migrateAssessment_recalculate": { "$ref": "./examples/migrateAssessment_calculate.json" }
             },
             "parameters":[
               {
@@ -376,7 +376,7 @@
             ],
             "responses":{
               "200":{
-                "description": "Recalculate command was received and is being worked on"
+                "description": "Calculate command was received and is being worked on"
               },
               "default": {
                 "description": "Error response describing why the operation failed.",
