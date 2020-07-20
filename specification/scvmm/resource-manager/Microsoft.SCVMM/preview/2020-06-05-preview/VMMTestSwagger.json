@@ -18,10 +18,33 @@
   "produces": [
     "application/json"
   ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMMServers/{VMMServersName}": {
       "get": {
-        "operationId": "VMMServers_Retrieve",
+        "tags": [
+          "VMMServers"
+        ],
+        "operationId": "VMMServers_Get",
+        "summary": "Gets a VMMServer.",
+        "description": "Implements VMMServer GET method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -30,7 +53,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VMMServersNameParameter"
+            "in": "path",
+            "name": "VMMServersName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -42,11 +69,22 @@
             "schema": {
               "$ref": "#/definitions/VMMServers"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
       "put": {
+        "tags": [
+          "VMMServers"
+        ],
         "operationId": "VMMServers_CreateOrUpdate",
+        "description": "Create Or Update VMMServers.",
+        "summary": "Implements VMMServers PUT method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -55,7 +93,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VMMServersNameParameter"
+            "in": "path",
+            "name": "VMMServersName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -80,12 +122,30 @@
             "description": "Creates the VMMServers resource.",
             "schema": {
               "$ref": "#/definitions/VMMServers"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
+        "tags": [
+          "VMMServers"
+        ],
         "operationId": "VMMServers_Delete",
+        "summary": "Deletes an VMMServer.",
+        "description": "Implements VMMServer DELETE method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -94,7 +154,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VMMServersNameParameter"
+            "in": "path",
+            "name": "VMMServersName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -103,12 +167,34 @@
         "responses": {
           "200": {
             "description": "Deletes the VMMServers resource."
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
-	  "patch": {
-		"operationId": "VMMServers_Update",
-		"parameters": [
+      "patch": {
+        "tags": [
+          "VMMServers"
+        ],
+        "operationId": "VMMServers_Update",
+        "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
@@ -119,7 +205,11 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/VMMServersNameParameter"
+            "in": "path",
+            "name": "VMMServersName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
           },
           {
             "name": "VMMServersPatchResource",
@@ -127,7 +217,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VMMServers"
+              "$ref": "#/definitions/ResourcePatch"
             }
           }
         ],
@@ -137,13 +227,24 @@
             "schema": {
               "$ref": "#/definitions/VMMServers"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMMServers": {
       "get": {
+        "tags": [
+          "VMMServers"
+        ],
         "operationId": "VMMServers_ListByResourceGroup",
+        "summary": "Implements GET VMMServers in a resource group.",
+        "description": "List of VMMServers in a resource group.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -161,6 +262,12 @@
             "schema": {
               "$ref": "#/definitions/VMMServersListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -170,7 +277,12 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VMMServers": {
       "get": {
+        "tags": [
+          "VMMServers"
+        ],
         "operationId": "VMMServers_ListBySubscription",
+        "summary": "Implements GET VMMServers in a subscription.",
+        "description": "List of VMMServers in a subscription.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -185,6 +297,12 @@
             "schema": {
               "$ref": "#/definitions/VMMServersListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -193,9 +311,12 @@
       }
     },
     "/providers/Microsoft.SCVMM/operations": {
-	
       "get": {
+        "tags": [
+          "Operations"
+        ],
         "operationId": "Operations_List",
+        "description": "Returns list of all operations.",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -214,9 +335,14 @@
         }
       }
     },
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds/{CloudsName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds/{CloudsName}": {
       "get": {
-        "operationId": "Clouds_Retrieve",
+        "tags": [
+          "Clouds"
+        ],
+        "operationId": "Clouds_Get",
+        "summary": "Gets a Cloud.",
+        "description": "Implements Cloud GET method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -225,7 +351,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/CloudsNameParameter"
+            "in": "path",
+            "name": "CloudsName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the Cloud."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -237,11 +367,22 @@
             "schema": {
               "$ref": "#/definitions/Clouds"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
       "put": {
+        "tags": [
+          "Clouds"
+        ],
         "operationId": "Clouds_CreateOrUpdate",
+        "description": "Create Or Update Clouds.",
+        "summary": "Implements Clouds PUT method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -250,7 +391,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/CloudsNameParameter"
+            "in": "path",
+            "name": "CloudsName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the Cloud."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -275,12 +420,30 @@
             "description": "Creates the Clouds resource.",
             "schema": {
               "$ref": "#/definitions/Clouds"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
+        "tags": [
+          "Clouds"
+        ],
         "operationId": "Clouds_Delete",
+        "summary": "Deletes an Cloud.",
+        "description": "Implements Cloud DELETE method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -289,7 +452,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/CloudsNameParameter"
+            "in": "path",
+            "name": "CloudsName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the Cloud."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -298,11 +465,32 @@
         "responses": {
           "200": {
             "description": "Deletes the Clouds resource."
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
-	  "patch": {
-        "description": "Update cloud details.",
+      "patch": {
+        "tags": [
+          "Clouds"
+        ],
         "operationId": "Clouds_Update",
         "parameters": [
           {
@@ -315,7 +503,11 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/CloudsNameParameter"
+            "in": "path",
+            "name": "CloudsName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the Cloud."
           },
           {
             "name": "CloudsPatchResource",
@@ -323,7 +515,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Clouds"
+              "$ref": "#/definitions/ResourcePatch"
             }
           }
         ],
@@ -333,13 +525,24 @@
             "schema": {
               "$ref": "#/definitions/Clouds"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds": {
       "get": {
+        "tags": [
+          "Clouds"
+        ],
         "operationId": "Clouds_ListByResourceGroup",
+        "summary": "Implements GET Clouds in a resource group.",
+        "description": "List of Clouds in a resource group.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -357,6 +560,12 @@
             "schema": {
               "$ref": "#/definitions/CloudsListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -366,7 +575,12 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/Clouds": {
       "get": {
+        "tags": [
+          "Clouds"
+        ],
         "operationId": "Clouds_ListBySubscription",
+        "summary": "Implements GET Clouds in a subscription.",
+        "description": "List of Clouds in a subscription.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -381,6 +595,12 @@
             "schema": {
               "$ref": "#/definitions/CloudsListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -388,9 +608,14 @@
         }
       }
     },
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualNetworks/{VirtualNetworksName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualNetworks/{VirtualNetworksName}": {
       "get": {
-        "operationId": "VirtualNetworks_Retrieve",
+        "tags": [
+          "VirtualNetworks"
+        ],
+        "operationId": "VirtualNetworks_Get",
+        "summary": "Gets a VirtualNetwork.",
+        "description": "Implements VirtualNetwork GET method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -399,7 +624,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualNetworksNameParameter"
+            "in": "path",
+            "name": "VirtualNetworksName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualNetwork."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -411,11 +640,22 @@
             "schema": {
               "$ref": "#/definitions/VirtualNetworks"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
       "put": {
+        "tags": [
+          "VirtualNetworks"
+        ],
         "operationId": "VirtualNetworks_CreateOrUpdate",
+        "description": "Create Or Update VirtualNetworks.",
+        "summary": "Implements VirtualNetworks PUT method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -424,7 +664,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualNetworksNameParameter"
+            "in": "path",
+            "name": "VirtualNetworksName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualNetwork."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -449,12 +693,30 @@
             "description": "Creates the VirtualNetworks resource.",
             "schema": {
               "$ref": "#/definitions/VirtualNetworks"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
+        "tags": [
+          "VirtualNetworks"
+        ],
         "operationId": "VirtualNetworks_Delete",
+        "summary": "Deletes an VirtualNetwork.",
+        "description": "Implements VirtualNetwork DELETE method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -463,7 +725,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualNetworksNameParameter"
+            "in": "path",
+            "name": "VirtualNetworksName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualNetwork."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -472,11 +738,32 @@
         "responses": {
           "200": {
             "description": "Deletes the VirtualNetworks resource."
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
-	  "patch": {
-        "description": "Update virtual network details.",
+      "patch": {
+        "tags": [
+          "VirtualNetworks"
+        ],
         "operationId": "VirtualNetworks_Update",
         "parameters": [
           {
@@ -489,7 +776,11 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/VirtualNetworksNameParameter"
+            "in": "path",
+            "name": "VirtualNetworksName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualNetwork."
           },
           {
             "name": "VirtualNetworksPatchResource",
@@ -497,7 +788,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VirtualNetworks"
+              "$ref": "#/definitions/ResourcePatch"
             }
           }
         ],
@@ -507,13 +798,24 @@
             "schema": {
               "$ref": "#/definitions/VirtualNetworks"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualNetworks": {
       "get": {
+        "tags": [
+          "VirtualNetworks"
+        ],
         "operationId": "VirtualNetworks_ListByResourceGroup",
+        "summary": "Implements GET VirtualNetworks in a resource group.",
+        "description": "List of VirtualNetworks in a resource group.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -531,6 +833,12 @@
             "schema": {
               "$ref": "#/definitions/VirtualNetworksListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -540,7 +848,12 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualNetworks": {
       "get": {
+        "tags": [
+          "VirtualNetworks"
+        ],
         "operationId": "VirtualNetworks_ListBySubscription",
+        "summary": "Implements GET VirtualNetworks in a subscription.",
+        "description": "List of VirtualNetworks in a subscription.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -555,6 +868,12 @@
             "schema": {
               "$ref": "#/definitions/VirtualNetworksListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -562,9 +881,14 @@
         }
       }
     },
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachines/{VirtualMachinesName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachines/{VirtualMachinesName}": {
       "get": {
-        "operationId": "VirtualMachines_Retrieve",
+        "tags": [
+          "VirtualMachines"
+        ],
+        "operationId": "VirtualMachines_Get",
+        "summary": "Gets a VirtualMachine.",
+        "description": "Implements VirtualMachine GET method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -573,7 +897,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachinesNameParameter"
+            "in": "path",
+            "name": "VirtualMachinesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachine."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -585,11 +913,22 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachines"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
       "put": {
+        "tags": [
+          "VirtualMachines"
+        ],
         "operationId": "VirtualMachines_CreateOrUpdate",
+        "description": "Create Or Update VirtualMachines.",
+        "summary": "Implements VirtualMachines PUT method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -598,7 +937,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachinesNameParameter"
+            "in": "path",
+            "name": "VirtualMachinesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachine."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -623,12 +966,30 @@
             "description": "Creates the VirtualMachines resource.",
             "schema": {
               "$ref": "#/definitions/VirtualMachines"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
+        "tags": [
+          "VirtualMachines"
+        ],
         "operationId": "VirtualMachines_Delete",
+        "summary": "Deletes an VirtualMachine.",
+        "description": "Implements VirtualMachine DELETE method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -637,7 +998,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachinesNameParameter"
+            "in": "path",
+            "name": "VirtualMachinesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachine."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -646,11 +1011,32 @@
         "responses": {
           "200": {
             "description": "Deletes the VirtualMachines resource."
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
-	  "patch": {
-        "description": "Update nested resource type details.",
+      "patch": {
+        "tags": [
+          "VirtualMachines"
+        ],
         "operationId": "VirtualMachines_Update",
         "parameters": [
           {
@@ -663,7 +1049,11 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachinesNameParameter"
+            "in": "path",
+            "name": "VirtualMachinesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachine."
           },
           {
             "name": "VirtualMachinesPatchResource",
@@ -671,7 +1061,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VirtualMachines"
+              "$ref": "#/definitions/ResourcePatch"
             }
           }
         ],
@@ -681,13 +1071,24 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachines"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachines": {
       "get": {
+        "tags": [
+          "VirtualMachines"
+        ],
         "operationId": "VirtualMachines_ListByResourceGroup",
+        "summary": "Implements GET VirtualMachines in a resource group.",
+        "description": "List of VirtualMachines in a resource group.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -705,6 +1106,12 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachinesListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -714,7 +1121,12 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualMachines": {
       "get": {
+        "tags": [
+          "VirtualMachines"
+        ],
         "operationId": "VirtualMachines_ListBySubscription",
+        "summary": "Implements GET VirtualMachines in a subscription.",
+        "description": "List of VirtualMachines in a subscription.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -729,6 +1141,12 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachinesListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -736,9 +1154,14 @@
         }
       }
     },
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates/{VirtualMachineTemplatesName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates/{VirtualMachineTemplatesName}": {
       "get": {
-        "operationId": "VirtualMachineTemplates_Retrieve",
+        "tags": [
+          "VirtualMachineTemplates"
+        ],
+        "operationId": "VirtualMachineTemplates_Get",
+        "summary": "Gets a VirtualMachineTemplate.",
+        "description": "Implements VirtualMachineTemplate GET method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -747,7 +1170,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
+            "in": "path",
+            "name": "VirtualMachineTemplatesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachineTemplate."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -759,11 +1186,22 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachineTemplates"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       },
       "put": {
+        "tags": [
+          "VirtualMachineTemplates"
+        ],
         "operationId": "VirtualMachineTemplates_CreateOrUpdate",
+        "description": "Create Or Update VirtualMachineTemplates.",
+        "summary": "Implements VirtualMachineTemplates PUT method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -772,7 +1210,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
+            "in": "path",
+            "name": "VirtualMachineTemplatesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachineTemplate."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -797,12 +1239,30 @@
             "description": "Creates the VirtualMachineTemplates resource.",
             "schema": {
               "$ref": "#/definitions/VirtualMachineTemplates"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
+        "tags": [
+          "VirtualMachineTemplates"
+        ],
         "operationId": "VirtualMachineTemplates_Delete",
+        "summary": "Deletes an VirtualMachineTemplate.",
+        "description": "Implements VirtualMachineTemplate DELETE method.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -811,7 +1271,11 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
+            "in": "path",
+            "name": "VirtualMachineTemplatesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachineTemplate."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -820,11 +1284,32 @@
         "responses": {
           "200": {
             "description": "Deletes the VirtualMachineTemplates resource."
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       },
-	  "patch": {
-        "description": "Update virtual machine template details.",
+      "patch": {
+        "tags": [
+          "VirtualMachineTemplates"
+        ],
         "operationId": "VirtualMachineTemplates_Update",
         "parameters": [
           {
@@ -837,7 +1322,11 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/VirtualMachineTemplatesNameParameter"
+            "in": "path",
+            "name": "VirtualMachineTemplatesName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VirtualMachineTemplate."
           },
           {
             "name": "VirtualMachineTemplatesPatchResource",
@@ -845,7 +1334,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplates"
+              "$ref": "#/definitions/ResourcePatch"
             }
           }
         ],
@@ -855,13 +1344,24 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachineTemplates"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates": {
       "get": {
+        "tags": [
+          "VirtualMachineTemplates"
+        ],
         "operationId": "VirtualMachineTemplates_ListByResourceGroup",
+        "summary": "Implements GET VirtualMachineTemplates in a resource group.",
+        "description": "List of VirtualMachineTemplates in a resource group.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -879,6 +1379,12 @@
             "schema": {
               "$ref": "#/definitions/VirtualMachineTemplatesListResult"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -888,7 +1394,12 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualMachineTemplates": {
       "get": {
+        "tags": [
+          "VirtualMachineTemplates"
+        ],
         "operationId": "VirtualMachineTemplates_ListBySubscription",
+        "summary": "Implements GET VirtualMachineTemplates in a subscription.",
+        "description": "List of VirtualMachineTemplates in a subscription.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -902,6 +1413,12 @@
             "description": "Lists all VirtualMachineTemplates under the subscription.",
             "schema": {
               "$ref": "#/definitions/VirtualMachineTemplatesListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -919,12 +1436,12 @@
           "properties": {
             "username": {
               "type": "string",
-              "description": "Username to use to connect to VMMServer"
+              "description": "Username to use to connect to VMMServer."
             },
             "password": {
               "type": "string",
-              "description": "Password",
-			  "x-ms-secret" : true
+              "description": "Credentials to use to connect to VMMServer.",
+              "x-ms-secret": true
             }
           }
         },
@@ -937,71 +1454,33 @@
           "type": "integer",
           "format": "int32",
           "description": "Port is the port on which the vmmServer is listening.",
-          "maximum": 65535.0,
-          "minimum": 1.0
-        },
-		"provisioningState": {
-          "type": "string"
+          "maximum": 65535,
+          "minimum": 1
         },
         "connectionStatus": {
           "type": "string",
-          "description": "define observed state of cluster",
-          "enum": [
-            "NotAttempted",
-            "Connecting",
-            "Connected",
-            "Disconnected"
-          ]
+          "description": "Gets or sets the connection status to the vmmServer.",
+          "readOnly": true
         },
         "errorMessage": {
           "type": "string",
-          "description": "ErrorMessage will be set in the event that there is a terminal problem reconciling the vmmServer and will contain a more verbose string suitable for logging and human consumption. \n This field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the vmmServer's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured. \n Any transient errors that occur during the reconciliation of vmmServers can be added as events to the vmmServer object and/or logged in the controller's output."
-        },
-        "observedGeneration": {
-          "type": "integer",
-          "format": "int64",
-          "description": "ObservedGeneration is the last known generation observed in the vmmServer resource."
-        },
-        "provisioningStatus": {
-          "type": "object",
-          "properties": {
-            "error": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "description": "Code contains any error code associated with the message."
-                },
-                "message": {
-                  "type": "string",
-                  "description": "Message contains the string suitable for logging and human consumption."
-                }
-              },
-              "description": "Error will be set in the event that there is a terminal problem reconciling the resource."
-            },
-            "operationID": {
-              "type": "string",
-              "description": "OperationID is the unique identifier for tracking any operation associated with this resource."
-            },
-            "status": {
-              "type": "string",
-              "description": "Status describes the job completion status. Only one of the following provisioning status may be specified.",
-              "enum": [
-                "Provisioning",
-                "Succeeded",
-                "Failed"
-              ]
-            }
-          },
-          "description": "ProvisioningStatus describes the provisioning status of the resource."
+          "description": "Gets or sets any error message if connection to vmmServer is having any issue.",
+          "readOnly": true
         },
         "uuid": {
           "type": "string",
-          "description": "UUID is the managed object reference ID of the vmmServer  modeled by this resource."
+          "description": "Unique ID of vmmServer.",
+          "readOnly": true
         },
         "version": {
           "type": "string",
-          "description": "Version is the version of the VMMServer modeled by this resource."
+          "description": "Version is the version of the vmmSever.",
+          "readOnly": true
+        },
+		        "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -1009,6 +1488,8 @@
       "type": "object",
       "properties": {
         "properties": {
+          "x-ms-client-flatten": true,
+          "description": "Resource properties.",
           "$ref": "#/definitions/VMMServersProperties"
         },
         "id": {
@@ -1027,8 +1508,12 @@
           "description": "Resource Type"
         },
         "location": {
+          "description": "Gets or sets the location.",
           "type": "string",
-          "description": "The resource location"
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "tags": {
           "type": "object",
@@ -1066,6 +1551,7 @@
           }
         },
         "nextLink": {
+          "description": "Url to follow for getting next page of resources.",
           "type": "string"
         }
       }
@@ -1085,539 +1571,29 @@
       },
       "description": "Results of the request to list operations."
     },
-	"CloudsProperties": {
+    "CloudsProperties": {
       "properties": {
         "uuid": {
           "type": "string",
-          "description": "Unique ID of resource pool.",
+          "description": "Unique ID of the cloud.",
           "minLength": 1
         },
         "vmmServerId": {
           "type": "string",
-          "description": "VMMServer id to connect to."
-        },
-		"provisioningState": {
-          "type": "string"
-        },
-        "cpuCount": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Number of CPUs allocated in the cloud"
-        },
-        "memLimitMB": {
-          "type": "integer",
-          "format": "int64",
-          "description": "MemLimitMB specifies a memory usage limit in megabytes."
+          "description": "ARM Id of the vmmServer resource in which this resource resides."
         },
         "cloudName": {
           "type": "string",
-          "description": "Name of the cloud."
+          "description": "Name of the cloud in VMMServer.",
+          "readOnly": true
         },
-        "observedGeneration": {
-          "type": "integer",
-          "format": "int64",
-          "description": "ObservedGeneration is the last known generation observed for the resource."
+        "cloudCapacity": {
+          "$ref": "#/definitions/CloudCapacity",
+          "readOnly": true
         },
-        "provisioningStatus": {
-          "type": "object",
-          "properties": {
-            "error": {
-              "type": "object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "description": "Code contains any error code associated with the message."
-                },
-                "message": {
-                  "type": "string",
-                  "description": "Message contains the string suitable for logging and human consumption."
-                }
-              },
-              "description": "Error will be set in the event that there is a terminal problem reconciling the resource."
-            },
-            "operationID": {
-              "type": "string",
-              "description": "OperationID is the unique identifier for tracking any operation associated with this resource."
-            },
-            "status": {
-              "type": "string",
-              "description": "Status describes the job completion status. Only one of the following provisioning status may be specified.",
-              "enum": [
-                "Provisioning",
-                "Succeeded",
-                "Failed"
-              ]
-            }
-          },
-          "description": "ProvisioningStatus describes the provisioning status of the resource."
-        },
-        "resourceStatus": {
-          "type": "object",
-          "properties": {
-            "createdAt": {
-              "type": "string",
-              "format": "date-time",
-              "description": "CreatedAt is time at which resource was previously created."
-            },
-            "lastConfigurationAttempt": {
-              "type": "object",
-              "properties": {
-                "error": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains information about error that has occurred."
-                    },
-                    "reason": {
-                      "type": "string",
-                      "description": "Reason is a camel case string value indicating reason for current error state.",
-                      "enum": [
-                        "VMMServerNotReachable",
-                        "ResourceNotFound",
-                        "DatacenterNotFound",
-                        "VMMServerNotFound",
-                        "ResourceDeletedOutOfBand",
-                        "CreateFailed",
-                        "ConfigureFailed",
-                        "SyncFailed",
-                        "DeleteFailed"
-                      ]
-                    }
-                  },
-                  "description": "Error contains the error details of the last configure attempt."
-                },
-                "startedAt": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "StartedAt is UTC time at which this phase started."
-                },
-                "taskInfo": {
-                  "type": "object",
-                  "properties": {
-                    "description": {
-                      "type": "string"
-                    },
-                    "errorMessage": {
-                      "type": "string"
-                    },
-                    "isSuccess": {
-                      "type": "boolean"
-                    },
-                    "progress": {
-                      "type": "integer",
-                      "format": "int32"
-                    },
-                    "status": {
-                      "type": "string"
-                    },
-                    "taskRef": {
-                      "type": "string"
-                    }
-                  },
-                  "description": "TaskInfo holds the details of last configured task."
-                }
-              },
-              "description": "LastConfigurationAttempt indicates the details of the last configuration attempt."
-            },
-            "lastSyncAttempt": {
-              "type": "object",
-              "properties": {
-                "error": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains information about error that has occurred."
-                    },
-                    "reason": {
-                      "type": "string",
-                      "description": "Reason is a camel case string value indicating reason for current error state.",
-                      "enum": [
-                        "VMMServerNotReachable",
-                        "ResourceNotFound",
-                        "DatacenterNotFound",
-                        "VMMServerNotFound",
-                        "ResourceDeletedOutOfBand",
-                        "CreateFailed",
-                        "ConfigureFailed",
-                        "SyncFailed",
-                        "DeleteFailed"
-                      ]
-                    }
-                  },
-                  "description": "Error contains the error details of the last sync attempt."
-                },
-                "startedAt": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "StartedAt is UTC time at which this phase started."
-                }
-              },
-              "description": "LastSyncAttempt indicates the details of the last sync attempt."
-            },
-            "state": {
-              "type": "object",
-              "properties": {
-                "configuring": {
-                  "type": "object",
-                  "properties": {
-                    "phase": {
-                      "type": "object",
-                      "properties": {
-                        "configuring": {
-                          "type": "object",
-                          "properties": {
-                            "waitingOn": {
-                              "type": "object",
-                              "properties": {
-                                "description": {
-                                  "type": "string"
-                                },
-                                "errorMessage": {
-                                  "type": "string"
-                                },
-                                "isSuccess": {
-                                  "type": "boolean"
-                                },
-                                "progress": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "status": {
-                                  "type": "string"
-                                },
-                                "taskRef": {
-                                  "type": "string"
-                                }
-                              },
-                              "description": "TaskInfo describes the VMMServer task info."
-                            }
-                          },
-                          "description": "Configuring indicates resource configuration is underway."
-                        },
-                        "repairing": {
-                          "type": "object",
-                          "properties": {
-                            "waitingOn": {
-                              "type": "object",
-                              "properties": {
-                                "description": {
-                                  "type": "string"
-                                },
-                                "errorMessage": {
-                                  "type": "string"
-                                },
-                                "isSuccess": {
-                                  "type": "boolean"
-                                },
-                                "progress": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "status": {
-                                  "type": "string"
-                                },
-                                "taskRef": {
-                                  "type": "string"
-                                }
-                              },
-                              "description": "TaskInfo describes the VMMServer task info."
-                            }
-                          },
-                          "description": "Repairing indicates resource configuration attempt is discarded and is repaired to a healthy state"
-                        },
-                        "syncing": {
-                          "type": "object",
-                          "properties": {
-                            "startedAt": {
-                              "type": "string",
-                              "format": "date-time",
-                              "description": "StartedAt is UTC time at which this phase started."
-                            }
-                          },
-                          "description": "Syncing indicates resource configuration is syncing."
-                        }
-                      },
-                      "description": "Phase is the ResourceStateConfiguring substate."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this state started."
-                    }
-                  },
-                  "description": "Contains details about Configuring state."
-                },
-                "createError": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains information about error that has occurred."
-                    },
-                    "reason": {
-                      "type": "string",
-                      "description": "Reason is a camel case string value indicating reason for current error state.",
-                      "enum": [
-                        "VMMServerNotReachable",
-                        "ResourceNotFound",
-                        "DatacenterNotFound",
-                        "VMMServerNotFound",
-                        "ResourceDeletedOutOfBand",
-                        "CreateFailed",
-                        "ConfigureFailed",
-                        "SyncFailed",
-                        "DeleteFailed"
-                      ]
-                    }
-                  },
-                  "description": "Contains details about CreateError state."
-                },
-                "creating": {
-                  "type": "object",
-                  "properties": {
-                    "phase": {
-                      "type": "object",
-                      "properties": {
-                        "creating": {
-                          "type": "object",
-                          "properties": {
-                            "waitingOn": {
-                              "type": "object",
-                              "properties": {
-                                "description": {
-                                  "type": "string"
-                                },
-                                "errorMessage": {
-                                  "type": "string"
-                                },
-                                "isSuccess": {
-                                  "type": "boolean"
-                                },
-                                "progress": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "status": {
-                                  "type": "string"
-                                },
-                                "taskRef": {
-                                  "type": "string"
-                                }
-                              },
-                              "description": "TaskInfo describes the VMMServer task info."
-                            }
-                          },
-                          "description": "Creating indicates resource creation is underway."
-                        },
-                        "syncing": {
-                          "type": "object",
-                          "properties": {
-                            "startedAt": {
-                              "type": "string",
-                              "format": "date-time"
-                            }
-                          },
-                          "description": "Syncing indicates resource is syncing."
-                        }
-                      },
-                      "description": "Phase is the ResourceStateCreating substate."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this state started."
-                    }
-                  },
-                  "description": "Contains details about Creating state."
-                },
-                "deleteError": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains information about error that has occurred."
-                    },
-                    "reason": {
-                      "type": "string",
-                      "description": "Reason is a camel case string value indicating reason for current error state.",
-                      "enum": [
-                        "VMMServerNotReachable",
-                        "ResourceNotFound",
-                        "DatacenterNotFound",
-                        "VMMServerNotFound",
-                        "ResourceDeletedOutOfBand",
-                        "CreateFailed",
-                        "ConfigureFailed",
-                        "SyncFailed",
-                        "DeleteFailed"
-                      ]
-                    }
-                  },
-                  "description": "Contains details about DeleteError state."
-                },
-               "deletePreflight": {
-                  "type": "object",
-                  "properties": {
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this state started."
-                    }
-                  },
-                  "description": "Contains details about DeletePreflight state."
-                },
-                "deleting": {
-                  "type": "object",
-                  "properties": {
-                    "phase": {
-                      "type": "object",
-                      "properties": {
-                        "deleting": {
-                          "type": "object",
-                          "properties": {
-                            "waitingOn": {
-                              "type": "object",
-                              "properties": {
-                                "description": {
-                                  "type": "string"
-                                },
-                                "errorMessage": {
-                                  "type": "string"
-                                },
-                                "isSuccess": {
-                                  "type": "boolean"
-                                },
-                                "progress": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "status": {
-                                  "type": "string"
-                                },
-                                "taskRef": {
-                                  "type": "string"
-                                }
-                              },
-                              "description": "TaskInfo describes the VMMServer task info."
-                            }
-                          },
-                          "description": "Deleting indicates current resource configuration is deleting."
-                        },
-                        "poweringOff": {
-                          "type": "object",
-                          "properties": {
-                            "waitingOn": {
-                              "type": "object",
-                              "properties": {
-                                "description": {
-                                  "type": "string"
-                                },
-                                "errorMessage": {
-                                  "type": "string"
-                                },
-                                "isSuccess": {
-                                  "type": "boolean"
-                                },
-                                "progress": {
-                                  "type": "integer",
-                                  "format": "int32"
-                                },
-                                "status": {
-                                  "type": "string"
-                                },
-                                "taskRef": {
-                                  "type": "string"
-                                }
-                              },
-                              "description": "TaskInfo describes the VMMServer task info."
-                            }
-                          },
-                          "description": "PoweringOff indicates resource power off is underway."
-                        },
-                        "retry": {
-                            "type": "object",
-                            "properties": {
-                              "nextRetryAt": {
-                                "type": "string",
-                                "format": "date-time"
-                              }
-                            },
-                            "description": "Retry indicates retry the delete operation."
-                          }
-                      },
-                      "description": "Phase is the ResourceStateDeleting substate."
-                    },
-                    "retryAttempt": {
-                      "type": "integer",
-                      "format": "int32"
-                    },
-                    "startedAt": {
-                      "type": "string",
-                        "format": "date-time",
-                        "description": "StartedAt is UTC time at which this state started."
-                      }
-                    },
-                    "description": "Contains details about Deleting state."
-                  },
-                  "ok": {
-                    "type": "object",
-                    "properties": {
-                      "nextSyncAt": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "NextSyncAt is UTC time at or after which the next sync should happen."
-                      }
-                    },
-                    "description": "Contains details about OK state."
-                  },
-                  "syncError": {
-                    "type": "object",
-                    "properties": {
-                      "message": {
-                        "type": "string",
-                        "description": "Message contains information about error that has occurred."
-                      },
-                      "reason": {
-                        "type": "string",
-                        "description": "Reason is a camel case string value indicating reason for current error state.",
-                        "enum": [
-                          "VMMServerNotReachable",
-                          "ResourceNotFound",
-                          "DatacenterNotFound",
-                          "VMMServerNotFound",
-                          "ResourceDeletedOutOfBand",
-                          "CreateFailed",
-                          "ConfigureFailed",
-                          "SyncFailed",
-                          "DeleteFailed"
-                        ]
-                      }
-                    },
-                    "description": "Contains details about SyncError state."
-                  },
-                  "syncing": {
-                    "type": "object",
-                    "properties": {
-                      "startedAt": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "StartedAt is UTC time at which this state started."
-                      }
-                    },
-                    "description": "Contains details about Syncing state."
-                  }
-                },
-                "description": "ResourceState defines various states for a resource. Only one of the fields below is set."
-              }
-          },
-          "description": "ResourceStatus defines appropriate status fields for a resource."
-        },
-        "vmCount": {
-          "type": "integer",
-          "format": "int64",
-          "description": "VMCount gives the max number of VMs"
+		"provisioningState": {
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -1686,544 +1662,25 @@
         }
       }
     },
-	"VirtualNetworksProperties": {
+    "VirtualNetworksProperties": {
       "properties": {
         "uuid": {
           "type": "string",
-          "description": "ID used to uniquily identify the virtual network.",
+          "description": "Unique ID of the virtual network.",
           "minLength": 1
         },
-        "vmmServerRef": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of resource that is being referred."
-            },
-            "namespace": {
-              "type": "string",
-              "description": "Namespace of resource that is being referred."
-            }
-          },
-          "description": "VMMServer ResourceReference contains resource information such as name and namespace."
+        "vmmServerId": {
+          "type": "string",
+          "description": "ARM Id of the vmmServer resource in which this resource resides."
+        },
+        "networkName": {
+          "type": "string",
+          "description": "Name of the virtual network in vmmServer.",
+          "readOnly": true
         },
 		"provisioningState": {
-          "type": "string"
-        },
-        "status": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of the virtual network."
-            },
-            "observedGeneration": {
-              "type": "integer",
-              "format": "int64",
-              "description": "ObservedGeneration is the last known generation observed for the resource."
-            },
-            "owner": {
-              "type": "string",
-              "description": "Owner of the virtual network."
-            },
-            "provisioningStatus": {
-              "type": "object",
-              "properties": {
-                "error": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "description": "Code contains any error code associated with the message."
-                    },
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains the string suitable for logging and human consumption."
-                    }
-                  },
-                  "description": "Error will be set in the event that there is a terminal problem reconciling the resource."
-                },
-                "operationID": {
-                  "type": "string",
-                  "description": "OperationID is the unique identifier for tracking any operation associated with this resource."
-                },
-                "status": {
-                  "type": "string",
-                  "description": "Status describes the job completion status. Only one of the following provisioning status may be specified.",
-                  "enum": [
-                    "Provisioning",
-                    "Succeeded",
-                    "Failed"
-                  ]
-                }
-              },
-              "description": "ProvisioningStatus describes the provisioning status of the resource."
-            },
-            "resourceStatus": {
-              "type": "object",
-              "properties": {
-                "createdAt": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "CreatedAt is time at which resource was previously created."
-                },
-                "lastConfigurationAttempt": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Error contains the error details of the last configure attempt."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this phase started."
-                    },
-                    "taskInfo": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "type": "string"
-                        },
-                        "errorMessage": {
-                          "type": "string"
-                        },
-                        "isSuccess": {
-                          "type": "boolean"
-                        },
-                        "progress": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "taskRef": {
-                          "type": "string"
-                        }
-                      },
-                      "description": "TaskInfo holds the details of last configured task."
-                    }
-                  },
-                  "description": "LastConfigurationAttempt indicates the details of the last configuration attempt."
-                },
-                "lastSyncAttempt": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Error contains the error details of the last sync attempt."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this phase started."
-                    }
-                  },
-                  "description": "LastSyncAttempt indicates the details of the last sync attempt."
-                },
-                "state": {
-                  "type": "object",
-                  "properties": {
-                    "configuring": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "configuring": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Configuring indicates resource configuration is underway."
-                            },
-                            "repairing": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Repairing indicates resource configuration attempt is discarded and is repaired to a healthy state"
-                            },
-                            "syncing": {
-                              "type": "object",
-                              "properties": {
-                                "startedAt": {
-                                  "type": "string",
-                                  "format": "date-time",
-                                  "description": "StartedAt is UTC time at which this phase started."
-                                }
-                              },
-                              "description": "Syncing indicates resource configuration is syncing."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateConfiguring substate."
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Configuring state."
-                    },
-                    "createError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about CreateError state."
-                    },
-                    "creating": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "creating": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Creating indicates resource creation is underway."
-                            },
-                            "syncing": {
-                              "type": "object",
-                              "properties": {
-                                "startedAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "description": "Syncing indicates resource is syncing."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateCreating substate."
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Creating state."
-                    },
-                    "deleteError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about DeleteError state."
-                    },
-                    "deletePreflight": {
-                      "type": "object",
-                      "properties": {
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about DeletePreflight state."
-                    },
-                    "deleting": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "deleting": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Deleting indicates current resource configuration is deleting."
-                            },
-                            "poweringOff": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "PoweringOff indicates resource power off is underway."
-                            },
-                            "retry": {
-                              "type": "object",
-                              "properties": {
-                                "nextRetryAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "description": "Retry indicates retry the delete operation."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateDeleting substate."
-                        },
-                        "retryAttempt": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Deleting state."
-                    },
-                    "ok": {
-                      "type": "object",
-                      "properties": {
-                        "nextSyncAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "NextSyncAt is UTC time at or after which the next sync should happen."
-                        }
-                      },
-                      "description": "Contains details about OK state."
-                    },
-                    "syncError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about SyncError state."
-                    },
-                    "syncing": {
-                      "type": "object",
-                      "properties": {
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Syncing state."
-                    }
-                  },
-                  "description": "ResourceState defines various states for a resource. Only one of the fields below is set."
-                }
-              },
-              "description": "ResourceStatus defines appropriate status fields for a resource."
-            }
-          },
-          "description": "VirtualNetworkStatus defines the observed state of VirtualNetwork"
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -2292,874 +1749,304 @@
         }
       }
     },
-	"VirtualMachinesProperties": {
+    "VirtualMachinesProperties": {
       "properties": {
-        "cloudRef": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of resource that is being referred."
-            },
-            "namespace": {
-              "type": "string",
-              "description": "Namespace of resource that is being referred."
-            }
-          },
-          "description": "CloudRef is the resource reference to the SCVMM cloud in which the virtual machine is created/located."
+        "vmmServerId": {
+          "type": "string",
+          "description": "ARM Id of the vmmServer resource in which this resource resides."
         },
-        "cpuCount": {
-          "type": "integer",
-          "format": "int64"
+        "cloudId": {
+          "type": "string",
+          "description": "ARM Id of the cloud resource to deploy the vm."
         },
-        "dynamicMemoryEnabled": {
-          "type": "boolean"
+        "templateId": {
+          "type": "string",
+          "description": "ARM Id of the template resource to deploy the vm."
         },
-        "dynamicMemoryMaxMB": {
-          "type": "integer",
-          "format": "int64"
+        "osProfile": {
+          "description": "OS properties.",
+          "$ref": "#/definitions/OsProfile"
         },
-        "dynamicMemoryMinMB": {
-          "type": "integer",
-          "format": "int64"
+        "hardwareProfile": {
+          "description": "Hardware properties.",
+          "$ref": "#/definitions/HardwareProfile"
         },
-        "generation": {
-          "type": "integer",
-          "format": "int64"
+        "networkProfile": {
+          "description": "Network properties.",
+          "$ref": "#/definitions/NetworkProfile"
         },
-        "memoryMB": {
-          "type": "integer",
-          "format": "int64",
-          "description": "MemoryMB is the size of a virtual machine's memory, in MB."
-        },
-        "networkAdapters": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "ipv4AddressType": {
-                "type": "string"
-              },
-              "ipv6AddressType": {
-                "type": "string"
-              },
-              "macAddressType": {
-                "type": "string"
-              },
-              "networkRef": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "Name of resource that is being referred."
-                  },
-                  "namespace": {
-                    "type": "string",
-                    "description": "Namespace of resource that is being referred."
-                  }
-                },
-                "description": "NetworkRef is the resource reference to the vSphere network to which the device will be connected."
-              },
-              "vmNetwork": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "networkRef"
-            ],
-            "description": "NetworkAdapterSpec defines the network configuration for a virtual machine's network device."
-          },
-          "properties": {
-            "items": {
-              "type": "object",
-              "properties": {
-                "ipv4AddressType": {
-                  "type": "string"
-                },
-                "ipv6AddressType": {
-                  "type": "string"
-                },
-                "macAddressType": {
-                  "type": "string"
-                },
-                "networkRef": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "Name of resource that is being referred."
-                    },
-                    "namespace": {
-                      "type": "string",
-                      "description": "Namespace of resource that is being referred."
-                    }
-                  },
-                  "description": "NetworkRef is the resource reference to the vSphere network to which the device will be connected."
-                },
-                "vmNetwork": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "networkRef"
-              ],
-              "description": "NetworkAdapterSpec defines the network configuration for a virtual machine's network device."
-            }
-          },
-          "description": "Devices is the list of network devices used by the virtual machine."
-        },
-        "operatingSystem": {
-          "type": "object",
-          "properties": {
-            "computerName": {
-              "type": "string"
-            },
-            "loginCredentialRef": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "Name of resource that is being referred."
-                },
-                "namespace": {
-                  "type": "string",
-                  "description": "Namespace of resource that is being referred."
-                }
-              },
-              "description": "CredentialRef"
-            }
-          },
-          "description": "Contains the Credential Reference for local admin and the computer name"
-        },
-        "templateRef": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of resource that is being referred."
-            },
-            "namespace": {
-              "type": "string",
-              "description": "Namespace of resource that is being referred."
-            }
-          },
-          "description": "TemplateRef is the resource reference to the template used to clone new machines."
+        "storageProfile": {
+          "description": "Storage properties.",
+          "$ref": "#/definitions/StorageProfile"
         },
         "vmName": {
           "type": "string",
-          "description": "VMName is the name of the resource on the VM on the SCVMM server",
+          "description": "VMName is the name of VM on the SCVMM server",
           "minLength": 1
         },
-        "vmmServerRef": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of resource that is being referred."
-            },
-            "namespace": {
-              "type": "string",
-              "description": "Namespace of resource that is being referred."
-            }
-          },
-          "description": "VMMServerRef is the resource reference to the SCVMM server on which the virtual machine is created/located."
+		"uuid": {
+          "type": "string",
+          "description": "Unique ID of the virtual machine."
         },
         "provisioningState": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "OsType": {
+      "description": "Defines the different types of VM guest operating systems.",
+      "enum": [
+        "Windows",
+        "Linux",
+        "Other"
+      ],
+      "type": "string",
+	  "readOnly": true
+    },
+    "OsProfile": {
+      "description": "Defines the resource properties.",
+      "type": "object",
+      "properties": {
+        "computerName": {
+          "description": "Gets or sets computer name.",
+          "type": "string",
+          "readOnly": true
+        },
+        "adminPassword": {
+          "description": "Gets or sets administrator password.",
           "type": "string"
         },
-		"status": {
-          "type": "object",
-          "properties": {
-            "cpuCount": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "disks": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "SizeGB": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "DiskSizeGB is the capacity of the virtual disk in GB."
-                  },
-                  "VHDType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "createDiffDisk": {
-                    "type": "boolean"
-                  },
-                  "diskID": {
-                    "type": "string",
-                    "description": "DiskID is the ID of the virtual disk."
-                  },
-                  "maxSizeGB": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "volumeType": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "DeviceKey is the device key value of the virtual disk."
-                  }
-                },
-                "description": "VirtualDiskStatus contains informative data of a virtual disk."
-              },
-              "properties": {
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "SizeGB": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "DiskSizeGB is the capacity of the virtual disk in GB."
-                    },
-                    "VHDType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "createDiffDisk": {
-                      "type": "boolean"
-                    },
-                    "diskID": {
-                      "type": "string",
-                      "description": "DiskID is the ID of the virtual disk."
-                    },
-                    "maxSizeGB": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "volumeType": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "DeviceKey is the device key value of the virtual disk."
-                    }
-                  },
-                  "description": "VirtualDiskStatus contains informative data of a virtual disk."
-                }
-              },
-              "description": "Disks is a list consisting of information about virtual disks for the virtual machine."
-            },
-            "dynamicMemoryEnabled": {
-              "type": "boolean"
-            },
-            "dynamicMemoryMaximumMB": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "dynamicMemoryMinimumMB": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "generation": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "isHighlyAvailable": {
-              "type": "boolean"
-            },
-            "memoryMB": {
-              "type": "integer",
-              "format": "int64",
-              "description": "MemoryMB is the size of a virtual machine's memory, in MB."
-            },
-            "networkAdapters": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "ID": {
-                    "type": "string",
-                    "description": "ID is the GUID of the virtual network adapter for this nic."
-                  },
-                  "ipv4AddressType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "ipv6AddressType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "macAddressType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Name is the name of the virtual network adapter for this nic."
-                  },
-                  "vmNetwork": {
-                    "type": "string"
-                  }
-                },
-                "description": "NetworkAdapterStatus provides information about one of a VM's network devices."
-              },
-              "properties": {
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "ID": {
-                      "type": "string",
-                      "description": "ID is the GUID of the virtual network adapter for this nic."
-                    },
-                    "ipv4AddressType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "ipv6AddressType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "macAddressType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Name is the name of the virtual network adapter for this nic."
-                    },
-                    "vmNetwork": {
-                      "type": "string"
-                    }
-                  },
-                  "description": "NetworkAdapterStatus provides information about one of a VM's network devices."
-                }
-              },
-              "description": "NetworkAdapters returns the network status for each of the machine's configured network adapters."
-            },
-            "observedGeneration": {
-              "type": "integer",
-              "format": "int64",
-              "description": "ObservedGeneration is the last known generation observed in the virtualMachine resource."
-            },
-            "operatingSystem": {
-              "type": "object",
-              "properties": {
-                "computerName": {
-                  "type": "string"
-                },
-                "isWindows": {
-                  "type": "boolean",
-                  "description": "Boolean isWindows"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name stores the name of the Operating System"
-                },
-                "osType": {
-                  "type": "integer",
-                  "format": "int64",
-                  "description": "OSType has the OS type in a code format"
-                }
-              }
-            },
-            "provisioningStatus": {
-              "type": "object",
-              "properties": {
-                "error": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "description": "Code contains any error code associated with the message."
-                    },
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains the string suitable for logging and human consumption."
-                    }
-                  },
-                  "description": "Error will be set in the event that there is a terminal problem reconciling the resource."
-                },
-                "operationID": {
-                  "type": "string",
-                  "description": "OperationID is the unique identifier for tracking any operation associated with this resource."
-                },
-                "status": {
-                  "type": "string",
-                  "description": "Status describes the job completion status. Only one of the following provisioning status may be specified.",
-                  "enum": [
-                    "Provisioning",
-                    "Succeeded",
-                    "Failed"
-                  ]
-                }
-              },
-              "description": "ProvisioningStatus describes the provisioning status of the resource."
-            },
-            "resourceStatus": {
-              "type": "object",
-              "properties": {
-                "createdAt": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "CreatedAt is time at which resource was previously created."
-                },
-                "lastConfigurationAttempt": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Error contains the error details of the last configure attempt."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this phase started."
-                    },
-                    "taskInfo": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "type": "string"
-                        },
-                        "errorMessage": {
-                          "type": "string"
-                        },
-                        "isSuccess": {
-                          "type": "boolean"
-                        },
-                        "progress": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "taskRef": {
-                          "type": "string"
-                        }
-                      },
-                      "description": "TaskInfo holds the details of last configured task."
-                    }
-                  },
-                  "description": "LastConfigurationAttempt indicates the details of the last configuration attempt."
-                },
-                "lastSyncAttempt": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Error contains the error details of the last sync attempt."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this phase started."
-                    }
-                  },
-                  "description": "LastSyncAttempt indicates the details of the last sync attempt."
-                },
-                "state": {
-                  "type": "object",
-                  "properties": {
-                    "configuring": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "configuring": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Configuring indicates resource configuration is underway."
-                            },
-                            "repairing": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Repairing indicates resource configuration attempt is discarded and is repaired to a healthy state"
-                            },
-                            "syncing": {
-                              "type": "object",
-                              "properties": {
-                                "startedAt": {
-                                  "type": "string",
-                                  "format": "date-time",
-                                  "description": "StartedAt is UTC time at which this phase started."
-                                }
-                              },
-                              "description": "Syncing indicates resource configuration is syncing."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateConfiguring substate."
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Configuring state."
-                    },
-                    "createError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about CreateError state."
-                    },
-                    "creating": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "creating": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Creating indicates resource creation is underway."
-                            },
-                            "syncing": {
-                              "type": "object",
-                              "properties": {
-                                "startedAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "description": "Syncing indicates resource is syncing."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateCreating substate."
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Creating state."
-                    },
-                    "deleteError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about DeleteError state."
-                    },
-                    "deletePreflight": {
-                      "type": "object",
-                      "properties": {
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about DeletePreflight state."
-                    },
-                    "deleting": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "deleting": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Deleting indicates current resource configuration is deleting."
-                            },
-                            "poweringOff": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "PoweringOff indicates resource power off is underway."
-                            },
-                            "retry": {
-                              "type": "object",
-                              "properties": {
-                                "nextRetryAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "description": "Retry indicates retry the delete operation."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateDeleting substate."
-                        },
-                        "retryAttempt": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Deleting state."
-                    },
-                    "ok": {
-                      "type": "object",
-                      "properties": {
-                        "nextSyncAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "NextSyncAt is UTC time at or after which the next sync should happen."
-                        }
-                      },
-                      "description": "Contains details about OK state."
-                    },
-                    "syncError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about SyncError state."
-                    },
-                    "syncing": {
-                      "type": "object",
-                      "properties": {
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Syncing state."
-                    }
-                  },
-                  "description": "ResourceState defines various states for a resource. Only one of the fields below is set."
-                }
-              },
-              "description": "ResourceStatus defines appropriate status fields for a resource."
-            },
-            "uuID": {
-              "type": "string",
-              "description": "ID used to uniquily identify the virtual network."
-            },
-            "vmStatus": {
-              "type": "string"
-            }
+        "osType": {
+          "description": "Gets or sets the type of the os.",
+              "$ref": "#/definitions/OsType",
+          "readOnly": true
+        },
+        "osName": {
+          "description": "Gets or sets os name.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "HardwareProfile": {
+      "description": "Defines the resource properties.",
+      "type": "object",
+      "properties": {
+        "memoryMB": {
+          "type": "integer",
+          "format": "int32",
+          "description": "MemoryMB is the size of a virtual machine's memory, in MB."
+        },
+        "cpuCount": {
+          "type": "integer",
+          "description": "Gets or sets the number of vCPUs for the vm.",
+          "format": "int32"
+        },
+        "dynamicMemoryEnabled": {
+          "type": "string",
+          "description": "Gets or sets a value indicating whether to enable dynamic memory or not.",
+          "enum": [
+            "false",
+            "true"
+          ],
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DynamicMemoryEnabled"
+          }
+        },
+        "dynamicMemoryMaxMB": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Gets or sets the max dynamic memory for the vm."
+        },
+        "dynamicMemoryMinMB": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Gets or sets the min dynamic memory for the vm."
+        }
+      }
+    },
+    "NetworkProfile": {
+      "description": "Defines the resource properties.",
+      "type": "object",
+      "properties": {
+        "networkInterfaces": {
+          "description": "Gets or sets the list of network interfaces associated with the virtual machine.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkInterface"
+          }
+        }
+      }
+    },
+    "AllocationMethod": {
+      "description": "Allocation method.",
+      "enum": [
+        "dynamic",
+        "static"
+      ],
+      "type": "string"
+    },
+    "NetworkInterface": {
+      "description": "Network Interface model",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the network interface.",
+          "type": "string"
+        },
+        "ipv4Addresses": {
+          "description": "Gets or sets the nic ipv4 addresses.",
+          "type": "array",
+          "items": {
+            "type": "string"
           },
-          "description": "VirtualMachineStatus defines the observed state of VirtualMachine"
+          "readOnly": true
+        },
+		"ipv6Addresses": {
+          "description": "Gets or sets the nic ipv4 addresses.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        },
+        "macAddress": {
+          "description": "Gets or sets the NIC MAC address.",
+          "type": "string"
+        },
+        "networkId": {
+          "description": "Gets or sets the ARM Id of the network resource to connect the virtual machine.",
+          "type": "string"
+        },
+        "nicId": {
+          "description": "Gets or sets the network interface Id.",
+          "type": "string",
+          "readOnly": true
+        },
+		"nicName": {
+          "description": "Gets or sets the name of the nic in vmmServer.",
+          "type": "string",
+          "readOnly": true
+        },
+        "networkName": {
+          "description": "Gets or sets the name of the virtual network in vmmServer that the nic is connected to.",
+          "type": "string",
+          "readOnly": true
+        },
+        "ipv4AddressType": {
+          "description": "Gets or sets the ipv4 address type.",
+          "$ref": "#/definitions/AllocationMethod"
+        },
+        "ipv6AddressType": {
+          "description": "Gets or sets the ipv6 address type.",
+          "$ref": "#/definitions/AllocationMethod"
+        },
+        "macAddressType": {
+          "description": "Gets or sets the mac address type.",
+          "$ref": "#/definitions/AllocationMethod"
+        }
+      }
+    },
+    "CloudCapacity": {
+      "description": "Cloud Capacity model",
+      "properties": {
+        "cpuCount": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Number of CPUs allocated in the cloud"
+        },
+        "memLimitMB": {
+          "type": "integer",
+          "format": "int64",
+          "description": "MemLimitMB specifies a memory usage limit in megabytes."
+        },
+        "vmCount": {
+          "type": "integer",
+          "format": "int64",
+          "description": "VMCount gives the max number of VMs"
+        }
+      },
+	  "readOnly": true
+    },
+    "VirtualDisk": {
+      "description": "Virtual disk model",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the virtual disk.",
+          "type": "string"
+        },
+        "diskId": {
+          "description": "Gets or sets the disk id.",
+          "type": "string",
+          "readOnly": true
+        },
+		"diskName": {
+          "description": "Gets or sets the name of the virtual disk in vmmServer.",
+          "type": "string",
+          "readOnly": true
+        },
+        "diskSizeGB": {
+          "format": "int32",
+          "description": "Gets or sets the disk total size.",
+          "type": "integer"
+        },
+        "maxDiskSizeGB": {
+          "format": "int32",
+          "description": "Gets or sets the max disk size.",
+          "type": "integer",
+		  "readOnly": true
+        },
+        "bus": {
+          "format": "int32",
+          "description": "Gets or sets the disk bus.",
+          "type": "integer"
+        },
+        "lun": {
+          "format": "int32",
+          "description": "Gets or sets the disk lun.",
+          "type": "integer"
+        },
+        "busType": {
+          "description": "Gets or sets the disk total size.",
+          "type": "string",
+		  "readOnly": true
+        },
+        "vhdType": {
+          "description": "Gets or sets the disk vhd type.",
+          "type": "string",
+		  "readOnly": true
+        },
+        "volumeType": {
+          "description": "Gets or sets the disk volume type.",
+          "type": "string",
+		  "readOnly": true
+        },
+        "createDiffDisk": {
+          "type": "string",
+          "description": "Gets or sets a value indicating diff disk.",
+          "enum": [
+            "false",
+            "true"
+          ],
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "CreateDiffDisk"
+          },
+		  "readOnly": true
+        }
+      }
+    },
+    "StorageProfile": {
+      "description": "Defines the resource properties.",
+      "type": "object",
+      "properties": {
+        "disks": {
+          "description": "Gets or sets the list of virtual disks associated with the virtual machine.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VirtualDisk"
+          }
         }
       }
     },
@@ -3228,742 +2115,83 @@
         }
       }
     },
-	"VirtualMachineTemplatesProperties": {
+    "VirtualMachineTemplatesProperties": {
       "properties": {
         "uuid": {
           "type": "string",
           "description": "ID used to uniquily identify the virtual network.",
           "minLength": 1
         },
-        "vmmServerRef": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "Name of resource that is being referred."
-            },
-            "namespace": {
-              "type": "string",
-              "description": "Namespace of resource that is being referred."
-            }
-          },
-          "description": "VMMServer ResourceReference contains resource information such as name and namespace."
+        "vmmServerId": {
+          "type": "string",
+          "description": "ARM Id of the vmmServer resource in which this resource resides."
         },
-		"provisioningState": {
-          "type": "string"
+        "osType": {
+          "description": "Gets or sets the type of the os.",
+          "$ref": "#/definitions/OsType",
+          "readOnly": true
         },
-        "status": {
-          "type": "object",
-          "properties": {
-            "cpuCount": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "disks": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "SizeGB": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "DiskSizeGB is the capacity of the virtual disk in GB."
-                  },
-                  "VHDType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "createDiffDisk": {
-                    "type": "boolean"
-                  },
-                  "diskID": {
-                    "type": "string",
-                    "description": "DiskID is the ID of the virtual disk."
-                  },
-                  "maxSizeGB": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "volumeType": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "DeviceKey is the device key value of the virtual disk."
-                  }
-                },
-                "description": "VirtualDiskStatus contains informative data of a virtual disk."
-              },
-              "properties": {
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "SizeGB": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "DiskSizeGB is the capacity of the virtual disk in GB."
-                    },
-                    "VHDType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "createDiffDisk": {
-                      "type": "boolean"
-                    },
-                    "diskID": {
-                      "type": "string",
-                      "description": "DiskID is the ID of the virtual disk."
-                    },
-                    "maxSizeGB": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "volumeType": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "DeviceKey is the device key value of the virtual disk."
-                    }
-                  },
-                  "description": "VirtualDiskStatus contains informative data of a virtual disk."
-                }
-              },
-              "description": "Virtual Disk Drives Disks is a list consisting of information about virtual disks for the virtual machine template."
-            },
-            "dynamicMemoryEnabled": {
-              "type": "boolean"
-            },
-            "dynamicMemoryMaximumMB": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "dynamicMemoryMinimumMB": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "generation": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "isHighlyAvailable": {
-              "type": "boolean"
-            },
-            "memoryMB": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "networkAdapters": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "ID": {
-                    "type": "string",
-                    "description": "ID is the GUID of the virtual network adapter for this nic."
-                  },
-                  "ipv4AddressType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "ipv6AddressType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "macAddressType": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Name is the name of the virtual network adapter for this nic."
-                  },
-                  "networkName": {
-                    "type": "string"
-                  },
-                  "vmNetwork": {
-                    "type": "string"
-                  }
-                },
-                "description": "NetworkDeviceStatus provides information about one of a VM's network devices."
-              },
-              "properties": {
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "ID": {
-                      "type": "string",
-                      "description": "ID is the GUID of the virtual network adapter for this nic."
-                    },
-                    "ipv4AddressType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "ipv6AddressType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "macAddressType": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Name is the name of the virtual network adapter for this nic."
-                    },
-                    "networkName": {
-                      "type": "string"
-                    }
-                  },
-                  "description": "NetworkDeviceStatus provides information about one of a VM's network devices."
-                }
-              },
-              "description": "Virtual Network Adapter Network returns the network status for each of the machine's configured network adapters."
-            },
-            "observedGeneration": {
-              "type": "integer",
-              "format": "int64",
-              "description": "ObservedGeneration is the last known generation observed for the resource."
-            },
-            "operatingSystem": {
-              "type": "object",
-              "properties": {
-                "computerName": {
-                  "type": "string"
-                },
-                "isWindows": {
-                  "type": "boolean",
-                  "description": "Boolean isWindows"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Name stores the name of the Operating System"
-                },
-                "osType": {
-                  "type": "integer",
-                  "format": "int64",
-                  "description": "OSType has the OS type in a code format"
-                }
-              }
-            },
-            "provisioningStatus": {
-              "type": "object",
-              "properties": {
-                "error": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "description": "Code contains any error code associated with the message."
-                    },
-                    "message": {
-                      "type": "string",
-                      "description": "Message contains the string suitable for logging and human consumption."
-                    }
-                  },
-                  "description": "Error will be set in the event that there is a terminal problem reconciling the resource."
-                },
-                "operationID": {
-                  "type": "string",
-                  "description": "OperationID is the unique identifier for tracking any operation associated with this resource."
-                },
-                "status": {
-                  "type": "string",
-                  "description": "Status describes the job completion status. Only one of the following provisioning status may be specified.",
-                  "enum": [
-                    "Provisioning",
-                    "Succeeded",
-                    "Failed"
-                  ]
-                }
-              },
-              "description": "ProvisioningStatus describes the provisioning status of the resource."
-            },
-            "resourceStatus": {
-              "type": "object",
-              "properties": {
-                "createdAt": {
-                  "type": "string",
-                  "format": "date-time",
-                  "description": "CreatedAt is time at which resource was previously created."
-                },
-                "lastConfigurationAttempt": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Error contains the error details of the last configure attempt."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this phase started."
-                    },
-                    "taskInfo": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "type": "string"
-                        },
-                        "errorMessage": {
-                          "type": "string"
-                        },
-                        "isSuccess": {
-                          "type": "boolean",
-                          "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
-                        },
-                        "progress": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "status": {
-                          "type": "string"
-                        },
-                        "taskRef": {
-                          "type": "string"
-                        },
-                        "taskType": {
-                          "type": "string"
-                        }
-                      },
-                      "description": "TaskInfo holds the details of last configured task."
-                    }
-                  },
-                  "description": "LastConfigurationAttempt indicates the details of the last configuration attempt."
-                },
-                "lastSyncAttempt": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Error contains the error details of the last sync attempt."
-                    },
-                    "startedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "StartedAt is UTC time at which this phase started."
-                    }
-                  },
-                  "description": "LastSyncAttempt indicates the details of the last sync attempt."
-                },
-                "state": {
-                  "type": "object",
-                  "properties": {
-                    "configuring": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "configuring": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean",
-                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    },
-                                    "taskType": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Configuring indicates resource configuration is underway."
-                            },
-                            "repairing": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean",
-                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    },
-                                    "taskType": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Repairing indicates resource configuration attempt is discarded and is repaired to a healthy state"
-                            },
-                            "syncing": {
-                              "type": "object",
-                              "properties": {
-                                "startedAt": {
-                                  "type": "string",
-                                  "format": "date-time",
-                                  "description": "StartedAt is UTC time at which this phase started."
-                                }
-                              },
-                              "description": "Syncing indicates resource configuration is syncing."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateConfiguring substate."
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Configuring state."
-                    },
-                    "createError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about CreateError state."
-                    },
-                    "creating": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "creating": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean",
-                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    },
-                                    "taskType": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Creating indicates resource creation is underway."
-                            },
-                            "syncing": {
-                              "type": "object",
-                              "properties": {
-                                "startedAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "description": "Syncing indicates resource is syncing."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateCreating substate."
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Creating state."
-                    },
-                    "deleteError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about DeleteError state."
-                    },
-                    "deletePreflight": {
-                      "type": "object",
-                      "properties": {
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about DeletePreflight state."
-                    },
-                    "deleting": {
-                      "type": "object",
-                      "properties": {
-                        "phase": {
-                          "type": "object",
-                          "properties": {
-                            "deleting": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean",
-                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    },
-                                    "taskType": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "Deleting indicates current resource configuration is deleting."
-                            },
-                            "poweringOff": {
-                              "type": "object",
-                              "properties": {
-                                "waitingOn": {
-                                  "type": "object",
-                                  "properties": {
-                                    "description": {
-                                      "type": "string"
-                                    },
-                                    "errorMessage": {
-                                      "type": "string"
-                                    },
-                                    "isSuccess": {
-                                      "type": "boolean",
-                                      "description": "Both the attribute below ae used for reporting error, if any This can be more elaborate and made into a seperate structure"
-                                    },
-                                    "progress": {
-                                      "type": "integer",
-                                      "format": "int32"
-                                    },
-                                    "status": {
-                                      "type": "string"
-                                    },
-                                    "taskRef": {
-                                      "type": "string"
-                                    },
-                                    "taskType": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "description": "TaskInfo describes the VMMServer task info."
-                                }
-                              },
-                              "description": "PoweringOff indicates resource power off is underway."
-                            },
-                            "retry": {
-                              "type": "object",
-                              "properties": {
-                                "nextRetryAt": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                }
-                              },
-                              "description": "Retry indicates retry the delete operation."
-                            }
-                          },
-                          "description": "Phase is the ResourceStateDeleting substate."
-                        },
-                        "retryAttempt": {
-                          "type": "integer",
-                          "format": "int32"
-                        },
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Deleting state."
-                    },
-                    "ok": {
-                      "type": "object",
-                      "properties": {
-                        "nextSyncAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "NextSyncAt is UTC time at or after which the next sync should happen."
-                        }
-                      },
-                      "description": "Contains details about OK state."
-                    },
-                    "syncError": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "description": "Message contains information about error that has occurred."
-                        },
-                        "reason": {
-                          "type": "string",
-                          "description": "Reason is a camel case string value indicating reason for current error state.",
-                          "enum": [
-                            "VMMServerNotReachable",
-                            "ResourceNotFound",
-                            "DatacenterNotFound",
-                            "VMMServerNotFound",
-                            "ResourceDeletedOutOfBand",
-                            "CreateFailed",
-                            "ConfigureFailed",
-                            "SyncFailed",
-                            "DeleteFailed"
-                          ]
-                        }
-                      },
-                      "description": "Contains details about SyncError state."
-                    },
-                    "syncing": {
-                      "type": "object",
-                      "properties": {
-                        "startedAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "description": "StartedAt is UTC time at which this state started."
-                        }
-                      },
-                      "description": "Contains details about Syncing state."
-                    }
-                  },
-                  "description": "ResourceState defines various states for a resource. Only one of the fields below is set."
-                }
-              },
-              "description": "ResourceStatus defines appropriate status fields for a resource."
-            }
+        "osName": {
+          "description": "Gets or sets os name.",
+          "type": "string",
+          "readOnly": true
+        },
+        "memoryMB": {
+          "type": "integer",
+          "format": "int32",
+          "description": "MemoryMB is the size of a virtual machine's memory, in MB.",
+          "readOnly": true
+        },
+        "cpuCount": {
+          "type": "integer",
+          "description": "Gets or sets the number of vCPUs for the vm.",
+          "format": "int32",
+          "readOnly": true
+        },
+        "dynamicMemoryEnabled": {
+          "type": "string",
+          "description": "Gets or sets a value indicating whether to enable dynamic memory or not.",
+          "enum": [
+            "false",
+            "true"
+          ],
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DynamicMemoryEnabled"
           },
-          "description": "VirtualMachineTemplateStatus defines the observed state of VirtualMachineTemplate"
+          "readOnly": true
+        },
+        "dynamicMemoryMaxMB": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Gets or sets the max dynamic memory for the vm.",
+          "readOnly": true
+        },
+        "dynamicMemoryMinMB": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Gets or sets the min dynamic memory for the vm.",
+          "readOnly": true
+        },
+        "networkInterfaces": {
+          "description": "Gets or sets the network interfaces of the template.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkInterface"
+          },
+          "readOnly": true
+        },
+        "disks": {
+          "description": "Gets or sets the disks the template.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VirtualDisk"
+          },
+          "readOnly": true
+        },
+        "provisioningState": {
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -4067,49 +2295,54 @@
         }
       },
       "description": "Results of the request to list operations."
+    },
+    "ErrorResponse": {
+      "description": "Error response.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDefinition",
+          "description": "The error details."
+        }
+      }
+    },
+    "ErrorDefinition": {
+      "description": "Error definition.",
+      "properties": {
+        "code": {
+          "description": "Service specific error code which serves as the substatus for the HTTP error code.",
+          "type": "string",
+          "readOnly": true
+        },
+        "message": {
+          "description": "Description of the error.",
+          "type": "string",
+          "readOnly": true
+        },
+        "details": {
+          "description": "Internal error details.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorDefinition"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "ResourcePatch": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags."
+        }
+      },
+      "description": "Object containing updates for patch operations."
     }
   },
   "parameters": {
-    "VMMServersNameParameter": {
-      "name": "VMMServersName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "maxLength": 64,
-      "minLength": 3
-    },
-	"CloudsNameParameter": {
-      "name": "CloudsName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "maxLength": 64,
-      "minLength": 3
-    },
-	"VirtualNetworksNameParameter": {
-      "name": "VirtualNetworksName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "maxLength": 64,
-      "minLength": 3
-    },
-	"VirtualMachinesNameParameter": {
-      "name": "VirtualMachinesName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "maxLength": 64,
-      "minLength": 3
-    },
-	"VirtualMachineTemplatesNameParameter": {
-      "name": "VirtualMachineTemplatesName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "maxLength": 64,
-      "minLength": 3
-    },
     "SubscriptionIdParameter": {
       "name": "subscriptionId",
       "in": "path",
