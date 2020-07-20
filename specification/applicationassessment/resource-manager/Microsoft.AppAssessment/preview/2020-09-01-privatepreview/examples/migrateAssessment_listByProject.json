@@ -50,7 +50,8 @@
                                     "unknown":0
                                 }
                                 ]
-                            }
+                            },
+                            "dataValidityStatus":"Invalid"
                         }
                     }
                 ],

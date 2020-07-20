@@ -471,7 +471,21 @@
                       },
                       "readOnly": true
                     }
-                  }
+                  },
+                  "readOnly": true
+                },
+                "dataValidityStatus":{
+                  "type":"string",
+                  "description": "Whether or not the assessment input data is still valid; either cause the underlying rules have been updated or we have received new machine data",
+                  "enum": [
+                    "Valid",
+                    "Invalid"
+                  ],
+                  "x-ms-enum":{
+                    "modelAsString":false,
+                    "name":"AssessmentDataValidityStatus"
+                  },
+                  "readOnly": true
                 }
               },
               "required": [ "targetOsVersion" ]
