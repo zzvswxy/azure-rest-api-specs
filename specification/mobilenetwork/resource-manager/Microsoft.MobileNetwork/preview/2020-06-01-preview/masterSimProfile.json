@@ -263,7 +263,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/MasterSimProfiles": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/masterSimProfiles": {
       "get": {
         "tags": [
           "MasterSimProfiles"
