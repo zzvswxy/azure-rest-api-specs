@@ -36,6 +36,12 @@
   "paths": {},
   "definitions": {
     "ErrorDetails": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "code",
+        "message"
+      ],
       "properties": {
         "code": {
           "type": "string",
