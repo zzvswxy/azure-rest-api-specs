@@ -1,0 +1,457 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MobileNetworkManagementClient",
+    "description": "The resources in this swagger specification will be used to manage master simProfile resources",
+    "version": "2020-06-01-preview"
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/masterSimProfiles/{masterSimProfileName}": {
+      "delete": {
+        "tags": [
+          "MasterSimProfiles"
+        ],
+        "operationId": "MasterSimProfiles_Delete",
+        "description": "Deletes the specified master sim profile.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "masterSimProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the masterSimProfile."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete masterSimProfile resource": {
+            "$ref": "./examples/MasterSimProfile.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "MasterSimProfiles"
+        ],
+        "operationId": "MasterSimProfiles_Get",
+        "description": "Gets information about the specified master sim profile.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "masterSimProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of master sim profile."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting master sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfile"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get master sim profile": {
+            "$ref": "./examples/MasterSimProfileGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MasterSimProfiles"
+        ],
+        "operationId": "MasterSimProfiles_CreateOrUpdate",
+        "description": "Creates or updates a master sim profile.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "masterSimProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the master sim profile resource."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfile"
+            },
+            "description": "Parameters supplied to the create or update master sim profile operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting master sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfile"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting master sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfile"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create master sim profile": {
+            "$ref": "./examples/MasterSimProfileCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "MasterSimProfiles"
+        ],
+        "operationId": "MasterSimProfiles_UpdateTags",
+        "description": "Updates a master sim profile update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "masterSimProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the master sim profile."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update master sim profile tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting master sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfile"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update master sim profile tags": {
+            "$ref": "./examples/MasterSimProfileUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/MasterSimProfiles": {
+      "get": {
+        "tags": [
+          "MasterSimProfiles"
+        ],
+        "operationId": "MasterSimProfiles_ListBySubscription",
+        "description": "Lists all the master sim profiles in a subscription.",
+        "parameters": [
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of master sim profile resources.",
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfileListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List all master sim profiles": {
+            "$ref": "./examples/MasterSimProfileListBySubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/masterSimProfiles": {
+      "get": {
+        "tags": [
+          "MasterSimProfiles"
+        ],
+        "operationId": "MasterSimProfiles_ListByResourceGroup",
+        "description": "Lists all the master sim profiles in a resource group.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of master sim profile resources.",
+            "schema": {
+              "$ref": "#/definitions/MasterSimProfileListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List master sim profiles in resource group": {
+            "$ref": "./examples/MasterSimProfileListByResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MasterSimProfile": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MasterSimProfilePropertiesFormat",
+          "description": "Master sim profile properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "Master sim profile resource."
+    },
+    "MasterSimProfilePropertiesFormat": {
+      "description": "Master sim profile properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the master sim profile resource."
+        },
+        "vendorProvisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the vendor."
+        },
+        "mobileNetwork": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the mobile network resource."
+        },
+        "simVendor": {
+          "type": "string",
+          "description": "The sim vendor."
+        },
+        "simType": {
+          "$ref": "#/definitions/SimType",
+          "description": "The type of the sim."
+        },
+        "eSimProfileType": {
+          "$ref": "#/definitions/ESimProfileType",
+          "description": "The type of the eSim profile."
+        },
+        "imsis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The imsi range for the operational SIM profile."
+        },
+        "iccIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The iccId range for the operational SIM profile."
+        }
+      }
+    },
+    "MasterSimProfileListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MasterSimProfile"
+          },
+          "description": "A list of master sim profile in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for master sim profiles API service call."
+    },
+    "SimType": {
+      "type": "string",
+      "description": "The sim type.",
+      "enum": [
+        "Unknown",
+        "Physical",
+        "ESim"
+      ],
+      "x-ms-enum": {
+        "name": "SimType",
+        "modelAsString": true
+      }
+    },
+    "ESimProfileType": {
+      "type": "string",
+      "description": "The eSim profile type.",
+      "enum": [
+        "Unknown",
+        "Consumer",
+        "M2M"
+      ],
+      "x-ms-enum": {
+        "name": "ESimProfileType",
+        "modelAsString": true
+      }
+    }
+  }
+}

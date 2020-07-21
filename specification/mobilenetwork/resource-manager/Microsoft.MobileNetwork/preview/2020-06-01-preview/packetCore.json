@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "MobileNetworkManagementClient",
-    "description": "The resources in this swagger specification will be used to manage packets core packet core resources",
+    "description": "The resources in this swagger specification will be used to manage packet core resources",
     "version": "2020-06-01-preview"
   },
   "host": "management.azure.com",
@@ -143,7 +143,7 @@
           "PacketCores"
         ],
         "operationId": "PacketCores_CreateOrUpdate",
-        "description": "Creates or updates a PacketCore.",
+        "description": "Creates or updates a packet core.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -210,7 +210,7 @@
           "PacketCores"
         ],
         "operationId": "PacketCores_UpdateTags",
-        "description": "Updates a PacketCore update tags.",
+        "description": "Updates a packet core update tags.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -233,7 +233,7 @@
             "schema": {
               "$ref": "./common.json#/definitions/TagsObject"
             },
-            "description": "Parameters supplied to update PacketCore tags."
+            "description": "Parameters supplied to update packet core tags."
           },
           {
             "$ref": "./common.json#/parameters/ApiVersionParameter"
@@ -269,7 +269,7 @@
           "PacketCores"
         ],
         "operationId": "PacketCores_ListBySubscription",
-        "description": "Lists all the packetCores in a subscription.",
+        "description": "Lists all the packet cores in a subscription.",
         "parameters": [
           {
             "$ref": "./common.json#/parameters/ApiVersionParameter"
@@ -293,7 +293,7 @@
           }
         },
         "x-ms-examples": {
-          "List all packetCores": {
+          "List all packet cores": {
             "$ref": "./examples/PacketCoreListBySubscription.json"
           }
         },
@@ -308,7 +308,7 @@
           "PacketCores"
         ],
         "operationId": "PacketCores_ListByResourceGroup",
-        "description": "Gets all the MobileNetworks in a subscription.",
+        "description": "Lists all the packet cores in a resouce group.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -347,6 +347,626 @@
           "nextLinkName": "nextLink"
         }
       }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCores/{packetCoreName}/userPlanes/{userPlaneName}": {
+      "delete": {
+        "tags": [
+          "UserPlanes"
+        ],
+        "operationId": "UserPlanes_Delete",
+        "description": "Deletes the specified user plane.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of packet core."
+          },
+          {
+            "name": "userPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the user plane."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete user plane resource": {
+            "$ref": "./examples/UserPlaneDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "UserPlanes"
+        ],
+        "operationId": "UserPlanes_Get",
+        "description": "Gets information about the specified user plane.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of packet core."
+          },
+          {
+            "name": "userPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of user plane."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting user plane resource.",
+            "schema": {
+              "$ref": "#/definitions/UserPlane"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get user plane": {
+            "$ref": "./examples/UserPlaneGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "UserPlanes"
+        ],
+        "operationId": "UserPlanes_CreateOrUpdate",
+        "description": "Creates or updates a user plane.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core resource."
+          },
+          {
+            "name": "userPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of user plane."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserPlane"
+            },
+            "description": "Parameters supplied to the create or update user plane operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting user plane resource.",
+            "schema": {
+              "$ref": "#/definitions/UserPlane"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting user plane resource.",
+            "schema": {
+              "$ref": "#/definitions/UserPlane"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create user plane": {
+            "$ref": "./examples/UserPlaneCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "UserPlanes"
+        ],
+        "operationId": "UserPlanes_UpdateTags",
+        "description": "Updates a user plane update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core."
+          },
+          {
+            "name": "userPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of user plane."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update user plane tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting user plane resource.",
+            "schema": {
+              "$ref": "#/definitions/UserPlane"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update user plane tags": {
+            "$ref": "./examples/UserPlaneUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCores/{packetCoreName}/userPlanes": {
+      "get": {
+        "tags": [
+          "UserPlanes"
+        ],
+        "operationId": "UserPlanes_ListByPacketCore",
+        "description": "Lists all the user planes in a packet core.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of user plane resources.",
+            "schema": {
+              "$ref": "#/definitions/UserPlaneListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List user planes in packet core": {
+            "$ref": "./examples/UserPlaneListByPacketCore.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCores/{packetCoreName}/controlPlanes/{controlPlaneName}": {
+      "delete": {
+        "tags": [
+          "ControlPlanes"
+        ],
+        "operationId": "ControlPlanes_Delete",
+        "description": "Deletes the specified control plane.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of packet core."
+          },
+          {
+            "name": "controlPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the control plane."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete control plane resource": {
+            "$ref": "./examples/ControlPlaneDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "ControlPlanes"
+        ],
+        "operationId": "ControlPlanes_Get",
+        "description": "Gets information about the specified control plane.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of packet core."
+          },
+          {
+            "name": "controlPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of control plane."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting control plane resource.",
+            "schema": {
+              "$ref": "#/definitions/ControlPlane"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get control plane": {
+            "$ref": "./examples/ControlPlaneGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ControlPlanes"
+        ],
+        "operationId": "ControlPlanes_CreateOrUpdate",
+        "description": "Creates or updates a control plane.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core resource."
+          },
+          {
+            "name": "controlPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of control plane."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ControlPlane"
+            },
+            "description": "Parameters supplied to the create or update control plane operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting control plane resource.",
+            "schema": {
+              "$ref": "#/definitions/ControlPlane"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting control plane resource.",
+            "schema": {
+              "$ref": "#/definitions/ControlPlane"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create control plane": {
+            "$ref": "./examples/ControlPlaneCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "ControlPlanes"
+        ],
+        "operationId": "ControlPlanes_UpdateTags",
+        "description": "Updates a control plane update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core."
+          },
+          {
+            "name": "controlPlaneName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of control plane."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update control plane tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting control plane resource.",
+            "schema": {
+              "$ref": "#/definitions/ControlPlane"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update control plane tags": {
+            "$ref": "./examples/ControlPlaneUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/packetCores/{packetCoreName}/controlPlanes": {
+      "get": {
+        "tags": [
+          "ControlPlanes"
+        ],
+        "operationId": "ControlPlanes_ListByPacketCore",
+        "description": "Lists all the control planes in a packet core.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "packetCoreName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the packet core."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of control plane resources.",
+            "schema": {
+              "$ref": "#/definitions/ControlPlaneListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List control planes in packet core": {
+            "$ref": "./examples/ControlPlaneListByPacketCore.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
     }
   },
   "definitions": {
@@ -355,7 +975,7 @@
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/PacketCorePropertiesFormat",
-          "description": "Packet core Properties."
+          "description": "Packet core properties."
         }
       },
       "allOf": [
@@ -366,13 +986,8 @@
       "description": "Packet core resource."
     },
     "PacketCorePropertiesFormat": {
-      "description": "PacketCore properties.",
+      "description": "Packet core properties.",
       "properties": {
-        "resourceGuid": {
-          "type": "string",
-          "readOnly": true,
-          "description": "The resource GUID property of the PacketCore resource."
-        },
         "provisioningState": {
           "readOnly": true,
           "$ref": "./common.json#/definitions/ProvisioningState",
@@ -383,25 +998,38 @@
           "$ref": "./common.json#/definitions/ProvisioningState",
           "description": "The vendor provisioning state of the packet core resource."
         },
-        "mobileNetworkId": {
-          "type": "string",
+        "mobileNetwork": {
+          "$ref": "./common.json#/definitions/SubResource",
           "description": "The unique id of the mobile network"
         },
-        "networkType": {
-          "$ref": "./common.json#/definitions/NetworkType",
-          "description": "The type of the packet core."
-        },
-        "vendor": {
+        "skuVendor": {
           "type": "string",
-          "description": "The packet core vendor."
+          "description": "The network virtual appliance vendor for the packet core."
         },
-        "vendorSku": {
+        "skuModel": {
           "type": "string",
-          "description": "The packet core sku."
+          "description": "The sku for the network virtual appliance."
         },
-        "packetCoreId": {
-          "$ref": "./common.json#/definitions/SubResource",
-          "description": "The reference to the packet core network function"
+        "azureControlPlanes": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The references to Azure control planes if the control is deployed in Azure."
+        },
+        "azureUserPlanes": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The references to Azure user planes if the user plane is deployed in Azure."
+        },
+        "mobileNetworkSites": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The reference to mobile network site resources."
         }
       }
     },
@@ -421,6 +1049,118 @@
         }
       },
       "description": "Response for packet cores API service call."
+    },
+    "UserPlane": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/UserPlanePropertiesFormat",
+          "description": "User plane properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "User plane resource."
+    },
+    "UserPlanePropertiesFormat": {
+      "description": "User plane properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the user plane resource."
+        },
+        "accessPoints": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The references to the access point resources of the user plane resource."
+        },
+        "azureSubnets": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The references to the Azure subnet resources of the user plane resource."
+        },
+        "customerPremIPAddress": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The IP address blocks if the user plane is deployed in customer premise."
+        }
+      }
+    },
+    "UserPlaneListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserPlane"
+          },
+          "description": "A list of user planes in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for user planes API service call."
+    },
+    "ControlPlane": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ControlPlanePropertiesFormat",
+          "description": "Control plane properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "Control plane resource."
+    },
+    "ControlPlanePropertiesFormat": {
+      "description": "Control plane properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the control plane resource."
+        },
+        "azureSubnets": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The references to the Azure subnet resources of the control plane resource."
+        }
+      }
+    },
+    "ControlPlaneListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ControlPlane"
+          },
+          "description": "A list of control planes in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for control planes API service call."
     }
   }
 }

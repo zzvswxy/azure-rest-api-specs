@@ -6,8 +6,11 @@
     "mobileNetworkName": "TestMobileNetwork",
     "parameters": {
       "properties": {
-        "plmnId": "TestPlm",
-        "spectrumAccessProvider": "TestSpectrumAccessProvider"
+        "plmnId": "TestPlmnId",
+        "spectrumAccessProvider": "TestSpectrumAccessProvider",
+        "monitoringWorkSpace": {
+          "id": "TestMonitoringWorkSpaceId"
+        }
       }
     }
   },
@@ -21,8 +24,15 @@
         "tags": {},
         "properties": {
           "provisioningState": "Accepted",
-          "plmnId": "TestPlm",
-          "spectrumAccessProvider": "TestSpectrumAccessProvider"
+          "plmnId": "TestPlmnId",
+          "networkType": "Public",
+          "spectrumAccessProvider": "TestSpectrumAccessProvider",
+          "packetCore": [],
+          "mobileNetworkSites": [],
+          "mobileDevices": [],
+          "monitoringWorkSpace": {
+            "id": "TestMonitoringWorkSpaceId"
+          }
         }
       }
     },
@@ -35,8 +45,15 @@
         "tags": {},
         "properties": {
           "provisioningState": "Created",
-          "plmnId": "TestPlm",
-          "spectrumAccessProvider": "TestSpectrumAccessProvider"
+          "plmnId": "TestPlmnId",
+          "networkType": "Public",
+          "spectrumAccessProvider": "TestSpectrumAccessProvider",
+          "packetCore": [],
+          "mobileNetworkSites": [],
+          "mobileDevices": [],
+          "monitoringWorkSpace": {
+            "id": "TestMonitoringWorkSpaceId"
+          }
         }
       }
     }

@@ -1,0 +1,427 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MobileNetworkManagementClient",
+    "description": "The resources in this swagger specification will be used to manage mobile device resources",
+    "version": "2020-06-01-preview"
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileDevices/{mobileDeviceName}": {
+      "delete": {
+        "tags": [
+          "MobileDevices"
+        ],
+        "operationId": "MobileDevices_Delete",
+        "description": "Deletes the specified mobile device.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileDeviceName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the mobile device."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete mobile device resource": {
+            "$ref": "./examples/MobileDeviceDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "MobileDevices"
+        ],
+        "operationId": "MobileDevices_Get",
+        "description": "Gets information about the specified mobile device.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileDeviceBName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of mobile device."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting mobile device resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileDevice"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get mobile device": {
+            "$ref": "./examples/MobileDeviceGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MobileDevices"
+        ],
+        "operationId": "MobileDevices_CreateOrUpdate",
+        "description": "Creates or updates a mobile device.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileDeviceName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the mobile device resource."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MobileDevice"
+            },
+            "description": "Parameters supplied to the create or update mobile device operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting mobile device resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileDevice"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting mobile device resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileDevice"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create mobile device": {
+            "$ref": "./examples/MobileDevice.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "MobileDevices"
+        ],
+        "operationId": "MobileDevices_UpdateTags",
+        "description": "Updates a mobile device update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileDeviceName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the mobile device."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update mobile device tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting mobile device resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileDevice"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update mobile device tags": {
+            "$ref": "./examples/MobileDeviceUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/MobileDevices": {
+      "get": {
+        "tags": [
+          "MobileDevices"
+        ],
+        "operationId": "MobileDevices_ListBySubscription",
+        "description": "Lists all the mobile devices in a subscription.",
+        "parameters": [
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of mobile device resources.",
+            "schema": {
+              "$ref": "#/definitions/MobileDeviceListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List all mobile devices": {
+            "$ref": "./examples/MobileDeviceListBySubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileDevices": {
+      "get": {
+        "tags": [
+          "MobileDevices"
+        ],
+        "operationId": "MobileDevices_ListByResourceGroup",
+        "description": "Lists all the mobile devices in a resource group.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of mobile device resources.",
+            "schema": {
+              "$ref": "#/definitions/MobileDeviceListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List mobile devices in resource group": {
+            "$ref": "./examples/MobileDeviceListByResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MobileDevice": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MobileDevicePropertiesFormat",
+          "description": "Mobile device properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "Mobile device resource."
+    },
+    "MobileDevicePropertiesFormat": {
+      "description": "Mobile device properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the mobile device resource."
+        },
+        "mobileNetwork": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the mobile network resource."
+        },
+        "imei": {
+          "type": "string",
+          "description": "The imei of the device."
+        },
+        "deviceVendor": {
+          "type": "string",
+          "description": "The vendor for the device."
+        },
+        "deviceModel": {
+          "type": "string",
+          "description": "The model for the device."
+        },
+        "simProfiles": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The operational sim profiles associated with the device."
+        },
+        "deviceActivationState": {
+          "type": "string",
+          "description": "The activation state for the device."
+        },
+        "deviceActivationDate": {
+          "type": "string",
+          "description": "The activation date for the device."
+        }
+      }
+    },
+    "MobileDeviceListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MobileDevice"
+          },
+          "description": "A list of mobile devices in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for mobile devices API service call."
+    }
+  }
+}
