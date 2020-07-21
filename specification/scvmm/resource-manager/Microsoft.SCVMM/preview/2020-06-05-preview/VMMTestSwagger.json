@@ -1477,7 +1477,7 @@
           "description": "Version is the version of the vmmSever.",
           "readOnly": true
         },
-		        "provisioningState": {
+		        "status": {
           "description": "Gets or sets the provisioning state.",
           "type": "string",
           "readOnly": true
@@ -1591,7 +1591,7 @@
           "$ref": "#/definitions/CloudCapacity",
           "readOnly": true
         },
-		"provisioningState": {
+		"status": {
           "type": "string",
           "readOnly": true
         }
@@ -1678,7 +1678,7 @@
           "description": "Name of the virtual network in vmmServer.",
           "readOnly": true
         },
-		"provisioningState": {
+		"status": {
           "type": "string",
           "readOnly": true
         }
@@ -1788,7 +1788,7 @@
           "type": "string",
           "description": "Unique ID of the virtual machine."
         },
-        "provisioningState": {
+        "status": {
           "type": "string",
           "readOnly": true
         }
@@ -2189,7 +2189,7 @@
           },
           "readOnly": true
         },
-        "provisioningState": {
+        "status": {
           "type": "string",
           "readOnly": true
         }
