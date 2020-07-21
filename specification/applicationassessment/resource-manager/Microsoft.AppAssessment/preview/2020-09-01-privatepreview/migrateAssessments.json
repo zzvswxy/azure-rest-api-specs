@@ -468,14 +468,6 @@
                       "description": "Number of applications by readiness",
                       "$ref": "#/definitions/readiness",
                       "readOnly": true
-                    },
-                    "readinessByMigrateStatus":{
-                      "type":"array",
-                      "description": "Array of migrate readiness by migrate status",
-                      "items": {
-                        "$ref": "#/definitions/statusReadiness"
-                      },
-                      "readOnly": true
                     }
                   },
                   "readOnly": true
@@ -541,22 +533,6 @@
             "type": "integer",
             "format": "int32",
             "description": "Number of machines wiht status unknown i.e. The app/server is unknown to app assessment service",
-            "readOnly": true
-          }
-        }
-      },
-      "statusReadiness":{
-        "type":"object",
-        "description": "Readiness per status value",
-        "allOf": [
-          {
-            "$ref": "#/definitions/readiness"
-          }
-        ],
-        "properties": {
-          "status":{
-            "type":"string",
-            "description": "The status type",
             "readOnly": true
           }
         }
