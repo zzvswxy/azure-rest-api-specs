@@ -33,23 +33,7 @@
                             "readyWithConditions":3,
                             "notReady":0,
                             "unknown":0
-                        },
-                        "readinessByMigrateStatus":[
-                        {
-                            "status":"willMigrate",
-                            "ready":40,
-                            "readyWithConditions":3,
-                            "notReady":0,
-                            "unknown":0
-                        },
-                        {
-                            "status":"willNotMigrate",
-                            "ready":0,
-                            "readyWithConditions":0,
-                            "notReady":0,
-                            "unknown":0
                         }
-                        ]
                     },
                     "dataValidityStatus":"Valid"
                 }
