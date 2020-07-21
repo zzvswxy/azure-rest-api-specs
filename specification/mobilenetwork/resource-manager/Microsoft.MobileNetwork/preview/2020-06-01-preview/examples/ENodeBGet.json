@@ -22,7 +22,7 @@
           "skuVendor": "TestSkuVendor",
           "skuModel": "TestSkuModel",
           "eNodeBId": "TestENodeBId",
-          "eNodeBIPAddress": "TestENodeBIPAddress",
+          "eNodeBIpAddress": "TestENodeBIPAddress",
           "locationLatitude": "TestLocationLatitude",
           "locationLongitude": "TestLocationLongitude",
           "mmeIPAddress": "TestMmeIPAddress",

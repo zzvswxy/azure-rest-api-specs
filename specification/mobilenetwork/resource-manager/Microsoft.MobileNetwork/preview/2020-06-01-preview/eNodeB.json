@@ -394,7 +394,7 @@
           "type": "string",
           "description": "The unique identifier for the eNodeB within the mobile network."
         },
-        "eNodeBIPAddress": {
+        "eNodeBIpAddress": {
           "type": "string",
           "description": "The data plane IP address of the eNodeB."
         },
