@@ -197,7 +197,7 @@
         },
         "x-ms-examples": {
           "Create mobile device": {
-            "$ref": "./examples/MobileDevice.json"
+            "$ref": "./examples/mobileDevice.json"
           }
         },
         "x-ms-long-running-operation": true,

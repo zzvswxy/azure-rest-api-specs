@@ -82,7 +82,7 @@
         },
         "x-ms-examples": {
           "Delete masterSimProfile resource": {
-            "$ref": "./examples/MasterSimProfile.json"
+            "$ref": "./examples/masterSimProfile.json"
           }
         },
         "x-ms-long-running-operation": true,
