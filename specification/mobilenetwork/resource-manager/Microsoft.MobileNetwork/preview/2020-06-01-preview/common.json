@@ -47,10 +47,6 @@
           "type": "string",
           "description": "Error code."
         },
-        "target": {
-          "type": "string",
-          "description": "The target of the particular error. For example, the name of the property in error."
-        },
         "message": {
           "type": "string",
           "description": "Error message."
