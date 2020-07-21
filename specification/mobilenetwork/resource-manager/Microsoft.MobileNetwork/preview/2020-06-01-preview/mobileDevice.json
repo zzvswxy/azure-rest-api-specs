@@ -263,7 +263,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/MobileDevices": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/mobileDevices": {
       "get": {
         "tags": [
           "MobileDevices"

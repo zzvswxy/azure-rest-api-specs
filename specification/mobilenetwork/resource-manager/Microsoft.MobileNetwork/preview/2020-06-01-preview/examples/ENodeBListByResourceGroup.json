@@ -10,7 +10,7 @@
         "value": [
           {
             "name": "TestENodeB",
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/eNodeBs/",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/eNodeBs",
             "type": "Microsoft.MobileNetwork/eNodeBs",
             "location": "eastus",
             "tags": {},
