@@ -6,9 +6,21 @@
     "packetCoreName": "TestPacketCore",
     "parameters": {
       "properties": {
-        "mobileNetworkId": "TestMobileNetworkId",
-        "vendor": "TestVendor",
-        "vendorSku": "TestVendorSku"
+        "mobileNetwork": {
+          "id": "TestMobileNetworkId"
+        },
+        "skuVendor": "TestSkuVendor",
+        "skuModel": "TestSkuModel",
+        "azureControlPlanes": [
+          {
+            "id": "TestAzureControlPlaneId"
+          }
+        ],
+        "azureUserPlanes": [
+          {
+            "id": "TestAzureUserPlaneId"
+          }
+        ]
       }
     }
   },
@@ -22,9 +34,23 @@
         "tags": {},
         "properties": {
           "provisioningState": "Accepted",
-          "mobileNetworkId": "TestMobileNetworkId",
-          "vendor": "TestVendor",
-          "vendorSku": "TestVendorSku"
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "azureControlPlanes": [
+            {
+              "id": "TestAzureControlPlaneId"
+            }
+          ],
+          "azureUserPlanes": [
+            {
+              "id": "TestAzureUserPlaneId"
+            }
+          ],
+          "mobileNetworkSites": []
         }
       }
     },
@@ -37,9 +63,23 @@
         "tags": {},
         "properties": {
           "provisioningState": "Created",
-          "mobileNetworkId": "TestMobileNetworkId",
-          "vendor": "TestVendor",
-          "vendorSku": "TestVendorSku"
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "azureControlPlanes": [
+            {
+              "id": "TestAzureControlPlaneId"
+            }
+          ],
+          "azureUserPlanes": [
+            {
+              "id": "TestAzureUserPlaneId"
+            }
+          ],
+          "mobileNetworkSites": []
         }
       }
     }

@@ -1,0 +1,70 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "mobileDeviceName": "TestMobileDevice",
+    "parameters": {
+      "properties": {
+        "mobileNetwork": {
+          "id": "MobileNetworkId"
+        },
+        "imei": "TestImei",
+        "deviceVendor": "TestDeviceVendor",
+        "deviceModel": "TestDeviceModel"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestMobileDevice",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileDevices/TestMobileDevice",
+        "type": "Microsoft.MobileNetwork/mobileDevices",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "mobileNetwork": {
+            "id": "MobileNetworkId"
+          },
+          "imei": "TestImei",
+          "deviceVendor": "TestDeviceVendor",
+          "deviceModel": "TestDeviceModel",
+          "simProfiles": [
+            {
+              "id": "TestSimProfileId"
+            }
+          ],
+          "deviceActivationState": "Not Activated",
+          "deviceActivationDate": "TestDeviceActivationDate"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestMobileDevice",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileDevices/TestMobileDevice",
+        "type": "Microsoft.MobileNetwork/mobileDevices",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "mobileNetwork": {
+            "id": "MobileNetworkId"
+          },
+          "imei": "TestImei",
+          "deviceVendor": "TestDeviceVendor",
+          "deviceModel": "TestDeviceModel",
+          "simProfiles": [
+            {
+              "id": "TestSimProfileId"
+            }
+          ],
+          "deviceActivationState": "Not Activated",
+          "deviceActivationDate": "TestDeviceActivationDate"
+        }
+      }
+    }
+  }
+}

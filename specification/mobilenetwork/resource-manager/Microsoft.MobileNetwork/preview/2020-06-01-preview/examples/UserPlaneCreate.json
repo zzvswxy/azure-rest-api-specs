@@ -1,0 +1,78 @@
+{
+    "parameters": {
+      "api-version": "2020-06-01-preview",
+      "subscriptionId": "subid",
+      "resourceGroupName": "rg1",
+      "packetCoreName": "TestPacketCore",
+      "userPlaneName": "TestUserPlane",
+      "parameters": {
+        "properties": {
+          "accessPoints": [
+            {
+              "id": "TestAccessPointId"
+            }
+          ],
+          "azureSubnets": [
+            {
+              "id": "TestAzureSubNetId"
+            }
+          ],
+          "customerPremIPAddress": [
+            "TestCustomerPremIPAddress"
+          ]
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "body": {
+          "name": "TestUserPlane",
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore/userPlanes/TestUserPlane",
+          "type": "Microsoft.MobileNetwork/packetCores/userPlanes",
+          "location": "eastus",
+          "tags": {},
+          "properties": {
+            "provisioningState": "Accepted",
+            "accessPoints": [
+              {
+                "id": "TestAccessPointId"
+              }
+            ],
+            "azureSubnets": [
+              {
+                "id": "TestAzureSubNetId"
+              }
+            ],
+            "customerPremIPAddress": [
+              "TestCustomerPremIPAddress"
+            ]
+          }
+        }
+      },
+      "201": {
+        "body": {
+          "name": "TestUserPlane",
+          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore/userPlanes/TestUserPlane",
+          "type": "Microsoft.MobileNetwork/packetCores/userPlanes",
+          "location": "eastus",
+          "tags": {},
+          "properties": {
+            "provisioningState": "Created",
+            "accessPoints": [
+              {
+                "id": "TestAccessPointId"
+              }
+            ],
+            "azureSubnets": [
+              {
+                "id": "TestAzureSubNetId"
+              }
+            ],
+            "customerPremIPAddress": [
+              "TestCustomerPremIPAddress"
+            ]
+          }
+        }
+      }
+    }
+  }

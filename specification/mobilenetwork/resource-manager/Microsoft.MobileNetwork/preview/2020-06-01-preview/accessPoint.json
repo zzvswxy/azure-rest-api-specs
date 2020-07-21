@@ -143,7 +143,7 @@
           "AccessPoints"
         ],
         "operationId": "AccessPoints_CreateOrUpdate",
-        "description": "Creates or updates a access point.",
+        "description": "Creates or updates an access point.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -210,7 +210,7 @@
           "AccessPoints"
         ],
         "operationId": "AccessPoints_UpdateTags",
-        "description": "Updates a access point update tags.",
+        "description": "Updates an access point update tags.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -280,7 +280,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Request successful. The operation returns a list of access point  resources.",
+            "description": "Request successful. The operation returns a list of access point resources.",
             "schema": {
               "$ref": "#/definitions/AccessPointListResult"
             }
@@ -308,7 +308,7 @@
           "AccessPoints"
         ],
         "operationId": "AccessPoints_ListByResourceGroup",
-        "description": "Gets all the access points in a subscription.",
+        "description": "Lists all the access points in a resource group.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -326,7 +326,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Request successful. The operation returns a list of access point  resources.",
+            "description": "Request successful. The operation returns a list of access point resources.",
             "schema": {
               "$ref": "#/definitions/AccessPointListResult"
             }
@@ -373,24 +373,56 @@
           "$ref": "./common.json#/definitions/ProvisioningState",
           "description": "The provisioning state of the access point resource."
         },
-        "packetDataNetworkName": {
-          "type": "string",
-          "description": "The unique id of the mobile network"
-        },
-        "packetCoreid": {
+        "mobileNetwork": {
           "$ref": "./common.json#/definitions/SubResource",
-          "description": "The reference to the packet core."
+          "description": "The reference to the mobile network resource."
         },
-        "dnsAddresses": {
+        "packetCoreUserPlane": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the user plane of the packet core that will service the APN."
+        },
+        "pdnName": {
+          "type": "string",
+          "description": "The PDN name."
+        },
+        "dnsServers": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "The dns addresses of the access point."
+          "description": "The primary and secondary DNS address for the APN."
         },
         "dnsProvider": {
           "type": "string",
           "description": "The dns provider for the access point"
+        },
+        "azureCgNatIPAddress": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The azure public IP resource id references for carrier grade NAT pool if the user plane of packet core is deployed in Azure."
+        },
+        "customerCgNatIPAddress": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Customer provided public IP pool for carrier grade NAT if the user plane is deployed in customer premise."
+        },
+        "azureUeIPAddress": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The subnet id references if the user plane is deployed in Azure and UE address is provided from subnets in Azure."
+        },
+        "customerUeIPAddress": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The IP address blocks for the UE if the user plane is deployed in customer premise and UE address is provided by the customer."
         }
       }
     },
@@ -409,7 +441,7 @@
           "description": "The URL to get the next set of results."
         }
       },
-      "description": "Response for access point s API service call."
+      "description": "Response for access points API service call."
     }
   }
 }
