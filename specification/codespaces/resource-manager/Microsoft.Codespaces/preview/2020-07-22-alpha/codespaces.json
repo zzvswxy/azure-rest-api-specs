@@ -1,22 +1,30 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2020-07-10-alpha",
+    "version": "2020-07-22-alpha",
     "title": "CodespacesClient",
-    "description": "Microsoft Codespaces REST API version 2020-07-10-alpha",
+    "description": "Microsoft Codespaces REST API version 2020-07-22-alpha",
     "x-ms-code-generation-settings": {
       "name": "CodespacesClient"
     }
   },
   "host": "management.azure.com",
-  "schemes": ["https"],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "security": [
     {
-      "azure_auth": ["user_impersonation"]
+      "azure_auth": [
+        "user_impersonation"
+      ]
     }
-],
+  ],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -31,13 +39,17 @@
   "paths": {
     "/providers/Microsoft.Codespaces/operations": {
       "get": {
-        "tags": ["Operations"],
+        "tags": [
+          "Operations"
+        ],
         "operationId": "Operations_List",
         "description": "Retrieves a list of available API operations",
         "summary": "Retrieves a list of available API operations under this Resource Provider.",
-        "parameters": [{
-          "$ref": "#/parameters/ApiVersionParameter"
-        }],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
         "responses": {
           "200": {
             "description": "The request was successful; response contains the list of operations under Microsoft.Codespaces resource provider.",
@@ -62,6 +74,80 @@
         }
       }
     },
+    "/providers/Microsoft.Codespaces/codespaces": {
+      "get": {
+        "tags": [
+          "Codespaces"
+        ],
+        "operationId": "Codespaces_List",
+        "description": "Retrieves a list of all of a user's codespaces in the tenant.",
+        "summary": "Retrieves a list of all a user's codespaces in the tenant.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request was successful; response contains the list of codespaces.",
+            "schema": {
+              "$ref": "#/definitions/CodespacesList"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound.",
+            "schema": {
+              "$ref": "#/definitions/CodespacesErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "CodespacesList": {
+            "$ref": "./examples/CodespacesList_exaample.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.Codespaces/codespaces/{codespaceId}": {
+      "get": {
+        "tags": [
+          "Codespaces"
+        ],
+        "operationId": "Codespaces_Get",
+        "description": "Retrieves information about a codespace by ID.",
+        "summary": "Retrieves information about a codespace by ID.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/CodespaceIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request was successful; response contains properties about the codespace.",
+            "schema": {
+              "$ref": "#/definitions/CodespaceInfo"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound.",
+            "schema": {
+              "$ref": "#/definitions/CodespacesErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "CodespacesGet": {
+            "$ref": "./examples/CodespacesGet_example.json"
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Codespaces/plans/{planName}": {
       "get": {
         "tags": [
@@ -70,7 +156,8 @@
         "summary": "Retrieves information about a Codespaces Plan resource.",
         "description": "Retrieves the properties of a Codespaces Plan.",
         "operationId": "Plan_Get",
-        "parameters": [{
+        "parameters": [
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -110,7 +197,8 @@
         "summary": "Deletes a Codespaces Plan resource.",
         "description": "Deletes an existing Codespaces Plan.",
         "operationId": "Plan_Delete",
-        "parameters": [{
+        "parameters": [
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -150,7 +238,8 @@
         "summary": "Creates a Codespaces Plan.",
         "description": "Creates a Codespaces Plan with the specified create parameters.",
         "operationId": "Plan_Create",
-        "parameters": [{
+        "parameters": [
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -200,7 +289,8 @@
         "summary": "Updates a Codespaces Plan.",
         "description": "Updates the properties of an existing Codespaces Plan with the specified update parameters.",
         "operationId": "Plan_Update",
-        "parameters": [{
+        "parameters": [
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -446,7 +536,8 @@
         "summary": "Retrieves information about all Codespaces Plan resources under the given subscription and resource group",
         "description": "Retrieves the properties of all Codespaces Plans.",
         "operationId": "Plan_ListByResourceGroup",
-        "parameters": [{
+        "parameters": [
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -488,7 +579,8 @@
         "summary": "Retrieves information about all Codespaces Plan resources under the given subscription",
         "description": "Retrieves the properties of all Codespaces Plans.",
         "operationId": "Plan_ListBySubscription",
-        "parameters": [{
+        "parameters": [
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -553,7 +645,16 @@
         }
       }
     },
-    "CodespacesPlanErrorResponse": {
+    "CodespacesErrorResponse": {
+      "description": "Error response indicates that the service is not able to process the incoming request.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDefinition",
+          "description": "The error details."
+        }
+      }
+    },
+    "CodespacesListErrorResponse": {
       "description": "Error response indicates that the service is not able to process the incoming request.",
       "properties": {
         "error": {
@@ -687,7 +788,7 @@
       },
       "required": [
         "keySource"
-      ],      
+      ],
       "description": "Properties to configure Encryption"
     },
     "KeyVaultProperties": {
@@ -706,7 +807,7 @@
         }
       },
       "description": "Properties to configure keyVault Properties"
-    },    
+    },
     "VnetProperties": {
       "type": "object",
       "description": "Model representing Vnet Injection properties for Codespaces Plan.",
@@ -714,7 +815,7 @@
         "subnetId": {
           "type": "string",
           "description": "The ARM resource identifier of the virtual network subnet which the codespaces of the Codespaces Plan will join. This is of the form /subscriptions/{subscription}/resourceGroups/{group}/providers/{provider}/virtualNetworks/{network}/subnets/{subnet}.The virtual network must be in the same region and subscription as the Codespaces Plan."
-         }
+        }
       }
     },
     "ResourceProviderOperationList": {
@@ -768,6 +869,27 @@
         }
       }
     },
+    "CodespacesList": {
+      "type": "array",
+      "description": "List of codespaces",
+      "items": {
+        "$ref": "#/definitions/CodespaceInfo"
+      }
+    },
+    "CodespaceInfo": {
+      "type": "object",
+      "description": "Information about a codespace.",
+      "properties": {
+        "planId": {
+          "type": "string",
+          "description": "Fully-qualified resource ID of the plan that the codespace is in."
+        },
+        "connectUri": {
+          "type": "string",
+          "description": "URI that can be used to sign in and connect to the codespace with a browser."
+        }
+      }
+    },
     "CodespacesPlanUpdateParameters": {
       "type": "object",
       "description": "Parameters for updating a Codespaces Plan.",
@@ -782,7 +904,7 @@
           "$ref": "#/definitions/Sku",
           "description": "SKU of the service."
         },
-        "identity":{
+        "identity": {
           "$ref": "#/definitions/Identity",
           "description": "The managed identity associated with the resource."
         },
@@ -799,7 +921,7 @@
               "description": "Specifies the default codespace sku name for this plan.",
               "type": "string"
             },
-            "vnetProperties":{
+            "vnetProperties": {
               "$ref": "#/definitions/VnetProperties",
               "description": "Specifies the vnet injection properties for this plan."
             },
@@ -827,11 +949,11 @@
           "$ref": "#/definitions/Sku",
           "description": "SKU of the service."
         },
-        "identity":{
+        "identity": {
           "$ref": "#/definitions/Identity",
           "description": "The managed identity associated with the resource."
         },
-        "properties":{
+        "properties": {
           "type": "object",
           "description": "Additional Codespaces Plan properties.",
           "title": "Codespaces Additional properties",
@@ -845,7 +967,7 @@
               "description": "Specifies the default codespace sku name for this plan.",
               "type": "string"
             },
-            "vnetProperties":{
+            "vnetProperties": {
               "$ref": "#/definitions/VnetProperties",
               "description": "Specifies the vnet injection properties for this plan."
             },
@@ -982,6 +1104,15 @@
       "format": "int64",
       "x-nullable": false,
       "description": "The requested expiration of a Codespaces Plan access token.",
+      "x-ms-parameter-location": "method"
+    },
+    "CodespaceIdParameter": {
+      "name": "codespaceId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "ID of a Codespace",
+      "pattern": "^[a-zA-Z0-9-]+$",
       "x-ms-parameter-location": "method"
     }
   }
