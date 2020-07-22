@@ -180,7 +180,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -221,7 +221,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 409 - Conflict(Codespaces Plan is in a non-terminal state due to an ongoing operation.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -272,7 +272,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan could not be created/updated)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -323,7 +323,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -370,7 +370,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -417,7 +417,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -464,7 +464,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -517,7 +517,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -557,7 +557,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -597,7 +597,7 @@
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Codespaces Plan does not exist.)",
             "schema": {
-              "$ref": "#/definitions/CodespacesPlanErrorResponse"
+              "$ref": "#/definitions/CodespacesErrorResponse"
             }
           }
         },
@@ -646,15 +646,6 @@
       }
     },
     "CodespacesErrorResponse": {
-      "description": "Error response indicates that the service is not able to process the incoming request.",
-      "properties": {
-        "error": {
-          "$ref": "#/definitions/ErrorDefinition",
-          "description": "The error details."
-        }
-      }
-    },
-    "CodespacesListErrorResponse": {
       "description": "Error response indicates that the service is not able to process the incoming request.",
       "properties": {
         "error": {

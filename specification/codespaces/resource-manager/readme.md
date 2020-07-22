@@ -27,6 +27,21 @@ These are the global settings for the codespaces.
 ---
 ```yaml
 openapi-type: arm
+tag: package-2020-07-22-alpha
+```
+
+### Tag: package-2020-07-22-alpha
+
+These settings apply only when `--tag=package-2020-07-22-alpha` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-07-22-alpha'
+input-file:
+  - Microsoft.Codespaces/preview/2020-07-22-alpha/codespaces.json
+```
+
+---
+```yaml
+openapi-type: arm
 tag: package-2020-07-10-alpha
 ```
 
