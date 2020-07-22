@@ -408,7 +408,7 @@
               "type": "string",
               "readOnly": false
             },
-            "name": {
+            "merchantName": {
               "type": "string",
               "readOnly": false
             },
