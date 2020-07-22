@@ -37,7 +37,7 @@
         }
     },
     "paths": {
-        "/providers/Microsoft.AppAssessment/osVersions": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.AppAssessment/osVersions": {
             "get": {
                 "tags": [
                     "osVersions"
@@ -54,6 +54,9 @@
                     "nextLinkName": "nextLink"
                 },
                 "parameters": [
+                    {
+                        "$ref": "definitions.json#/parameters/SubscriptionIdParameter"
+                    },
                     {
                         "$ref": "definitions.json#/parameters/ApiVersionParameter"
                     }
