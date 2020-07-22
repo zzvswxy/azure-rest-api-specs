@@ -103,7 +103,7 @@
         },
         "x-ms-examples": {
           "CodespacesList": {
-            "$ref": "./examples/CodespacesList_exaample.json"
+            "$ref": "./examples/CodespacesList_example.json"
           }
         },
         "x-ms-pageable": {
