@@ -129,12 +129,6 @@
               "$ref": "#/definitions/OperationStatus"
             }
           },
-          "404": {
-            "description": "The requested operation was not found",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -144,8 +138,8 @@
         },
         "produces": [ "application/json" ],
         "x-ms-examples": {
-          "OperationStatus successful call": {
-            "$ref": "./examples/operationStatusFound.json"
+          "Get OperationStatus": {
+            "$ref": "./examples/getOperationStatus.json"
           }
         }
       }
@@ -261,18 +255,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "The update request was accepted",
-            "headers": {
-              "location": {
-                "description": "URL to query for status of the operation.",
-                "type": "string"
-              },
-              "Azure-AsyncOperation": {
-                "description": "URL to query for status of the operation.",
-                "type": "string"
-              }
-            },
+          "200": {
+            "description": "The update request was successful",
             "schema": {
               "$ref": "#/definitions/CommunicationServiceResource"
             }
@@ -289,8 +273,7 @@
           "Update resource": {
             "$ref": "./examples/update.json"
           }
-        },
-        "x-ms-long-running-operation": true
+        }
       },
       "get": {
         "description": "Get the CommunicationService and its properties.",
@@ -362,13 +345,15 @@
         ],
         "consumes": [ "application/json" ],
         "responses": {
+          "200": {
+            "description": "The create or update request was completed successfully",
+            "schema": {
+              "$ref": "#/definitions/CommunicationServiceResource"
+            }
+          },
           "201": {
             "description": "The create or update request was accepted",
             "headers": {
-              "location": {
-                "description": "URL to query for status of the operation.",
-                "type": "string"
-              },
               "Azure-AsyncOperation": {
                 "description": "URL to query for status of the operation.",
                 "type": "string"
@@ -423,10 +408,6 @@
             "description": "The delete operation is being performed in the background.",
             "headers": {
               "location": {
-                "description": "URL to query for status of the operation.",
-                "type": "string"
-              },
-              "Azure-AsyncOperation": {
                 "description": "URL to query for status of the operation.",
                 "type": "string"
               }
