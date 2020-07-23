@@ -83,13 +83,20 @@
             "type":"object",
             "description":"key value pair object",
             "properties": {
-                "displayName":{
-                    "type":"string",
-                    "description": "The name of the os"
-                },
-                "versionId":{
-                    "type":"string",
-                    "description": "The version of the os"
+                "properties":{
+                    "x-ms-client-flatten": true,
+                    "type":"object",
+                    "description": "The properties of the os versions",
+                    "properties": {
+                        "displayName":{
+                            "type":"string",
+                            "description": "The name of the os"
+                        },
+                        "versionId":{
+                            "type":"string",
+                            "description": "The version of the os"
+                        }
+                    }
                 }
             }
         },

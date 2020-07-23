@@ -378,17 +378,9 @@
                 "description": "The properties of the project site",
                 "x-ms-client-flatten": true,
                 "properties": {
-                  "sourceSiteName":{
-                    "type":"string",
-                    "description": "The name of the site"
-                  },
-                  "sourceSiteId":{
+                  "offAzureSiteId":{
                     "type":"string",
                     "description": "The ARM Id of the site something like: /subscriptions/a2bf324e-e6e8-4c95-b722-e2f75e11a2ab/resourceGroups/test/providers/Microsoft.OffAzure/HyperVSites/appliance2ce8csite "
-                  },
-                  "discoverySolutionId":{
-                    "type":"string",
-                    "description": "The discovery solution this site is associated with e.g. /subscriptions/a2bf324e-e6e8-4c95-b722-e2f75e11a2ab/resourceGroups/test/providers/Microsoft.Migrate/MigrateProjects/vmware-migration-01/Solutions/Servers-Discovery-ServerDiscovery"
                   },            
                   "applianceName":{
                     "type":"string",
@@ -399,7 +391,7 @@
                     "$ref": "#/definitions/servicePrincipalDetails"
                   }
                 },
-                "required": [ "sourceSiteName", "sourceSiteId", "discoverySolutionId", "applianceName", "servicePrincipalIdentityDetails" ]
+                "required": [ "offAzureSiteId", "applianceName", "servicePrincipalIdentityDetails" ]
               }
             },
             "allOf": [ 
@@ -431,13 +423,9 @@
             "aadAuthority":{
               "type":"string",
               "description": "The AAD authority that will be issuing tokens for the appliance e.g. https://login.windows.net/{tenantid}"
-            },
-            "rawCertData":{
-              "type":"string",
-              "description": "The certificate associated with the appliance SP."
             }
           },
-          "required": ["tenantId", "applicationId", "objectId", "audience", "aadAuthority", "rawCertData" ]
+          "required": ["tenantId", "applicationId", "objectId", "audience", "aadAuthority" ]
         },
         "migrateProjectSitesList":{
           "type":"object",
