@@ -137,9 +137,6 @@
             "description": "Account details.",
             "in": "body",
             "required": true,
-            "pattern": "[a-z][a-z0-9]+",
-            "minLength": 3,
-            "maxLength": 24,
             "schema": {
               "$ref": "#/definitions/Account"
             }
@@ -364,9 +361,6 @@
             "description": "Instance details.",
             "in": "body",
             "required": true,
-            "pattern": "[a-z][a-z0-9-_]+",
-            "minLength": 3,
-            "maxLength": 36,
             "schema": {
               "$ref": "#/definitions/Instance"
             }
