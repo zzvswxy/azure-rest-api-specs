@@ -1956,10 +1956,10 @@
           "format": "int64",
           "description": "Number of CPUs allocated in the cloud"
         },
-        "memLimitMB": {
+        "memoryMB": {
           "type": "integer",
           "format": "int64",
-          "description": "MemLimitMB specifies a memory usage limit in megabytes."
+          "description": "memoryMB specifies a memory usage limit in megabytes."
         },
         "vmCount": {
           "type": "integer",
