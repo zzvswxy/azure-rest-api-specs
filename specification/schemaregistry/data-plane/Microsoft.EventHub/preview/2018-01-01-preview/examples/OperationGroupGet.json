@@ -6,10 +6,7 @@
     "subscriptionId": "subid"
   },
   "responses": {
-    "200": {
-      "body": {
-        "sampleProperty": "sampleProperty"
-      }
+    "300": {
     }
   }
 }
