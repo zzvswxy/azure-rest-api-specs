@@ -1452,7 +1452,7 @@
         },
         "port": {
           "type": "integer",
-          "format": "string",
+          "format": "int32",
           "description": "Port is the port on which the vmmServer is listening.",
           "maximum": 65535,
           "minimum": 1
