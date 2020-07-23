@@ -1875,7 +1875,7 @@
           "description": "Gets or sets the list of network interfaces associated with the virtual machine.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/NetworkInterface"
+            "$ref": "#/definitions/NetworkInterfaces"
           }
         }
       }
@@ -2173,7 +2173,7 @@
           "description": "Gets or sets the network interfaces of the template.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/NetworkInterface"
+            "$ref": "#/definitions/NetworkInterfaces"
           },
           "readOnly": true
         },
