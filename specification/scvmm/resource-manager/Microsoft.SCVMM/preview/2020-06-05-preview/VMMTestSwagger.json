@@ -1813,10 +1813,6 @@
           "type": "string",
           "readOnly": true
         },
-        "adminPassword": {
-          "description": "Gets or sets administrator password.",
-          "type": "string"
-        },
         "osType": {
           "description": "Gets or sets the type of the os.",
               "$ref": "#/definitions/OsType",
