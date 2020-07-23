@@ -1888,7 +1888,7 @@
       ],
       "type": "string"
     },
-    "NetworkInterface": {
+    "NetworkInterfaces": {
       "description": "Network Interface model",
       "properties": {
         "name": {
