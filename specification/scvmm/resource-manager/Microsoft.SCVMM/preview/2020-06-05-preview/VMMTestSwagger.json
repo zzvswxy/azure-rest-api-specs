@@ -1883,8 +1883,8 @@
     "AllocationMethod": {
       "description": "Allocation method.",
       "enum": [
-        "dynamic",
-        "static"
+        "Dynamic",
+        "Static"
       ],
       "type": "string"
     },
@@ -1972,10 +1972,6 @@
     "VirtualDisk": {
       "description": "Virtual disk model",
       "properties": {
-        "name": {
-          "description": "Gets or sets the name of the virtual disk.",
-          "type": "string"
-        },
         "diskId": {
           "description": "Gets or sets the disk id.",
           "type": "string",
