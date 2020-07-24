@@ -99,6 +99,136 @@
                     }
                 }
             }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppAssessment/migrateProjects/{projectName}/assessments/{assessmentName}/assessedMachines/{machineId}": {
+            "get": {
+                "tags": [
+                    "migrateProjectsAssessment"
+                ],
+                "operationId": "assessedMachines_getById",
+                "description": "Gets the assessed machine in an assessment by id",
+                "x-ms-examples": {
+                    "migrateAssessment_getAssessedMachine": {
+                        "$ref": "./examples/migrateAssessment_getAssessedMachine.json"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "definitions.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "definitions.json#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                        "name": "projectName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the project"
+                    },
+                    {
+                        "name": "assessmentName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the assessment"
+                    },
+                    {
+                        "name": "machineId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The id of the assessed machine"
+                    },
+                    {
+                        "$ref": "definitions.json#/parameters/ApiVersionParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Assessed machine was found",
+                        "schema": {
+                            "$ref": "#/definitions/assessedMachine"
+                        }
+                    },
+                    "default": {
+                        "description": "Error response describing why the operation failed.",
+                        "schema": {
+                            "$ref": "definitions.json#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppAssessment/migrateProjects/{projectName}/assessments/{assessmentName}/assessedApplications/{applicationId}/machines": {
+            "get": {
+                "tags": [
+                    "migrateProjectsAssessment"
+                ],
+                "operationId": "assessedMachines_listForAssessedApplication",
+                "description": "Gets the machines that had a given assessed machine installed",
+                "x-ms-examples": {
+                    "assessedMachines_listForAssessedApplication": {
+                        "$ref": "./examples/migrateAssessment_listAssessedApplicationMachines.json"
+                    }
+                },
+                "x-ms-pageable": {
+                    "itemName": "value",
+                    "nextLinkName": "nextLink"
+                },
+                "parameters": [
+                    {
+                        "$ref": "definitions.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "definitions.json#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                        "name": "projectName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the project"
+                    },
+                    {
+                        "name": "assessmentName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the assessment"
+                    },
+                    {
+                        "name": "applicationId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The id of the assessed application"
+                    },
+                    {
+                        "$ref": "definitions.json#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "$ref": "definitions.json#/parameters/TopParameter"
+                    },
+                    {
+                      "$ref": "definitions.json#/parameters/FilterParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Assessment was found",
+                        "schema": {
+                            "$ref": "#/definitions/assessedMachineList"
+                        }
+                    },
+                    "default": {
+                        "description": "Error response describing why the operation failed.",
+                        "schema": {
+                            "$ref": "definitions.json#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

@@ -1808,6 +1808,11 @@
       "description": "Defines the resource properties.",
       "type": "object",
       "properties": {
+        "adminPassword": {
+          "description": "Admin password of the virtual machine",
+          "type": "string",
+          "x-ms-secret": true
+        },
         "computerName": {
           "description": "Gets or sets computer name.",
           "type": "string",

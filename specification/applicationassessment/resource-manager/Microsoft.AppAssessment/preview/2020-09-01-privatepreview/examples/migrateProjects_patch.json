@@ -23,7 +23,8 @@
                     "tag2":"value2"
                 },
                 "properties":{
-                    "migrateHubProjectId": "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/testRG/providers/Microsoft.Migrate/MigrateProjects/test"
+                    "migrateHubProjectId": "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/testRG/providers/Microsoft.Migrate/MigrateProjects/test",
+                    "numberOfAssessments": 1
                 }
             }
         }
