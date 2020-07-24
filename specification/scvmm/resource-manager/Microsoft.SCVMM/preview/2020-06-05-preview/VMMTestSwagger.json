@@ -1813,10 +1813,6 @@
           "type": "string",
           "readOnly": true
         },
-        "adminPassword": {
-          "description": "Gets or sets administrator password.",
-          "type": "string"
-        },
         "osType": {
           "description": "Gets or sets the type of the os.",
               "$ref": "#/definitions/OsType",
@@ -1875,7 +1871,7 @@
           "description": "Gets or sets the list of network interfaces associated with the virtual machine.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/NetworkInterface"
+            "$ref": "#/definitions/NetworkInterfaces"
           }
         }
       }
@@ -1883,12 +1879,12 @@
     "AllocationMethod": {
       "description": "Allocation method.",
       "enum": [
-        "dynamic",
-        "static"
+        "Dynamic",
+        "Static"
       ],
       "type": "string"
     },
-    "NetworkInterface": {
+    "NetworkInterfaces": {
       "description": "Network Interface model",
       "properties": {
         "name": {
@@ -1972,10 +1968,6 @@
     "VirtualDisk": {
       "description": "Virtual disk model",
       "properties": {
-        "name": {
-          "description": "Gets or sets the name of the virtual disk.",
-          "type": "string"
-        },
         "diskId": {
           "description": "Gets or sets the disk id.",
           "type": "string",
@@ -2177,7 +2169,7 @@
           "description": "Gets or sets the network interfaces of the template.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/NetworkInterface"
+            "$ref": "#/definitions/NetworkInterfaces"
           },
           "readOnly": true
         },
