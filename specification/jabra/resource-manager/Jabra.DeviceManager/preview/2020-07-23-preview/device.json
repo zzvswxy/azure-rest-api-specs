@@ -204,7 +204,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           }
         ],
         "responses": {
@@ -233,7 +233,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           },
           {
             "name": "HeadsetResourceType",
@@ -281,7 +281,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           },
           {
             "name": "HeadsetPatchResource",
@@ -319,7 +319,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           }
         ],
         "responses": {
@@ -665,8 +665,8 @@
       "description": "The name of devicehub resource.",
       "x-ms-parameter-location": "method"
     },
-    "HeadsetDeviceNameParameter": {
-      "name": "headsetDeviceName",
+    "DeviceNameParameter": {
+      "name": "deviceName",
       "in": "path",
       "required": true,
       "type": "string",
