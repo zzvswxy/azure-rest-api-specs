@@ -18,7 +18,7 @@
         "name": "MigratorName",
         "properties": {
           "provisioningState": "Accepted",
-          "externalIp" : "http://localhost:8080"
+          "deploymentType" : "RPM"
         },
         "location": "East US",
         "type": "Wandisco.Fusion/migrator",

@@ -1933,7 +1933,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/migratorTargets": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets": {
       "get": {
         "tags": [
           "migratorTarget"
@@ -1982,7 +1982,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/migratorTargets/{migratorTargetName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets/{migratorTargetName}": {
       "get": {
         "tags": [
           "migratorTarget"
@@ -3514,14 +3514,36 @@
           "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
         },
+        "deploymentType" : {
+          "description": "The type of install required for the migrator",
+          "type": "string",
+          "enum": [
+            "DEB",
+            "RPM"
+          ],
+          "x-ms-enum": {
+            "name": "MigratorDeploymentType",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "DEB"
+              },
+              {
+                "value": "RPM"
+              }
+            ]
+          },
+          "default": "RPM"
+        },
         "downloadLocation": {
           "description": "The location for downloading deployment files",
           "type": "string",
           "readOnly": true
         },
-        "externalIp" : {
-          "description": "The external IP of the migrator server",
-          "type": "string"
+        "kerberos": {
+          "title": "KerberosConfiguration",
+          "description": "The configuration properties for authenticating to the source filesystem",
+          "$ref": "#/definitions/KerberosConfiguration"
         }
       }
     },
@@ -3976,7 +3998,8 @@
         },
         "progress": {
           "description": "Migration status",
-          "$ref": "#/definitions/MigrationProgress"
+          "$ref": "#/definitions/MigrationProgress",
+          "readOnly": true
         },
         "dateAfterWhichToMigrate": {
           "description": "Date after which migration should occur. Required if overwritePolicy is SkipIfDateIsEarlier.",
@@ -4122,7 +4145,8 @@
         }
       },
       "required": [
-        "path"
+        "path",
+        "targetId"
       ]
     },
     "ErrorResponse": {
@@ -4262,6 +4286,23 @@
           "items": {
             "$ref": "#/definitions/HiveReplicationRule"
           }
+        }
+      }
+    },
+    "KerberosConfiguration": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "description": "The client will use kerberos authentication if enabled is true",
+          "type": "boolean"
+        },
+        "principal": {
+          "description": "The principal the client should use",
+          "type": "string"
+        },
+        "keytabLocation": {
+          "description": "The location of the keytab file for the client to use",
+          "type": "string"
         }
       }
     }

@@ -14,7 +14,7 @@
         "properties": {
           "provisioningState": "Succeeded",
           "downloadLocation":  "https://downloadlocation.com",
-          "externalIp" : "http://localhost:8080"
+          "deploymentType" : "DEB"
         },
         "location": "East US",
         "type": "Wandisco.Fusion/migrator",
