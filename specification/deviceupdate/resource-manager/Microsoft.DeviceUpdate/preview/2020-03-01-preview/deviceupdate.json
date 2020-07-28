@@ -561,13 +561,6 @@
         }
       ],
       "properties": {
-        "properties": {
-          "description": "Device Update account properties.",
-          "x-ms-client-flatten": true,
-          "type": "object",
-          "properties": {
-          }
-        }
       }
     },
     "AccountList": {
