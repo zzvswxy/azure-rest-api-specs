@@ -510,10 +510,6 @@
           "type": "string",
           "description": "The operation Id."
         },
-        "name": {
-          "type": "string",
-          "description": "The operation name."
-        },
         "startTime": {
           "type": "string",
           "description": "The start time of the operation."
@@ -530,6 +526,15 @@
           "type": "object",
           "description": "The error detail of the operation if any.",
           "$ref": "#/definitions/ErrorResponse"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "merchantId": {
+              "type": "string",
+              "readOnly": false
+            }
+          }
         }
       }
     }
