@@ -465,10 +465,6 @@
             "provisioningState": {
               "type": "string",
               "readOnly": false
-            },
-            "azureResourceId": {
-              "type": "string",
-              "readOnly": false
             }
           }
         }
