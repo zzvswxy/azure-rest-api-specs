@@ -561,6 +561,36 @@
         }
       ],
       "properties": {
+        "properties": {
+          "description": "Device Update account properties.",
+          "x-ms-client-flatten": true,
+          "type": "object",
+          "properties": {
+            "provisioningState": {
+              "description": "Provisioning state.",
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Deleted",
+                "Failed",
+                "Canceled",
+                "Accepted",
+                "Creating",
+                "Deleting"
+              ],
+              "readOnly": true,
+              "x-ms-enum": {
+                "name": "ProvisioningState",
+                "modelAsString": true
+              }
+            },
+            "hostName": {
+              "description": "API host name.",
+              "type": "string",
+              "readOnly": true
+            }
+          }
+        }
       }
     },
     "AccountList": {
@@ -594,6 +624,24 @@
           "x-ms-client-flatten": true,
           "type": "object",
           "properties": {
+            "provisioningState": {
+              "description": "Provisioning state.",
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Deleted",
+                "Failed",
+                "Canceled",
+                "Accepted",
+                "Creating",
+                "Deleting"
+              ],
+              "readOnly": true,
+              "x-ms-enum": {
+                "name": "ProvisioningState",
+                "modelAsString": true
+              }
+            },
             "iotHubs": {
               "description": "List of IoT Hubs associated with the account.",
               "type": "array",
