@@ -363,6 +363,21 @@
     }
   },
   "definitions": {
+    "ProvisioningState": {
+      "type": "string",
+      "readOnly": true,
+      "description": "The current provisioning state.",
+      "enum": [
+        "Succeeded",
+        "Creating",
+        "Deleting",
+        "Failed"
+      ],
+      "x-ms-enum": {
+        "name": "ProvisioningState",
+        "modelAsString": true
+      }
+    },
     "Resource": {
       "description": "An Azure resource.",
       "properties": {
@@ -463,8 +478,8 @@
               "readOnly": false
             },
             "provisioningState": {
-              "type": "string",
-              "readOnly": false
+              "description": "The provisioning state of the resource.",
+              "$ref": "#/definitions/ProvisioningState"
             }
           }
         }
