@@ -1124,7 +1124,6 @@
             "name": "consistencyCheckOptions",
             "description": "Consistency Check options",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/ConsistencyCheckOptions"
             }
