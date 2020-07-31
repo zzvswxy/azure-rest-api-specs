@@ -995,12 +995,25 @@
         "Succeeded",
         "Failed",
         "Canceled",
-        "Deleted"
+        "Deleted",
+        "NotSpecified"
       ],
       "type": "string",
       "x-ms-enum": {
         "modelAsString": true,
         "name": "ProvisioningState"
+      }
+    },
+    "MonitoringStatus": {
+      "description": "Flag specifying if the resource monitoring is enabled or disabled.",
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "MonitoringStatus"
       }
     },
     "DatadogOrganizationProperties": {
@@ -1066,29 +1079,6 @@
         }
       }
     },
-    "MonitorProperties": {
-      "description": "Properties specific to the monitor resource.",
-      "type": "object",
-      "properties": {
-        "provisioningState": {
-          "$ref": "#/definitions/ProvisioningState"
-        },
-        "datadogOrganizationProperties": {
-          "$ref": "#/definitions/DatadogOrganizationProperties"
-        },
-        "userInfo": {
-          "$ref": "#/definitions/UserInfo"
-          },
-          "liftrResourceCategory": {
-            "$ref": "#/definitions/LiftrResourceCategories"
-          },
-          "liftrResourcePreference": {
-          "format": "int32",
-            "type": "integer",
-            "readOnly": true
-          }
-        }
-    },
     "LiftrResourceCategories": {
       "enum": [
         "Unknown",
@@ -1100,6 +1090,32 @@
         "name": "LiftrResourceCategories"
       },
       "readOnly": true
+    },
+    "MonitorProperties": {
+      "description": "Properties specific to the monitor resource.",
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState"
+        },
+        "monitoringStatus": {
+          "$ref": "#/definitions/MonitoringStatus"
+        },
+        "datadogOrganizationProperties": {
+          "$ref": "#/definitions/DatadogOrganizationProperties"
+        },
+        "userInfo": {
+          "$ref": "#/definitions/UserInfo"
+        },
+        "liftrResourceCategory": {
+          "$ref": "#/definitions/LiftrResourceCategories"
+        },
+        "liftrResourcePreference": {
+          "description": "The priority of the resource.",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
     },
     "ManagedIdentityTypes": {
       "enum": [
@@ -1189,10 +1205,24 @@
         }
       }
     },
-    "DatadogMonitorResourceUpdateParameters": {
+    "MonitorUpdateProperties": {
+      "description": "The set of properties that can be update in a PATCH request to a monitor resource.",
       "type": "object",
       "properties": {
+        "monitoringStatus": {
+          "$ref": "#/definitions/MonitoringStatus"
+        }
+      }
+    },
+    "DatadogMonitorResourceUpdateParameters": {
+      "description": "The parameters for a PATCH request to a monitor resource.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/MonitorUpdateProperties"
+        },
         "tags": {
+          "description": "The new tags of the monitor resource.",
           "type": "object",
           "additionalProperties": {
             "type": "string"

@@ -7,7 +7,12 @@
     "migratorName": "migrator1",
     "Migrator" : {
       "properties": {
-        "externalIp" : "http://localhost:8080"
+        "deploymentType" : "DEB",
+        "kerberos": {
+          "enabled": true,
+          "principal": "hdfs@REALM",
+          "keytabLocation": "/etc/security/keytabs/hdfs.keytab"
+        }
       },
       "location": "East US",
       "tags": {
@@ -22,7 +27,13 @@
         "name": "migratorCreate",
         "properties": {
           "provisioningState": "Succeeded",
-          "externalIp" : "http://localhost:8080"
+          "downloadLocation" : "https://downloadlocation.com",
+          "deploymentType": "DEB",
+          "kerberos": {
+            "enabled": true,
+            "principal": "hdfs@REALM",
+            "keytabLocation": "/etc/security/keytabs/hdfs.keytab"
+          }
         },
         "location": "East US",
         "type": "Wandisco.Fusion/migrator",
@@ -37,7 +48,12 @@
         "name": "migratorCreate",
         "properties": {
           "provisioningState": "Accepted",
-          "externalIp" : "http://localhost:8080"
+          "deploymentType" : "DEB",
+          "kerberos": {
+            "enabled": true,
+            "principal": "hdfs@REALM",
+            "keytabLocation": "/etc/security/keytabs/hdfs.keytab"
+          }
         },
         "location": "East US",
         "type": "Wandisco.Fusion/migrator",
