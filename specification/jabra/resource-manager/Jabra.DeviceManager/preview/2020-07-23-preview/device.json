@@ -120,6 +120,38 @@
            }
         }
       },
+      "patch": {
+        "description": "Update device hub resource.",
+        "operationId": "DeviceHub_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeviceHubNameParameter"
+          },
+          {
+            "name": "DeviceHub",
+            "description": "DeviceHub details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeviceHub"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful."
+          }
+        }
+      },
       "delete": {
         "description": "Deletes the devicehub.",
         "operationId": "DeviceHub_Delete",
