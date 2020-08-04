@@ -155,6 +155,55 @@
             }
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "MerchantAccount"
+        ],
+        "description": "Update merchant account details.",
+        "operationId": "MerchantAccount_Update",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "merchantId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "merchantName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "MerchantAccountPatchResource",
+            "description": "Merchant account patch properties.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MerchantAccountPatchResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/MerchantAccount"
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/merchants": {
@@ -314,6 +363,17 @@
     }
   },
   "definitions": {
+    "ProvisioningState": {
+      "type": "string",
+      "readOnly": true,
+      "description": "The current provisioning state.",
+      "enum": [
+        "Succeeded",
+        "Creating",
+        "Deleting",
+        "Failed"
+      ]
+    },
     "Resource": {
       "description": "An Azure resource.",
       "properties": {
@@ -406,6 +466,7 @@
           "properties": {
             "merchantId": {
               "type": "string",
+              "description": "The merchant account's ID",
               "readOnly": false
             },
             "merchantName": {
@@ -413,8 +474,23 @@
               "readOnly": false
             },
             "provisioningState": {
+              "description": "The provisioning state of the resource.",
+              "$ref": "#/definitions/ProvisioningState"
+            }
+          }
+        }
+      }
+    },
+    "MerchantAccountPatchResource": {
+      "type": "object",
+      "description": "Merchant account patch properties",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "merchantId": {
               "type": "string",
-              "readOnly": false
+              "description": "The merchant account's ID"
             }
           }
         }
@@ -510,10 +586,6 @@
           "type": "string",
           "description": "The operation Id."
         },
-        "name": {
-          "type": "string",
-          "description": "The operation name."
-        },
         "startTime": {
           "type": "string",
           "description": "The start time of the operation."
@@ -530,6 +602,15 @@
           "type": "object",
           "description": "The error detail of the operation if any.",
           "$ref": "#/definitions/ErrorResponse"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "merchantId": {
+              "type": "string",
+              "readOnly": false
+            }
+          }
         }
       }
     }

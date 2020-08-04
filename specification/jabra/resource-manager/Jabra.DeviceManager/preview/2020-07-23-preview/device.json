@@ -146,6 +146,38 @@
            }
         }
       },
+      "patch": {
+        "description": "Update device hub resource.",
+        "operationId": "DeviceHub_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/DeviceHubNameParameter"
+          },
+          {
+            "name": "DeviceHub",
+            "description": "DeviceHub details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeviceHub"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful."
+          }
+        }
+      },
       "delete": {
         "description": "Deletes the devicehub.",
         "operationId": "DeviceHub_Delete",
@@ -259,7 +291,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           }
         ],
         "responses": {
@@ -288,7 +320,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           },
           {
             "name": "HeadsetResourceType",
@@ -336,7 +368,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           },
           {
             "name": "HeadsetPatchResource",
@@ -374,7 +406,7 @@
             "$ref": "#/parameters/DeviceHubNameParameter"
           },
           {
-            "$ref": "#/parameters/HeadsetDeviceNameParameter"
+            "$ref": "#/parameters/DeviceNameParameter"
           }
         ],
         "responses": {
@@ -720,8 +752,8 @@
       "description": "The name of devicehub resource.",
       "x-ms-parameter-location": "method"
     },
-    "HeadsetDeviceNameParameter": {
-      "name": "headsetDeviceName",
+    "DeviceNameParameter": {
+      "name": "deviceName",
       "in": "path",
       "required": true,
       "type": "string",
