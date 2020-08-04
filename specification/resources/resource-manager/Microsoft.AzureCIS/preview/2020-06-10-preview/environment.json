@@ -68,6 +68,47 @@
           }
         }
       },
+      "patch": {
+        "description": "patch environment.",
+        "operationId": "Environment_patch",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceNameParameter"
+          },
+          {
+            "name": "EnvironmentResponse",
+            "description": "Environment details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Environment Resource create response.",
+            "schema": {
+              "$ref": "#/definitions/AutopilotEnvironmentResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+            "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
       "get": {
         "description": "Returns an Environment info",
         "operationId": "EnvironmentInfo_Get",
