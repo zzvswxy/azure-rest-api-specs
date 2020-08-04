@@ -372,11 +372,7 @@
         "Creating",
         "Deleting",
         "Failed"
-      ],
-      "x-ms-enum": {
-        "name": "ProvisioningState",
-        "modelAsString": false
-      }
+      ]
     },
     "Resource": {
       "description": "An Azure resource.",
