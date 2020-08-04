@@ -2,11 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "SCVMM",
-    "description": "The Microsoft.SCVMM Rest API spec.",
-    "version": "2020-06-05-preview",
-    "x-ms-code-generation-settings": {
-      "name": "SCVMMClient"
-    }
+    "description": "The Microsoft.ScVmm Rest API spec.",
+    "version": "2020-06-05-preview"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -37,14 +34,19 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMMServers/{VMMServersName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}": {
       "get": {
         "tags": [
-          "VMMServers"
+          "VmmServers"
         ],
-        "operationId": "VMMServers_Get",
+        "operationId": "VmmServers_Get",
         "summary": "Gets a VMMServer.",
         "description": "Implements VMMServer GET method.",
+        "x-ms-examples": {
+          "GetVMMServer": {
+            "$ref": "./examples/GetVMMServer.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -54,7 +56,7 @@
           },
           {
             "in": "path",
-            "name": "VMMServersName",
+            "name": "vmmServerName",
             "required": true,
             "type": "string",
             "description": "Name of the VMMServer."
@@ -65,9 +67,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Retrieves the VMMServers resource.",
+            "description": "Retrieves the VmmServers resource.",
             "schema": {
-              "$ref": "#/definitions/VMMServers"
+              "$ref": "#/definitions/VMMServer"
             }
           },
           "default": {
@@ -80,11 +82,16 @@
       },
       "put": {
         "tags": [
-          "VMMServers"
+          "VmmServers"
         ],
-        "operationId": "VMMServers_CreateOrUpdate",
-        "description": "Create Or Update VMMServers.",
-        "summary": "Implements VMMServers PUT method.",
+        "operationId": "VmmServers_CreateOrUpdate",
+        "description": "Create Or Update VmmServers.",
+        "summary": "Implements VmmServers PUT method.",
+        "x-ms-examples": {
+          "CreateVMMServer": {
+            "$ref": "./examples/CreateVMMServer.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -94,7 +101,7 @@
           },
           {
             "in": "path",
-            "name": "VMMServersName",
+            "name": "vmmServerName",
             "required": true,
             "type": "string",
             "description": "Name of the VMMServer."
@@ -103,25 +110,26 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "VMMServers",
+            "name": "body",
+            "description": "Request payload.",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VMMServers"
+              "$ref": "#/definitions/VMMServer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the VMMServers resource.",
+            "description": "Updates the VmmServers resource.",
             "schema": {
-              "$ref": "#/definitions/VMMServers"
+              "$ref": "#/definitions/VMMServer"
             }
           },
           "201": {
-            "description": "Creates the VMMServers resource.",
+            "description": "Creates the VmmServers resource.",
             "schema": {
-              "$ref": "#/definitions/VMMServers"
+              "$ref": "#/definitions/VMMServer"
             },
             "headers": {
               "Azure-AsyncOperation": {
@@ -141,11 +149,16 @@
       },
       "delete": {
         "tags": [
-          "VMMServers"
+          "VmmServers"
         ],
-        "operationId": "VMMServers_Delete",
-        "summary": "Deletes an VMMServer.",
+        "operationId": "VmmServers_Delete",
+        "summary": "Deletes a VMMServer.",
         "description": "Implements VMMServer DELETE method.",
+        "x-ms-examples": {
+          "DeleteVMMServer": {
+            "$ref": "./examples/DeleteVMMServer.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -155,7 +168,7 @@
           },
           {
             "in": "path",
-            "name": "VMMServersName",
+            "name": "vmmServerName",
             "required": true,
             "type": "string",
             "description": "Name of the VMMServer."
@@ -166,7 +179,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Deletes the VMMServers resource."
+            "description": "Deletes the VmmServers resource."
           },
           "202": {
             "description": "Accepted",
@@ -191,9 +204,16 @@
       },
       "patch": {
         "tags": [
-          "VMMServers"
+          "VmmServers"
         ],
-        "operationId": "VMMServers_Update",
+        "operationId": "VmmServers_Update",
+        "summary": "Updates the resource.",
+        "description": "Implements PATCH method.",
+        "x-ms-examples": {
+          "UpdateVMMServer": {
+            "$ref": "./examples/UpdateVMMServer.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -206,14 +226,14 @@
           },
           {
             "in": "path",
-            "name": "VMMServersName",
+            "name": "vmmServerName",
             "required": true,
             "type": "string",
             "description": "Name of the VMMServer."
           },
           {
-            "name": "VMMServersPatchResource",
-            "description": "VMMServers patch details.",
+            "name": "body",
+            "description": "VmmServers patch details.",
             "in": "body",
             "required": true,
             "schema": {
@@ -225,7 +245,7 @@
           "200": {
             "description": "Successful.",
             "schema": {
-              "$ref": "#/definitions/VMMServers"
+              "$ref": "#/definitions/VMMServer"
             }
           },
           "default": {
@@ -237,14 +257,19 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VMMServers": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers": {
       "get": {
         "tags": [
-          "VMMServers"
+          "VmmServers"
         ],
-        "operationId": "VMMServers_ListByResourceGroup",
-        "summary": "Implements GET VMMServers in a resource group.",
-        "description": "List of VMMServers in a resource group.",
+        "operationId": "VmmServers_ListByResourceGroup",
+        "summary": "Implements GET VmmServers in a resource group.",
+        "description": "List of VmmServers in a resource group.",
+        "x-ms-examples": {
+          "ListVmmServersByResourceGroup": {
+            "$ref": "./examples/ListVMMServersByResourceGroup.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -258,9 +283,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all VMMServers under the resouce group.",
+            "description": "Lists all VmmServers under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/VMMServersListResult"
+              "$ref": "#/definitions/VMMServerListResult"
             }
           },
           "default": {
@@ -275,14 +300,19 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VMMServers": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ScVmm/vmmServers": {
       "get": {
         "tags": [
-          "VMMServers"
+          "VmmServers"
         ],
-        "operationId": "VMMServers_ListBySubscription",
-        "summary": "Implements GET VMMServers in a subscription.",
-        "description": "List of VMMServers in a subscription.",
+        "operationId": "VmmServers_ListBySubscription",
+        "summary": "Implements GET VmmServers in a subscription.",
+        "description": "List of VmmServers in a subscription.",
+        "x-ms-examples": {
+          "ListVmmServersBySubscription": {
+            "$ref": "./examples/ListVMMServersBySubscription.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -293,9 +323,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all VMMServers under the subscription.",
+            "description": "Lists all VmmServers under the subscription.",
             "schema": {
-              "$ref": "#/definitions/VMMServersListResult"
+              "$ref": "#/definitions/VMMServerListResult"
             }
           },
           "default": {
@@ -310,13 +340,18 @@
         }
       }
     },
-    "/providers/Microsoft.SCVMM/operations": {
+    "/providers/Microsoft.ScVmm/operations": {
       "get": {
         "tags": [
           "Operations"
         ],
         "operationId": "Operations_List",
         "description": "Returns list of all operations.",
+        "x-ms-examples": {
+          "ListOperations": {
+            "$ref": "./examples/ListOperations.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -328,6 +363,12 @@
             "schema": {
               "$ref": "#/definitions/ResourceProviderOperationList"
             }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-pageable": {
@@ -335,7 +376,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds/{CloudsName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/clouds/{cloudName}": {
       "get": {
         "tags": [
           "Clouds"
@@ -343,6 +384,11 @@
         "operationId": "Clouds_Get",
         "summary": "Gets a Cloud.",
         "description": "Implements Cloud GET method.",
+        "x-ms-examples": {
+          "GetCloud": {
+            "$ref": "./examples/GetCloud.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -352,7 +398,7 @@
           },
           {
             "in": "path",
-            "name": "CloudsName",
+            "name": "cloudName",
             "required": true,
             "type": "string",
             "description": "Name of the Cloud."
@@ -365,7 +411,7 @@
           "200": {
             "description": "Retrieves the Clouds resource.",
             "schema": {
-              "$ref": "#/definitions/Clouds"
+              "$ref": "#/definitions/Cloud"
             }
           },
           "default": {
@@ -383,6 +429,11 @@
         "operationId": "Clouds_CreateOrUpdate",
         "description": "Create Or Update Clouds.",
         "summary": "Implements Clouds PUT method.",
+        "x-ms-examples": {
+          "CreateCloud": {
+            "$ref": "./examples/CreateCloud.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -392,7 +443,7 @@
           },
           {
             "in": "path",
-            "name": "CloudsName",
+            "name": "cloudName",
             "required": true,
             "type": "string",
             "description": "Name of the Cloud."
@@ -401,11 +452,12 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "Clouds",
+            "name": "body",
+            "description": "Request payload.",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Clouds"
+              "$ref": "#/definitions/Cloud"
             }
           }
         ],
@@ -413,13 +465,13 @@
           "200": {
             "description": "Updates the Clouds resource.",
             "schema": {
-              "$ref": "#/definitions/Clouds"
+              "$ref": "#/definitions/Cloud"
             }
           },
           "201": {
             "description": "Creates the Clouds resource.",
             "schema": {
-              "$ref": "#/definitions/Clouds"
+              "$ref": "#/definitions/Cloud"
             },
             "headers": {
               "Azure-AsyncOperation": {
@@ -444,6 +496,11 @@
         "operationId": "Clouds_Delete",
         "summary": "Deletes an Cloud.",
         "description": "Implements Cloud DELETE method.",
+        "x-ms-examples": {
+          "DeleteCloud": {
+            "$ref": "./examples/DeleteCloud.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -453,7 +510,7 @@
           },
           {
             "in": "path",
-            "name": "CloudsName",
+            "name": "cloudName",
             "required": true,
             "type": "string",
             "description": "Name of the Cloud."
@@ -492,6 +549,13 @@
           "Clouds"
         ],
         "operationId": "Clouds_Update",
+        "summary": "Updates the resource.",
+        "description": "Implements PATCH method.",
+        "x-ms-examples": {
+          "UpdateCloud": {
+            "$ref": "./examples/UpdateCloud.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -504,13 +568,13 @@
           },
           {
             "in": "path",
-            "name": "CloudsName",
+            "name": "cloudName",
             "required": true,
             "type": "string",
             "description": "Name of the Cloud."
           },
           {
-            "name": "CloudsPatchResource",
+            "name": "body",
             "description": "Clouds patch details.",
             "in": "body",
             "required": true,
@@ -523,7 +587,7 @@
           "200": {
             "description": "Successful.",
             "schema": {
-              "$ref": "#/definitions/Clouds"
+              "$ref": "#/definitions/Cloud"
             }
           },
           "default": {
@@ -535,7 +599,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/Clouds": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/clouds": {
       "get": {
         "tags": [
           "Clouds"
@@ -543,6 +607,11 @@
         "operationId": "Clouds_ListByResourceGroup",
         "summary": "Implements GET Clouds in a resource group.",
         "description": "List of Clouds in a resource group.",
+        "x-ms-examples": {
+          "ListCloudsByResourceGroup": {
+            "$ref": "./examples/ListCloudsByResourceGroup.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -558,7 +627,7 @@
           "200": {
             "description": "Lists all Clouds under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/CloudsListResult"
+              "$ref": "#/definitions/CloudListResult"
             }
           },
           "default": {
@@ -573,7 +642,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/Clouds": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ScVmm/clouds": {
       "get": {
         "tags": [
           "Clouds"
@@ -581,6 +650,11 @@
         "operationId": "Clouds_ListBySubscription",
         "summary": "Implements GET Clouds in a subscription.",
         "description": "List of Clouds in a subscription.",
+        "x-ms-examples": {
+          "ListCloudsBySubscription": {
+            "$ref": "./examples/ListCloudsBySubscription.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -593,7 +667,7 @@
           "200": {
             "description": "Lists all Clouds under the subscription.",
             "schema": {
-              "$ref": "#/definitions/CloudsListResult"
+              "$ref": "#/definitions/CloudListResult"
             }
           },
           "default": {
@@ -608,7 +682,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualNetworks/{VirtualNetworksName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualNetworks/{virtualNetworkName}": {
       "get": {
         "tags": [
           "VirtualNetworks"
@@ -616,6 +690,11 @@
         "operationId": "VirtualNetworks_Get",
         "summary": "Gets a VirtualNetwork.",
         "description": "Implements VirtualNetwork GET method.",
+        "x-ms-examples": {
+          "GetVirtualNetwork": {
+            "$ref": "./examples/GetVirtualNetwork.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -625,7 +704,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualNetworksName",
+            "name": "virtualNetworkName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualNetwork."
@@ -638,7 +717,7 @@
           "200": {
             "description": "Retrieves the VirtualNetworks resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualNetworks"
+              "$ref": "#/definitions/VirtualNetwork"
             }
           },
           "default": {
@@ -656,6 +735,11 @@
         "operationId": "VirtualNetworks_CreateOrUpdate",
         "description": "Create Or Update VirtualNetworks.",
         "summary": "Implements VirtualNetworks PUT method.",
+        "x-ms-examples": {
+          "CreateVirtualNetwork": {
+            "$ref": "./examples/CreateVirtualNetwork.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -665,7 +749,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualNetworksName",
+            "name": "virtualNetworkName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualNetwork."
@@ -674,11 +758,12 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "VirtualNetworks",
+            "name": "body",
+            "description": "Request payload.",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VirtualNetworks"
+              "$ref": "#/definitions/VirtualNetwork"
             }
           }
         ],
@@ -686,13 +771,13 @@
           "200": {
             "description": "Updates the VirtualNetworks resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualNetworks"
+              "$ref": "#/definitions/VirtualNetwork"
             }
           },
           "201": {
             "description": "Creates the VirtualNetworks resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualNetworks"
+              "$ref": "#/definitions/VirtualNetwork"
             },
             "headers": {
               "Azure-AsyncOperation": {
@@ -717,6 +802,11 @@
         "operationId": "VirtualNetworks_Delete",
         "summary": "Deletes an VirtualNetwork.",
         "description": "Implements VirtualNetwork DELETE method.",
+        "x-ms-examples": {
+          "DeleteVirtualNetwork": {
+            "$ref": "./examples/DeleteVirtualNetwork.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -726,7 +816,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualNetworksName",
+            "name": "virtualNetworkName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualNetwork."
@@ -765,6 +855,13 @@
           "VirtualNetworks"
         ],
         "operationId": "VirtualNetworks_Update",
+        "summary": "Updates the resource.",
+        "description": "Implements PATCH method.",
+        "x-ms-examples": {
+          "UpdateVirtualNetwork": {
+            "$ref": "./examples/UpdateVirtualNetwork.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -777,13 +874,13 @@
           },
           {
             "in": "path",
-            "name": "VirtualNetworksName",
+            "name": "virtualNetworkName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualNetwork."
           },
           {
-            "name": "VirtualNetworksPatchResource",
+            "name": "body",
             "description": "VirtualNetworks patch details.",
             "in": "body",
             "required": true,
@@ -796,7 +893,7 @@
           "200": {
             "description": "Successful.",
             "schema": {
-              "$ref": "#/definitions/VirtualNetworks"
+              "$ref": "#/definitions/VirtualNetwork"
             }
           },
           "default": {
@@ -808,7 +905,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualNetworks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualNetworks": {
       "get": {
         "tags": [
           "VirtualNetworks"
@@ -816,6 +913,11 @@
         "operationId": "VirtualNetworks_ListByResourceGroup",
         "summary": "Implements GET VirtualNetworks in a resource group.",
         "description": "List of VirtualNetworks in a resource group.",
+        "x-ms-examples": {
+          "ListVirtualNetworksByResourceGroup": {
+            "$ref": "./examples/ListVirtualNetworksByResourceGroup.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -831,7 +933,7 @@
           "200": {
             "description": "Lists all VirtualNetworks under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/VirtualNetworksListResult"
+              "$ref": "#/definitions/VirtualNetworkListResult"
             }
           },
           "default": {
@@ -846,7 +948,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualNetworks": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ScVmm/virtualNetworks": {
       "get": {
         "tags": [
           "VirtualNetworks"
@@ -854,6 +956,11 @@
         "operationId": "VirtualNetworks_ListBySubscription",
         "summary": "Implements GET VirtualNetworks in a subscription.",
         "description": "List of VirtualNetworks in a subscription.",
+        "x-ms-examples": {
+          "ListVirtualNetworksBySubscription": {
+            "$ref": "./examples/ListVirtualNetworksBySubscription.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -866,7 +973,7 @@
           "200": {
             "description": "Lists all VirtualNetworks under the subscription.",
             "schema": {
-              "$ref": "#/definitions/VirtualNetworksListResult"
+              "$ref": "#/definitions/VirtualNetworkListResult"
             }
           },
           "default": {
@@ -881,7 +988,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachines/{VirtualMachinesName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}": {
       "get": {
         "tags": [
           "VirtualMachines"
@@ -889,6 +996,11 @@
         "operationId": "VirtualMachines_Get",
         "summary": "Gets a VirtualMachine.",
         "description": "Implements VirtualMachine GET method.",
+        "x-ms-examples": {
+          "GetVirtualMachine": {
+            "$ref": "./examples/GetVirtualMachine.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -898,7 +1010,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachinesName",
+            "name": "virtualMachineName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachine."
@@ -911,7 +1023,7 @@
           "200": {
             "description": "Retrieves the VirtualMachines resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachines"
+              "$ref": "#/definitions/VirtualMachine"
             }
           },
           "default": {
@@ -929,6 +1041,11 @@
         "operationId": "VirtualMachines_CreateOrUpdate",
         "description": "Create Or Update VirtualMachines.",
         "summary": "Implements VirtualMachines PUT method.",
+        "x-ms-examples": {
+          "CreateVirtualMachine": {
+            "$ref": "./examples/CreateVirtualMachine.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -938,7 +1055,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachinesName",
+            "name": "virtualMachineName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachine."
@@ -947,11 +1064,12 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "VirtualMachines",
+            "name": "body",
+            "description": "Request payload.",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VirtualMachines"
+              "$ref": "#/definitions/VirtualMachine"
             }
           }
         ],
@@ -959,13 +1077,13 @@
           "200": {
             "description": "Updates the VirtualMachines resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachines"
+              "$ref": "#/definitions/VirtualMachine"
             }
           },
           "201": {
             "description": "Creates the VirtualMachines resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachines"
+              "$ref": "#/definitions/VirtualMachine"
             },
             "headers": {
               "Azure-AsyncOperation": {
@@ -990,6 +1108,11 @@
         "operationId": "VirtualMachines_Delete",
         "summary": "Deletes an VirtualMachine.",
         "description": "Implements VirtualMachine DELETE method.",
+        "x-ms-examples": {
+          "DeleteVirtualMachine": {
+            "$ref": "./examples/DeleteVirtualMachine.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -999,7 +1122,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachinesName",
+            "name": "virtualMachineName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachine."
@@ -1038,6 +1161,13 @@
           "VirtualMachines"
         ],
         "operationId": "VirtualMachines_Update",
+        "summary": "Updates the resource.",
+        "description": "Implements PATCH method.",
+        "x-ms-examples": {
+          "UpdateVirtualMachine": {
+            "$ref": "./examples/UpdateVirtualMachine.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -1050,13 +1180,13 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachinesName",
+            "name": "virtualMachineName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachine."
           },
           {
-            "name": "VirtualMachinesPatchResource",
+            "name": "body",
             "description": "VirtualMachines patch details.",
             "in": "body",
             "required": true,
@@ -1069,7 +1199,7 @@
           "200": {
             "description": "Successful.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachines"
+              "$ref": "#/definitions/VirtualMachine"
             }
           },
           "default": {
@@ -1081,7 +1211,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachines": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines": {
       "get": {
         "tags": [
           "VirtualMachines"
@@ -1089,6 +1219,11 @@
         "operationId": "VirtualMachines_ListByResourceGroup",
         "summary": "Implements GET VirtualMachines in a resource group.",
         "description": "List of VirtualMachines in a resource group.",
+        "x-ms-examples": {
+          "ListVirtualMachinesByResourceGroup": {
+            "$ref": "./examples/ListVirtualMachinesByResourceGroup.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1104,7 +1239,7 @@
           "200": {
             "description": "Lists all VirtualMachines under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachinesListResult"
+              "$ref": "#/definitions/VirtualMachineListResult"
             }
           },
           "default": {
@@ -1119,7 +1254,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualMachines": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ScVmm/virtualMachines": {
       "get": {
         "tags": [
           "VirtualMachines"
@@ -1127,6 +1262,11 @@
         "operationId": "VirtualMachines_ListBySubscription",
         "summary": "Implements GET VirtualMachines in a subscription.",
         "description": "List of VirtualMachines in a subscription.",
+        "x-ms-examples": {
+          "ListVirtualMachinesBySubscription": {
+            "$ref": "./examples/ListVirtualMachinesBySubscription.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1139,7 +1279,7 @@
           "200": {
             "description": "Lists all VirtualMachines under the subscription.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachinesListResult"
+              "$ref": "#/definitions/VirtualMachineListResult"
             }
           },
           "default": {
@@ -1154,7 +1294,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates/{VirtualMachineTemplatesName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachineTemplates/{virtualMachineTemplateName}": {
       "get": {
         "tags": [
           "VirtualMachineTemplates"
@@ -1162,6 +1302,11 @@
         "operationId": "VirtualMachineTemplates_Get",
         "summary": "Gets a VirtualMachineTemplate.",
         "description": "Implements VirtualMachineTemplate GET method.",
+        "x-ms-examples": {
+          "GetVirtualMachineTemplate": {
+            "$ref": "./examples/GetVirtualMachineTemplate.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1171,7 +1316,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachineTemplatesName",
+            "name": "virtualMachineTemplateName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachineTemplate."
@@ -1184,7 +1329,7 @@
           "200": {
             "description": "Retrieves the VirtualMachineTemplates resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplate"
             }
           },
           "default": {
@@ -1202,6 +1347,11 @@
         "operationId": "VirtualMachineTemplates_CreateOrUpdate",
         "description": "Create Or Update VirtualMachineTemplates.",
         "summary": "Implements VirtualMachineTemplates PUT method.",
+        "x-ms-examples": {
+          "CreateVirtualMachineTemplate": {
+            "$ref": "./examples/CreateVirtualMachineTemplate.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1211,7 +1361,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachineTemplatesName",
+            "name": "virtualMachineTemplateName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachineTemplate."
@@ -1220,11 +1370,12 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "VirtualMachineTemplates",
+            "name": "body",
+            "description": "Request payload.",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplate"
             }
           }
         ],
@@ -1232,13 +1383,13 @@
           "200": {
             "description": "Updates the VirtualMachineTemplates resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplate"
             }
           },
           "201": {
             "description": "Creates the VirtualMachineTemplates resource.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplate"
             },
             "headers": {
               "Azure-AsyncOperation": {
@@ -1263,6 +1414,11 @@
         "operationId": "VirtualMachineTemplates_Delete",
         "summary": "Deletes an VirtualMachineTemplate.",
         "description": "Implements VirtualMachineTemplate DELETE method.",
+        "x-ms-examples": {
+          "DeleteVirtualMachineTemplate": {
+            "$ref": "./examples/DeleteVirtualMachineTemplate.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1272,7 +1428,7 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachineTemplatesName",
+            "name": "virtualMachineTemplateName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachineTemplate."
@@ -1311,6 +1467,13 @@
           "VirtualMachineTemplates"
         ],
         "operationId": "VirtualMachineTemplates_Update",
+        "summary": "Updates the resource.",
+        "description": "Implements PATCH method.",
+        "x-ms-examples": {
+          "UpdateVirtualMachineTemplate": {
+            "$ref": "./examples/UpdateVirtualMachineTemplate.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -1323,13 +1486,13 @@
           },
           {
             "in": "path",
-            "name": "VirtualMachineTemplatesName",
+            "name": "virtualMachineTemplateName",
             "required": true,
             "type": "string",
             "description": "Name of the VirtualMachineTemplate."
           },
           {
-            "name": "VirtualMachineTemplatesPatchResource",
+            "name": "body",
             "description": "VirtualMachineTemplates patch details.",
             "in": "body",
             "required": true,
@@ -1342,7 +1505,7 @@
           "200": {
             "description": "Successful.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplates"
+              "$ref": "#/definitions/VirtualMachineTemplate"
             }
           },
           "default": {
@@ -1354,7 +1517,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SCVMM/VirtualMachineTemplates": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachineTemplates": {
       "get": {
         "tags": [
           "VirtualMachineTemplates"
@@ -1362,6 +1525,11 @@
         "operationId": "VirtualMachineTemplates_ListByResourceGroup",
         "summary": "Implements GET VirtualMachineTemplates in a resource group.",
         "description": "List of VirtualMachineTemplates in a resource group.",
+        "x-ms-examples": {
+          "ListVirtualMachineTemplatesByResourceGroup": {
+            "$ref": "./examples/ListVirtualMachineTemplatesByResourceGroup.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1377,7 +1545,7 @@
           "200": {
             "description": "Lists all VirtualMachineTemplates under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplatesListResult"
+              "$ref": "#/definitions/VirtualMachineTemplateListResult"
             }
           },
           "default": {
@@ -1392,7 +1560,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.SCVMM/VirtualMachineTemplates": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.ScVmm/virtualMachineTemplates": {
       "get": {
         "tags": [
           "VirtualMachineTemplates"
@@ -1400,6 +1568,11 @@
         "operationId": "VirtualMachineTemplates_ListBySubscription",
         "summary": "Implements GET VirtualMachineTemplates in a subscription.",
         "description": "List of VirtualMachineTemplates in a subscription.",
+        "x-ms-examples": {
+          "ListVirtualMachineTemplatesBySubscription": {
+            "$ref": "./examples/ListVirtualMachineTemplatesBySubscription.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1412,7 +1585,7 @@
           "200": {
             "description": "Lists all VirtualMachineTemplates under the subscription.",
             "schema": {
-              "$ref": "#/definitions/VirtualMachineTemplatesListResult"
+              "$ref": "#/definitions/VirtualMachineTemplateListResult"
             }
           },
           "default": {
@@ -1429,10 +1602,17 @@
     }
   },
   "definitions": {
-    "VMMServersProperties": {
+    "VMMServerProperties": {
+      "description": "Defines the resource properties.",
+      "required": [
+        "fqdn",
+        "credentials"
+      ],
+      "type": "object",
       "properties": {
         "credentials": {
           "type": "object",
+          "description": "Credentials to connect to VMMServer.",
           "properties": {
             "username": {
               "type": "string",
@@ -1477,20 +1657,21 @@
           "description": "Version is the version of the vmmSever.",
           "readOnly": true
         },
-		        "provisioningState": {
+        "provisioningState": {
           "description": "Gets or sets the provisioning state.",
           "type": "string",
           "readOnly": true
         }
       }
     },
-    "VMMServers": {
+    "VMMServer": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
           "description": "Resource properties.",
-          "$ref": "#/definitions/VMMServersProperties"
+          "$ref": "#/definitions/VMMServerProperties"
         },
         "id": {
           "type": "string",
@@ -1522,8 +1703,13 @@
           },
           "description": "Resource tags"
         },
+        "systemData": {
+          "$ref": "#/definitions/SystemData",
+		  "description": "The system data."
+        },
         "extendedLocation": {
           "type": "object",
+          "description": "The extended location.",
           "properties": {
             "type": {
               "type": "string",
@@ -1539,15 +1725,17 @@
       "required": [
         "location"
       ],
-      "description": "The VMMServers resource definition."
+      "description": "The VmmServers resource definition."
     },
-    "VMMServersListResult": {
+    "VMMServerListResult": {
       "type": "object",
+      "description": "List of VmmServers.",
       "properties": {
         "value": {
           "type": "array",
+          "description": "List of VmmServers.",
           "items": {
-            "$ref": "#/definitions/VMMServers"
+            "$ref": "#/definitions/VMMServer"
           }
         },
         "nextLink": {
@@ -1558,20 +1746,28 @@
     },
     "ResourceProviderOperationList": {
       "type": "object",
+      "description": "Results of the request to list operations.",
       "properties": {
         "value": {
           "type": "array",
+          "description": "List of Operations.",
           "items": {
             "$ref": "#/definitions/ResourceProviderOperation"
           }
         },
         "nextLink": {
-          "type": "string"
+          "type": "string",
+          "description": "Url to follow for getting next page of resources."
         }
-      },
-      "description": "Results of the request to list operations."
+      }
     },
-    "CloudsProperties": {
+    "CloudProperties": {
+      "description": "Defines the resource properties.",
+      "required": [
+        "uuid",
+        "vmmServerId"
+      ],
+      "type": "object",
       "properties": {
         "uuid": {
           "type": "string",
@@ -1589,19 +1785,24 @@
         },
         "cloudCapacity": {
           "$ref": "#/definitions/CloudCapacity",
+          "description": "Capacity of the cloud.",
           "readOnly": true
         },
-		"provisioningState": {
+        "provisioningState": {
           "type": "string",
+          "description": "Gets or sets the provisioning state.",
           "readOnly": true
         }
       }
     },
-    "Clouds": {
+    "Cloud": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "properties": {
-          "$ref": "#/definitions/CloudsProperties"
+          "x-ms-client-flatten": true,
+          "description": "Resource properties.",
+          "$ref": "#/definitions/CloudProperties"
         },
         "id": {
           "type": "string",
@@ -1619,8 +1820,12 @@
           "description": "Resource Type"
         },
         "location": {
+          "description": "Gets or sets the location.",
           "type": "string",
-          "description": "The resource location"
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "tags": {
           "type": "object",
@@ -1629,8 +1834,13 @@
           },
           "description": "Resource tags"
         },
+        "systemData": {
+          "$ref": "#/definitions/SystemData",
+		  "description": "The system data."
+        },
         "extendedLocation": {
           "type": "object",
+          "description": "The extended location.",
           "properties": {
             "type": {
               "type": "string",
@@ -1648,21 +1858,30 @@
       ],
       "description": "The Clouds resource definition."
     },
-    "CloudsListResult": {
+    "CloudListResult": {
       "type": "object",
+      "description": "List of Clouds.",
       "properties": {
         "value": {
           "type": "array",
+          "description": "List of Clouds.",
           "items": {
-            "$ref": "#/definitions/Clouds"
+            "$ref": "#/definitions/Cloud"
           }
         },
         "nextLink": {
-          "type": "string"
+          "type": "string",
+          "description": "Url to follow for getting next page of resources."
         }
       }
     },
-    "VirtualNetworksProperties": {
+    "VirtualNetworkProperties": {
+      "description": "Defines the resource properties.",
+      "required": [
+        "uuid",
+        "vmmServerId"
+      ],
+      "type": "object",
       "properties": {
         "uuid": {
           "type": "string",
@@ -1678,17 +1897,21 @@
           "description": "Name of the virtual network in vmmServer.",
           "readOnly": true
         },
-		"provisioningState": {
+        "provisioningState": {
           "type": "string",
+          "description": "Gets or sets the provisioning state.",
           "readOnly": true
         }
       }
     },
-    "VirtualNetworks": {
+    "VirtualNetwork": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "properties": {
-          "$ref": "#/definitions/VirtualNetworksProperties"
+          "x-ms-client-flatten": true,
+          "description": "Resource properties.",
+          "$ref": "#/definitions/VirtualNetworkProperties"
         },
         "id": {
           "type": "string",
@@ -1706,8 +1929,12 @@
           "description": "Resource Type"
         },
         "location": {
+          "description": "Gets or sets the location.",
           "type": "string",
-          "description": "The resource location"
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "tags": {
           "type": "object",
@@ -1716,8 +1943,13 @@
           },
           "description": "Resource tags"
         },
+        "systemData": {
+          "$ref": "#/definitions/SystemData",
+		  "description": "The system data."
+        },
         "extendedLocation": {
           "type": "object",
+          "description": "The extended location.",
           "properties": {
             "type": {
               "type": "string",
@@ -1735,21 +1967,29 @@
       ],
       "description": "The VirtualNetworks resource definition."
     },
-    "VirtualNetworksListResult": {
+    "VirtualNetworkListResult": {
       "type": "object",
+      "description": "List of VirtualNetworks.",
       "properties": {
         "value": {
           "type": "array",
+          "description": "List of VirtualNetworks.",
           "items": {
-            "$ref": "#/definitions/VirtualNetworks"
+            "$ref": "#/definitions/VirtualNetwork"
           }
         },
         "nextLink": {
-          "type": "string"
+          "type": "string",
+          "description": "Url to follow for getting next page of resources."
         }
       }
     },
-    "VirtualMachinesProperties": {
+    "VirtualMachineProperties": {
+      "description": "Defines the resource properties.",
+      "required": [
+        "vmmServerId",
+        "cloudId"
+      ],
       "properties": {
         "vmmServerId": {
           "type": "string",
@@ -1784,11 +2024,17 @@
           "description": "VMName is the name of VM on the SCVMM server",
           "minLength": 1
         },
-		"uuid": {
+        "uuid": {
           "type": "string",
           "description": "Unique ID of the virtual machine."
         },
+        "powerState": {
+          "description": "Gets the power state of the virtual machine.",
+          "type": "string",
+          "readOnly": true
+        },
         "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
           "type": "string",
           "readOnly": true
         }
@@ -1802,7 +2048,7 @@
         "Other"
       ],
       "type": "string",
-	  "readOnly": true
+      "readOnly": true
     },
     "OsProfile": {
       "description": "Defines the resource properties.",
@@ -1815,12 +2061,11 @@
         },
         "computerName": {
           "description": "Gets or sets computer name.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "osType": {
           "description": "Gets or sets the type of the os.",
-              "$ref": "#/definitions/OsType",
+          "$ref": "#/definitions/OsType",
           "readOnly": true
         },
         "osName": {
@@ -1891,6 +2136,7 @@
     },
     "NetworkInterfaces": {
       "description": "Network Interface model",
+      "type": "object",
       "properties": {
         "name": {
           "description": "Gets or sets the name of the network interface.",
@@ -1904,7 +2150,7 @@
           },
           "readOnly": true
         },
-		"ipv6Addresses": {
+        "ipv6Addresses": {
           "description": "Gets or sets the nic ipv4 addresses.",
           "type": "array",
           "items": {
@@ -1925,7 +2171,7 @@
           "type": "string",
           "readOnly": true
         },
-		"nicName": {
+        "nicName": {
           "description": "Gets or sets the name of the nic in vmmServer.",
           "type": "string",
           "readOnly": true
@@ -1951,6 +2197,7 @@
     },
     "CloudCapacity": {
       "description": "Cloud Capacity model",
+      "type": "object",
       "properties": {
         "cpuCount": {
           "type": "integer",
@@ -1968,18 +2215,18 @@
           "description": "VMCount gives the max number of VMs"
         }
       },
-	  "readOnly": true
+      "readOnly": true
     },
     "VirtualDisk": {
       "description": "Virtual disk model",
+      "type": "object",
       "properties": {
+        "name": {
+          "description": "Gets or sets the name of the disk.",
+          "type": "string"
+        },
         "diskId": {
           "description": "Gets or sets the disk id.",
-          "type": "string",
-          "readOnly": true
-        },
-		"diskName": {
-          "description": "Gets or sets the name of the virtual disk in vmmServer.",
           "type": "string",
           "readOnly": true
         },
@@ -1992,7 +2239,12 @@
           "format": "int32",
           "description": "Gets or sets the max disk size.",
           "type": "integer",
-		  "readOnly": true
+          "readOnly": true
+        },
+        "diskName": {
+          "description": "Gets or sets the name of the virtual disk in vmmServer.",
+          "type": "string",
+          "readOnly": true
         },
         "bus": {
           "format": "int32",
@@ -2005,19 +2257,19 @@
           "type": "integer"
         },
         "busType": {
-          "description": "Gets or sets the disk total size.",
+          "description": "Gets or sets the disk bus type.",
           "type": "string",
-		  "readOnly": true
+          "readOnly": true
         },
         "vhdType": {
           "description": "Gets or sets the disk vhd type.",
           "type": "string",
-		  "readOnly": true
+          "readOnly": true
         },
         "volumeType": {
           "description": "Gets or sets the disk volume type.",
           "type": "string",
-		  "readOnly": true
+          "readOnly": true
         },
         "createDiffDisk": {
           "type": "string",
@@ -2030,7 +2282,7 @@
             "modelAsString": true,
             "name": "CreateDiffDisk"
           },
-		  "readOnly": true
+          "readOnly": true
         }
       }
     },
@@ -2047,11 +2299,14 @@
         }
       }
     },
-    "VirtualMachines": {
+    "VirtualMachine": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "properties": {
-          "$ref": "#/definitions/VirtualMachinesProperties"
+          "x-ms-client-flatten": true,
+          "description": "Resource properties.",
+          "$ref": "#/definitions/VirtualMachineProperties"
         },
         "id": {
           "type": "string",
@@ -2069,8 +2324,12 @@
           "description": "Resource Type"
         },
         "location": {
+          "description": "Gets or sets the location.",
           "type": "string",
-          "description": "The resource location"
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "tags": {
           "type": "object",
@@ -2079,8 +2338,13 @@
           },
           "description": "Resource tags"
         },
+        "systemData": {
+          "$ref": "#/definitions/SystemData",
+		  "description": "The system data."
+        },
         "extendedLocation": {
           "type": "object",
+          "description": "The extended location.",
           "properties": {
             "type": {
               "type": "string",
@@ -2098,21 +2362,30 @@
       ],
       "description": "The VirtualMachines resource definition."
     },
-    "VirtualMachinesListResult": {
+    "VirtualMachineListResult": {
       "type": "object",
+      "description": "List of VirtualMachines.",
       "properties": {
         "value": {
           "type": "array",
+          "description": "List of VirtualMachines.",
           "items": {
-            "$ref": "#/definitions/VirtualMachines"
+            "$ref": "#/definitions/VirtualMachine"
           }
         },
         "nextLink": {
-          "type": "string"
+          "type": "string",
+          "description": "Url to follow for getting next page of resources."
         }
       }
     },
-    "VirtualMachineTemplatesProperties": {
+    "VirtualMachineTemplateProperties": {
+      "description": "Defines the resource properties.",
+      "required": [
+        "uuid",
+        "vmmServerId"
+      ],
+      "type": "object",
       "properties": {
         "uuid": {
           "type": "string",
@@ -2187,16 +2460,20 @@
           "readOnly": true
         },
         "provisioningState": {
+          "description": "Gets or sets the provisioning state.",
           "type": "string",
           "readOnly": true
         }
       }
     },
-    "VirtualMachineTemplates": {
+    "VirtualMachineTemplate": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "properties": {
-          "$ref": "#/definitions/VirtualMachineTemplatesProperties"
+          "x-ms-client-flatten": true,
+          "description": "Resource properties.",
+          "$ref": "#/definitions/VirtualMachineTemplateProperties"
         },
         "id": {
           "type": "string",
@@ -2214,8 +2491,12 @@
           "description": "Resource Type"
         },
         "location": {
+          "description": "Gets or sets the location.",
           "type": "string",
-          "description": "The resource location"
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "tags": {
           "type": "object",
@@ -2224,8 +2505,13 @@
           },
           "description": "Resource tags"
         },
+        "systemData": {
+          "$ref": "#/definitions/SystemData",
+		  "description": "The system data."
+        },
         "extendedLocation": {
           "type": "object",
+          "description": "The extended location.",
           "properties": {
             "type": {
               "type": "string",
@@ -2243,17 +2529,20 @@
       ],
       "description": "The VirtualMachineTemplates resource definition."
     },
-    "VirtualMachineTemplatesListResult": {
+    "VirtualMachineTemplateListResult": {
       "type": "object",
+      "description": "List of VirtualMachineTemplates.",
       "properties": {
         "value": {
+          "description": "List of VirtualMachineTemplates.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VirtualMachineTemplates"
+            "$ref": "#/definitions/VirtualMachineTemplate"
           }
         },
         "nextLink": {
-          "type": "string"
+          "type": "string",
+          "description": "Url to follow for getting next page of resources."
         }
       }
     },
@@ -2299,6 +2588,59 @@
         "error": {
           "$ref": "#/definitions/ErrorDefinition",
           "description": "The error details."
+        }
+      }
+    },
+    "SystemData": {
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "type": "object",
+      "readOnly": true,
+      "properties": {
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "type": "string",
+          "description": "The type of identity that created the resource.",
+          "enum": [
+            "User",
+            "Application",
+            "ManagedIdentity",
+            "Key"
+          ],
+          "x-ms-enum": {
+            "name": "createdByType",
+            "modelAsString": true
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "type": "string",
+          "description": "The type of identity that last modified the resource.",
+          "enum": [
+            "User",
+            "Application",
+            "ManagedIdentity",
+            "Key"
+          ],
+          "x-ms-enum": {
+            "name": "createdByType",
+            "modelAsString": true
+          }
+        },
+        "lastModifiedByAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The type of identity that last modified the resource."
         }
       }
     },
@@ -2352,7 +2694,8 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name of the resource group."
+      "description": "The name of the resource group.",
+      "x-ms-parameter-location": "method"
     },
     "ApiVersionParameter": {
       "name": "api-version",

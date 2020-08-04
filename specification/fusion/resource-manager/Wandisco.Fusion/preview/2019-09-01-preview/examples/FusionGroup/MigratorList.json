@@ -15,7 +15,7 @@
             "properties": {
               "provisioningState": "Accepted",
               "downloadLocation":  "https://downloadlocation.com",
-              "externalIp" : "http://localhost:8080"
+              "deploymentType" : "RPM"
             },
             "location": "East US",
             "type": "Wandisco.Fusion/migrator",
