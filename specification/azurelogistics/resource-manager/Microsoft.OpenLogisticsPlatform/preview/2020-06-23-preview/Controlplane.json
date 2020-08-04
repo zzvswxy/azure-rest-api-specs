@@ -368,6 +368,7 @@
       "readOnly": true,
       "description": "The current provisioning state.",
       "enum": [
+        "Accepted",
         "Succeeded",
         "Creating",
         "Deleting",
