@@ -4211,6 +4211,47 @@
             "type": "string"
           }
         },
+        "migrationStatus": {
+          "description": "Status of the Migration",
+          "type": "string",
+          "readOnly": true,
+          "enum": [
+            "Non-Scheduled",
+            "Scheduled",
+            "Running",
+            "Live",
+            "Paused",
+            "Stopping",
+            "Stopped"
+          ],
+          "x-ms-enum": {
+            "name": "LiveDataMigrationState",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "Non-Scheduled"
+              },
+              {
+                "value": "Scheduled"
+              },
+              {
+                "value": "Running"
+              },
+              {
+                "value": "Live"
+              },
+              {
+                "value": "Paused"
+              },
+              {
+                "value": "Stopping"
+              },
+              {
+                "value": "Stopped"
+              }
+            ]
+          }
+        },
         "migrationId": {
           "description": "Unique Identifier for the migration",
           "type": "string",
