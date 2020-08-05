@@ -336,6 +336,12 @@
             "migrateHubProjectId": {
               "type": "string",
               "description": "The ARM id of the Azure Migrate Hub project that this project is linked to. The name of the project to create MUST much that of the migrate hub project"
+            },
+            "numberOfAssessments":{
+              "type":"number",
+              "format": "int32",
+              "description": "The number of assessments in the project",
+              "readOnly": true
             }
           },
           "required": [

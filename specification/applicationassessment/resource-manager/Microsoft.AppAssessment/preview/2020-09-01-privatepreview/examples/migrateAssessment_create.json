@@ -20,17 +20,12 @@
                 "etag":"\"0x5B168C7B6E589D2\"",
                 "properties":{
                     "targetOsVersion": "19H2",
-                    "status":"Initiated",
+                    "status":"New",
                     "dateCreated":"2020-01-12T23:09:00Z",
+                    "processingStartDate": null,
                     "dateCompleted":null,
-                    "summary":{
-                        "numberOfMachines": 0,
-                        "numberOfAssessedMachines": 0,
-                        "numberOfAssessedApplications": 0,
-                        "readinessByMachines": null,
-                        "readinessByApplications": null,
-                        "readinessByMigrateStatus": null
-                    }
+                    "summary":null,
+                    "dataValidityStatus":"Valid"
                 }
             }
         },
@@ -42,17 +37,12 @@
                 "etag":"\"0x5B168C7B6E589D2\"",
                 "properties":{
                     "targetOsVersion": "19H2",
-                    "status":"Initiated",
+                    "status":"New",
                     "dateCreated":"2020-01-12T23:09:00Z",
+                    "processingStartDate": null,
                     "dateCompleted":null,
-                    "summary":{
-                        "numberOfMachines": 0,
-                        "numberOfAssessedMachines": 0,
-                        "numberOfAssessedApplications": 0,
-                        "readinessByMachines": null,
-                        "readinessByApplications": null,
-                        "readinessByMigrateStatus": null
-                    }
+                    "summary": null,
+                    "dataValidityStatus":"Valid"
                 }
             }
         }

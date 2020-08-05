@@ -237,7 +237,7 @@
           "post": {
             "tags": [ "migrateProjectsAssessment" ],
             "operationId": "migrateProjectsAssessment_updateMachines",
-            "description": "Sets the machines in an assessment. This action will cause the assessment to be recalculated",
+            "description": "Sets the machines in an assessment",
             "x-ms-examples": {
               "migrateAssessment_updateMachines": { "$ref": "./examples/migrateAssessment_updateMachines.json" }
             },
@@ -341,13 +341,13 @@
             }
           }
         },
-        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppAssessment/migrateProjects/{projectName}/assessments/{assessmentName}/recalculate":{
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppAssessment/migrateProjects/{projectName}/assessments/{assessmentName}/calculate":{
           "post": {
             "tags": [ "migrateProjectsAssessment" ],
-            "operationId": "migrateProjectsAssessment_recalculate",
-            "description": "Recalculates the assessment, used when we have new data from the machines and we want to check if the results have changed",
+            "operationId": "migrateProjectsAssessment_calculate",
+            "description": "Calculates the assessment",
             "x-ms-examples": {
-              "migrateAssessment_recalculate": { "$ref": "./examples/migrateAssessment_recalculate.json" }
+              "migrateAssessment_recalculate": { "$ref": "./examples/migrateAssessment_calculate.json" }
             },
             "parameters":[
               {
@@ -376,7 +376,7 @@
             ],
             "responses":{
               "200":{
-                "description": "Recalculate command was received and is being worked on"
+                "description": "Calculate command was received and is being worked on"
               },
               "default": {
                 "description": "Error response describing why the operation failed.",
@@ -411,6 +411,7 @@
                     "type":"string",
                     "description": "The status of the assessment",
                     "enum": [
+                        "New",
                         "Initiated",
                         "Processing",
                         "Completed",
@@ -426,6 +427,11 @@
                     "type":"string",
                     "description": "The date the assessment was created e.g. 2020-01-12T23:09:00Z",
                     "readOnly": true
+                },
+                "processingStartDate":{
+                  "type":"string",
+                  "description": "The date of the last assessment processing start date e.g. 2020-01-12T23:09:00Z",
+                  "readOnly": true
                 },
                 "dateCompleted":{
                     "type":"string",
@@ -462,16 +468,22 @@
                       "description": "Number of applications by readiness",
                       "$ref": "#/definitions/readiness",
                       "readOnly": true
-                    },
-                    "readinessByMigrateStatus":{
-                      "type":"array",
-                      "description": "Array of migrate readiness by migrate status",
-                      "items": {
-                        "$ref": "#/definitions/statusReadiness"
-                      },
-                      "readOnly": true
                     }
-                  }
+                  },
+                  "readOnly": true
+                },
+                "dataValidityStatus":{
+                  "type":"string",
+                  "description": "Whether or not the assessment input data is still valid; either cause the underlying rules have been updated or we have received new machine data",
+                  "enum": [
+                    "Valid",
+                    "Invalid"
+                  ],
+                  "x-ms-enum":{
+                    "modelAsString":false,
+                    "name":"AssessmentDataValidityStatus"
+                  },
+                  "readOnly": true
                 }
               },
               "required": [ "targetOsVersion" ]
@@ -521,22 +533,6 @@
             "type": "integer",
             "format": "int32",
             "description": "Number of machines wiht status unknown i.e. The app/server is unknown to app assessment service",
-            "readOnly": true
-          }
-        }
-      },
-      "statusReadiness":{
-        "type":"object",
-        "description": "Readiness per status value",
-        "allOf": [
-          {
-            "$ref": "#/definitions/readiness"
-          }
-        ],
-        "properties": {
-          "status":{
-            "type":"string",
-            "description": "The status type",
             "readOnly": true
           }
         }

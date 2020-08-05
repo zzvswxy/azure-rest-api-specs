@@ -16,6 +16,7 @@
                     "targetOsVersion": "19H2",
                     "status":"Completed",
                     "dateCreated":"2020-01-12T23:09:00Z",
+                    "processingStartDate": "2020-01-12T23:05:00Z",
                     "dateCompleted":"2020-01-12T23:20:00Z",
                     "summary":{
                         "numberOfMachines":2,
@@ -32,24 +33,9 @@
                             "readyWithConditions":3,
                             "notReady":0,
                             "unknown":0
-                        },
-                        "readinessByMigrateStatus":[
-                        {
-                            "status":"willMigrate",
-                            "ready":40,
-                            "readyWithConditions":3,
-                            "notReady":0,
-                            "unknown":0
-                        },
-                        {
-                            "status":"willNotMigrate",
-                            "ready":0,
-                            "readyWithConditions":0,
-                            "notReady":0,
-                            "unknown":0
                         }
-                        ]
-                    }
+                    },
+                    "dataValidityStatus":"Valid"
                 }
             }
         }

@@ -1,0 +1,43 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "eNodeBName": "TestENodeB",
+    "parameters": {
+      "tags": {
+        "tag1": "value1",
+        "tag2": "value2"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestENodeB",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/eNodeBs/TestENodeB",
+        "type": "Microsoft.MobileNetwork/eNodeBs",
+        "location": "eastus",
+        "tags": {
+          "tag1": "value1",
+          "tag2": "value2"
+        },
+        "properties": {
+          "provisioningState": "Succeeded",
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "eNodeBId": "TestENodeBId",
+          "eNodeBIpAddress": "TestENodeBIPAddress",
+          "locationLatitude": "TestLocationLatitude",
+          "locationLongitude": "TestLocationLongitude",
+          "mmeIPAddress": "TestMmeIPAddress",
+          "mmePortNumber": "TestMmePortNumber"
+        }
+      }
+    }
+  }
+}

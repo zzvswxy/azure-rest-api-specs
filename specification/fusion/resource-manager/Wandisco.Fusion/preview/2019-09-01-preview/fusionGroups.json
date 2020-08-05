@@ -1124,7 +1124,6 @@
             "name": "consistencyCheckOptions",
             "description": "Consistency Check options",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/ConsistencyCheckOptions"
             }
@@ -1933,7 +1932,97 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/migratorTargets": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/start": {
+      "post": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Start an existing migrator migration",
+        "operationId": "LiveDataMigrations_Start",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Start Migration": {
+            "$ref": "./examples/FusionGroup/LiveDataMigrationStart.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/stop": {
+      "post": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Stop a migrator migration",
+        "operationId": "LiveDataMigrations_Stop",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Stop Migration": {
+            "$ref": "./examples/FusionGroup/LiveDataMigrationStop.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets": {
       "get": {
         "tags": [
           "migratorTarget"
@@ -1982,7 +2071,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/migratorTargets/{migratorTargetName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets/{migratorTargetName}": {
       "get": {
         "tags": [
           "migratorTarget"
@@ -3514,14 +3603,36 @@
           "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
         },
+        "deploymentType" : {
+          "description": "The type of install required for the migrator",
+          "type": "string",
+          "enum": [
+            "DEB",
+            "RPM"
+          ],
+          "x-ms-enum": {
+            "name": "MigratorDeploymentType",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "DEB"
+              },
+              {
+                "value": "RPM"
+              }
+            ]
+          },
+          "default": "RPM"
+        },
         "downloadLocation": {
           "description": "The location for downloading deployment files",
           "type": "string",
           "readOnly": true
         },
-        "externalIp" : {
-          "description": "The external IP of the migrator server",
-          "type": "string"
+        "kerberos": {
+          "title": "KerberosConfiguration",
+          "description": "The configuration properties for authenticating to the source filesystem",
+          "$ref": "#/definitions/KerberosConfiguration"
         }
       }
     },
@@ -3976,7 +4087,8 @@
         },
         "progress": {
           "description": "Migration status",
-          "$ref": "#/definitions/MigrationProgress"
+          "$ref": "#/definitions/MigrationProgress",
+          "readOnly": true
         },
         "dateAfterWhichToMigrate": {
           "description": "Date after which migration should occur. Required if overwritePolicy is SkipIfDateIsEarlier.",
@@ -4090,29 +4202,54 @@
         },
         "autoStart": {
           "description": "Flag to start migration immediately",
-          "type": "string",
-          "enum": [
-            "true",
-            "false"
-          ],
-          "x-ms-enum": {
-            "name": "MigrationAutoStart",
-            "modelAsString": false,
-            "values": [
-              {
-                "value": "true"
-              },
-              {
-                "value": "false"
-              }
-            ]
-          }
+          "type": "boolean"
         },
         "exclusions": {
           "type": "array",
           "description": "List of ids referring to exclusions to be applied to the migration",
           "items": {
             "type": "string"
+          }
+        },
+        "migrationStatus": {
+          "description": "Status of the Migration",
+          "type": "string",
+          "readOnly": true,
+          "enum": [
+            "Non-Scheduled",
+            "Scheduled",
+            "Running",
+            "Live",
+            "Paused",
+            "Stopping",
+            "Stopped"
+          ],
+          "x-ms-enum": {
+            "name": "LiveDataMigrationState",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "Non-Scheduled"
+              },
+              {
+                "value": "Scheduled"
+              },
+              {
+                "value": "Running"
+              },
+              {
+                "value": "Live"
+              },
+              {
+                "value": "Paused"
+              },
+              {
+                "value": "Stopping"
+              },
+              {
+                "value": "Stopped"
+              }
+            ]
           }
         },
         "migrationId": {
@@ -4122,7 +4259,8 @@
         }
       },
       "required": [
-        "path"
+        "path",
+        "targetId"
       ]
     },
     "ErrorResponse": {
@@ -4262,6 +4400,23 @@
           "items": {
             "$ref": "#/definitions/HiveReplicationRule"
           }
+        }
+      }
+    },
+    "KerberosConfiguration": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "description": "The client will use kerberos authentication if enabled is true",
+          "type": "boolean"
+        },
+        "principal": {
+          "description": "The principal the client should use",
+          "type": "string"
+        },
+        "keytabLocation": {
+          "description": "The location of the keytab file for the client to use",
+          "type": "string"
         }
       }
     }

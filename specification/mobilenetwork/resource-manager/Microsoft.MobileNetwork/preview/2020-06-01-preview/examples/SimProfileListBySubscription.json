@@ -15,13 +15,19 @@
             "tags": {},
             "properties": {
               "provisioningState": "Accepted",
-              "integratedCircuitCardIdentifier": "TestIccId",
-              "internationalMobileSubscriberIdentity": "TestImsi",
+              "masterSimProfile": {
+                "id": "MasterSimProfileId"
+              },
+              "mobileDevice": {
+                "id": "TestMobileDeviceId"
+              },
+              "iccId": "TestIccId",
+              "imsi": "TestImsi",
+              "networkActivationState": "Not Provisioned",
+              "networkActivationDate": "TestNetworkActivationDate",
               "voiceNumber": "TestVoiceNumber",
-              "deviceActivationCode": "TestDeviceActivationCode",
-              "mobileDeviceId": "TestMobileDeviceId",
-              "tarrif": "TestTarrif",
-              "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+              "subscriberAuthKey": "TestSubscriberAuthKey",
+              "operatorCode": "TestOperatorCode"
             }
           }
         ]

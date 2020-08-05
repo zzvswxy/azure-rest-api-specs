@@ -26,10 +26,110 @@
     }
   },
   "paths": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureCIS/autopilotEnvironments": {
+      "get": {
+        "description": "List an Environment info",
+        "operationId": "EnvironmentInfo_listSubscriptionLevel",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Environment info.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatusResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureCIS/autopilotEnvironments": {
+      "get": {
+        "description": "List an Environment info",
+        "operationId": "EnvironmentInfo_listResourceGroupLevel",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Environment info.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatusResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureCIS/autopilotEnvironments/{resourceName}": {
       "put": {
         "description": "Create Update environment.",
         "operationId": "Environment_CreateUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceNameParameter"
+          },
+          {
+            "name": "EnvironmentResponse",
+            "description": "Environment details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Environment Resource create response.",
+            "schema": {
+              "$ref": "#/definitions/AutopilotEnvironmentResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+            "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "patch environment.",
+        "operationId": "Environment_patch",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"

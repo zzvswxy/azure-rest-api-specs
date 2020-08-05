@@ -36,8 +36,12 @@ These settings apply only when `--tag=package-2020-06-01-preview` is specified o
 ```yaml $(tag) == 'package-2020-06-01-preview'
 input-file:
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/accessPoint.json
+  - Microsoft.MobileNetwork/preview/2020-06-01-preview/eNodeB.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/common.json
+  - Microsoft.MobileNetwork/preview/2020-06-01-preview/masterSimProfile.json
+  - Microsoft.MobileNetwork/preview/2020-06-01-preview/mobileDevice.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/mobileNetwork.json
+  - Microsoft.MobileNetwork/preview/2020-06-01-preview/mobileNetworkSite.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/operations.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/packetCore.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/simProfile.json

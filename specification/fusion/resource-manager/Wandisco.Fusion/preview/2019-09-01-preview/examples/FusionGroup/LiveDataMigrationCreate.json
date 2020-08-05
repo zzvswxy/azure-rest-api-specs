@@ -23,6 +23,7 @@
         "properties": {
           "path": "/repl1",
           "targetId": "11111111-2222-3333-4444",
+          "migrationStatus": "Scheduled",
           "exclusions": [
             "exclusion1",
             "exclusion2"

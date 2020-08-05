@@ -11,11 +11,7 @@
     }
   },
   "responses": {
-    "201": {
-      "headers": {
-        "Location": "https://management.azure.com/providers/Microsoft.Communication/locations/westus/operationStatuses/ef97bdeb-dfdd-46ee-bbe2-1e3e5fe6467a",
-        "Azure-AsyncOperation": "https://management.azure.com/providers/Microsoft.Communication/locations/westus/operationStatuses/ef97bdeb-dfdd-46ee-bbe2-1e3e5fe6467a"
-      },
+    "200": {
       "body": {
         "id": "/subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource",
         "name": "MyCommunicationResource",
@@ -25,7 +21,7 @@
           "newTag": "newVal"
         },
         "properties": {
-          "provisioningState": "Updating",
+          "provisioningState": "Succeeded",
           "hostName": "mycommunicationresource.communications.azure.com",
           "version": "0.2.0"
         }

@@ -6,9 +6,30 @@
     "accessPointName": "TestAccessPoint",
     "parameters": {
       "properties": {
-        "packetDataNetworkName": "TestPdn",
-        "dnsAddresses": ["TestDnsAddress"],
-        "dnsProvider": "TestDnsProvider"
+        "mobileNetwork": {
+          "id": "TestMobileNetworkId"
+        },
+        "pdnName": "TestPdnName",
+        "dnsServers": [
+          "TestDnsServer"
+        ],
+        "dnsProvider": "TestDnsProvider",
+        "azureCgNatIPAddress": [
+          {
+            "id": "TestAzureCgNatIPAddressId"
+          }
+        ],
+        "customerCgNatIPAddress": [
+          "TestCustomerCgNatIPAddress"
+        ],
+        "azureUeIPAddress": [
+          {
+            "id": "TestAzureUeIPAddressId"
+          }
+        ],
+        "customerUeIPAddress": [
+          "TestCustomerUeIPAddress"
+        ]
       }
     }
   },
@@ -22,9 +43,31 @@
         "tags": {},
         "properties": {
           "provisioningState": "Accepted",
-          "packetDataNetworkName": "TestPdn",
-          "dnsAddresses": ["TestDnsAddress"],
-          "dnsProvider": "TestDnsProvider"
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "packetCoreUserPlane": "",
+          "pdnName": "TestPdnName",
+          "dnsServers": [
+            "TestDnsServer"
+          ],
+          "dnsProvider": "TestDnsProvider",
+          "azureCgNatIPAddress": [
+            {
+              "id": "TestAzureCgNatIPAddressId"
+            }
+          ],
+          "customerCgNatIPAddress": [
+            "TestCustomerCgNatIPAddress"
+          ],
+          "azureUeIPAddress": [
+            {
+              "id": "TestAzureUeIPAddressId"
+            }
+          ],
+          "customerUeIPAddress": [
+            "TestCustomerUeIPAddress"
+          ]
         }
       }
     },
@@ -37,9 +80,31 @@
         "tags": {},
         "properties": {
           "provisioningState": "Created",
-          "packetDataNetworkName": "TestPdn",
-          "dnsAddresses": ["TestDnsAddress"],
-          "dnsProvider": "TestDnsProvider"
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "packetCoreUserPlane": "",
+          "pdnName": "TestPdnName",
+          "dnsServers": [
+            "TestDnsServer"
+          ],
+          "dnsProvider": "TestDnsProvider",
+          "azureCgNatIPAddress": [
+            {
+              "id": "TestAzureCgNatIPAddressId"
+            }
+          ],
+          "customerCgNatIPAddress": [
+            "TestCustomerCgNatIPAddress"
+          ],
+          "azureUeIPAddress": [
+            {
+              "id": "TestAzureUeIPAddressId"
+            }
+          ],
+          "customerUeIPAddress": [
+            "TestCustomerUeIPAddress"
+          ]
         }
       }
     }

@@ -24,8 +24,27 @@
         },
         "properties": {
           "provisioningState": "Succeeded",
-          "plmnId": "TestPlm",
-          "spectrumAccessProvider": "TestSpectrumAccessProvider"
+          "plmnId": "TestPlmnId",
+          "networkType": "Public",
+          "spectrumAccessProvider": "TestSpectrumAccessProvider",
+          "packetCore": [
+            {
+              "id": "TestPacketCoreId"
+            }
+          ],
+          "mobileNetworkSites": [
+            {
+              "id": "TestMobileNetworkSiteId"
+            }
+          ],
+          "mobileDevices": [
+            {
+              "id": "TestMobileDeviceId"
+            }
+          ],
+          "monitoringWorkSpace": {
+            "id": "TestMonitoringWorkSpaceId"
+          }
         }
       }
     }

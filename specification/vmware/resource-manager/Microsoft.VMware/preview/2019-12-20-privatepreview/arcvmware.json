@@ -1210,7 +1210,7 @@
             "name": "body",
             "description": "Resource properties to update.",
             "schema": {
-              "$ref": "#/definitions/ResourcePatch"
+              "$ref": "#/definitions/VirtualMachineUpdate"
             }
           }
         ],
@@ -2230,6 +2230,11 @@
       ],
       "type": "object",
       "properties": {
+	   "uuid": {
+          "description": "Gets or sets a unique identifier for this zone.",
+          "type": "string",
+          "readOnly": true
+        },
         "vCenterId": {
           "description": "Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.",
           "type": "string"
@@ -2513,6 +2518,11 @@
       ],
       "type": "object",
       "properties": {
+	  "uuid": {
+          "description": "Gets or sets a unique identifier for this zone.",
+          "type": "string",
+          "readOnly": true
+        },
         "fqdn": {
           "description": "Gets or sets the FQDN/IPAddress of the vCenter.",
           "type": "string"
@@ -2564,9 +2574,52 @@
         }
       }
     },
+    "VirtualDiskUpdate": {
+      "description": "Defines the virtual disk update.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the virtual disk.",
+          "type": "string"
+        },
+        "diskSizeGB": {
+          "format": "int32",
+          "description": "Gets or sets the disk total size.",
+          "type": "integer"
+        },
+        "deviceKey": {
+          "format": "int32",
+          "description": "Gets or sets the device key value.",
+          "type": "integer"
+        },
+        "diskMode": {
+          "description": "Gets or sets the disk mode.",
+          "$ref": "#/definitions/DiskMode"
+        },
+        "controllerKey": {
+          "description": "Gets or sets the controller id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "unitNumber": {
+          "description": "Gets or sets the unit number of the disk on the controller.",
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
     "VirtualDisk": {
       "description": "Virtual disk model",
       "properties": {
+        "name": {
+          "description": "Gets or sets the name of the virtual disk.",
+          "type": "string"
+        },
+        "label": {
+          "description": "Gets or sets the label of the virtual disk in vCenter.",
+          "type": "string",
+          "readOnly": true
+        },
         "diskId": {
           "description": "Gets or sets the disk id.",
           "type": "string",
@@ -2575,8 +2628,7 @@
         "diskSizeGB": {
           "format": "int32",
           "description": "Gets or sets the disk total size.",
-          "type": "integer",
-          "readOnly": true
+          "type": "integer"
         },
         "diskName": {
           "description": "Gets or sets the disk name.",
@@ -2586,8 +2638,21 @@
         "deviceKey": {
           "format": "int32",
           "description": "Gets or sets the device key value.",
-          "type": "integer",
-          "readOnly": true
+          "type": "integer"
+        },
+        "diskMode": {
+          "description": "Gets or sets the disk mode.",
+          "$ref": "#/definitions/DiskMode"
+        },
+        "controllerKey": {
+          "description": "Gets or sets the controller id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "unitNumber": {
+          "description": "Gets or sets the unit number of the disk on the controller.",
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
@@ -2769,6 +2834,19 @@
         }
       }
     },
+    "NetworkProfileUpdate": {
+      "description": "Defines the update resource properties.",
+      "type": "object",
+      "properties": {
+        "networkInterfaces": {
+          "description": "Gets or sets the list of network interfaces associated with the virtual machine.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkInterfaceUpdate"
+          }
+        }
+      }
+    },
     "NetworkProfile": {
       "description": "Defines the resource properties.",
       "type": "object",
@@ -2791,8 +2869,20 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/VirtualDisk"
-          },
-          "readOnly": true
+          }
+        }
+      }
+    },
+    "StorageProfileUpdate": {
+      "description": "Defines the resource update properties.",
+      "type": "object",
+      "properties": {
+        "disks": {
+          "description": "Gets or sets the list of virtual disks associated with the virtual machine.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VirtualDiskUpdate"
+          }
         }
       }
     },
@@ -2806,6 +2896,11 @@
       ],
       "type": "object",
       "properties": {
+	  "uuid": {
+          "description": "Gets or sets a unique identifier for this zone.",
+          "type": "string",
+          "readOnly": true
+        },
         "resourcePoolId": {
           "description": "Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will\r\ndeploy.",
           "type": "string"
@@ -2840,8 +2935,7 @@
             {
               "$ref": "#/definitions/StorageProfile"
             }
-          ],
-          "readOnly": true
+          ]         
         },
         "moRefId": {
           "description": "Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.",
@@ -2944,6 +3038,37 @@
         }
       }
     },
+    "VirtualMachineUpdateProperties": {
+      "description": "Defines the resource properties.",
+      "type": "object",
+      "properties": {
+        "hardwareProfile": {
+          "$ref": "#/definitions/HardwareProfile"
+        },
+        "storageProfile": {
+          "$ref": "#/definitions/StorageProfileUpdate"
+        },
+        "networkProfile": {
+          "$ref": "#/definitions/NetworkProfileUpdate"
+        }
+      }
+    },
+    "VirtualMachineUpdate": {
+      "description": "Defines the virtualMachineUpdate.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/VirtualMachineUpdateProperties"
+        },
+        "tags": {
+          "description": "Gets or sets the Resource tags.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "VirtualMachinesList": {
       "description": "List of VirtualMachines.",
       "properties": {
@@ -2990,6 +3115,11 @@
       ],
       "type": "object",
       "properties": {
+	  "uuid": {
+          "description": "Gets or sets a unique identifier for this zone.",
+          "type": "string",
+          "readOnly": true
+        },
         "vCenterId": {
           "description": "Gets or sets the ARM Id of the vCenter resource in which this template resides.",
           "type": "string"
@@ -3156,6 +3286,11 @@
       ],
       "type": "object",
       "properties": {
+	  "uuid": {
+          "description": "Gets or sets a unique identifier for this zone.",
+          "type": "string",
+          "readOnly": true
+        },
         "vCenterId": {
           "description": "Gets or sets the ARM Id of the vCenter resource in which this template resides.",
           "type": "string"
@@ -3260,9 +3395,57 @@
         "value"
       ]
     },
+    "NetworkInterfaceUpdate": {
+      "description": "Defines the network interface update.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the network interface.",
+          "type": "string"
+        },
+        "networkId": {
+          "description": "Gets or sets the ARM Id of the network resource to connect the virtual machine.",
+          "type": "string"
+        },
+        "nicType": {
+          "description": "NIC type",
+          "type": "string",
+          "enum": [
+            "vmxnet3",
+            "vmxnet2",
+            "vmxnet",
+            "e1000",
+            "e1000e",
+            "pcnet32"
+          ],
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "NICType"
+          }
+        },
+        "powerOnBoot": {
+          "description": "Gets or sets the power on boot.",
+          "$ref": "#/definitions/PowerOnBootOption"
+        },
+        "deviceKey": {
+          "format": "int32",
+          "description": "Gets or sets the device key value.",
+          "type": "integer"
+        }
+      }
+    },
     "NetworkInterface": {
       "description": "Network Interface model",
       "properties": {
+        "name": {
+          "description": "Gets or sets the name of the network interface.",
+          "type": "string"
+        },
+        "label": {
+          "description": "Gets or sets the label of the virtual network in vCenter that the nic is connected to.",
+          "type": "string",
+          "readOnly": true
+        },
         "ipAddresses": {
           "description": "Gets or sets the nic ip addresses.",
           "type": "array",
@@ -3279,6 +3462,11 @@
         "networkId": {
           "description": "Gets or sets the ARM Id of the network resource to connect the virtual machine.",
           "type": "string"
+        },
+		"networkUuid": {
+          "description": "Gets or sets the ARM Id of the network resource to connect the virtual machine.",
+          "type": "string",
+		  "readOnly": true
         },
         "nicType": {
           "description": "NIC type",
@@ -3323,8 +3511,7 @@
         "deviceKey": {
           "format": "int32",
           "description": "Gets or sets the device key value.",
-          "type": "integer",
-          "readOnly": true
+          "type": "integer"
         },
         "ipSettings": {
           "description": "Gets or sets the ipsettings.",
@@ -3337,6 +3524,18 @@
       "enum": [
         "enabled",
         "disabled"
+      ],
+      "type": "string"
+    },
+    "DiskMode": {
+      "description": "Defines the different types of disk modes.",
+      "enum": [
+        "persistent",
+        "nonpersistent",
+        "undoable",
+        "independent_persistent",
+        "independent_nonpersistent",
+        "append"
       ],
       "type": "string"
     },

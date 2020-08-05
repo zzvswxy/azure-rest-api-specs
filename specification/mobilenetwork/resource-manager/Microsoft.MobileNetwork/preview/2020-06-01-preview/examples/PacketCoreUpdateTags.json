@@ -24,9 +24,27 @@
         },
         "properties": {
           "provisioningState": "Accepted",
-          "mobileNetworkId": "TestMobileNetworkId",
-          "vendor": "TestVendor",
-          "vendorSku": "TestVendorSku"
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "azureControlPlanes": [
+            {
+              "id": "TestAzureControlPlaneId"
+            }
+          ],
+          "azureUserPlanes": [
+            {
+              "id": "TestAzureUserPlaneId"
+            }
+          ],
+          "mobileNetworkSites": [
+            {
+              "id": "TestMobileNetworkSiteId"
+            }
+          ]
         }
       }
     }
