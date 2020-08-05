@@ -69,7 +69,7 @@
         },
         "x-ms-examples": {
           "Get fusion groups list": {
-            "$ref": "./examples/FusionGroup/FusionGroupsListBySubscription.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupsListBySubscription.json"
           }
         }
       }
@@ -112,7 +112,7 @@
         },
         "x-ms-examples": {
           "Get fusion groups list": {
-            "$ref": "./examples/FusionGroup/FusionGroupsList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupsList.json"
           }
         }
       }
@@ -154,10 +154,10 @@
         },
         "x-ms-examples": {
           "Get fusionGroup details.": {
-            "$ref": "./examples/FusionGroup/FusionGroupGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupGet.json"
           },
           "Get fusionGroup details including HealthStatus": {
-            "$ref": "./examples/FusionGroup/FusionGroupGetWithHealthStatus.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupGetWithHealthStatus.json"
           }
         }
       },
@@ -212,10 +212,10 @@
         },
         "x-ms-examples": {
           "Create simple fusionGroup": {
-            "$ref": "./examples/FusionGroup/FusionGroupCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupCreate.json"
           },
           "Create fusionGroup with label": {
-            "$ref": "./examples/FusionGroup/FusionGroupCreateWithLabel.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupCreateWithLabel.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -259,7 +259,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/FusionGroupDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupDelete.json"
           }
         }
       },
@@ -307,7 +307,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/FusionGroupPatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupPatch.json"
           }
         }
       }
@@ -353,10 +353,10 @@
         },
         "x-ms-examples": {
           "Create Azure Zone": {
-            "$ref": "./examples/FusionGroup/AzureZoneList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneList.json"
           },
           "Get Azure Zone": {
-            "$ref": "./examples/FusionGroup/AzureZoneResourceList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneResourceList.json"
           }
         }
       }
@@ -401,7 +401,7 @@
         },
         "x-ms-examples": {
           "Get Azure Zone by name": {
-            "$ref": "./examples/FusionGroup/AzureZoneGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneGet.json"
           }
         }
       },
@@ -459,13 +459,13 @@
         },
         "x-ms-examples": {
           "Create Azure Zone": {
-            "$ref": "./examples/FusionGroup/AzureZoneCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneCreate.json"
           },
           "Create Azure Zone High Availability": {
-            "$ref": "./examples/FusionGroup/AzureZoneCreateHA.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneCreateHA.json"
           },
           "Create Azure Zone with Managed Identity": {
-            "$ref": "./examples/FusionGroup/AzureZoneCreateManagedIdentity.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneCreateManagedIdentity.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -520,7 +520,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/AzureZonePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZonePatch.json"
           }
         }
       },
@@ -566,7 +566,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/AzureZoneDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -619,7 +619,7 @@
         },
         "x-ms-examples": {
           "Get Plugin": {
-            "$ref": "./examples/FusionGroup/PluginList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginList.json"
           }
         }
       }
@@ -667,7 +667,7 @@
         },
         "x-ms-examples": {
           "Get Plugin": {
-            "$ref": "./examples/FusionGroup/PluginGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginGet.json"
           }
         }
       },
@@ -728,7 +728,7 @@
         },
         "x-ms-examples": {
           "Creating Plugin": {
-            "$ref": "./examples/FusionGroup/PluginCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -786,7 +786,7 @@
         },
         "x-ms-examples": {
           "Plugin Patch": {
-            "$ref": "./examples/FusionGroup/PluginPatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginPatch.json"
           }
         }
       },
@@ -835,7 +835,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/PluginDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -884,7 +884,7 @@
         },
         "x-ms-examples": {
           "Get Replication Rules": {
-            "$ref": "./examples/FusionGroup/ReplicationRulesList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRulesList.json"
           }
         }
       }
@@ -929,7 +929,7 @@
         },
         "x-ms-examples": {
           "Get Replication Rule": {
-            "$ref": "./examples/FusionGroup/ReplicationRuleGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRuleGet.json"
           }
         }
       },
@@ -987,7 +987,7 @@
         },
         "x-ms-examples": {
           "Create Replication Rule": {
-            "$ref": "./examples/FusionGroup/ReplicationRuleCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRuleCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1042,7 +1042,7 @@
         },
         "x-ms-examples": {
           "Patch Replication Rule": {
-            "$ref": "./examples/FusionGroup/ReplicationRulePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRulePatch.json"
           }
         }
       },
@@ -1088,7 +1088,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/ReplicationRuleDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRuleDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1124,7 +1124,6 @@
             "name": "consistencyCheckOptions",
             "description": "Consistency Check options",
             "in": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/ConsistencyCheckOptions"
             }
@@ -1143,7 +1142,7 @@
         },
         "x-ms-examples": {
           "Successful start of Consistency Check": {
-            "$ref": "./examples/FusionGroup/ConsistencyCheckStart.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ConsistencyCheckStart.json"
           }
         }
       }
@@ -1174,7 +1173,7 @@
         },
         "x-ms-examples": {
           "List Wandisco.Fusion Operations": {
-            "$ref": "./examples/WandiscoFusionListOperations.json"
+            "$ref": "../2019-09-01-preview/examples/WandiscoFusionListOperations.json"
           }
         }
       }
@@ -1220,7 +1219,7 @@
         },
         "x-ms-examples": {
           "Get On Prem Zone list": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneList.json"
           }
         }
       }
@@ -1265,7 +1264,7 @@
         },
         "x-ms-examples": {
           "Get ManagedOnPrem Zone by name": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneGet.json"
           }
         }
       },
@@ -1303,7 +1302,7 @@
         ],
         "x-ms-examples": {
           "Create Managed OnPrem Zone": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneCreate.json"
           }
         },
         "responses": {
@@ -1378,7 +1377,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZonePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZonePatch.json"
           }
         }
       },
@@ -1424,7 +1423,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1459,7 +1458,7 @@
         ],
         "x-ms-examples": {
           "Induct a Managed OnPrem Zone": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneInduct.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneInduct.json"
           }
         },
         "responses": {
@@ -1478,7 +1477,820 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators": {
+      "get": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Returns list of Migrators.",
+        "operationId": "Migrators_ListByFusionGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "migrator details.",
+            "schema": {
+              "$ref": "#/definitions/MigratorList"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Get Migrators list": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorList.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}": {
+      "get": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Returns a given Migrator.",
+        "operationId": "Migrators_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "migrator details.",
+            "schema": {
+              "$ref": "#/definitions/Migrator"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get Migrator by name": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Creates a Migrator.",
+        "operationId": "Migrators_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "name": "Migrator",
+            "description": "migrator details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Migrator"
+            }
+          }
+        ],
+        "x-ms-examples": {
+          "Create Migrator": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorCreate.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updating Migrator.",
+            "schema": {
+              "$ref": "#/definitions/Migrator"
+            }
+          },
+          "201": {
+            "description": "Creating Migrator.",
+            "schema": {
+              "$ref": "#/definitions/Migrator"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Updates a given Migrator.",
+        "operationId": "Migrators_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "name": "Migrator",
+            "description": "migrator update details.",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/TagsUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updating Migrator.",
+            "schema": {
+              "$ref": "#/definitions/Migrator"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful Patch": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorPatch.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Deletes a given Migrator.",
+        "operationId": "Migrators_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Migrator was successfully deleted"
+          },
+          "202": {
+            "description": "The Migrator was accepted for deletion"
+          },
+          "204": {
+            "description": "The Migrator was not found"
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful delete": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations": {
+      "get": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "List migrations in the migrator",
+        "operationId": "LiveDataMigrations_ListByMigrator",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigrationList"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "List Migration": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationList.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}": {
+      "get": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Read a migrator migration",
+        "operationId": "LiveDataMigrations_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create Migration": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Start a Migrator migration",
+        "operationId": "LiveDataMigrations_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          },
+          {
+            "name": "migration",
+            "description": "migration details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create Migration": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationCreate.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Delete a Migrator migration",
+        "operationId": "LiveDataMigrations_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          },
+          "204": {
+            "description": "The migration was not found"
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete Migration": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationDelete.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/start": {
+      "post": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Start an existing migrator migration",
+        "operationId": "LiveDataMigrations_Start",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Start Migration": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationStart.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/stop": {
+      "post": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Stop a migrator migration",
+        "operationId": "LiveDataMigrations_Stop",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Stop Migration": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationStop.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets": {
+      "get": {
+        "tags": [
+          "migratorTarget"
+        ],
+        "description": "Returns list of Migrator Targets.",
+        "operationId": "MigratorTargets_ListByMigrator",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "migrator details.",
+            "schema": {
+              "$ref": "#/definitions/MigratorTargetList"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Get Migrators list": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetList.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets/{migratorTargetName}": {
+      "get": {
+        "tags": [
+          "migratorTarget"
+        ],
+        "description": "Returns a given Migrator Target.",
+        "operationId": "MigratorTargets_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorTargetNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "migrator target details.",
+            "schema": {
+              "$ref": "#/definitions/MigratorTarget"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get Migrator Target by name": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "migratorTarget"
+        ],
+        "description": "Creates a Migrator Target.",
+        "operationId": "MigratorTargets_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorTargetNameParameter"
+          },
+          {
+            "name": "MigratorTarget",
+            "description": "migrator target details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MigratorTarget"
+            }
+          }
+        ],
+        "x-ms-examples": {
+          "Create Migrator": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetCreate.json"
+          },
+          "Create Migrator with Managed Identity": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetCreateManagedIdentity.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updating Migrator Target.",
+            "schema": {
+              "$ref": "#/definitions/MigratorTarget"
+            }
+          },
+          "201": {
+            "description": "Creating Migrator Target.",
+            "schema": {
+              "$ref": "#/definitions/MigratorTarget"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "migratorTarget"
+        ],
+        "description": "Updates a given Migrator Target.",
+        "operationId": "MigratorTargets_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorTargetNameParameter"
+          },
+          {
+            "name": "Migrator Target",
+            "description": "migrator target update details.",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/TagsUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updating Migrator Target.",
+            "schema": {
+              "$ref": "#/definitions/MigratorTarget"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful Patch": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetPatch.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "migratorTarget"
+        ],
+        "description": "Deletes a given Migrator Target.",
+        "operationId": "MigratorTargets_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorTargetNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Migrator Target was successfully deleted"
+          },
+          "202": {
+            "description": "The Migrator Target was accepted for deletion"
+          },
+          "204": {
+            "description": "The Migrator Target was not found"
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful delete": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
         }
       }
     },
@@ -1525,7 +2337,7 @@
         },
         "x-ms-examples": {
           "List Migration": {
-            "$ref": "./examples/FusionGroup/MigrationList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationList.json"
           }
         }
       }
@@ -1573,7 +2385,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/FusionGroup/MigrationGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationGet.json"
           }
         }
       },
@@ -1628,7 +2440,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/FusionGroup/MigrationCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationCreate.json"
           }
         }
       },
@@ -1674,7 +2486,7 @@
         },
         "x-ms-examples": {
           "Delete Migration": {
-            "$ref": "./examples/FusionGroup/MigrationDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationDelete.json"
           }
         }
       }
@@ -1719,7 +2531,7 @@
         },
         "x-ms-examples": {
           "Pause Migration": {
-            "$ref": "./examples/FusionGroup/MigrationPause.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationPause.json"
           }
         }
       }
@@ -1764,7 +2576,7 @@
         },
         "x-ms-examples": {
           "Pause Migration": {
-            "$ref": "./examples/FusionGroup/MigrationResume.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationResume.json"
           }
         }
       }
@@ -1809,7 +2621,7 @@
         },
         "x-ms-examples": {
           "Pause Migration": {
-            "$ref": "./examples/FusionGroup/MigrationAbort.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationAbort.json"
           }
         }
       }
@@ -1857,7 +2669,7 @@
         },
         "x-ms-examples": {
           "Successful update": {
-            "$ref": "./examples/FusionGroup/OperationStatusPatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/OperationStatusPatch.json"
           }
         }
       }
@@ -1902,7 +2714,7 @@
         },
         "x-ms-examples": {
           "Get Hive Replication Rules": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRulesList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRulesList.json"
           }
         }
       }
@@ -1947,7 +2759,7 @@
         },
         "x-ms-examples": {
           "Get Hive Replication Rule": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRuleGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRuleGet.json"
           }
         }
       },
@@ -2005,7 +2817,7 @@
         },
         "x-ms-examples": {
           "Create Hive Replication Rule": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRuleCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRuleCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -2060,7 +2872,7 @@
         },
         "x-ms-examples": {
           "Patch Hive Replication Rule": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRulePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRulePatch.json"
           }
         }
       },
@@ -2106,7 +2918,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRuleDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRuleDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -2155,7 +2967,7 @@
         },
         "x-ms-examples": {
           "Successful start of Consistency Check": {
-            "$ref": "./examples/FusionGroup/HiveConsistencyCheckStart.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveConsistencyCheckStart.json"
           }
         }
       }
@@ -2164,6 +2976,7 @@
   "definitions": {
     "TagsUpdate": {
       "description": "Resource tags",
+      "type": "object",
       "properties": {
         "tags": {
           "description": "resource tags.",
@@ -2401,7 +3214,8 @@
         },
         "nodeCount": {
           "description": "The number of nodes in the zone",
-          "type": "integer"
+          "type": "integer",
+          "format": "int32"
         },
         "provisioningState": {
           "title": "ProvisioningState",
@@ -2746,6 +3560,143 @@
         }
       }
     },
+    "Migrator": {
+      "description": "Migrator Resource",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "Migrator resource properties",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MigratorProperties"
+        }
+      }
+    },
+    "MigratorList": {
+      "description": "The list of Migrators.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of migrators list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of migrators.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Migrator"
+          }
+        }
+      }
+    },
+    "MigratorProperties": {
+      "description": "Migrator properties",
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "title": "ProvisioningState",
+          "description": "Provisioning State of resource",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        },
+        "deploymentType" : {
+          "description": "The type of install required for the migrator",
+          "type": "string",
+          "enum": [
+            "DEB",
+            "RPM"
+          ],
+          "x-ms-enum": {
+            "name": "MigratorDeploymentType",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "DEB"
+              },
+              {
+                "value": "RPM"
+              }
+            ]
+          },
+          "default": "RPM"
+        },
+        "downloadLocation": {
+          "description": "The location for downloading deployment files",
+          "type": "string",
+          "readOnly": true
+        },
+        "kerberos": {
+          "title": "KerberosConfiguration",
+          "description": "The configuration properties for authenticating to the source filesystem",
+          "$ref": "#/definitions/KerberosConfiguration"
+        }
+      }
+    },
+    "MigratorTarget": {
+      "description": "Migrator Target Resource",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "Migrator target resource properties",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MigratorTargetProperties"
+        }
+      }
+    },
+    "MigratorTargetList": {
+      "description": "The list of Migrator Targets.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of migrator targets list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of migrator targets.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MigratorTarget"
+          }
+        }
+      }
+    },
+    "MigratorTargetProperties": {
+      "description": "Migrator target properties",
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "title": "ProvisioningState",
+          "description": "Provisioning State of resource",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        },
+        "storageAccountId": {
+          "description": "Resource ID of ADLS Gen 2 account to replicate to",
+          "type": "string"
+        },
+        "storageContainer": {
+          "description": "Container to target migration to",
+          "type": "string"
+        },
+        "storageManagedIdentity": {
+          "$ref": "#/definitions/VirtualMachineIdentity",
+          "description": "Managed identity for storage account (use either key or identity)"
+        },
+        "storageAccessKey": {
+          "description": "Access Key for storage (use either key or identity)",
+          "type": "string"
+        }
+      }
+    },
     "ReplicationRule": {
       "description": "Replication Rule",
       "type": "object",
@@ -2860,6 +3811,7 @@
         "nonBlockingThreshold": {
           "description": "The threshold of dirty files which will cancel a non-blocking consistency check should it be met",
           "type": "integer",
+          "format": "int32",
           "default": 0
         }
       }
@@ -3135,7 +4087,8 @@
         },
         "progress": {
           "description": "Migration status",
-          "$ref": "#/definitions/MigrationProgress"
+          "$ref": "#/definitions/MigrationProgress",
+          "readOnly": true
         },
         "dateAfterWhichToMigrate": {
           "description": "Date after which migration should occur. Required if overwritePolicy is SkipIfDateIsEarlier.",
@@ -3202,6 +4155,113 @@
           "description": "Number of bytes to migrate"
         }
       }
+    },
+    "LiveDataMigration": {
+      "description": "Instance of a Migrator migration",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "Migration properties",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/LiveDataMigrationProperties"
+        }
+      }
+    },
+    "LiveDataMigrationList": {
+      "description": "The list of Migrator Migrations.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of Migrator Migrations list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of migrations",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LiveDataMigration"
+          }
+        }
+      }
+    },
+    "LiveDataMigrationProperties": {
+      "description": "Properties of migrator migration",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Migration path on the source file system"
+        },
+        "targetId": {
+          "type": "string",
+          "description": "ID of the target file system"
+        },
+        "autoStart": {
+          "description": "Flag to start migration immediately",
+          "type": "boolean"
+        },
+        "exclusions": {
+          "type": "array",
+          "description": "List of ids referring to exclusions to be applied to the migration",
+          "items": {
+            "type": "string"
+          }
+        },
+        "migrationStatus": {
+          "description": "Status of the Migration",
+          "type": "string",
+          "readOnly": true,
+          "enum": [
+            "Non-Scheduled",
+            "Scheduled",
+            "Running",
+            "Live",
+            "Paused",
+            "Stopping",
+            "Stopped"
+          ],
+          "x-ms-enum": {
+            "name": "LiveDataMigrationState",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "Non-Scheduled"
+              },
+              {
+                "value": "Scheduled"
+              },
+              {
+                "value": "Running"
+              },
+              {
+                "value": "Live"
+              },
+              {
+                "value": "Paused"
+              },
+              {
+                "value": "Stopping"
+              },
+              {
+                "value": "Stopped"
+              }
+            ]
+          }
+        },
+        "migrationId": {
+          "description": "Unique Identifier for the migration",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "path",
+        "targetId"
+      ]
     },
     "ErrorResponse": {
       "description": "Error response indicates that the service is not able to process the incoming request.",
@@ -3342,6 +4402,23 @@
           }
         }
       }
+    },
+    "KerberosConfiguration": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "description": "The client will use kerberos authentication if enabled is true",
+          "type": "boolean"
+        },
+        "principal": {
+          "description": "The principal the client should use",
+          "type": "string"
+        },
+        "keytabLocation": {
+          "description": "The location of the keytab file for the client to use",
+          "type": "string"
+        }
+      }
     }
   },
   "parameters": {
@@ -3390,6 +4467,22 @@
       "required": true,
       "type": "string",
       "description": "The name of the managed onPremZone resource.",
+      "x-ms-parameter-location": "method"
+    },
+    "MigratorNameParameter": {
+      "name": "migratorName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The name of the migrator resource.",
+      "x-ms-parameter-location": "method"
+    },
+    "MigratorTargetNameParameter": {
+      "name": "migratorTargetName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The name of the migrator target resource.",
       "x-ms-parameter-location": "method"
     },
     "ReplicationRuleNameParameter": {

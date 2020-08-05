@@ -1,0 +1,48 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestMobileNetworkSite",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworkSites",
+            "type": "Microsoft.MobileNetwork/mobileNetworkSites",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Succeeded",
+              "mobileNetwork": {
+                "id": "TestMobileNetworkId"
+              },
+              "trackingAreaCode": "TestTrackingAreaCode",
+              "address": "TestAddress",
+              "locationLatitude": "TestLocationLatitude",
+              "locationLongitude": "TestLocationLongitude",
+              "packetCoreUserPlane": {
+                "id": "TestPacketCoreUserPlaneId"
+              },
+              "packetCoreControlPlane": {
+                "id": "TestPacketCoreControlPlaneId"
+              },
+              "expressRouteCircuit": {
+                "id": "TestExpressRouteCircuitId"
+              },
+              "localNetworkGateway": {
+                "id": "TestLocalNetworkGateway"
+              },
+              "eNodeBs": [
+                {
+                  "id": "TestENodeBId"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

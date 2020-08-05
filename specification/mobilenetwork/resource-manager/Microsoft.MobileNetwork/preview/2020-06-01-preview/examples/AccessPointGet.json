@@ -15,9 +15,33 @@
         "tags": {},
         "properties": {
           "provisioningState": "Succeeded",
-          "packetDataNetworkName": "TestPdn",
-          "dnsAddresses": ["TestDnsAddress"],
-          "dnsProvider": "TestDnsProvider"
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "packetCoreUserPlane": {
+            "id": "TestPacketCoreUserPlaneId"
+          },
+          "pdnName": "TestPdnName",
+          "dnsServers": [
+            "TestDnsServer"
+          ],
+          "dnsProvider": "TestDnsProvider",
+          "azureCgNatIPAddress": [
+            {
+              "id": "TestAzureCgNatIPAddressId"
+            }
+          ],
+          "customerCgNatIPAddress": [
+            "TestCustomerCgNatIPAddress"
+          ],
+          "azureUeIPAddress": [
+            {
+              "id": "TestAzureUeIPAddressId"
+            }
+          ],
+          "customerUeIPAddress": [
+            "TestCustomerUeIPAddress"
+          ]
         }
       }
     }

@@ -36,21 +36,23 @@
   "paths": {},
   "definitions": {
     "ErrorDetails": {
+      "description": "Error details.",
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "code",
+        "message"
+      ],
       "properties": {
         "code": {
-          "type": "string",
-          "description": "Error code."
-        },
-        "target": {
-          "type": "string",
-          "description": "The target of the particular error. For example, the name of the property in error."
+          "description": "Error code.",
+          "type": "string"
         },
         "message": {
-          "type": "string",
-          "description": "Error message."
+          "description": "Error message.",
+          "type": "string"
         }
-      },
-      "description": "Common error details representation."
+      }
     },
     "Resource": {
       "properties": {

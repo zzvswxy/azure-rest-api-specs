@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "MobileNetworkManagementClient",
-    "description": "The resources in this swagger specification will be used to manage sim profiles resources in sim profile",
+    "description": "The resources in this swagger specification will be used to manage sim profile resources.",
     "version": "2020-06-01-preview"
   },
   "host": "management.azure.com",
@@ -81,7 +81,7 @@
           }
         },
         "x-ms-examples": {
-          "Delete Multi Access Edge Compute Device resource": {
+          "Delete sim profile resource": {
             "$ref": "./examples/SimProfileDelete.json"
           }
         },
@@ -143,7 +143,7 @@
           "SimProfiles"
         ],
         "operationId": "SimProfiles_CreateOrUpdate",
-        "description": "Creates or updates a SimProfile.",
+        "description": "Creates or updates a sim profile.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -157,7 +157,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The name of the MEC Device."
+            "description": "The name of the sim profile."
           },
           {
             "name": "parameters",
@@ -210,7 +210,7 @@
           "SimProfiles"
         ],
         "operationId": "SimProfiles_UpdateTags",
-        "description": "Updates a SimProfile update tags.",
+        "description": "Updates a sim profile update tags.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -233,7 +233,7 @@
             "schema": {
               "$ref": "./common.json#/definitions/TagsObject"
             },
-            "description": "Parameters supplied to update SimProfile tags."
+            "description": "Parameters supplied to update sim profile tags."
           },
           {
             "$ref": "./common.json#/parameters/ApiVersionParameter"
@@ -269,7 +269,7 @@
           "SimProfiles"
         ],
         "operationId": "SimProfiles_ListBySubscription",
-        "description": "Gets all the simProfiles in a subscription.",
+        "description": "Lists all the sim profiles in a resource group.",
         "parameters": [
           {
             "$ref": "./common.json#/parameters/ApiVersionParameter"
@@ -293,7 +293,7 @@
           }
         },
         "x-ms-examples": {
-          "List all sim profile simProfiles": {
+          "List all sim profiles": {
             "$ref": "./examples/SimProfileListBySubscription.json"
           }
         },
@@ -308,7 +308,7 @@
           "SimProfiles"
         ],
         "operationId": "SimProfiles_ListByResourceGroup",
-        "description": "Gets all the SimProfiles in a subscription.",
+        "description": "Lists all the sim profiles in a resource group.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -355,7 +355,7 @@
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/SimProfilePropertiesFormat",
-          "description": "Sim profile Properties."
+          "description": "Sim profile properties."
         }
       },
       "allOf": [
@@ -373,38 +373,41 @@
           "$ref": "./common.json#/definitions/ProvisioningState",
           "description": "The provisioning state of the sim resource."
         },
-        "integratedCircuitCardIdentifier": {
-          "type": "string",
-          "description": "The Integrated Circuit Card ID (ICC Id) for the sim"
+        "masterSimProfile": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the master sim profile resource."
         },
-        "internationalMobileSubscriberIdentity": {
-          "type": "string",
-          "description": "The International Mobile Subscriber Identity (IMSI) for the sim"
+        "mobileDevice": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the mobile device activated with the operational sim profile."          
         },
-        "simType": {
-          "$ref": "#/definitions/SimType",
-          "description": "The type of the sim."
+        "iccId": {
+          "type": "string",
+          "description": "The unique identifier for the operational sim profile."
+        },
+        "imsi": {
+          "type": "string",
+          "description": "The IMSI."
+        },
+        "networkActivationState": {
+          "type": "string",
+          "description": "The network provisioning state for the operational sim profile."
+        },
+        "networkActivationDate": {
+          "type": "string",
+          "description": "The network activation date for the operational sim profile."
         },
         "voiceNumber": {
           "type": "string",
-          "description": "The voice number for the sim."
+          "description": "The voice number."
         },
-        "deviceActivationCode": {
+        "subscriberAuthKey": {
           "type": "string",
-          "x-ms-secret": true,
-          "description": "The device activation code for the sim."
+          "description": "The ki value for SIM activation on the packet core."
         },
-        "mobileDeviceId": {
+        "operatorCode": {
           "type": "string",
-          "description": "The reference to the mobile device for the sim."
-        },
-        "tarrif": {
-          "type": "string",
-          "description": "The plan tarrif for the sim."
-        },
-        "simProfileConfigurationTemplateId": {
-          "type": "string",
-          "description": "The reference to the sim profile configuration"
+          "description": "The operator code value for SIM activation on the packet core."
         }
       }
     },
@@ -415,7 +418,7 @@
           "items": {
             "$ref": "#/definitions/SimProfile"
           },
-          "description": "A list of SimProfiles in a resource group."
+          "description": "A list of sim profiles in a resource group."
         },
         "nextLink": {
           "type": "string",
@@ -423,21 +426,7 @@
           "description": "The URL to get the next set of results."
         }
       },
-      "description": "Response for SimProfiles API service call."
-    },
-    "SimType": {
-      "type": "string",
-      "readOnly": true,
-      "description": "The sim type.",
-      "enum": [
-        "Unknown",
-        "Physical",
-        "ESim"
-      ],
-      "x-ms-enum": {
-        "name": "SimType",
-        "modelAsString": true
-      }
+      "description": "Response for sim profiles API service call."
     }
   }
 }

@@ -6,13 +6,13 @@
     "simProfileName": "TestSimProfile",
     "parameters": {
       "properties": {
-        "integratedCircuitCardIdentifier": "TestIccId",
-        "internationalMobileSubscriberIdentity": "TestImsi",
-        "voiceNumber": "TestVoiceNumber",
-        "deviceActivationCode": "TestDeviceActivationCode",
-        "mobileDeviceId": "TestMobileDeviceId",
-        "tarrif": "TestTarrif",
-        "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+        "masterSimProfile": {
+          "id": "MasterSimProfileId"
+        },
+        "iccId": "TestIccId",
+        "imsi": "TestImsi",
+        "subscriberAuthKey": "TestSubscriberAuthKey",
+        "operatorCode": "TestOperatorCode"
       }
     }
   },
@@ -26,13 +26,19 @@
         "tags": {},
         "properties": {
           "provisioningState": "Accepted",
-          "integratedCircuitCardIdentifier": "TestIccId",
-          "internationalMobileSubscriberIdentity": "TestImsi",
+          "masterSimProfile": {
+            "id": "MasterSimProfileId"
+          },
+          "mobileDevice": {
+            "id": "TestMobileDeviceId"
+          },
+          "iccId": "TestIccId",
+          "imsi": "TestImsi",
+          "networkActivationState": "Not Provisioned",
+          "networkActivationDate": "TestNetworkActivationDate",
           "voiceNumber": "TestVoiceNumber",
-          "deviceActivationCode": "TestDeviceActivationCode",
-          "mobileDeviceId": "TestMobileDeviceId",
-          "tarrif": "TestTarrif",
-          "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+          "subscriberAuthKey": "TestSubscriberAuthKey",
+          "operatorCode": "TestOperatorCode"
         }
       }
     },
@@ -45,13 +51,19 @@
         "tags": {},
         "properties": {
           "provisioningState": "Created",
-          "integratedCircuitCardIdentifier": "TestIccId",
-          "internationalMobileSubscriberIdentity": "TestImsi",
+          "masterSimProfile": {
+            "id": "MasterSimProfileId"
+          },
+          "mobileDevice": {
+            "id": "TestMobileDeviceId"
+          },
+          "iccId": "TestIccId",
+          "imsi": "TestImsi",
+          "networkActivationState": "Not Provisioned",
+          "networkActivationDate": "TestNetworkActivationDate",
           "voiceNumber": "TestVoiceNumber",
-          "deviceActivationCode": "TestDeviceActivationCode",
-          "mobileDeviceId": "TestMobileDeviceId",
-          "tarrif": "TestTarrif",
-          "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
+          "subscriberAuthKey": "TestSubscriberAuthKey",
+          "operatorCode": "TestOperatorCode"
         }
       }
     }
