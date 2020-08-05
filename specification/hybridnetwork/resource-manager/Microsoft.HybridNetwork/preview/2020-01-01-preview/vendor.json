@@ -572,20 +572,20 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/{roleName}/Start": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/{roleInstanceName}/start": {
       "post": {
         "tags": [
           "RoleInstances"
         ],
         "operationId": "RoleInstances_Start",
-        "description": "Starts a role instance of a vendor virtual network function.",
+        "description": "Start a role instance of a vendor virtual network function.",
         "parameters": [
           {
             "name": "locationName",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The Azure region where the virtual network function resource was created by customer."
+            "description": "The azure region where the virtual network function resource was created by customer."
           },
           {
             "name": "vendorName",
@@ -599,10 +599,10 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The GUID for the virtual network function."
+            "description": "The unique GUID for the virtual network function."
           },
           {
-            "name": "roleName",
+            "name": "roleInstanceName",
             "in": "path",
             "required": true,
             "type": "string",
@@ -620,7 +620,7 @@
             "description": "OK."
           },
           "202": {
-            "description": "Accepted. The header contains 'Azure-AsyncOperation' header which can be used to monitor the progress of the operation."
+            "description": "Accepted. The header contains ‘Azure-AsyncOperation’ header which can be used to monitor the progress of the operation."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -635,20 +635,20 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/{roleName}/Stop": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/{roleInstanceName}/stop": {
       "post": {
         "tags": [
           "RoleInstances"
         ],
         "operationId": "RoleInstances_Stop",
-        "description": "Powers off (stop) a role instance of a vendor virtual network function.",
+        "description": "Power off (stop) a role instance of a vendor virtual network function.",
         "parameters": [
           {
             "name": "locationName",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The Azure region where the virtual network function resource was created by customer."
+            "description": "The azure region where the virtual network function resource was created by customer."
           },
           {
             "name": "vendorName",
@@ -662,10 +662,10 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The GUID for the virtual network function."
+            "description": "The unique GUID for the virtual network function."
           },
           {
-            "name": "roleName",
+            "name": "roleInstanceName",
             "in": "path",
             "required": true,
             "type": "string",
@@ -683,7 +683,7 @@
             "description": "OK."
           },
           "202": {
-            "description": "Accepted. The header contains 'Azure-AsyncOperation' header which can be used to monitor the progress of the operation."
+            "description": "Accepted. The header contains ‘Azure-AsyncOperation’ header which can be used to monitor the progress of the operation."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -698,20 +698,20 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/{roleName}/Restart": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/{roleInstanceName}/restart": {
       "post": {
         "tags": [
           "RoleInstances"
         ],
         "operationId": "RoleInstances_Restart",
-        "description": "Restarts a role instance of a vendor virtual network function.",
+        "description": "Restart a role instance of a vendor virtual network function.",
         "parameters": [
           {
             "name": "locationName",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The Azure region where the virtual network function resource was created by customer."
+            "description": "The azure region where the virtual network function resource was created by customer."
           },
           {
             "name": "vendorName",
@@ -725,10 +725,10 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The GUID for the virtual network function."
+            "description": "The unique GUID for the virtual network function."
           },
           {
-            "name": "roleName",
+            "name": "roleInstanceName",
             "in": "path",
             "required": true,
             "type": "string",
@@ -746,7 +746,7 @@
             "description": "OK."
           },
           "202": {
-            "description": "Accepted. The header contains 'Azure-AsyncOperation' header which can be used to monitor the progress of the operation."
+            "description": "Accepted. The header contains ‘Azure-AsyncOperation’ header which can be used to monitor the progress of the operation."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -758,6 +758,67 @@
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/virtualNetworkFunctions/{serviceKey}/roleInstances/getOperationalState": {
+      "post": {
+        "tags": [
+          "RoleInstances"
+        ],
+        "operationId": "RoleInstances_GetOperationalState",
+        "description": "Gets the operational state of role instances of a vendor virtual network function.",
+        "parameters": [
+          {
+            "name": "locationName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The azure region where the virtual network function resource was created by customer."
+          },
+          {
+            "name": "vendorName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the vendor."
+          },
+          {
+            "name": "serviceKey",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The unique GUID for the virtual network function."
+          },
+          {
+            "name": "roleInstanceNames",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkFunctionRoleInstanceNames"
+            },
+            "description": "A list of role instance names of a virtual network function. Omitting the role instance names will result in getting the operational state of all role instances of the virtual network function."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkFunctionRoleInstanceList"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
         }
       }
     },
@@ -1353,27 +1414,10 @@
           "type": "string",
           "description": "The managed disk name."
         },
-        "createOption": {
-          "type": "string",
-          "description": "The create option.",
-          "enum": [
-            "Empty",
-            "Import"
-          ],
-          "x-ms-enum": {
-            "name": "ManagedDiskCreateOptions",
-            "modelAsString": true
-          }
-        },
         "diskSizeGB": {
           "type": "integer",
           "format": "int32",
           "description": "If createOption is Empty, this field is mandatory and it indicates the size of the disk to create."
-
-        },
-        "sourceUri": {
-          "type": "string",
-          "description": "If createOption is Import, this field is mandatory and it is the uri of the vhd."
 
         }
       },
@@ -1448,6 +1492,22 @@
             "update"
           ],
           "description": "The VHD SAS URI."
+        },
+        "osDistribution": {
+          "type": "string",
+          "description": "The os distribution."
+        },
+        "osDistributionVersion": {
+          "type": "string",
+          "description": "The os distribution version."
+        },
+        "networkInterfacesConfigurationPath": {
+          "type": "string",
+          "description": "The network interfaces configuration path."
+        },
+        "osDiskSizeGB": {
+          "type": "string",
+          "description": "The OS disk size in GB."
         }
       },
       "description": "The image reference properties."
@@ -1511,6 +1571,70 @@
           "description": "The URL to get the next set of results."
         }
       }
+    },
+    "VirtualNetworkFunctionRoleInstanceNames": {
+      "properties": {
+        "roleInstanceNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The role instance names."
+        }
+      },
+      "description": "Specifies a list of role instance names of the virtual network function."
+    },
+    "VirtualNetworkFunctionRoleInstanceList": {
+      "description": "List of role instances of virtual network function.",
+      "properties": {
+        "roleInstances": {
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RoleInstance"
+          },
+          "description": "A list of role instances."
+        },
+        "nextLink": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The URL to get the next set of results."
+        }
+      }
+    },
+    "RoleInstance": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/RoleInstanceProperties",
+          "description": "The role instance properties."
+        }
+      },
+      "description": "The role instance sub resource."
+    },
+    "RoleInstanceProperties": {
+      "properties": {
+        "roleInstanceName": {
+          "type": "string",
+          "description": "The role instance name."
+        },
+        "operationalState": {
+          "type": "string",
+          "description": "The operational state of the role instance.",
+          "enum": [
+            "Unknown",
+            "Stopped",
+            "Running",
+            "Stopping",
+            "Starting"
+          ],
+          "x-ms-enum": {
+            "name": "OperationalState",
+            "modelAsString": true
+          }
+        }
+      },
+      "description": "The role instance properties of the virtual network function."
     }
   }
 }
