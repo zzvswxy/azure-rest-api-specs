@@ -2365,7 +2365,7 @@
           "enum": [
             "SystemAssigned",
             "None",
-            "Test"
+            "None"
           ],
           "x-ms-enum": {
             "name": "ResourceIdentityType",
