@@ -553,37 +553,44 @@
       "properties": {
         "iotHubConnectionString": {
           "description": "IotHub connection string.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
-      },
-      "x-ms-azure-resource": true
+      }
     },
     "EventHubConfiguration": {
       "description": "EventHub configuration.",
       "properties": {
         "iotHubConnectionString": {
           "description": "EventHub connection string.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
-      },
-      "x-ms-azure-resource": true
+      }
     },
     "DeviceHub": {
-      "properties": {
-        "iotHubConfiguration": {
-          "readOnly": true,
-          "$ref": "#/definitions/IotHubConfiguration",
-          "description": "The iothub configuration."
-        },
-        "eventHubConfiguration": {
-          "readOnly": true,
-          "$ref": "#/definitions/EventHubConfiguration",
-          "description": "The eventhub configuration."
+      "type": "object",
+      "description": "The device hub resource.",
+       "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
         }
-      },
-      "description": "The device hub resource."
+      ],
+      "required": ["properties"],
+      "properties":{
+        "properties": {
+          "type":"object",
+          "description":"The properties",
+          "properties":{
+            "iotHubConfiguration": {
+              "$ref": "#/definitions/IotHubConfiguration",
+              "description": "The iothub configuration."
+            },
+            "eventHubConfiguration": {
+              "$ref": "#/definitions/EventHubConfiguration",
+              "description": "The eventhub configuration."
+            }
+        }
+      }
+    }
     },
     "DeviceHubList": {
       "description": "The list of device hub.",
