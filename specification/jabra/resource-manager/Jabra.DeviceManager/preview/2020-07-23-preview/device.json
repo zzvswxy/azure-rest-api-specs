@@ -553,22 +553,18 @@
       "properties": {
         "iotHubConnectionString": {
           "description": "IotHub connection string.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
-      },
-      "x-ms-azure-resource": true
+      }
     },
     "EventHubConfiguration": {
       "description": "EventHub configuration.",
       "properties": {
         "iotHubConnectionString": {
           "description": "EventHub connection string.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
-      },
-      "x-ms-azure-resource": true
+      }
     },
     "DeviceHub": {
       "type": "object",
