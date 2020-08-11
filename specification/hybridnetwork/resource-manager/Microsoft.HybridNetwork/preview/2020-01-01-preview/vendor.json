@@ -1527,7 +1527,7 @@
         "$ref": "#/definitions/OsDisk",
         "description": "Specifies information about the operating system disk used by the virtual machine."
       },
-      "dataDisks": {
+      "dataDisk": {
         "type": "array",
         "items": {
           "$ref": "#/definitions/DataDisk"
