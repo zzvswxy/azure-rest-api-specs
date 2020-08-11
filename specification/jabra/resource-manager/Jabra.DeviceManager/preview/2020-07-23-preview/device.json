@@ -560,7 +560,7 @@
     "EventHubConfiguration": {
       "description": "EventHub configuration.",
       "properties": {
-        "iotHubConnectionString": {
+        "eventHubConnectionString": {
           "description": "EventHub connection string.",
           "type": "string"
         }
