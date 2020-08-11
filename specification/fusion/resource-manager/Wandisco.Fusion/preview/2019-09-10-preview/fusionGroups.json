@@ -1930,6 +1930,60 @@
             "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationDelete.json"
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "LiveDataMigrations"
+        ],
+        "description": "Updates a given LiveDataMigration.",
+        "operationId": "LiveDataMigrations_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationNameParameter"
+          },
+          {
+            "name": "LiveDataMigration",
+            "description": "LiveDataMigration update properties.",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/TagsUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updating LiveDataMigration",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful Patch": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/LiveDataMigrationPatch.json"
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/start": {
@@ -4161,7 +4215,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "$ref": "#/definitions/Resource"
         }
       ],
       "properties": {
