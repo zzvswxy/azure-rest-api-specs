@@ -4,6 +4,7 @@
 
 This is the AutoRest configuration file for ApplicationInsights.
 
+
 ---
 
 ## Getting Started
