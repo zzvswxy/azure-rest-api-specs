@@ -571,6 +571,11 @@
       "x-ms-azure-resource": true
     },
     "DeviceHub": {
+       "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
       "properties": {
         "iotHubConfiguration": {
           "readOnly": true,
