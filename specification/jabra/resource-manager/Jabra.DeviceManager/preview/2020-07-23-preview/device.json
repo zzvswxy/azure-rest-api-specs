@@ -585,12 +585,10 @@
           "description":"The properties",
           "properties":{
             "iotHubConfiguration": {
-              "readOnly": true,
               "$ref": "#/definitions/IotHubConfiguration",
               "description": "The iothub configuration."
             },
             "eventHubConfiguration": {
-              "readOnly": true,
               "$ref": "#/definitions/EventHubConfiguration",
               "description": "The eventhub configuration."
             }
