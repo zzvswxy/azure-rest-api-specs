@@ -468,7 +468,7 @@
             "merchantId": {
               "type": "string",
               "description": "The merchant account's ID",
-              "readOnly": false
+              "readOnly": true
             },
             "merchantName": {
               "type": "string",
@@ -476,6 +476,7 @@
             },
             "provisioningState": {
               "description": "The provisioning state of the resource.",
+              "readOnly": true,
               "$ref": "#/definitions/ProvisioningState"
             }
           }
