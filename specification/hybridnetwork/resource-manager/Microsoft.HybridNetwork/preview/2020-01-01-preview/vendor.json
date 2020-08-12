@@ -1402,6 +1402,10 @@
         "storageProfile": {
           "$ref": "#/definitions/StorageProfile",
           "description": "Specifies the storage settings for the virtual machine disks."
+        },
+        "customProfile": {
+          "$ref": "#/definitions/CustomProfile",
+          "description": "Specifies the custom settings for the virtual machine."
         }
       }
     },
@@ -1575,6 +1579,15 @@
         "name": "DiskCreateOptionTypes",
         "modelAsString": true
       }
+    },
+    "CustomProfile": {
+      "properties": {
+        "metadataConfigurationPath": {
+          "type": "string",
+          "description": "Path for metadata configuration."
+        }
+      },
+      "description": "Specifies the storage settings for the virtual machine disks."
     },
     "PreviewSubscription": {
       "x-ms-azure-resource": true,
