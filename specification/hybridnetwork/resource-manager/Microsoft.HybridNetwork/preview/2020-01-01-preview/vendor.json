@@ -1402,10 +1402,6 @@
         "storageProfile": {
           "$ref": "#/definitions/StorageProfile",
           "description": "Specifies the storage settings for the virtual machine disks."
-        },
-        "customProfile": {
-          "$ref": "#/definitions/CustomProfile",
-          "description": "Specifies the custom settings for the virtual machine."
         }
       }
     },
@@ -1531,7 +1527,7 @@
           "$ref": "#/definitions/OsDisk",
           "description": "Specifies information about the operating system disk used by the virtual machine."
         },
-        "dataDisks": {
+        "dataDisk": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/DataDisk"
@@ -1579,15 +1575,6 @@
         "name": "DiskCreateOptionTypes",
         "modelAsString": true
       }
-    },
-    "CustomProfile": {
-      "properties": {
-        "metadataConfigurationPath": {
-          "type": "string",
-          "description": "Path for metadata configuration."
-        }
-      },
-      "description": "Specifies the storage settings for the virtual machine disks."
     },
     "PreviewSubscription": {
       "x-ms-azure-resource": true,
