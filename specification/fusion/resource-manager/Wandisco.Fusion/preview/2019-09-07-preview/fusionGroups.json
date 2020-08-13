@@ -1481,6 +1481,55 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/managedOnPremZones/{managedOnPremZoneName}/refreshDownloadLocation": {
+      "post": {
+        "tags": [
+          "managedOnPremZone"
+        ],
+        "description": "Refresh the downloadLocation of the Managed OnPrem Zone.",
+        "operationId": "ManagedOnPremZones_RefreshDownloadLocation",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ManagedOnPremZoneParameter"
+          }
+        ],
+        "x-ms-examples": {
+          "Refresh a Managed OnPrem Zone": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneRefresh.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Refresh request completed."
+          },
+          "202": {
+            "description": "Refresh request accepted."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators": {
       "get": {
         "tags": [
@@ -1727,6 +1776,55 @@
         "x-ms-examples": {
           "Successful delete": {
             "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/refreshDownloadLocation": {
+      "post": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Refresh the downloadLocation of the Migrator.",
+        "operationId": "Migrators_RefreshDownloadLocation",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/FusionGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "x-ms-examples": {
+          "Refresh a Migrator": {
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorRefresh.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Refresh request completed."
+          },
+          "202": {
+            "description": "Refresh request accepted."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
         "x-ms-long-running-operation": true,
@@ -2082,7 +2180,7 @@
           "migratorTarget"
         ],
         "description": "Returns list of Migrator Targets.",
-        "operationId": "MigratorTargets_ListByMigrator",
+        "operationId": "Targets_ListByMigrator",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -2131,7 +2229,7 @@
           "migratorTarget"
         ],
         "description": "Returns a given Migrator Target.",
-        "operationId": "MigratorTargets_Get",
+        "operationId": "Targets_Get",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -2177,7 +2275,7 @@
           "migratorTarget"
         ],
         "description": "Creates a Migrator Target.",
-        "operationId": "MigratorTargets_CreateOrUpdate",
+        "operationId": "Targets_CreateOrUpdate",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -2210,9 +2308,6 @@
         "x-ms-examples": {
           "Create Migrator": {
             "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetCreate.json"
-          },
-          "Create Migrator with Managed Identity": {
-            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigratorTargetCreateManagedIdentity.json"
           }
         },
         "responses": {
@@ -2245,7 +2340,7 @@
           "migratorTarget"
         ],
         "description": "Updates a given Migrator Target.",
-        "operationId": "MigratorTargets_Update",
+        "operationId": "Targets_Update",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -2299,7 +2394,7 @@
           "migratorTarget"
         ],
         "description": "Deletes a given Migrator Target.",
-        "operationId": "MigratorTargets_Delete",
+        "operationId": "Targets_Delete",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -3741,10 +3836,6 @@
           "description": "Container to target migration to",
           "type": "string"
         },
-        "storageManagedIdentity": {
-          "$ref": "#/definitions/VirtualMachineIdentity",
-          "description": "Managed identity for storage account (use either key or identity)"
-        },
         "storageAccessKey": {
           "description": "Access Key for storage (use either key or identity)",
           "type": "string"
@@ -4459,6 +4550,7 @@
     },
     "KerberosConfiguration": {
       "type": "object",
+      "description": "The configuration properties for authenticating using Kerberos",
       "properties": {
         "enabled": {
           "description": "The client will use kerberos authentication if enabled is true",
