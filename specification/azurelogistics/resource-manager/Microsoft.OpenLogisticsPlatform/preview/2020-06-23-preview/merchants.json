@@ -127,11 +127,6 @@
           },
           {
             "type": "string",
-            "name": "merchantId",
-            "in": "query"
-          },
-          {
-            "type": "string",
             "name": "merchantName",
             "in": "path",
             "required": true
@@ -211,7 +206,7 @@
         "tags": [
           "MerchantAccount"
         ],
-        "operationId": "MerchantAccount_ListAll",
+        "operationId": "MerchantAccount_List_ResourceGroupLevel",
         "parameters": [
           {
             "type": "string",
@@ -249,7 +244,7 @@
         "tags": [
           "MerchantAccount"
         ],
-        "operationId": "MerchantAccount_List",
+        "operationId": "MerchantAccount_List_SubscriptionLevel",
         "parameters": [
           {
             "type": "string",
@@ -631,6 +626,6 @@
       "required": true,
       "type": "string",
       "description": "The client API version."
-    },
+    }
   }
 }
