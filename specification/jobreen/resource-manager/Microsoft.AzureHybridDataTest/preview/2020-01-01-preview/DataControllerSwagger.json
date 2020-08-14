@@ -316,6 +316,9 @@
               },
               "port": {
                 "type": "integer"
+              },
+              "serviceType": {
+                "type": "string"
               }
             }
           },
@@ -331,6 +334,9 @@
                 },
                 "port": {
                   "type": "integer"
+                },
+                "serviceType": {
+                  "type": "string"
                 }
               }
             }
@@ -342,6 +348,9 @@
             "controller": {
               "type": "object",
               "properties": {
+                "enableBilling": {
+                  "type": "string"
+                },
                 "logs.rotation.size": {
                   "type": "string"
                 },
