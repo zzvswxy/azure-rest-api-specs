@@ -105,6 +105,45 @@
             "description": "Deletes the datacontrollers resource."
           }
         }
+      },
+      "patch": {
+        "operationId": "datacontrollers_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/datacontrollersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "datacontrollers",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/datacontrollersPatch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the datacontrollers resource.",
+            "schema": {
+              "$ref": "#/definitions/datacontrollers"
+            }
+          },
+          "201": {
+            "description": "Updates the datacontrollers resource.",
+            "schema": {
+              "$ref": "#/definitions/datacontrollers"
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureHybridDataTest/datacontrollers": {
@@ -320,6 +359,9 @@
               }
             }
           }
+        },
+        "provisioningState": {
+          "type": "string"
         }
       }
     },
@@ -373,6 +415,19 @@
         "location"
       ],
       "description": "The datacontrollers resource definition."
+    },
+    "datacontrollersPatch": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        }
+      },
+      "description": "The datacontrollers resource patch definition."
     },
     "datacontrollersListResult": {
       "type": "object",
