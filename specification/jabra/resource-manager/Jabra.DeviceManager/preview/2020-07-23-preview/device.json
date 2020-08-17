@@ -452,7 +452,7 @@
         "x-ms-long-running-operation": true
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomLocations/iotzones": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IotLocations/iotzones": {
       "get": {
         "description": "Returns list of device hub.",
         "operationId": "IotZone_ListByResourceGroup",
@@ -487,7 +487,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.CustomLocations/iotzones": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.IotLocations/iotzones": {
       "get": {
         "description": "Returns list of device hub.",
         "operationId": "IotZone_ListBySubscription",
@@ -519,7 +519,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomLocations/iotzones/{iotzonename}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IotLocations/iotzones/{iotzonename}": {
       "get": {
         "description": "Returns device hub resource for a given name.",
         "operationId": "IotZone_Get",
