@@ -63,7 +63,6 @@
     "ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
-      "required": true,
       "type": "string",
       "description": "The API version to use for this operation."
     }
