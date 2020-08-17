@@ -1229,10 +1229,10 @@
         ],
         "parameters": [
           {
-            "$ref": "#/parameters/subscriptionId"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/resourceGroupName"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
             "in": "path",
@@ -1242,7 +1242,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/api-version"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "in": "body",
@@ -1291,10 +1291,10 @@
         },
         "parameters": [
           {
-            "$ref": "#/parameters/subscriptionId"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/resourceGroupName"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
             "in": "path",
@@ -1304,7 +1304,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/api-version"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -1340,15 +1340,15 @@
         "summary": "Implements the operation to restart a virtual machine.",
         "x-ms-examples": {
           "RestartVirtualMachine": {
-            "$ref": "./examples/RestartVirtualMachine.json"
+            "$ref": ""
           }
         },
         "parameters": [
           {
-            "$ref": "#/parameters/subscriptionId"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/resourceGroupName"
+            "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
             "in": "path",
@@ -1358,7 +1358,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/api-version"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -2468,6 +2468,24 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/VirtualDisk"
+          }
+        }
+      }
+    },
+	"StopVirtualMachineOptions": {
+      "description": "Defines the stop action properties.",
+      "type": "object",
+      "properties": {
+        "skipShutdown": {
+          "description": "Gets or sets a value indicating whether to request non-graceful VM shutdown. True value for this flag indicates non-graceful shutdown whereas false indicates otherwise. Defaults to false.",
+          "type": "string",
+          "enum": [
+            "false",
+            "true"
+          ],
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "SkipShutdown"
           }
         }
       }
