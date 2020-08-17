@@ -34,7 +34,7 @@
 		}
 	},
 	"paths": {
-			"/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.CustomPortal/portalSettings/{portalSettingName}": {
+			"/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/providers/Microsoft.CustomPortal/portalSettings/{portalSettingName}": {
 				"get": {
 					"tags": [
 						"PortalSettings"
@@ -47,14 +47,6 @@
 						},
 						{
 							"$ref": "#/parameters/ResourceProviderNamespaceParameter"
-						},
-						{
-							"name": "parentResourcePath",
-							"in": "path",
-							"required": true,
-							"type": "string",
-							"description": "The parent resource identity.",
-							"x-ms-skip-url-encoding": true
 						},
 						{
 							"name": "resourceType",
@@ -106,14 +98,6 @@
 						},
 						{
 							"$ref": "#/parameters/ResourceProviderNamespaceParameter"
-						},
-						{
-							"name": "parentResourcePath",
-							"in": "path",
-							"required": true,
-							"type": "string",
-							"description": "The parent resource identity.",
-							"x-ms-skip-url-encoding": true
 						},
 						{
 							"name": "resourceType",
