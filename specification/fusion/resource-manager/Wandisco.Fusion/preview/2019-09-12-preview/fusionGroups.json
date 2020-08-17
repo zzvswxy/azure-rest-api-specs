@@ -3358,6 +3358,7 @@
           "description": "Managed identity of storage account (use either key or identity)"
         },
         "storageAccessKey": {
+          "x-ms-secret": true,
           "description": "Access Key for storage (use either key or identity)",
           "type": "string"
         },
@@ -3837,6 +3838,7 @@
           "type": "string"
         },
         "storageAccessKey": {
+          "x-ms-secret": true,
           "description": "Access Key for storage (use either key or identity)",
           "type": "string"
         }
@@ -4354,6 +4356,27 @@
           "description": "List of ids referring to exclusions to be applied to the migration",
           "items": {
             "type": "string"
+          }
+        },
+        "targetActionPolicy": {
+          "description": "The policy to use when replacing files on the target",
+          "type": "string",
+          "enum": [
+            "Overwrite",
+            "SkipIfSizeMatch"
+          ],
+          "default": "Overwrite",
+          "x-ms-enum": {
+            "name": "TargetActionPolicy",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "Overwrite"
+              },
+              {
+                "value": "SkipIfSizeMatch"
+              }
+            ]
           }
         },
         "migrationStatus": {
