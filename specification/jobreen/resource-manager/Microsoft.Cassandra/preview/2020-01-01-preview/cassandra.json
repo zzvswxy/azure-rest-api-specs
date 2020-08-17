@@ -19,6 +19,47 @@
     "application/json"
   ],
   "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cassandra/cassandraDataCenters/{cassandraDataCentersName}/testAction": {
+      "post": {
+        "operationId": "cassandraDataCenters_Action",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/cassandraDataCentersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "cassandraDataCenters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cassandraDataCentersProperties"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the cassandraDataCenters resource.",
+            "schema": {
+              "$ref": "#/definitions/cassandraDataCentersProperties"
+            }
+          },
+          "202": {
+            "description": "Creates the cassandraDataCenters resource.",
+            "schema": {
+              "$ref": "#/definitions/cassandraDataCentersProperties"
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cassandra/cassandraDataCenters/{cassandraDataCentersName}": {
       "get": {
         "operationId": "cassandraDataCenters_Retrieve",
