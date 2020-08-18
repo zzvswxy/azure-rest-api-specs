@@ -323,11 +323,6 @@
       }
     },
     "AutopilotEnvironmentResponse": {
-      "required": [
-        "location",
-        "provisioningState",
-        "environmentResource"
-      ],
       "type": "object",
       "description": "Autopilot Environment Response",
       "properties": {
