@@ -258,7 +258,7 @@
           "200": {
             "description": "Device hub details.",
             "schema": {
-              "$ref": "#/definitions/Thermostat"
+              "$ref": "#/definitions/ThermostatList"
             }
           },
           "default": {

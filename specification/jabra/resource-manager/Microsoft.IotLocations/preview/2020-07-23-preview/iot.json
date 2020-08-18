@@ -304,6 +304,23 @@
         }
       }
     },
+    "HydrationInformation": {
+        "description": "hydration configuration.",
+        "properties": {
+          "destinationResourceGroupId": {
+            "description": "EventHub connection string.",
+            "type": "string"
+          },
+          "providerNameSpace": {
+            "description": "EventHub connection string.",
+            "type": "string"
+          },
+          "location": {
+            "description": "EventHub connection string.",
+            "type": "string"
+          }
+        }
+      },
     "DeviceHub": {
       "type": "object",
       "description": "The device hub resource.",
@@ -325,6 +342,10 @@
             "eventHubConfiguration": {
               "$ref": "#/definitions/EventHubConfiguration",
               "description": "The eventhub configuration."
+            },
+            "hydrationInformation": {
+                "$ref": "#/definitions/HydrationInformation",
+                "description" : "The hydration information"
             }
         }
       }
@@ -368,7 +389,11 @@
             "eventHubConfiguration": {
               "$ref": "#/definitions/EventHubConfiguration",
               "description": "The eventhub configuration."
-            }
+            },
+            "hydrationInformation": {
+                "$ref": "#/definitions/HydrationInformation",
+                "description": "The eventhub configuration."
+              }
         }
       }
     }
