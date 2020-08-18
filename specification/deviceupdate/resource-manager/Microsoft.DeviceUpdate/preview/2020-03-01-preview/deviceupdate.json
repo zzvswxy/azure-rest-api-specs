@@ -37,7 +37,7 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.DeviceUpdate/accounts": {
       "get": {
         "description": "Returns list of accounts.",
-        "operationId": "Accounts_List",
+        "operationId": "Accounts_ListBySubscription",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -74,7 +74,7 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts": {
       "get": {
         "description": "Returns list of accounts.",
-        "operationId": "Accounts_List",
+        "operationId": "Accounts_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
