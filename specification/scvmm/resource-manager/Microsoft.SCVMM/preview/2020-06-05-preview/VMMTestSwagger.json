@@ -1286,7 +1286,7 @@
         "summary": "Implements the operation to start a virtual machine.",
         "x-ms-examples": {
           "StartVirtualMachine": {
-            "$ref": "./examples/StartVirtualMachine.json"
+            "$ref": ""
           }
         },
         "parameters": [
