@@ -162,22 +162,18 @@
 				"properties": {
 					"id": {
 						"type": "string",
-						"readOnly": true,
 						"description": "The portal settings ID."
 					},
 					"name": {
 						"type": "string",
-						"readOnly": true,
 						"description": "The portal setting name."
 					},
 					"type": {
 						"type": "string",
-						"readOnly": true,
 						"description": "The portal setting type."
 					},
 					"priority": {
-						"type": "number",
-						"readOnly": true,
+						"type": "string",
 						"description": "The portal setting priority."
 					}
 				},
