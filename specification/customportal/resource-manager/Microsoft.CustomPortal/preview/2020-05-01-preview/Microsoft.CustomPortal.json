@@ -83,6 +83,12 @@
 							"schema": {
 								"$ref": "#/definitions/PortalSetting"
 							}
+						},
+						"default": {
+							"description": "Resource Provider error response describing why the operation failed.",
+							"schema": {
+								"$ref": "#/definitions/ErrorResponse"
+							}
 						}
 					}
 				},
@@ -129,10 +135,22 @@
 						}
 					],
 					"responses": {
+						"200": {
+							"description": "OK - Returns information about the portal setting.",
+							"schema": {
+								"$ref": "#/definitions/PortalSetting"
+							}
+						}, 
 						"201": {
 							"description": "Created - Returns information about the portal setting.",
 							"schema": {
 								"$ref": "#/definitions/PortalSetting"
+							}
+						},
+						"default": {
+							"description": "Default error response.",
+							"schema": {
+								"$ref": "#/definitions/ErrorResponse"
 							}
 						}
 					}
@@ -164,6 +182,31 @@
 					}
 				},
 				"description": "Portal Settings"
+			},
+			"ErrorResponse": {
+				"description": "The error response that indicates why an operation has failed.",
+				"type": "object",
+				"properties": {
+					"error": {
+					"$ref": "#/definitions/ErrorDetails"
+					}
+				}
+			},
+			"ErrorDetails": {
+				"description": "The error response details containing error code and error message",
+				"type": "object",
+				"properties": {
+					"code": {
+					"description": "The error code.",
+					"type": "string",
+					"readOnly": true
+					},
+				"message": {
+					"description": "The error message.",
+					"type": "string",
+					"readOnly": true
+					}
+				}
 			}
 	},
 	"parameters": {
