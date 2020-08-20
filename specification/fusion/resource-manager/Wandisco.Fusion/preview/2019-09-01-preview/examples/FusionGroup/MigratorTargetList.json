@@ -16,8 +16,7 @@
             "properties": {
               "provisioningState": "Accepted",
               "storageAccountId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/fusionGroupTestRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
-              "storageContainer": "targetStorageContainer",
-              "storageAccessKey": "azureStorageAccessKey"
+              "storageContainer": "targetStorageContainer"
             },
             "location": "East US",
             "type": "Wandisco.Fusion/migratorTarget",

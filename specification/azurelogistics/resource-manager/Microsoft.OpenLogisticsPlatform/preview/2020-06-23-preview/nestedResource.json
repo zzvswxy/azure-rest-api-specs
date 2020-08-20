@@ -1,0 +1,317 @@
+{
+  "x-generator": "NSwag v13.2.5.0 (NJsonSchema v10.1.7.0 (Newtonsoft.Json v12.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "OLPControlPlaneServiceAPI",
+    "description": "OLPControlPlaneServiceAPI",
+    "version": "2020-06-23-preview"
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/merchants/{merchantName}/nestedResource/{nestedResourceName}": {
+      "get": {
+        "tags": [
+          "NestedResource"
+        ],
+        "operationId": "NestedResource_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "merchantName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "nestedResourceName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/NestedResource"
+            }
+          },
+          "default": {
+            "description": "",
+            "schema": {
+              "$ref": "./merchants.json#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "NestedResource"
+        ],
+        "description": "Create or update nested resource type.",
+        "operationId": "NestedResource_CreateAndUpdate",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "merchantName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "nestedResourceName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "NestedResource",
+            "description": "Nested Resource details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NestedResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/NestedResource"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "NestedResource"
+        ],
+        "description": "Update nested resource details.",
+        "operationId": "NestedResource_Update",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "merchantName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "nestedResourceName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "NestedResourcePatchResource",
+            "description": "Nested resource patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NestedResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/NestedResource"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "NestedResource"
+        ],
+        "operationId": "NestedResource_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "merchantName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "nestedResourceName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "202": {
+            "description": ""
+          },
+          "204": {
+            "description": ""
+          },
+          "default": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "./merchants.json#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/merchants/{merchantName}/nestedResource": {
+      "get": {
+        "tags": [
+          "NestedResource"
+        ],
+        "description": "Returns nested resources for a given employee name",
+        "operationId": "NestedResource_List_MerchantLevel",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "merchantName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Nested Resources.",
+            "schema": {
+              "$ref": "#/definitions/NestedResourceList"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.OpenLogisticsPlatform/nestedResource": {
+      "get": {
+        "tags": [
+          "NestedResource"
+        ],
+        "description": "Returns nested resources for a given subscription",
+        "operationId": "NestedResource_List_SubscriptionLevel",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "subscriptionId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Nested Resources.",
+            "schema": {
+              "$ref": "#/definitions/NestedResourceList"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NestedResource": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "./merchants.json#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "nestedResourceId": {
+              "type": "string",
+              "description": "The nested resource's ID",
+              "readOnly": true
+            },
+            "nestedResourceName": {
+              "type": "string",
+              "description": "The nested resource's name",
+              "readOnly": false
+            }
+          }
+        }
+      }
+    },
+    "NestedResourceList": {
+      "description": "The list of nested resources.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of nested resources list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of recommendations.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NestedResource"
+          }
+        }
+      }
+    }
+  }
+}
