@@ -34,7 +34,7 @@
                     "name": "DataDisk1",
                     "diskSizeGB": 10
                   }
-                ],
+                ]
               },
               "osProfile": {
                 "adminUsername": "dummyuser",
