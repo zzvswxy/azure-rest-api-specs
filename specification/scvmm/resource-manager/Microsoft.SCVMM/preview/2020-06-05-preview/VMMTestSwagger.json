@@ -1286,7 +1286,7 @@
         "summary": "Implements the operation to start a virtual machine.",
         "x-ms-examples": {
           "StartVirtualMachine": {
-            "$ref": "./examples/StartVirtualMachine.json"
+            "$ref": ""
           }
         },
         "parameters": [
@@ -1340,6 +1340,60 @@
         "summary": "Implements the operation to restart a virtual machine.",
         "x-ms-examples": {
           "RestartVirtualMachine": {
+            "$ref": ""
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "in": "path",
+            "name": "virtualMachineName",
+            "description": "Name of the virtual machine resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/repair": {
+      "post": {
+        "tags": [
+          "VirtualMachines"
+        ],
+        "operationId": "VirtualMachines_Repair",
+        "description": "Repairs virtual machine.",
+        "summary": "Implements the operation to repair a virtual machine.",
+        "x-ms-examples": {
+          "RepairVirtualMachine": {
             "$ref": ""
           }
         },

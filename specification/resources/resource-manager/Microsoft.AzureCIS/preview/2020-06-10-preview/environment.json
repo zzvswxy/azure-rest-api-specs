@@ -326,15 +326,19 @@
       "type": "object",
       "description": "Autopilot Environment Response",
       "properties": {
-        "location": {
+        "name": {
           "type": "string",
-          "description": "Location such as North US"
+          "description": "The name of the feature."
         },
-        "provisioningState": {
+        "id": {
           "type": "string",
-          "description": "accept"
+          "description": "The resource ID of the feature."
         },
-        "environmentResource": {
+        "type": {
+          "type": "string",
+          "description": "The resource type of the feature."
+        },
+        "properties": {
           "$ref": "#/definitions/EnvironmentResource",
           "description": "EnvironmentResource detail"
         }
