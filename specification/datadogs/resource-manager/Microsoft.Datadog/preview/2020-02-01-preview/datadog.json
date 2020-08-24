@@ -1181,16 +1181,27 @@
       }
     },
     "MonitoringStatus": {
-        "description": "Flag specifying if the resource monitoring is enabled, disabled or suspended.",
+      "description": "Flag specifying if the resource monitoring is enabled or disabled.",
         "enum": [
           "Enabled",
-          "Disabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "MonitoringStatus"
+      }
+    },
+    "MarketplaceSubscriptionStatus": {
+      "description": "Flag specifying the Payment Status of the resource.",
+      "enum": [
+        "Active",
           "Suspended"
         ],
       "type": "string",
       "x-ms-enum": {
         "modelAsString": true,
-        "name": "MonitoringStatus"
+        "name": "MarketplaceSubscriptionStatus"
       }
     },
     "DatadogOrganizationProperties": {
@@ -1277,6 +1288,9 @@
         },
         "monitoringStatus": {
           "$ref": "#/definitions/MonitoringStatus"
+        },
+        "marketplaceSubscriptionStatus": {
+          "$ref": "#/definitions/MarketplaceSubscriptionStatus"
         },
         "datadogOrganizationProperties": {
           "$ref": "#/definitions/DatadogOrganizationProperties"
