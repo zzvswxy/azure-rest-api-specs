@@ -1196,7 +1196,7 @@
       "description": "Flag specifying the Payment Status of the resource.",
       "enum": [
         "Active",
-          "Suspended"
+        "Suspended"
         ],
       "type": "string",
       "x-ms-enum": {
