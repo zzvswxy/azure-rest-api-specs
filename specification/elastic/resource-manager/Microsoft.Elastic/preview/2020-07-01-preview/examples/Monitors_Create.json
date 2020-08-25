@@ -11,7 +11,8 @@
       },
       "properties": {
         "elasticOrganizationProperties": {
-          "name": "myOrg"
+          "name": "myOrg",
+          "template":  "myTemplate"
         },
         "userInfo": {
           "firstName": "Alice",
@@ -46,7 +47,8 @@
           "provisioningState": "Succeeded",
           "elasticOrganizationProperties": {
             "name": "myOrg",
-            "id": "myOrg123"
+            "id": "myOrg123",
+            "template": "myTemplate"
           }
         },
         "tags": {
@@ -67,7 +69,8 @@
           "provisioningState": "Accepted",
           "elasticOrganizationProperties": {
             "name": "myOrg",
-            "id": "myOrg123"
+            "id": "myOrg123",
+            "template": "myTemplate"
           }
         },
         "tags": {

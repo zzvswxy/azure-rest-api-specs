@@ -15,7 +15,8 @@
               "provisioningState": "Succeeded",
               "elasticOrganizationProperties": {
                 "name": "myOrg",
-                "id": "myOrg123"
+                "id": "myOrg123",
+                "template": "myTemplate"
               }
             },
             "tags": {
