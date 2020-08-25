@@ -1193,7 +1193,7 @@
       }
     },
     "MarketplaceSubscriptionStatus": {
-      "description": "Flag specifying the Marketplace Subscription Status of the resource. If payment as not been made in time, the resource will go in Suspended state.",
+      "description": "Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.",
       "enum": [
         "Active",
         "Suspended"
