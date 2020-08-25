@@ -694,6 +694,10 @@
           "description": "Id of the Elastic organization.",
           "type": "string",
           "readOnly": true
+        },
+        "template": {
+          "description": "Name of the template for Elastic cluster.",
+          "type": "string"
         }
       }
     },
@@ -721,7 +725,6 @@
         },
         "business": {
           "description": "Business of the company",
-          "pattern": "^[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$",
           "maxLength": 50,
           "type": "string"
         },
