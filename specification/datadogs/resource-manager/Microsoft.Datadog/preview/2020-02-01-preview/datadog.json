@@ -1181,11 +1181,12 @@
       }
     },
     "MonitoringStatus": {
-      "description": "Flag specifying if the resource monitoring is enabled or disabled.",
-      "enum": [
-        "Enabled",
-        "Disabled"
-      ],
+        "description": "Flag specifying if the resource monitoring is enabled, disabled or suspended.",
+        "enum": [
+          "Enabled",
+          "Disabled",
+          "Suspended"
+        ],
       "type": "string",
       "x-ms-enum": {
         "modelAsString": true,
