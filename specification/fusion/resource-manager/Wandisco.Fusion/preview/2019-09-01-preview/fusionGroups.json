@@ -1530,13 +1530,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators": {
       "get": {
         "tags": [
           "migrator"
         ],
         "description": "Returns list of Migrators.",
-        "operationId": "Migrators_ListByFusionGroup",
+        "operationId": "Migrators_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -1546,9 +1546,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           }
         ],
         "responses": {
@@ -1571,12 +1568,12 @@
         },
         "x-ms-examples": {
           "Get Migrators list": {
-            "$ref": "./examples/FusionGroup/MigratorList.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorList.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}": {
       "get": {
         "tags": [
           "migrator"
@@ -1592,9 +1589,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -1616,7 +1610,7 @@
         },
         "x-ms-examples": {
           "Get Migrator by name": {
-            "$ref": "./examples/FusionGroup/MigratorGet.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorGet.json"
           }
         }
       },
@@ -1637,9 +1631,6 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/FusionGroupParameter"
-          },
-          {
             "$ref": "#/parameters/MigratorNameParameter"
           },
           {
@@ -1654,7 +1645,7 @@
         ],
         "x-ms-examples": {
           "Create Migrator": {
-            "$ref": "./examples/FusionGroup/MigratorCreate.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorCreate.json"
           }
         },
         "responses": {
@@ -1699,9 +1690,6 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/FusionGroupParameter"
-          },
-          {
             "$ref": "#/parameters/MigratorNameParameter"
           },
           {
@@ -1729,7 +1717,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/MigratorPatch.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorPatch.json"
           }
         }
       },
@@ -1748,9 +1736,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -1775,7 +1760,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/MigratorDelete.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1784,7 +1769,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/refreshDownloadLocation": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/refreshDownloadLocation": {
       "post": {
         "tags": [
           "migrator"
@@ -1802,15 +1787,12 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/FusionGroupParameter"
-          },
-          {
             "$ref": "#/parameters/MigratorNameParameter"
           }
         ],
         "x-ms-examples": {
           "Refresh a Migrator": {
-            "$ref": "./examples/FusionGroup/MigratorRefresh.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorRefresh.json"
           }
         },
         "responses": {
@@ -1833,7 +1815,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/liveDataMigrations": {
       "get": {
         "tags": [
           "LiveDataMigrations"
@@ -1849,9 +1831,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -1876,12 +1855,12 @@
         },
         "x-ms-examples": {
           "List Migration": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationList.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationList.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/liveDataMigrations/{migrationName}": {
       "get": {
         "tags": [
           "LiveDataMigrations"
@@ -1897,9 +1876,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -1924,7 +1900,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationGet.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationGet.json"
           }
         }
       },
@@ -1943,9 +1919,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -1979,7 +1952,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationCreate.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationCreate.json"
           }
         }
       },
@@ -1998,9 +1971,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2025,7 +1995,7 @@
         },
         "x-ms-examples": {
           "Delete Migration": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationDelete.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationDelete.json"
           }
         }
       },
@@ -2044,9 +2014,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2079,12 +2046,12 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationPatch.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationPatch.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/start": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/liveDataMigrations/{migrationName}/start": {
       "post": {
         "tags": [
           "LiveDataMigrations"
@@ -2100,9 +2067,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2124,12 +2088,12 @@
         },
         "x-ms-examples": {
           "Start Migration": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationStart.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationStart.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/livedatamigrations/{migrationName}/stop": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/liveDataMigrations/{migrationName}/stop": {
       "post": {
         "tags": [
           "LiveDataMigrations"
@@ -2145,9 +2109,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2169,12 +2130,12 @@
         },
         "x-ms-examples": {
           "Stop Migration": {
-            "$ref": "./examples/FusionGroup/LiveDataMigrationStop.json"
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationStop.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/targets": {
       "get": {
         "tags": [
           "migratorTarget"
@@ -2190,9 +2151,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2218,12 +2176,12 @@
         },
         "x-ms-examples": {
           "Get Migrators list": {
-            "$ref": "./examples/FusionGroup/MigratorTargetList.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorTargetList.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/migrators/{migratorName}/targets/{migratorTargetName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/targets/{migratorTargetName}": {
       "get": {
         "tags": [
           "migratorTarget"
@@ -2239,9 +2197,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2266,7 +2221,7 @@
         },
         "x-ms-examples": {
           "Get Migrator Target by name": {
-            "$ref": "./examples/FusionGroup/MigratorTargetGet.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorTargetGet.json"
           }
         }
       },
@@ -2287,9 +2242,6 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/FusionGroupParameter"
-          },
-          {
             "$ref": "#/parameters/MigratorNameParameter"
           },
           {
@@ -2307,7 +2259,7 @@
         ],
         "x-ms-examples": {
           "Create Migrator": {
-            "$ref": "./examples/FusionGroup/MigratorTargetCreate.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorTargetCreate.json"
           }
         },
         "responses": {
@@ -2352,9 +2304,6 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/FusionGroupParameter"
-          },
-          {
             "$ref": "#/parameters/MigratorNameParameter"
           },
           {
@@ -2385,7 +2334,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/MigratorTargetPatch.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorTargetPatch.json"
           }
         }
       },
@@ -2404,9 +2353,6 @@
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/FusionGroupParameter"
           },
           {
             "$ref": "#/parameters/MigratorNameParameter"
@@ -2434,7 +2380,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/MigratorTargetDelete.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorTargetDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -3723,6 +3669,10 @@
           "description": "Migrator resource properties",
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/MigratorProperties"
+        },
+        "plan": {
+          "description": "Plan to use for Store purchase",
+          "$ref": "#/definitions/Plan"
         }
       }
     },
