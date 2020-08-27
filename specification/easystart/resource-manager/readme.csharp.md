@@ -10,6 +10,6 @@ csharp:
   payload-flattening-threshold: 1
   clear-output-folder: true
   client-side-validation: false
-  namespace: Microsoft.TestRP
-  output-folder: $(csharp-sdks-folder)/easystart/management/Microsoft.TestRP/GeneratedProtocol
+  namespace: Microsoft.EasyStartTest
+  output-folder: $(csharp-sdks-folder)/easystart/management/Microsoft.EasyStartTest/GeneratedProtocol
 ```

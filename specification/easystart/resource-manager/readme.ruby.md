@@ -14,6 +14,6 @@ These settings apply only when `--tag=package-2020-08-27-privatepreview --ruby` 
 Please also specify `--ruby-sdks-folder=<path to the root directory of your azure-sdk-for-ruby clone>`.
 
 ```yaml $(tag) == 'package-2020-08-27-privatepreview' && $(ruby)
-namespace: Microsoft.TestRP
+namespace: Microsoft.EasyStartTest
 output-folder: $(ruby-sdks-folder)/easystart
 ```

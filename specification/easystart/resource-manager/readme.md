@@ -35,7 +35,7 @@ These settings apply only when `--tag=package-2020-08-27-privatepreview` is spec
 
 ```yaml $(tag) == 'package-2020-08-27-privatepreview'
 input-file:
-  - Microsoft.TestRP/preview/2020-08-27-privatepreview/easystart.json
+  - Microsoft.EasyStartTest/preview/2020-08-27-privatepreview/easystart.json
 ```
 
 ---

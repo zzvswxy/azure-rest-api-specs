@@ -14,6 +14,6 @@ These settings apply only when `--tag=package-2020-08-27-privatepreview --go` is
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
 ```yaml $(tag) == 'package-2020-08-27-privatepreview' && $(go)
-namespace: Microsoft.TestRP
+namespace: Microsoft.EasyStartTest
 output-folder: $(go-sdks-folder)/easystart/Generated
 ```

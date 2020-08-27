@@ -29,7 +29,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestRP/operations": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EasyStartTest/operations": {
       "get": {
         "tags": ["Tag1"],
         "operationId": "OperationGroup_Get",

@@ -8,7 +8,7 @@ python:
   azure-arm: true
   license-header: MICROSOFT_MIT_NO_VERSION
   payload-flattening-threshold: 2
-  namespace: Microsoft.TestRP
+  namespace: Microsoft.EasyStartTest
   package-name: easystart
   package-version: 2020-08-27-privatepreview
   clear-output-folder: true
