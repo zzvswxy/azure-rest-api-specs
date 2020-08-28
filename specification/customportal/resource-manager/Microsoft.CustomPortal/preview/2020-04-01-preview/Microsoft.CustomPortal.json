@@ -159,29 +159,42 @@
 	},
 	"definitions": {
 			"PortalSetting": {
+				"type": "object",
+				"required": [
+					"properties"
+				],
 				"properties": {
-					"id": {
-						"type": "string",
-						"readOnly": true,
-						"description": "The portal settings ID."
-					},
-					"name": {
-						"type": "string",
-						"readOnly": true,
-						"description": "The portal setting name."
-					},
-					"type": {
-						"type": "string",
-						"readOnly": true,
-						"description": "The portal setting type."
-					},
-					"priority": {
-						"type": "number",
-						"readOnly": true,
-						"description": "The portal setting priority."
+					"properties": {
+						"x-ms-client-flatten": true,
+						"$ref": "#/definitions/PortalSettingProperties",
+						"description": "Describes the portal setting resource properties."
 					}
 				},
 				"description": "Portal Settings"
+			},
+			"PortalSettingProperties": {
+				"required":[
+					"priority",
+					"settingValue"
+				],
+				"properties":{
+					"priority": {
+						"type": "string",
+						"description": "Portal setting priority",
+						"enum": [
+							"0",
+							"1"
+						],
+						"x-ms-enum": {
+							"name": "Prioriy",
+							"modelAsString": true
+						}
+					},
+					"settingValue": {
+						"description": "The settingValue",
+						"type": "string"
+					}
+				}
 			},
 			"ErrorResponse": {
 				"description": "The error response that indicates why an operation has failed.",
