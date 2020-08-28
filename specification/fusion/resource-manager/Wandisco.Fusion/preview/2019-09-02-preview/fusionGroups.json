@@ -4035,6 +4035,10 @@
           "description": "Operation name: {provider}/{resource}/{operation}",
           "type": "string"
         },
+        "isDataAction": {
+          "description": "Indicates whether the operation applies to data-plane",
+          "type": "boolean"
+        },
         "display": {
           "description": "The object that represents the operation.",
           "properties": {
@@ -4048,6 +4052,10 @@
             },
             "operation": {
               "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "description": {
+              "description": "The description of the operation",
               "type": "string"
             }
           }
