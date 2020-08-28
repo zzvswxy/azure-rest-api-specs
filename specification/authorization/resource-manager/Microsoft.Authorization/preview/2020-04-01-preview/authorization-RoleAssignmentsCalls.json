@@ -39,7 +39,7 @@
         "tags": [
           "RoleAssignments"
         ],
-        "operationId": "RoleAssignments_ListForResource",
+        "operationId": "RoleAssignments_ListForResource ",
         "description": "Gets role assignments for a resource.",
         "parameters": [
           {
