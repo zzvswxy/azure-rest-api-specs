@@ -460,9 +460,9 @@
         "properties": {
           "type": "object",
           "properties": {
-            "workspaceId": {
+            "workspaceGuid": {
               "type": "string",
-              "description": "The workspace's ID",
+              "description": "The workspace's Guid",
               "readOnly": true
             },
             "workspaceName": {
