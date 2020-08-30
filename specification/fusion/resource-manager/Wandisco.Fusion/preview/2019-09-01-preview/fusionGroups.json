@@ -1481,13 +1481,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/managedOnPremZones/{managedOnPremZoneName}/refreshDownloadLocation": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/managedOnPremZones/{managedOnPremZoneName}/updateDownloadLocation": {
       "post": {
         "tags": [
           "managedOnPremZone"
         ],
-        "description": "Refresh the downloadLocation of the Managed OnPrem Zone.",
-        "operationId": "ManagedOnPremZones_RefreshDownloadLocation",
+        "description": "Update the downloadLocation of the Managed OnPrem Zone.",
+        "operationId": "ManagedOnPremZones_UpdateDownloadLocation",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -1506,16 +1506,16 @@
           }
         ],
         "x-ms-examples": {
-          "Refresh a Managed OnPrem Zone": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneRefresh.json"
+          "Update DownloadLocation for Managed OnPrem Zone": {
+            "$ref": "./examples/FusionGroup/ManagedOnPremZoneUpdateDownloadLocation.json"
           }
         },
         "responses": {
           "200": {
-            "description": "Refresh request completed."
+            "description": "Update download location request completed."
           },
           "202": {
-            "description": "Refresh request accepted."
+            "description": "Update download location request accepted."
           },
           "default": {
             "description": "Error response describing the reason for operation failure.",
@@ -1809,13 +1809,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/refreshDownloadLocation": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/updateDownloadLocation": {
       "post": {
         "tags": [
           "migrator"
         ],
-        "description": "Refresh the downloadLocation of the Migrator.",
-        "operationId": "Migrators_RefreshDownloadLocation",
+        "description": "Update the downloadLocation of the Migrator.",
+        "operationId": "Migrators_UpdateDownloadLocation",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
@@ -1832,15 +1832,15 @@
         ],
         "x-ms-examples": {
           "Refresh a Migrator": {
-            "$ref": "./examples/LiveDataMigrator/MigratorRefresh.json"
+            "$ref": "./examples/LiveDataMigrator/MigratorUpdateDownloadLocation.json"
           }
         },
         "responses": {
           "200": {
-            "description": "Refresh request completed."
+            "description": "Update download location request completed."
           },
           "202": {
-            "description": "Refresh request accepted."
+            "description": "Update download location request accepted."
           },
           "default": {
             "description": "Error response describing the reason for operation failure.",
@@ -4035,6 +4035,10 @@
           "description": "Operation name: {provider}/{resource}/{operation}",
           "type": "string"
         },
+        "isDataAction": {
+          "description": "Indicates whether the operation applies to data-plane",
+          "type": "boolean"
+        },
         "display": {
           "description": "The object that represents the operation.",
           "properties": {
@@ -4048,6 +4052,10 @@
             },
             "operation": {
               "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "description": {
+              "description": "The description of the operation",
               "type": "string"
             }
           }
