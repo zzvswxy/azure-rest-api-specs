@@ -1346,7 +1346,11 @@
       }
     },
     "DatadogMonitorResource": {
+      "required": [
+        "location"
+      ],
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "id": {
           "description": "ARM id of the monitor resource.",
@@ -1438,7 +1442,7 @@
       }
     },
     "FilteringTag": {
-      "description": "The definition of a filtering tag. Filtering tags are used for\r\ncapturing resources and include/exclude them from being monitored.",
+      "description": "The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.",
       "type": "object",
       "properties": {
         "name": {
@@ -1471,7 +1475,7 @@
           "type": "boolean"
         },
         "filteringTags": {
-          "description": "List of filtering tags to be used for capturing logs.\r\nThis only takes effect if SendActivityLogs flag is enabled.\r\nIf empty, all resources will be captured.\r\nIf only Exclude action is specified, the rules will apply to the list of all available resources.\r\nIf Include actions are specified, the rules will only include resources with the associated tags.",
+          "description": "List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/FilteringTag"
@@ -1484,7 +1488,7 @@
       "type": "object",
       "properties": {
         "filteringTags": {
-          "description": "List of filtering tags to be used for capturing metrics.\r\nIf empty, all resources will be captured.\r\nIf only Exclude action is specified, the rules will apply to the list of all available resources.\r\nIf Include actions are specified, the rules will only include resources with the associated tags.",
+          "description": "List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/FilteringTag"
@@ -1507,6 +1511,7 @@
     "MonitoringTagRules": {
       "description": "Capture logs and metrics of Azure resources based on ARM tags.",
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "name": {
           "description": "Name of the rule set.",
@@ -1577,6 +1582,7 @@
     },
     "DatadogSingleSignOnResource": {
       "type": "object",
+      "x-ms-azure-resource": true,
       "properties": {
         "id": {
           "description": "ARM id of the resource.",
@@ -1614,6 +1620,31 @@
           "type": "string"
         }
       }
+    }
+  },
+  "parameters": {
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "The Microsoft Azure subscription ID.",
+      "required": true,
+      "type": "string"
+    },
+    "ResourceGroupNameParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group to which the Datadog resource belongs.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "MonitorNameParameter": {
+      "in": "path",
+      "name": "monitorName",
+      "description": "Monitor resource name",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   }
 }
