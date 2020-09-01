@@ -29,7 +29,7 @@ title: ApiManagementClient
 description: ApiManagement Client
 openapi-type: arm
 tag: package-2019-12
-openapi-subtype: test
+openapi-subtype: rpaas
 ```
 
 
