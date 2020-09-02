@@ -3345,6 +3345,7 @@
         },
         "storageAccessKey": {
           "x-ms-secret": true,
+          "x-ms-mutability": ["create"],
           "description": "Access Key for storage (use either key or identity)",
           "type": "string"
         },
@@ -3829,10 +3830,16 @@
         },
         "storageAccessKey": {
           "x-ms-secret": true,
-          "description": "Access Key for storage (use either key or identity)",
+          "x-ms-mutability": ["create"],
+          "description": "Access Key for storage",
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "storageAccountId",
+        "storageAccessKey",
+        "storageContainer"
+      ]
     },
     "ReplicationRule": {
       "description": "Replication Rule",
