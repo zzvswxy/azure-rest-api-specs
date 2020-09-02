@@ -371,6 +371,9 @@
         ],
         "parameters": [
           {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
@@ -415,6 +418,9 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
@@ -464,6 +470,9 @@
         ],
         "parameters": [
           {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
@@ -473,11 +482,7 @@
             "$ref": "#/parameters/MonitorNameParameter"
           },
           {
-            "description": "Name of the tag rules.",
-            "in": "path",
-            "name": "ruleSetName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/RuleSetNameParameter"
           },
           {
             "description": "request body of MonitoringTagRules",
@@ -519,6 +524,9 @@
         ],
         "parameters": [
           {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
@@ -528,11 +536,7 @@
             "$ref": "#/parameters/MonitorNameParameter"
           },
           {
-            "description": "Name of the tag rules.",
-            "in": "path",
-            "name": "ruleSetName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/RuleSetNameParameter"
           }
         ],
         "responses": {
@@ -552,6 +556,56 @@
         "x-ms-examples": {
           "TagRules_Get": {
             "$ref": "./examples/TagRules_Get.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Rules"
+        ],
+        "summary": "Delete a tag rule set for a given monitor resource.",
+        "operationId": "TagRules_Delete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MonitorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/RuleSetNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "TagRules_Delete": {
+            "$ref": "./examples/TagRules_Delete.json"
           }
         }
       }
@@ -767,7 +821,7 @@
         },
         "emailAddress": {
           "description": "Email of the user used by Elastic for contacting them if needed",
-          "pattern": "^.+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$",
+          "pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$",
           "type": "string"
         },
         "companyInfo": {
@@ -775,19 +829,6 @@
           "$ref": "#/definitions/CompanyInfo"
         }
       }
-    },
-    "LiftrResourceCategories": {
-      "description": "Liftr resource categories.",
-      "enum": [
-        "Unknown",
-        "MonitorLogs"
-      ],
-      "type": "string",
-      "x-ms-enum": {
-        "modelAsString": true,
-        "name": "LiftrResourceCategories"
-      },
-      "readOnly": true
     },
     "MonitorProperties": {
       "description": "Properties specific to the monitor resource.",
@@ -811,16 +852,6 @@
           "x-ms-mutability": [
             "create"
           ]
-        },
-        "liftrResourceCategory": {
-          "description": "Liftr resource categories.",
-          "$ref": "#/definitions/LiftrResourceCategories"
-        },
-        "liftrResourcePreference": {
-          "description": "The priority of the resource.",
-          "format": "int32",
-          "type": "integer",
-          "readOnly": true
         }
       }
     },
@@ -938,6 +969,19 @@
         }
       }
     },
+    "SendingLogs": {
+      "enum": [
+        "True",
+        "False"
+      ],
+      "type": "string",
+      "description": "Flag indicating the status of the resource for sending logs operation to Elastic.",
+      "title": "SendingLogs",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "SendingLogs"
+      }
+    },
     "MonitoredResource": {
       "description": "The properties of a resource currently being monitored by the Elastic monitor resource.",
       "type": "object",
@@ -947,8 +991,8 @@
           "type": "string"
         },
         "sendingLogs": {
-          "description": "Flag indicating if resource is sending logs to Elastic.",
-          "type": "boolean"
+          "description": "Flag indicating the status of the resource for sending logs operation to Elastic.",
+          "$ref": "#/definitions/SendingLogs"
         },
         "reasonForLogsStatus": {
           "description": "Reason for why the resource is sending logs (or why it is not sending).",
@@ -1113,6 +1157,14 @@
       "in": "path",
       "name": "monitorName",
       "description": "Monitor resource name",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "RuleSetNameParameter": {
+      "in": "path",
+      "name": "ruleSetName",
+      "description": "Tag Rule Set resource name",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"

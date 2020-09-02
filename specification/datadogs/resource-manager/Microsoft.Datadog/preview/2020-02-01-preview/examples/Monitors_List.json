@@ -19,7 +19,7 @@
                 "id": "myOrg123",
                 "apiKey": null,
                 "applicationKey": null,
-                "idpMetadata": null,
+                "linkingAuthCode": null,
                 "enterpriseAppId": null
               },
               "liftrResourceCategory": "MonitorLogs",

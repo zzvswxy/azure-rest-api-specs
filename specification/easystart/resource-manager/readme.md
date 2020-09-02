@@ -1,8 +1,8 @@
-# hybridnetwork
+# easystart
 
 > see https://aka.ms/autorest
 
-This is the AutoRest configuration file for hybridnetwork.
+This is the AutoRest configuration file for easystart.
 
 ## Getting Started
 
@@ -15,34 +15,30 @@ To see additional help and options, run:
 > `autorest --help`
 
 For other options on installation see [Installing AutoRest](https://aka.ms/autorest/install) on the AutoRest github page.
----
 
+---
 
 ## Configuration
 
 ### Basic Information
 
-These are the global settings for the hybridnetwork.
+These are the global settings for the easystart.
 
 ```yaml
 openapi-type: arm
-tag: package-2020-01-01-preview
+tag: package-2020-08-27-privatepreview
 ```
 
-### Tag: package-2020-01-01-preview
+### Tag: package-2020-08-27-privatepreview
 
-These settings apply only when `--tag=package-2020-01-01-preview` is specified on the command line.
+These settings apply only when `--tag=package-2020-08-27-privatepreview` is specified on the command line.
 
-```yaml $(tag) == 'package-2020-01-01-preview'
+```yaml $(tag) == 'package-2020-08-27-privatepreview'
 input-file:
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/common.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/virtualNetworkFunction.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/device.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/operations.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/vendor.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/virtualNetworkFunctionVendors.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/vendorVirtualNetworkFunction.json
+  - Microsoft.EasyStartTest/preview/2020-08-27-privatepreview/easystart.json
 ```
+
+---
 
 # Code Generation
 
@@ -59,7 +55,7 @@ swagger-to-sdk:
   - repo: azure-sdk-for-js
   - repo: azure-sdk-for-ruby
     after_scripts:
-      - bundle install && rake arm:regen_all_profiles['azure_mgmt_hybridnetwork']
+      - bundle install && rake arm:regen_all_profiles['azure_mgmt_easystart']
 ```
 
 ## Go

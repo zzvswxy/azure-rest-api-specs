@@ -1,8 +1,7 @@
 {
   "parameters": {
     "subscriptionId": "00000000-1111-2222-3333-444444444444",
-    "resourceGroupName": "fusionGroupTestRG",
-    "fusionGroupName": "fusionGroupName",
+    "resourceGroupName": "migratorTestRG",
     "migratorName": "migrator",
     "api-version": "2019-09-01-preview"
   },
@@ -11,11 +10,11 @@
       "body": {
         "value": [
           {
-            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/fusionGroupTestRG/providers/Wandisco.Fusion/fusionGroups/fusionGroupName/migrators/migratorName/targets",
+            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/migratorTestRG/providers/Wandisco.Fusion/migrators/migratorName/targets",
             "name": "MigratorTargetName",
             "properties": {
               "provisioningState": "Accepted",
-              "storageAccountId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/fusionGroupTestRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+              "storageAccountId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/migratorTestRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
               "storageContainer": "targetStorageContainer"
             },
             "location": "East US",
