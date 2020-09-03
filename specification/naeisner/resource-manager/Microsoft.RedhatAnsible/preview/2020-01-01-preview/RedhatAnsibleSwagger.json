@@ -206,10 +206,10 @@
         ],
         "responses": {
           "202": {
-            "description": "invokes the ansible job.",
-            "schema": {
-              "$ref": "#/definitions/ansiblejob"
-            }
+            "description": "invokes the ansible job."
+          },
+          "200": {
+            "description": "invokes the ansible job."
           }
         }
       }
