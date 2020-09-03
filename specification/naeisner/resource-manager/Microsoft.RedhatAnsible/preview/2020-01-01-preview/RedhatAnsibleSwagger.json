@@ -179,7 +179,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedhatAnsible/ansibletowers/{ansibletowersName}/listCreateAnsibleJob": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedhatAnsible/ansibletowers/{ansibletowersName}/createAnsibleJob": {
       "post": {
         "operationId": "ansiblejob_Action",
         "parameters": [
@@ -454,11 +454,16 @@
     "ansiblejob": {
       "type": "object",
       "properties": {
-        "host": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
+        "authentication": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "token": {
+              "type": "string"
+            }
+          }
         },
         "job_template_name": {
           "type": "string"
