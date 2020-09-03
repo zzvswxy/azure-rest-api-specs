@@ -981,12 +981,48 @@
         }
       }
     },
+    "DatadogInstallMethod": {
+      "type": "object",
+      "properties": {
+        "tool": {
+          "description": "The tool.",
+          "type": "string"
+        },
+        "toolVersion": {
+          "description": "The tool version.",
+          "type": "string"
+        },
+        "installerlVersion": {
+          "description": "The installer version.",
+          "type": "string"
+        }
+      }
+    },
+    "DatadogLogsAgent": {
+      "type": "object",
+      "properties": {
+        "transport": {
+          "description": "The transport.",
+          "type": "string"
+        }
+      }
+    },
     "DatadogHostMetadata": {
       "type": "object",
       "properties": {
         "agentVersion": {
           "description": "The agent version.",
           "type": "string"
+        },
+        "installMethod": {
+          "description": "The install method.",
+          "type": "object",
+          "$ref": "#/definitions/DatadogInstallMethod"
+        },
+        "logsAgent": {
+          "description": "The logs agent.",
+          "type": "object",
+          "$ref": "#/definitions/DatadogLogsAgent"
         }
       }
     },
@@ -996,6 +1032,13 @@
         "name": {
           "description": "The name of the host.",
           "type": "string"
+        },
+        "aliases": {
+          "description": "The aliases for the host.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "apps": {
           "description": "The Datadog integrations reporting metrics for the host.",
