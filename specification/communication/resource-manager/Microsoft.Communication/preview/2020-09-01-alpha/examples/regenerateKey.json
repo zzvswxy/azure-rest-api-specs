@@ -3,7 +3,7 @@
     "subscriptionId": "12345",
     "resourceGroupName": "MyResourceGroup",
     "communicationServiceName": "MyCommunicationResource",
-    "api-version": "2019-10-10-preview",
+    "api-version": "2020-09-01-alpha",
     "parameters": {
       "keyType": "Primary"
     }

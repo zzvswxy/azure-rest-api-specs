@@ -3,20 +3,14 @@
     "subscriptionId": "12345",
     "resourceGroupName": "MyResourceGroup",
     "communicationServiceName": "MyCommunicationResource",
-    "api-version": "2019-10-10-preview",
-    "parameters": {
-      "keyType": "Primary"
-    }
+    "api-version": "2020-09-01-alpha"
   },
   "responses": {
     "200": {
       "body": {
         "primaryKey": "1234",
-        "primaryConnectionString": "endpoint=http://example.com;accesskey=1234"
+        "secondaryKey": "ABCD"
       }
-    },
-    "201": {
-      "body": {}
     }
   }
 }

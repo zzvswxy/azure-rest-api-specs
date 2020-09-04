@@ -3,10 +3,12 @@
     "subscriptionId": "12345",
     "resourceGroupName": "MyResourceGroup",
     "communicationServiceName": "MyCommunicationResource",
-    "api-version": "2019-10-10-preview",
+    "api-version": "2020-09-01-alpha",
     "parameters": {
-      "location": "West US",
-      "properties": {}
+      "location": "Global",
+      "properties": {
+        "dataLocation": "United States"
+      }
     }
   },
   "responses": {
@@ -15,8 +17,9 @@
         "id": "/subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource",
         "name": "MyCommunicationResource",
         "type": "Microsoft.Communication/CommunicationServices",
-        "location": "West US",
+        "location": "Global",
         "properties": {
+          "dataLocation": "United States",
           "provisioningState": "Succeeded",
           "hostName": "mycommunicationresource.communications.azure.com"
         }
@@ -30,8 +33,9 @@
         "id": "/subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource",
         "name": "MyCommunicationResource",
         "type": "Microsoft.Communication/CommunicationServices",
-        "location": "West US",
+        "location": "Global",
         "properties": {
+          "dataLocation": "United States",
           "provisioningState": "Accepted"
         }
       }
