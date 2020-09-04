@@ -178,6 +178,41 @@
           "nextLinkName": "nextLink"
         }
       }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedhatAnsible/ansibletowers/{ansibletowersName}/createAnsibleJob": {
+      "post": {
+        "operationId": "ansiblejob_Action",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ansibletowersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "ansiblejob",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ansiblejob"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "invokes the ansible job."
+          },
+          "200": {
+            "description": "invokes the ansible job."
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -187,7 +222,7 @@
         "ansibleResult": {
           "type": "object",
           "properties": {
-            "changed":{
+            "changed": {
               "type": "integer"
             },
             "completion": {
@@ -210,8 +245,8 @@
         "message": {
           "type": "string"
         },
-        "reason":{
-          "type":"string"
+        "reason": {
+          "type": "string"
         },
         "status": {
           "type": "string"
@@ -415,6 +450,26 @@
         }
       },
       "description": "Results of the request to list operations."
+    },
+    "ansiblejob": {
+      "type": "object",
+      "properties": {
+        "authentication": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "token": {
+              "type": "string"
+            }
+          }
+        },
+        "job_template_name": {
+          "type": "string"
+        }
+      },
+      "description": "The ansiblejobs resource definition."
     }
   },
   "parameters": {
