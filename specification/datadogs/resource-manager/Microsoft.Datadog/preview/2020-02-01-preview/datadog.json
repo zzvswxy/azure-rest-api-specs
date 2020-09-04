@@ -992,7 +992,7 @@
           "description": "The tool version.",
           "type": "string"
         },
-        "installerlVersion": {
+        "installerVersion": {
           "description": "The installer version.",
           "type": "string"
         }
