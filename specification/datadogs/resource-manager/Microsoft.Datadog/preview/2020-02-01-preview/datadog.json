@@ -992,7 +992,7 @@
           "description": "The tool version.",
           "type": "string"
         },
-        "installerlVersion": {
+        "installerVersion": {
           "description": "The installer version.",
           "type": "string"
         }
@@ -1015,13 +1015,9 @@
           "type": "string"
         },
         "installMethod": {
-          "description": "The install method.",
-          "type": "object",
           "$ref": "#/definitions/DatadogInstallMethod"
         },
         "logsAgent": {
-          "description": "The logs agent.",
-          "type": "object",
           "$ref": "#/definitions/DatadogLogsAgent"
         }
       }
@@ -1048,8 +1044,6 @@
           }
         },
         "meta": {
-          "description": "The host metadata.",
-          "type": "object",
           "$ref": "#/definitions/DatadogHostMetadata"
         }
       }
