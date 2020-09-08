@@ -19,9 +19,9 @@
     "application/json"
   ],
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualnetworks/{virtualnetworksName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/galleryimages/{galleryimagesName}": {
       "get": {
-        "operationId": "virtualnetworks_Retrieve",
+        "operationId": "galleryimages_Retrieve",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -30,7 +30,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/galleryimagesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -38,15 +38,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Retrieves the virtualnetworks resource.",
+            "description": "Retrieves the galleryimages resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/galleryimages"
             }
           }
         }
       },
       "put": {
-        "operationId": "virtualnetworks_CreateOrUpdate",
+        "operationId": "galleryimages_CreateOrUpdate",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -55,37 +55,37 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/galleryimagesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "virtualnetworks",
+            "name": "galleryimages",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/galleryimages"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the virtualnetworks resource.",
+            "description": "Updates the galleryimages resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/galleryimages"
             }
           },
           "201": {
-            "description": "Creates the virtualnetworks resource.",
+            "description": "Creates the galleryimages resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/galleryimages"
             }
           }
         }
       },
       "delete": {
-        "operationId": "virtualnetworks_Delete",
+        "operationId": "galleryimages_Delete",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -94,7 +94,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/galleryimagesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -102,12 +102,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Deletes the virtualnetworks resource."
+            "description": "Deletes the galleryimages resource."
           }
         }
       },
       "patch": {
-        "operationId": "virtualnetworks_Update",
+        "operationId": "galleryimages_Update",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -116,39 +116,39 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/galleryimagesNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "virtualnetworks",
+            "name": "galleryimages",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/virtualnetworksPatch"
+              "$ref": "#/definitions/galleryimagesPatch"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the virtualnetworks resource.",
+            "description": "Updates the galleryimages resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/galleryimages"
             }
           },
           "201": {
-            "description": "Updates the virtualnetworks resource.",
+            "description": "Updates the galleryimages resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/galleryimages"
             }
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualnetworks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/galleryimages": {
       "get": {
-        "operationId": "virtualnetworks_ListByResourceGroup",
+        "operationId": "galleryimages_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -162,9 +162,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all virtualnetworks under the resouce group.",
+            "description": "Lists all galleryimages under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworksListResult"
+              "$ref": "#/definitions/galleryimagesListResult"
             }
           }
         },
@@ -173,9 +173,9 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureStackHCI/virtualnetworks": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureStackHCI/galleryimages": {
       "get": {
-        "operationId": "virtualnetworks_ListBySubscription",
+        "operationId": "galleryimages_ListBySubscription",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -186,9 +186,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all virtualnetworks under the subscription.",
+            "description": "Lists all galleryimages under the subscription.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworksListResult"
+              "$ref": "#/definitions/galleryimagesListResult"
             }
           }
         },
@@ -220,33 +220,27 @@
     }
   },
   "definitions": {
-    "virtualnetworksProperties": {
+    "galleryimagesProperties": {
       "type": "object",
       "properties": {
-        "subnet": {
-          "type": "object",
-          "description": "Subnet"
-        },
-        "vlan": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Vlan"
+        "imagePath": {
+          "type": "string",
+          "description": "location of the image the gallery image should be created from"
         },
         "provisioningState": {
           "type": "string"
         },
         "status": {
           "type": "object",
-          "description": "MOCVirtualNetworkStatus defines the observed state of MOCVirtualNetwork"
+          "description": "MOCGalleryImageStatus defines the observed state of MOCGalleryImage"
         }
-      },
-      "description": "MOCVirtualNetworkSpec defines the desired state of MOCVirtualNetwork"
+      }
     },
-    "virtualnetworks": {
+    "galleryimages": {
       "type": "object",
       "properties": {
         "properties": {
-          "$ref": "#/definitions/virtualnetworksProperties"
+          "$ref": "#/definitions/galleryimagesProperties"
         },
         "id": {
           "type": "string",
@@ -291,9 +285,9 @@
       "required": [
         "location"
       ],
-      "description": "The virtualnetworks resource definition."
+      "description": "The galleryimages resource definition."
     },
-    "virtualnetworksPatch": {
+    "galleryimagesPatch": {
       "type": "object",
       "properties": {
         "tags": {
@@ -304,15 +298,15 @@
           "description": "Resource tags"
         }
       },
-      "description": "The virtualnetworks resource patch definition."
+      "description": "The galleryimages resource patch definition."
     },
-    "virtualnetworksListResult": {
+    "galleryimagesListResult": {
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/virtualnetworks"
+            "$ref": "#/definitions/galleryimages"
           }
         },
         "nextLink": {
@@ -373,8 +367,8 @@
     }
   },
   "parameters": {
-    "virtualnetworksNameParameter": {
-      "name": "virtualnetworksName",
+    "galleryimagesNameParameter": {
+      "name": "galleryimagesName",
       "in": "path",
       "required": true,
       "type": "string",
