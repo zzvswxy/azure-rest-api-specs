@@ -473,7 +473,50 @@
               "description": "The provisioning state of the resource.",
               "readOnly": true,
               "$ref": "#/definitions/ProvisioningState"
+            },
+            "transportationProviders": {
+              "description": "The transportation providers.",
+              "readOnly": true,
+              "$ref": "#/definitions/TransportationProviderInfoList"
             }
+          }
+        }
+      }
+    },
+    "TransportationProviderInfo": {
+      "type": "object",
+      "description": "transportation provider info",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The transportation type",
+          "readOnly": false
+        },
+        "accountId": {
+          "type": "string",
+          "description": "The  transportation provider's account Id",
+          "readOnly": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "The flag whether trasportation provider is disabled",
+          "readOnly": false
+        }
+      }
+    },
+    "TransportationProviderInfoList": {
+      "description": "The list of transportation provider infos.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of transportation provider infos list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of transportation provider info.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransportationProviderInfo"
           }
         }
       }
@@ -502,7 +545,7 @@
           "type": "string"
         },
         "value": {
-          "description": "The list of workspace accounts.",
+          "description": "The list of workspaces.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Workspace"
