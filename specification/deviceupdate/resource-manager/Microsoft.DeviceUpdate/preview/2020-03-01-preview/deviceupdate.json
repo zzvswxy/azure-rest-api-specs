@@ -154,7 +154,7 @@
         "operationId": "Accounts_Create",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
+          "final-state-via": "azure-async-operation"
         },
         "parameters": [
           {
@@ -375,7 +375,7 @@
         "operationId": "Instances_Create",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
+          "final-state-via": "azure-async-operation"
         },
         "parameters": [
           {
@@ -679,6 +679,11 @@
                 "modelAsString": true
               }
             },
+            "accountName": {
+              "description": "Parent Device Update Account name to which Instance belongs to.",
+              "type": "string",
+              "readOnly": true
+            },
             "iotHubs": {
               "description": "List of IoT Hubs associated with the account.",
               "type": "array",
@@ -734,6 +739,8 @@
         }
       },
       "required": [
+        "name",
+        "resourceId",
         "ioTHubConnectionString",
         "eventHubConnectionString"
       ]
