@@ -679,6 +679,11 @@
                 "modelAsString": true
               }
             },
+            "accountName": {
+              "description": "Parent Device Update Account name to which Instance belongs to.",
+              "type": "string",
+              "readOnly": true
+            },
             "iotHubs": {
               "description": "List of IoT Hubs associated with the account.",
               "type": "array",
