@@ -739,6 +739,8 @@
         }
       },
       "required": [
+        "name",
+        "resourceId",
         "ioTHubConnectionString",
         "eventHubConnectionString"
       ]
