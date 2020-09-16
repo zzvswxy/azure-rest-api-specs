@@ -460,9 +460,9 @@
         "properties": {
           "type": "object",
           "properties": {
-            "workspaceGuid": {
+            "workspaceId": {
               "type": "string",
-              "description": "The workspace's Guid",
+              "description": "The workspace's Id",
               "readOnly": true
             },
             "workspaceName": {
@@ -473,8 +473,37 @@
               "description": "The provisioning state of the resource.",
               "readOnly": true,
               "$ref": "#/definitions/ProvisioningState"
+            },
+            "transportationProviders": {
+              "description": "The transportation providers.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TransportationProviderInfo"
+              },
+              "readOnly": false
             }
           }
+        }
+      }
+    },
+    "TransportationProviderInfo": {
+      "type": "object",
+      "description": "transportation provider info",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The transportation type",
+          "readOnly": false
+        },
+        "accountId": {
+          "type": "string",
+          "description": "The  transportation provider's account Id",
+          "readOnly": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "The flag whether trasportation provider is disabled",
+          "readOnly": false
         }
       }
     },
@@ -502,7 +531,7 @@
           "type": "string"
         },
         "value": {
-          "description": "The list of workspace accounts.",
+          "description": "The list of workspaces.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Workspace"
