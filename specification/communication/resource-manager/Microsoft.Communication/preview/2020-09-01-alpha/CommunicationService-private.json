@@ -23,13 +23,13 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}/eventgridfilters/{eventGridFilterName}": {
       "parameters": [
         {
-          "$ref": "CommunicationService.json#/parameters/ApiVersionParameter"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
         },
         {
-          "$ref": "CommunicationService.json#/parameters/SubscriptionIdParameter"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
         },
         {
-          "$ref": "CommunicationService.json#/parameters/ResourceGroupParameter"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
         },
         {
           "$ref": "CommunicationService.json#/parameters/CommunicationServiceName"
@@ -189,13 +189,13 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}/eventgridfilters": {
       "parameters": [
         {
-          "$ref": "CommunicationService.json#/parameters/ApiVersionParameter"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
         },
         {
-          "$ref": "CommunicationService.json#/parameters/SubscriptionIdParameter"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
         },
         {
-          "$ref": "CommunicationService.json#/parameters/ResourceGroupParameter"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
         },
         {
           "$ref": "CommunicationService.json#/parameters/CommunicationServiceName"
