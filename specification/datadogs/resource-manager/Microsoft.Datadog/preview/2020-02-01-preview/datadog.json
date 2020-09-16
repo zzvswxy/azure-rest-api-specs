@@ -1268,20 +1268,6 @@
             "create"
           ]
         },
-        "apiKey": {
-          "description": "Api key associated to the Datadog organization.",
-          "type": "string",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "applicationKey": {
-          "description": "Application key associated to the Datadog organization.",
-          "type": "string",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
         "enterpriseAppId": {
           "description": "The Id of the Enterprise App used for Single sign on.",
           "type": "string",
