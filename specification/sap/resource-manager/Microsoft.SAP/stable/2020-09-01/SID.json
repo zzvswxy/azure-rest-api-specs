@@ -208,6 +208,37 @@
           }
         }
       },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.SAP/SID": {
+        "get": {
+          "description": "Returns SID for given subscription.",
+          "operationId": "SID_Subscription_List",
+          "parameters": [
+              {
+                "$ref": "#/parameters/ApiVersionParameter"
+              },
+              {
+                "$ref": "#/parameters/SubscriptionIdParameter"
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "SID",
+              "schema": {
+                "$ref": "#/definitions/SIDList"
+              }
+            },
+            "default": {
+              "description": "Error response describing the reason for operation failure.",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          }
+        }
+      },
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SAP/SID/{sidName}/SCS/{scsName}": {
         "get": {
           "description": "Returns a SCS",
