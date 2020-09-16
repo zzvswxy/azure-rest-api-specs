@@ -174,25 +174,36 @@
 			},
 			"PortalSettingProperties": {
 				"required":[
-					"priority",
-					"settingValue"
+				    "BladeTarget", 
+					"add",
+					"remove"
 				],
 				"properties":{
-					"priority": {
+					"ResourceProvider": {
 						"type": "string",
-						"description": "Portal setting priority",
-						"enum": [
-							"0",
-							"1"
-						],
-						"x-ms-enum": {
-							"name": "Prioriy",
-							"modelAsString": true
-						}
+						"description": "Targetted RP for the custom portal settings",
 					},
-					"settingValue": {
-						"description": "The settingValue",
+					"ResourceType": {
+						"type": "string",
+						"description": "Targetted resource type under the RP for the custom portal settings",
+					},
+					"BladeTarget": {
+						"type": "string",
+						"description": "Blade target where the customization needs to be applied",
+					},
+					"add": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "array of items to add"
+					},
+					"remove": {
+						"type": "array",
+						"items": {
 						"type": "string"
+						},
+					"description": "array of items to remove"
 					}
 				}
 			},
