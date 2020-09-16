@@ -1507,7 +1507,6 @@
       "type": "object",
       "properties": {
         "setPasswordLink": {
-          "format": "uri",
           "type": "string"
         }
       }
