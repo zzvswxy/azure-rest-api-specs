@@ -328,6 +328,11 @@
               "description": "The workspace's Id",
               "readOnly": true
             },
+            
+            "description": {
+              "type": "string",
+              "readOnly": false
+            },
             "targetTenantId": {
               "type": "string",
               "readOnly": false
