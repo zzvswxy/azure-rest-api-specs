@@ -178,7 +178,7 @@
         "tags": [
           "Share"
         ],
-        "operationId": "Share_List_ShareInvites",
+        "operationId": "Share_List",
         "parameters": [
           {
             "type": "string",
