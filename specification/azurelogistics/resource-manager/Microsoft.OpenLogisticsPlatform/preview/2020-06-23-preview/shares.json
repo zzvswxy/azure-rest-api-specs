@@ -242,7 +242,7 @@
           "readOnly": true
         },
         "subscriptionId": {
-          "description": "Azure rubscription Id.",
+          "description": "Azure subscription Id.",
           "type": "string",
           "readOnly": false
         },
