@@ -1,11 +1,11 @@
 {
     "swagger": "2.0",
     "info": {
-      "title": "AzureDataShuls",
-      "description": "The Microsoft.AzureDataShuls Rest API spec.",
+      "title": "AzureDataShul",
+      "description": "The Microsoft.AzureDataShul Rest API spec.",
       "version": "2020-09-21-preview",
       "x-ms-code-generation-settings": {
-        "name": "AzureDataShulsClient"
+        "name": "AzureDataShulClient"
       }
     },
     "host": "management.azure.com",
@@ -19,7 +19,7 @@
       "application/json"
     ],
     "paths": {
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShuls/datacontrollers/{datacontrollersName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/datacontrollers/{datacontrollersName}": {
         "get": {
           "operationId": "datacontrollers_Retrieve",
           "parameters": [
@@ -146,7 +146,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShuls/datacontrollers": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/datacontrollers": {
         "get": {
           "operationId": "datacontrollers_ListByResourceGroup",
           "parameters": [
@@ -173,7 +173,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/providers/Microsoft.AzureDataShuls/datacontrollers": {
+      "/subscriptions/{subscriptionId}/providers/Microsoft.AzureDataShul/datacontrollers": {
         "get": {
           "operationId": "datacontrollers_ListBySubscription",
           "parameters": [
@@ -197,7 +197,7 @@
           }
         }
       },
-      "/providers/Microsoft.AzureDataShuls/operations": {
+      "/providers/Microsoft.AzureDataShul/operations": {
         "get": {
           "operationId": "Operations_List",
           "parameters": [
