@@ -97,7 +97,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/LoadTests": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests": {
       "get": {
         "tags": ["LoadTests"],
         "description": "Lists loadtest resources in a resource group.",
@@ -138,7 +138,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/LoadTests/{loadTestName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}": {
       "get": {
         "tags": ["LoadTests"],
         "description": "Get a LoadTest resource.",
