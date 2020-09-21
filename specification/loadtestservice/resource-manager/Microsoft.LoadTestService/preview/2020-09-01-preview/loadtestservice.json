@@ -214,12 +214,6 @@
               "$ref": "#/definitions/LoadTestResource"
             }
           },
-          "201": {
-            "description": "Created -- LoadTest resource created",
-            "schema": {
-              "$ref": "#/definitions/LoadTestResource"
-            }
-          },
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {

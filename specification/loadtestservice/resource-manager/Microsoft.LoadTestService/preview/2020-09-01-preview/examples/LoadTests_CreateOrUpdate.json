@@ -22,19 +22,6 @@
 				"type": "Microsoft.LoadTestService/LoadTests",
 				"tags": {}
 			}
-		},
-		"201": {
-			"body": {
-				"location": "westus",
-				"properties": {
-					"description": "My LoadTest",
-					"provisioningState": "Succeeded"
-				},
-				"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/LoadTests/MyLoadTest",
-				"name": "MyLoadTest",
-				"type": "Microsoft.LoadTestService/LoadTests",
-				"tags": {}
-			}
 		}
 	}
 }
