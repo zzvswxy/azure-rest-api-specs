@@ -15,5 +15,5 @@ Please also specify `--go-sdks-folder=<path to the root directory of your azure-
 
 ```yaml $(tag) == 'package-2020-09-01-preview' && $(go)
 namespace: loadtestservice
-output-folder: $(go-sdks-folder)/loadtestservice/Generated
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-09-01-preview/$(namespace)
 ```
