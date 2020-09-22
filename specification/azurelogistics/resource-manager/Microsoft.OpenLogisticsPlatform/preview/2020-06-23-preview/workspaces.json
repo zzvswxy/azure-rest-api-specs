@@ -115,10 +115,6 @@
               "$ref": "#/definitions/ErrorResponse"
             }
           }
-        },
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
         }
       },
       "delete": {
@@ -162,10 +158,6 @@
               "$ref": "#/definitions/ErrorResponse"
             }
           }
-        },
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
         }
       },
       "patch": {
@@ -416,6 +408,16 @@
           "type": "string",
           "readOnly": true
         },
+        "sku": {
+          "description": "Sku of resource definition",
+          "type": "string",
+          "readOnly": false
+        },
+        "managedBy": {
+          "description": "Who manages the resource",
+          "type": "string",
+          "readOnly": false
+        },
         "location": {
           "description": "Location of the resource.",
           "type": "string",
@@ -423,6 +425,11 @@
         },
         "zones": {
           "description": "Availability zone of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "plan": {
+          "description": "The resource plan",
           "type": "string",
           "readOnly": false
         },
@@ -463,12 +470,46 @@
               "description": "The workspace's Id",
               "readOnly": true
             },
+            "workspaceName": {
+              "type": "string",
+              "description": "The name of your Azure Supply Chain Service's workspace.",
+              "readOnly": false
+            },
             "provisioningState": {
               "description": "The provisioning state of the resource.",
               "readOnly": true,
               "$ref": "#/definitions/ProvisioningState"
+            },
+            "transportationProviders": {
+              "description": "The transportation providers.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TransportationProviderInfo"
+              },
+              "readOnly": false
             }
           }
+        }
+      }
+    },
+    "TransportationProviderInfo": {
+      "type": "object",
+      "description": "transportation provider info",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The transportation type",
+          "readOnly": false
+        },
+        "accountId": {
+          "type": "string",
+          "description": "The  transportation provider's account Id",
+          "readOnly": false
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "The flag indicates whether trasportation provider is disabled",
+          "readOnly": false
         }
       }
     },
@@ -593,18 +634,6 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The Id."
-        },
-        "fullyQualifiedResourceId": {
-          "type": "string",
-          "description": "The resource identifier."
-        },
-        "name": {
-          "type": "string",
-          "description": "The operation name."
-        },
-        "operationId": {
-          "type": "string",
           "description": "The operation Id."
         },
         "startTime": {
@@ -619,73 +648,19 @@
           "type": "string",
           "description": "The status of the operation."
         },
-        "percentComplete": {
-          "type": "string",
-          "description": "The percentage completion."
-        },
         "error": {
           "type": "object",
           "description": "The error detail of the operation if any.",
-          "$ref": "#/definitions/ExtendedErrorInfo"
+          "$ref": "#/definitions/ErrorResponse"
         },
-        "operations": {
-          "description": "The error message details",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OperationStatus"
-          },
-          "readOnly": true
-        }
-      }
-    },
-    "ExtendedErrorInfo": {
-      "type": "object",
-      "description": "Error definition.",
-      "properties": {
-        "code": {
-          "description": "Service specific error code which serves as the substatus for the HTTP error code.",
-          "type": "string",
-          "readOnly": true
-        },
-        "target": {
-          "description": "The error target.",
-          "type": "string",
-          "readOnly": true
-        },
-        "message": {
-          "description": "The error message.",
-          "type": "string",
-          "readOnly": true
-        },
-        "details": {
-          "description": "The error message details",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ExtendedErrorInfo"
-          },
-          "readOnly": true
-        },
-        "additionalInfo": {
-          "description": "The additional error information.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TypedErrorInfo"
-          },
-          "readOnly": true
-        }
-      }
-    },
-    "TypedErrorInfo": {
-      "description": "The error type and its information.",
-      "properties": {
-        "type": {
-          "description": "The type of error info.",
-          "type": "string",
-          "readOnly": true
-        },
-        "info": {
-          "description": "The details of the error type.",
-          "readOnly": true
+        "properties": {
+          "type": "object",
+          "properties": {
+            "workspaceId": {
+              "type": "string",
+              "readOnly": false
+            }
+          }
         }
       }
     }
