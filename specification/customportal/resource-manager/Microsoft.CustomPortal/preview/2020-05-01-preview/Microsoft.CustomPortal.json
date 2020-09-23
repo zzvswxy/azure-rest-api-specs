@@ -168,12 +168,12 @@
 					"name": {
 						"type": "string",
 						"readOnly": true,
-						"description": "The portal setting name.",
+						"description": "The portal setting name."
 					},
 					"type": {
 						"type": "string",
 						"readOnly": true,
-						"description": "The portal setting type.",
+						"description": "The portal setting type."
 					},
 					"priority": {
 						"type": "number",
