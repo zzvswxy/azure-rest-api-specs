@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "GitHub",
-    "description": "GitHub resource provider",
-    "version": "2020-09-21-preview"
+    "title": "GitHub.Enterprise",
+    "description": "GitHub.Enterprise resource provider",
+    "version": "2020-09-23-preview"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -34,9 +34,9 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/GitHub/accounts": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/GitHub.Enterprise/accounts": {
       "get": {
-        "description": "Returns list of accounts.",
+        "description": "Returns a list of GitHub accounts.",
         "operationId": "accounts_List",
         "parameters": [
           {
@@ -51,7 +51,7 @@
         ],
         "responses": {
           "200": {
-            "description": "accounts details.",
+            "description": "List of GitHub account details.",
             "schema": {
               "$ref": "#/definitions/accountsResourceList"
             }
@@ -63,9 +63,9 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/GitHub/accounts/{accountsName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/GitHub.Enterprise/accounts/{accountsName}": {
       "get": {
-        "description": "Returns accounts resource for a given name.",
+        "description": "Returns the GitHub account resource for a given name.",
         "operationId": "accounts_Get",
         "parameters": [
           {
@@ -83,7 +83,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Account details.",
+            "description": "GitHub account details.",
             "schema": {
               "$ref": "#/definitions/accountsResource"
             }
@@ -91,7 +91,7 @@
         }
       },
       "put": {
-        "description": "Create or update accounts resource.",
+        "description": "Create or update a GitHub account resource.",
         "operationId": "accounts_CreateAndUpdate",
         "parameters": [
           {
@@ -108,7 +108,7 @@
           },
           {
             "name": "accountsResource",
-            "description": "Account details.",
+            "description": "GitHub account details.",
             "in": "body",
             "required": true,
             "schema": {
@@ -129,7 +129,7 @@
         }
       },
       "patch": {
-        "description": "Update accounts details.",
+        "description": "Update a GitHub account.",
         "operationId": "accounts_Update",
         "parameters": [
           {
@@ -146,7 +146,7 @@
           },
           {
             "name": "accountsPatchResource",
-            "description": "Account patch details.",
+            "description": "GitHub account patch details.",
             "in": "body",
             "required": true,
             "schema": {
@@ -164,6 +164,7 @@
         }
       },
       "delete": {
+        "description": "Delete a GitHub account.",
         "operationId": "accounts_Delete",
         "parameters": [
           {
@@ -186,7 +187,7 @@
         }
       }
     },
-    "/providers/GitHub/operations": {
+    "/providers/GitHub.Enterprise/operations": {
       "get": {
         "description": "Returns list of operations.",
         "operationId": "Operation_List",
@@ -269,15 +270,15 @@
       }
     },
     "accountsResourceList": {
-      "description": "The list of accounts.",
+      "description": "The list of GitHub accounts.",
       "type": "object",
       "properties": {
         "nextLink": {
-          "description": "The link used to get the next page of accounts list.",
+          "description": "The link used to get the next page of GitHub accounts.",
           "type": "string"
         },
         "value": {
-          "description": "The list of accounts.",
+          "description": "The list of GitHub accounts.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/accountsResource"
@@ -364,7 +365,7 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name of the account.",
+      "description": "The name of the GitHub account.",
       "x-ms-parameter-location": "method"
     }
   }
