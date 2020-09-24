@@ -158,7 +158,7 @@
 					"properties": {
 						"shareName": {
 							"type": "string",
-							"description": "The workspace's Id",
+							"description": "The share name",
 							"readOnly": true
 						},
 						"providerTenantId": {
