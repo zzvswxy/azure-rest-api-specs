@@ -12,7 +12,7 @@
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/workspaces/{workspaceName}/shareSubscriptions": {
 			"get": {
 				"tags": [
-					"Share"
+					"shareSubscriptions"
 				],
 				"operationId": "ShareSubscriptions_Get",
 				"parameters": [{
