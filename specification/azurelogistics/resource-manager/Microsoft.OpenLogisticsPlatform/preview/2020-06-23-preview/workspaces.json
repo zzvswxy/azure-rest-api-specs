@@ -470,6 +470,12 @@
               "description": "The workspace's Id",
               "readOnly": true
             },
+             "shareId": {
+              "type": "string",
+              "description": "The workspace share Id",
+              "readOnly": false
+            },
+
             "workspaceName": {
               "type": "string",
               "description": "The name of your Azure Supply Chain Service's workspace.",
