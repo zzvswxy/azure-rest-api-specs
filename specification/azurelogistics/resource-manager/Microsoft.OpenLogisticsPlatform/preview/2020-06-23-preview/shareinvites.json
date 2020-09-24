@@ -18,7 +18,7 @@
 				"parameters": [
 					{
 						"type": "string",
-						"name": "shareInviteId",
+						"name": "shareId",
 						"in": "path",
 						"required": true
 					}
