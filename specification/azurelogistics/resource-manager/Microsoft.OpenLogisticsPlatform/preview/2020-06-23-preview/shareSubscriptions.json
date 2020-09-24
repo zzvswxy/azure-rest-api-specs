@@ -39,7 +39,7 @@
 					"200": {
 						"description": "",
 						"schema": {
-							"$ref": "#/definitions/ShareList"
+							"$ref": "#/definitions/ShareSubscriptions"
 						}
 					},
 					"default": {
@@ -184,7 +184,7 @@
 			}
 		},
 		
-				"ShareList": {
+				"ShareSubscriptions": {
 			"description": "The list of workspace resources.",
 			"type": "object",
 			"properties": {
