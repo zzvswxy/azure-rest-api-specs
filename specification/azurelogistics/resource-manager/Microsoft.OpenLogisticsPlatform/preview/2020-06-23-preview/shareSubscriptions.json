@@ -39,7 +39,7 @@
 					"200": {
 						"description": "",
 						"schema": {
-							"$ref": "#/definitions/Share"
+							"$ref": "#/definitions/ShareList"
 						}
 					},
 					"default": {
@@ -179,6 +179,24 @@
 							"$ref": "#/definitions/ProvisioningState"
 						}
 
+					}
+				}
+			}
+		},
+		
+				"ShareList": {
+			"description": "The list of workspace resources.",
+			"type": "object",
+			"properties": {
+				"nextLink": {
+					"description": "The link used to get the next page of workspace resources list.",
+					"type": "string"
+				},
+				"value": {
+					"description": "The list of workspaces.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Share"
 					}
 				}
 			}
