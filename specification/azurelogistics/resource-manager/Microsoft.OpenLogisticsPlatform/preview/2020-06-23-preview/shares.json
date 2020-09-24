@@ -378,6 +378,14 @@
 							"type": "string",
 							"readOnly": false
 						},
+            "description": {
+							"type": "string",
+							"readOnly": false
+						},
+             "shareId": {
+							"type": "string",
+							"readOnly": true
+						},
 						"provisioningState": {
 							"description": "The provisioning state of the resource.",
 							"readOnly": true,
