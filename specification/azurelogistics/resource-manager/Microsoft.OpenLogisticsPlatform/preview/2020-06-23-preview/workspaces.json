@@ -470,7 +470,6 @@
               "description": "The workspace's Id",
               "readOnly": true
             },
-           
             "workspaceName": {
               "type": "string",
               "description": "The name of your Azure Supply Chain Service's workspace.",
