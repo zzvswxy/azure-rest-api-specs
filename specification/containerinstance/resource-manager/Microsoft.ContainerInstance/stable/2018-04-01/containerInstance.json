@@ -38,7 +38,7 @@
         "operationId": "ContainerGroups_List",
         "x-ms-examples": {
           "ContainerGroupsList": {
-            "$ref": "./examples/ContainerGroupsList.json"
+            "$ref": "./examples/ContainerGroupsList.json",
           }
         },
         "summary": "Get a list of container groups in the specified subscription.",
