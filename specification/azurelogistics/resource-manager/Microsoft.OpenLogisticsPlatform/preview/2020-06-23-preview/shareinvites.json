@@ -9,7 +9,7 @@
 	"consumes": ["application/json"],
 	"produces": ["application/json"],
 	"paths": {
-		"/providers/Microsoft.OpenLogisticsPlatform/shareInvites/{shareInviteId}": {
+		"/providers/Microsoft.OpenLogisticsPlatform/shareInvites/{shareId}": {
 			"get": {
 				"tags": [
 					"ShareInvite"
@@ -18,7 +18,7 @@
 				"parameters": [
 					{
 						"type": "string",
-						"name": "shareInviteId",
+						"name": "shareId",
 						"in": "path",
 						"required": true
 					}
@@ -147,7 +147,7 @@
 						    "type": "string",
 							"readOnly": false
 						},
-						"shareInviteId": {
+						"shareId": {
 							"type": "string",
 							"readOnly": true
 						},
