@@ -9,12 +9,12 @@
 	"consumes": ["application/json"],
 	"produces": ["application/json"],
 	"paths": {
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/workspaces/{workspaceName}/shareSubscriptions": {
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/workspaces/{workspaceName}/shareSubscriptions/": {
 			"get": {
 				"tags": [
-					"shareSubscriptions"
+					"ShareSubscriptions"
 				],
-				"operationId": "ShareSubscriptions_Get",
+				"operationId": "ShareSubscriptions_List",
 				"parameters": [{
 						"type": "string",
 						"name": "subscriptionId",
