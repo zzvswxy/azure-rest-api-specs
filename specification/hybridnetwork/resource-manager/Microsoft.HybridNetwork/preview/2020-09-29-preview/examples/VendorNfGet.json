@@ -1,0 +1,68 @@
+{
+  "parameters": {
+    "api-version": "2020-09-29-preview",
+    "subscriptionId": "subid",
+    "locationName": "eastus",
+    "vendorName": "testVendor",
+    "serviceKey": "testServiceKey"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "id": "/subscriptions/subid/providers/Microsoft.HybridNetwork/locations/eastus/vendors/testVendor/networkFunctions/testServiceKey",
+        "name": "testServiceKey",
+        "type": "Microsoft.HybridNetwork/locations/vendors/networkFunctions",
+        "location": "eastus",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "vendorProvisioningState": "Provisioning",
+          "skuName": "testSku",
+          "skuType": "SDWAN",
+          "networkFunctionVendorConfigurations": [
+            {
+              "roleName": "testRole",
+              "osProfile": {
+                "adminUsername": "dummyuser",
+                "sshPublicKey": null,
+                "customData": "base-64 encoded string of custom data"
+              },
+              "userDataParameters": {},
+              "networkInterfaces": [
+                {
+                  "networkInterfaceName": "nic1",
+                  "macAddress": "",
+                  "vmSwitchType": "Management",
+                  "ipConfigurations": [
+                    {
+                      "ipAllocationMethod": "Dynamic",
+                      "ipAddress": "",
+                      "subnet": "",
+                      "gateway": "",
+                      "ipVersion": "IPv4",
+                      "dnsServers": null
+                    }
+                  ]
+                },
+                {
+                  "networkInterfaceName": "nic2",
+                  "macAddress": "DC-97-F8-79-16-7D",
+                  "vmSwitchType": "Wan",
+                  "ipConfigurations": [
+                    {
+                      "ipAllocationMethod": "Dynamic",
+                      "ipAddress": "",
+                      "subnet": "",
+                      "gateway": "",
+                      "ipVersion": "IPv4",
+                      "dnsServers": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
