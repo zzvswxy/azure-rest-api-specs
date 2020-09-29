@@ -482,7 +482,7 @@
             },
             "shareId": {
               "type": "string",
-              "readOnly": true
+              "readOnly": false
             }
           }
         }
