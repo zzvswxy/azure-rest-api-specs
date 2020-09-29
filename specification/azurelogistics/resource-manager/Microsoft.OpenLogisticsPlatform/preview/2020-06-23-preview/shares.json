@@ -257,7 +257,6 @@
 						}
 					},
           "204": {
-						"x-nullable": false,
 						"description": ""
 						
 					},
