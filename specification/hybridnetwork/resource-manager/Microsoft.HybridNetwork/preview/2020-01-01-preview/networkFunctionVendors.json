@@ -3,7 +3,7 @@
   "info": {
     "title": "HybridNetworkManagementClient",
     "description": "The resources in this swagger specification will be used to manage the network function vendor in a hybrid network resource provider.",
-    "version": "2020-09-29-preview"
+    "version": "2020-01-01-preview"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -83,7 +83,7 @@
         "parameters": [
           {
             "name": "vendorName",
-            "description": "The name of the hybrid network network function vendor.",
+            "description": "The name of the network function vendor.",
             "in": "path",
             "required": true,
             "type": "string"
@@ -125,18 +125,18 @@
           "networkFunctionVendors"
         ],
         "operationId": "networkFunctionVendorSkus_ListBySku",
-        "description": "Lists information about hybrid network network function vendor sku details.",
+        "description": "Lists information about network function vendor sku details.",
         "parameters": [
           {
             "name": "vendorName",
-            "description": "The name of the hybrid network network function vendor.",
+            "description": "The name of the network function vendor.",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "vendorSkuName",
-            "description": "The name of the hybrid network network function sku.",
+            "description": "The name of the network function sku.",
             "in": "path",
             "required": true,
             "type": "string"
@@ -150,7 +150,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Request is successful. The operation returns the resulting hybrid network network function vendor sku details.",
+            "description": "Request is successful. The operation returns the resulting network function vendor sku details.",
             "schema": {
               "$ref": "#/definitions/NetworkFunctionSkuDetails"
             }
@@ -241,7 +241,7 @@
           "items": {
             "$ref": "#/definitions/NetworkFunctionVendor"
           },
-          "description": "A list of available hybrid network network function vendors and skus."
+          "description": "A list of available network function vendors and skus."
         },
         "nextLink": {
           "type": "string",
@@ -290,7 +290,7 @@
           "description": "The URL to get the next set of results."
         }
       },
-      "description": "A list of available hybrid network network function skus."
+      "description": "A list of available network function skus."
     }
   }
 }

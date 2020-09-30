@@ -10,16 +10,16 @@
       "body": {
         "value": [
           {
-            "id": "/subscriptions/subid/providers/Microsoft.HybridNetwork/locations/eastus/vendors/testVendor/virtualNetworkFunctions/testServiceKey",
+            "id": "/subscriptions/subid/providers/Microsoft.HybridNetwork/locations/eastus/vendors/testVendor/networkFunctions/testServiceKey",
             "name": "TestServiceKey",
-            "type": "Microsoft.HybridNetwork/locations/vendors/virtualNetworkFunctions",
+            "type": "Microsoft.HybridNetwork/locations/vendors/networkFunctions",
             "location": "eastus",
             "properties": {
               "provisioningState": "Succeeded",
               "vendorProvisioningState": "Provisioning",
               "skuName": "testSku",
               "skuType": "SDWAN",
-              "virtualNetworkFunctionVendorConfigurations": [
+              "networkFunctionVendorConfigurations": [
                 {
                   "roleName": "testRole",
                   "osProfile": {

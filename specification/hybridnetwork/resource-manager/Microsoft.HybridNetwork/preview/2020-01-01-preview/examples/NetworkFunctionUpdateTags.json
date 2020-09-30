@@ -1,9 +1,15 @@
 {
   "parameters": {
-    "api-version": "2020-09-29-preview",
+    "api-version": "2020-01-01-preview",
     "subscriptionId": "subid",
     "resourceGroupName": "rg",
-    "networkFunctionName": "testNf"
+    "networkFunctionName": "testNf",
+    "parameters": {
+      "tags": {
+        "tag1": "value1",
+        "tag2": "value2"
+      }
+    }
   },
   "responses": {
     "200": {
@@ -12,6 +18,10 @@
         "name": "testNf",
         "type": "Microsoft.HybridNetwork/networkFunctions",
         "location": "eastus",
+        "tags": {
+          "tag1": "value1",
+          "tag2": "value2"
+        },
         "properties": {
           "provisioningState": "Succeeded",
           "device": {

@@ -3,7 +3,7 @@
   "info": {
     "title": "HybridNetworkManagementClient",
     "description": "The resources in this swagger specification will be used by vendors to on-board offerings and manage vendor network function.",
-    "version": "2020-09-29-preview"
+    "version": "2020-01-01-preview"
   },
   "host": "management.azure.com",
   "schemes": [
