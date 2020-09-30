@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api-version": "2020-09-29-preview",
+    "api-version": "2020-01-01-preview",
     "subscriptionId": "subid",
     "locationName": "eastus",
     "vendorName": "testVendor",

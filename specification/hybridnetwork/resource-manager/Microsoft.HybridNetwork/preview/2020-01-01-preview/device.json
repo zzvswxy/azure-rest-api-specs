@@ -458,13 +458,13 @@
           "$ref": "./common.json#/definitions/SubResource",
           "description": "The reference to the Azure stack edge device."
         },
-        "virtualNetworkFunctions": {
+        "networkFunctions": {
           "readOnly": true,
           "type": "array",
           "items": {
             "$ref": "./common.json#/definitions/SubResource"
           },
-          "description": "The list of virtual network functions deployed on the hybrid network device."
+          "description": "The list of network functions deployed on the hybrid network device."
         }
       }
     },
