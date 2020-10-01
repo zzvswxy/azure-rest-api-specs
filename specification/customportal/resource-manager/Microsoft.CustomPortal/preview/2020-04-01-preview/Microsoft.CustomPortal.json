@@ -174,10 +174,6 @@
 			},
 			"PortalSettingProperties": {
 				"type": "object",
-				"required":[
-					"add",
-					"remove"
-				],
 				"properties":{
 					"ResourceProvider": {
 						"type": "string",
