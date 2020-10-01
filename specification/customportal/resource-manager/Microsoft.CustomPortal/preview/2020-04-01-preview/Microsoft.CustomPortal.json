@@ -159,25 +159,49 @@
 	},
 	"definitions": {
 			"PortalSetting": {
+				"type": "object",
+				"required": [
+					"properties"
+				],
 				"properties": {
-					"id": {
-						"type": "string",
-						"description": "The portal settings ID."
-					},
-					"name": {
-						"type": "string",
-						"description": "The portal setting name."
-					},
-					"type": {
-						"type": "string",
-						"description": "The portal setting type."
-					},
-					"priority": {
-						"type": "string",
-						"description": "The portal setting priority."
+					"properties": {
+						"x-ms-client-flatten": true,
+						"$ref": "#/definitions/PortalSettingProperties",
+						"description": "Describes the portal setting resource properties."
 					}
 				},
 				"description": "Portal Settings"
+			},
+			"PortalSettingProperties": {
+				"type": "object",
+				"properties":{
+					"ResourceProvider": {
+						"type": "string",
+						"description": "Targetted RP for the custom portal settings"
+					},
+					"ResourceType": {
+						"type": "string",
+						"description": "Targetted resource type under the RP for the custom portal settings"
+					},
+					"BladeTarget": {
+						"type": "string",
+						"description": "Blade target where the customization needs to be applied"
+					},
+					"add": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "array of items to add"
+					},
+					"remove": {
+						"type": "array",
+						"items": {
+						"type": "string"
+						},
+					"description": "array of items to remove"
+					}
+				}
 			},
 			"ErrorResponse": {
 				"description": "The error response that indicates why an operation has failed.",
