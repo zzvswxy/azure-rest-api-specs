@@ -780,7 +780,7 @@
         },
         "customDataRequired": {
           "type": "boolean",
-          "description": "Indicates if custom data resquired to deploy this sku."
+          "description": "Indicates if custom data is required to deploy this sku."
         }
       }
     },
