@@ -777,6 +777,10 @@
         "networkFunctionTemplate": {
           "$ref": "#/definitions/NetworkFunctionTemplate",
           "description": "The template definition of the network function."
+        },
+        "customDataRequired": {
+          "type": "boolean",
+          "description": "Indicates if custom data resquired to deploy this sku."
         }
       }
     },
