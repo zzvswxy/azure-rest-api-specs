@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "HybridNetworkManagementClient",
-    "description": "The resources in this swagger specification will be used to manage the network function deployment in a hybrid network resource provider.",
+    "description": "The resources in this swagger specification will be used to manage the network function deployment in a Hybrid Network resource provider.",
     "version": "2020-01-01-preview"
   },
   "host": "management.azure.com",
@@ -355,7 +355,7 @@
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/NetworkFunctionPropertiesFormat",
-          "description": "Hybrid network network function properties."
+          "description": "Network function properties."
         },
         "etag": {
           "type": "string",
@@ -367,10 +367,10 @@
           "$ref": "./common.json#/definitions/Resource"
         }
       ],
-      "description": "Hybrid network network function resource response."
+      "description": "Network function resource response."
     },
     "NetworkFunctionPropertiesFormat": {
-      "description": "Hybrid network network function properties.",
+      "description": "Network function properties.",
       "properties": {
         "provisioningState": {
           "readOnly": true,
@@ -379,7 +379,7 @@
         },
         "device": {
           "$ref": "./common.json#/definitions/SubResource",
-          "description": "The reference to the hybrid network device."
+          "description": "The reference to the device resource."
         },
         "skuName": {
           "type": "string",

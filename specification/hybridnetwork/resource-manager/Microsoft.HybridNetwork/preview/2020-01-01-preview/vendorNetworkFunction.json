@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "HybridNetworkManagementClient",
-    "description": "The resources in this swagger specification will be used by vendors to on-board offerings and manage vendor network function.",
+    "description": "The resources in this swagger specification will be used to manage the vendor network function deployment in the Microsoft.HybridNetwork resource provider.",
     "version": "2020-01-01-preview"
   },
   "host": "management.azure.com",
@@ -47,7 +47,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The Azure region where the network function sub resource was created by the customer."
+            "description": "The Azure region where the virtual network function resource was created by the customer."
           },
           {
             "name": "vendorName",
@@ -471,7 +471,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Request is successful. The operation returns the resulting hybrid network vendor network function sub resource.",
+            "description": "Request is successful. The operation returns the resulting vendor network function sub resource.",
             "schema": {
               "$ref": "#/definitions/VendorNetworkFunctionListResult"
             }

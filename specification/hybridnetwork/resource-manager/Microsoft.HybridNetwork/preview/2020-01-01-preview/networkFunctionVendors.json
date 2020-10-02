@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "HybridNetworkManagementClient",
-    "description": "The resources in this swagger specification will be used to manage the network function vendor in a hybrid network resource provider.",
+    "description": "The resources in this swagger specification will be used to manage the network function vendor in a Hybrid Network resource provider.",
     "version": "2020-01-01-preview"
   },
   "host": "management.azure.com",
@@ -40,7 +40,7 @@
           "networkFunctionVendors"
         ],
         "operationId": "networkFunctionVendors_List",
-        "description": "Lists all the available vendor and sku information in a hybrid network.",
+        "description": "Lists all the available vendor and sku information.",
         "parameters": [
           {
             "$ref": "./common.json#/parameters/ApiVersionParameter"
@@ -51,7 +51,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Request is successful. The operation returns a list of hybrid network vendors with available sku information.",
+            "description": "Request is successful. The operation returns a list of vendors with available sku information.",
             "schema": {
               "$ref": "#/definitions/NetworkFunctionVendorListResult"
             }
@@ -64,7 +64,7 @@
           }
         },
         "x-ms-examples": {
-          "List hybrid network vendors and skus.": {
+          "List vendors and skus.": {
             "$ref": "./examples/NetworkFunctionVendorAndSkuListBySubscription.json"
           }
         },
@@ -110,7 +110,7 @@
           }
         },
         "x-ms-examples": {
-          "List hybrid network vendors and skus.": {
+          "List vendors and skus.": {
             "$ref": "./examples/NetworkFunctionSkuListByVendor.json"
           }
         },
@@ -229,7 +229,7 @@
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/VendorDetails",
-          "description": "Vendors of the hybrid network service provider."
+          "description": "Vendors of Hybrid Network service provider."
         }
       },
       "description": "The network function vendor."
