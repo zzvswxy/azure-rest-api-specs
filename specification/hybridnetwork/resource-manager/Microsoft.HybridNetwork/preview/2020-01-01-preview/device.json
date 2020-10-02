@@ -429,7 +429,8 @@
           "enum": [
             "Unknown",
             "NotRegistered",
-            "Registered"
+            "Registered",
+            "Deleted"
           ],
           "x-ms-enum": {
             "name": "Status",
