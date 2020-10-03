@@ -38,7 +38,6 @@
               },
               "osProfile": {
                 "adminUsername": "dummyuser",
-                "adminPassword": "dummypassword",
                 "sshPublicKey": null,
                 "customData": null
               },
