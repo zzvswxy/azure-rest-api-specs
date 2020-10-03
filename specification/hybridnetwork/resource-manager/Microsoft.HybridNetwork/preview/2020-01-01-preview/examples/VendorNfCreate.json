@@ -15,7 +15,6 @@
             "roleName": "testRole",
             "osProfile": {
               "adminUsername": "dummyuser",
-              "adminPassword": "dummypassword",
               "sshPublicKey": null,
               "customData": "base-64 encoded string of custom data"
             },
