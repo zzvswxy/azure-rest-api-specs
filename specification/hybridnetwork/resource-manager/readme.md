@@ -26,6 +26,7 @@ These are the global settings for the hybridnetwork.
 
 ```yaml
 openapi-type: arm
+openapi-subtype: rpaas
 tag: package-2020-01-01-preview
 ```
 
