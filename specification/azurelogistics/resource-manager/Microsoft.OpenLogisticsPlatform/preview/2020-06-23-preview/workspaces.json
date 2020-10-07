@@ -8,6 +8,17 @@
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
+  "securityDefinitions": {
+    "azure_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "flow": "implicit",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "scopes": {
+            "user_impersonation": "impersonate your user account"
+        }
+    }
+  },
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenLogisticsPlatform/workspaces/{workspaceName}": {
       "get": {
@@ -15,35 +26,34 @@
           "Workspace"
         ],
         "operationId": "Workspace_Get",
+        "x-ms-examples": {
+          "Workspace Get": {
+            "$ref": "./examples/Workspace_Get.json"
+          }
+        },
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
-            "type": "string",
-            "name": "workspaceName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/WorkspaceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/Workspace"
             }
           },
           "default": {
-            "description": "",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -55,28 +65,28 @@
           "Workspace"
         ],
         "operationId": "Workspace_Put",
+        "x-ms-examples": {
+          "Workspace Put": {
+            "$ref": "./examples/Workspace_Put.json"
+          }
+        },
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
-            "type": "string",
-            "name": "workspaceName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/WorkspaceNameParameter"
           },
           {
-            "name": "Workspace",
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "workspace",
             "in": "body",
+            "description": "The workspace's content to apply.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Workspace"
@@ -86,21 +96,21 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Returned when the operation is successful.",
             "schema": {
               "$ref": "#/definitions/Workspace"
             }
           },
           "201": {
             "x-nullable": false,
-            "description": "",
+            "description": "Returned when the operation is created.",
             "schema": {
               "$ref": "#/definitions/Workspace"
             }
           },
           "default": {
             "x-nullable": false,
-            "description": "",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -112,39 +122,38 @@
           "Workspace"
         ],
         "operationId": "Workspace_Delete",
+        "x-ms-examples": {
+          "Workspace Delete": {
+            "$ref": "./examples/Workspace_Delete.json"
+          }
+        },
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
-            "type": "string",
-            "name": "workspaceName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/WorkspaceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "Returned when the operation is successful."
           },
           "202": {
-            "description": ""
+            "description": "Returned when the operation is accepted."
           },
           "204": {
-            "description": ""
+            "description": "Returned when the operation returns no content."
           },
           "default": {
             "x-nullable": false,
-            "description": "",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -157,32 +166,26 @@
         ],
         "description": "Update workspace details.",
         "operationId": "Workspace_Update",
+        "x-ms-examples": {
+          "Workspace Update": {
+            "$ref": "./examples/Workspace_Update.json"
+          }
+        },
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
-            "type": "string",
-            "name": "workspaceId",
-            "in": "query"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "string",
-            "name": "workspaceName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/WorkspaceNameParameter"
           },
           {
-            "name": "WorkspacePatchResource",
+            "name": "workspacePatchResource",
             "description": "workspace patch properties.",
             "in": "body",
             "required": true,
@@ -193,7 +196,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful.",
+            "description": "Returned when the operation is successful.",
             "schema": {
               "$ref": "#/definitions/Workspace"
             }
@@ -206,32 +209,34 @@
         "tags": [
           "Workspace"
         ],
-        "operationId": "Workspace_List_ResourceGroupLevel",
+        "operationId": "Workspace_List",
+        "x-ms-examples": {
+          "Workspace List": {
+            "$ref": "./examples/Workspace_List.json"
+          }
+        },
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Returned when the operation is successful.",
             "schema": {
                 "$ref": "#/definitions/WorkspaceList"
             }
           },
           "default": {
             "x-nullable": false,
-            "description": "",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -244,26 +249,31 @@
         "tags": [
           "Workspace"
         ],
-        "operationId": "Workspace_List_SubscriptionLevel",
+        "operationId": "Workspace_ListAll",
+        "x-ms-examples": {
+          "Workspace ListAll": {
+            "$ref": "./examples/Workspace_ListAll.json"
+          }
+        },
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Returned when the operation is successful.",
             "schema": {
                 "$ref": "#/definitions/WorkspaceList"
             }
           },
           "default": {
             "x-nullable": false,
-            "description": "",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -277,6 +287,11 @@
           "CheckNameAvailability Namespaces"
         ],
         "operationId": "Namespaces_CheckNameAvailability",
+        "x-ms-examples": {
+          "Check Name Availability": {
+            "$ref": "./examples/Namespaces_CheckNameAvailability.json"
+          }
+        },
         "description": "Check the give Namespace name availability.",
         "parameters": [
           {
@@ -286,24 +301,24 @@
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "name": "parameters",
+            "name": "nameAvailabilityRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CheckNameAvailabilityParameter"
+              "$ref": "#/definitions/NameAvailabilityRequest"
             },
             "description": "Parameters to check availability of the given Namespace name"
           }
         ],
         "responses": {
           "200": {
-            "description": "check availability returned successfully.",
+            "description": "Check availability returned successfully.",
             "schema": {
               "$ref": "#/definitions/CheckNameAvailabilityResult"
             }
           },
           "default": {
-            "description": "Eventhub error response describing why the operation failed.",
+            "description": "Error response describing why the operation failed.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
@@ -317,6 +332,11 @@
           "Workspace"
         ],
         "operationId": "Workspace_OperationStatus",
+        "x-ms-examples": {
+          "Workspace Operation Status": {
+            "$ref": "./examples/Workspace_OperationStatus.json"
+          }
+        },
         "description": "The status of provisioning operation.",
         "parameters": [
           {
@@ -378,25 +398,15 @@
           "type": "string",
           "readOnly": true
         },
-        "subscriptionId": {
-          "description": "Azure rubscription Id.",
-          "type": "string",
-          "readOnly": false
-        },
-        "resourceGroup": {
-          "description": "Azure resource group.",
-          "type": "string",
-          "readOnly": false
-        },
         "name": {
           "description": "Azure resource name.",
           "type": "string",
-          "readOnly": false
+          "readOnly": true
         },
         "type": {
           "description": "Azure resource type.",
           "type": "string",
-          "readOnly": false
+          "readOnly": true
         },
         "sku": {
           "description": "Sku of resource definition",
@@ -413,7 +423,7 @@
           "type": "string",
           "readOnly": false
         },
-        "zone": {
+        "zones": {
           "description": "Availability zone of the resource.",
           "type": "string",
           "readOnly": false
@@ -435,11 +445,6 @@
           "additionalProperties": {
             "type": "string"
           }
-        },
-        "scale": {
-          "description": "The scale",
-          "type": "string",
-          "readOnly": false
         },
         "identity": {
           "description": "The resource identity",
@@ -467,6 +472,7 @@
             },
             "workspaceName": {
               "type": "string",
+              "description": "The name of your Azure Supply Chain Service's workspace.",
               "readOnly": false
             },
             "provisioningState": {
@@ -474,12 +480,8 @@
               "readOnly": true,
               "$ref": "#/definitions/ProvisioningState"
             },
-            "transportationProviders": {
-              "description": "The transportation providers.",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/TransportationProviderInfo"
-              },
+            "shareId": {
+              "type": "string",
               "readOnly": false
             }
           }
@@ -502,7 +504,7 @@
         },
         "disabled": {
           "type": "boolean",
-          "description": "The flag whether trasportation provider is disabled",
+          "description": "The flag indicates whether trasportation provider is disabled",
           "readOnly": false
         }
       }
@@ -512,6 +514,7 @@
       "description": "workspace patch properties",
       "properties": {
         "properties": {
+          "description": "Custom properties of workspace resource",
           "type": "object",
           "properties": {
             "workspaceId": {
@@ -539,14 +542,30 @@
         }
       }
     },
+    "NameAvailabilityRequest": {
+      "description": "Name availability request payload which is exposed in the request of the resource provider.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name to check.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of the resource to check.",
+          "type": "string"
+        }
+      }
+    },
     "ErrorObject": {
       "type": "object",
       "properties": {
         "code": {
-          "type": "string"
+          "type": "string",
+          "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response."
         },
         "message": {
-          "type": "string"
+          "type": "string",
+          "description": "Human-readable representation of the error."
         }
       }
     },
@@ -554,7 +573,8 @@
       "type": "object",
       "properties": {
         "error": {
-          "$ref": "#/definitions/ErrorObject"
+          "$ref": "#/definitions/ErrorObject",
+          "description": "Properties of the Error Response."
         }
       }
     },
@@ -649,12 +669,28 @@
       "type": "string",
       "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
     },
+    "ResourceGroupParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "WorkspaceNameParameter": {
+      "type": "string",
+      "name": "workspaceName",
+      "description": "The name of resource. This is the name of your Azure Supply Chain Service's workspace.",
+      "in": "path",
+      "required": true,
+      "x-ms-parameter-location": "method"
+    },
     "ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
       "required": true,
       "type": "string",
-      "description": "The client API version."
+      "description": "Client Api Version."
     }
   }
 }

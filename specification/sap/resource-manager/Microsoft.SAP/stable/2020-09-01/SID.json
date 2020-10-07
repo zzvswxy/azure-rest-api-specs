@@ -100,6 +100,47 @@
             }
           }
         },
+        "patch": {
+          "description": "patch a SID.",
+          "operationId": "SID_Patch",
+          "parameters": [
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/SIDNameParameter"
+            },
+            {
+              "name": "SIDType",
+              "description": "SID details.",
+              "in": "body",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/SIDDefinition"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The SID is patched successfully.",
+              "schema": {
+                "$ref": "#/definitions/SIDDefinition"
+              }
+            },
+            "default": {
+              "description": "Error response describing the reason for operation failure.",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        },
         "delete": {
             "description": "Deletes a SID",
             "operationId": "SID_Delete",
@@ -146,6 +187,37 @@
               },
               {
                 "$ref": "#/parameters/ResourceGroupNameParameter"
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "SID",
+              "schema": {
+                "$ref": "#/definitions/SIDList"
+              }
+            },
+            "default": {
+              "description": "Error response describing the reason for operation failure.",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.SAP/SID": {
+        "get": {
+          "description": "Returns SID for given subscription.",
+          "operationId": "SID_Subscription_List",
+          "parameters": [
+              {
+                "$ref": "#/parameters/ApiVersionParameter"
+              },
+              {
+                "$ref": "#/parameters/SubscriptionIdParameter"
               }
           ],
           "responses": {

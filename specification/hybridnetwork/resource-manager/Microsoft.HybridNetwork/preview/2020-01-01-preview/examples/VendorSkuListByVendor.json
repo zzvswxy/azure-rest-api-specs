@@ -17,8 +17,8 @@
               "preview": true,
               "provisioningState": "Succeeded",
               "managedApplicationTemplate": {},
-              "virtualNetworkFunctionTemplate": {
-                "virtualNetworkFunctionRoleConfigurations": [
+              "networkFunctionTemplate": {
+                "networkFunctionRoleConfigurations": [
                   {
                     "roleName": "test",
                     "roleType": "VirtualMachine",
@@ -97,8 +97,8 @@
               "preview": true,
               "provisioningState": "Succeeded",
               "managedApplicationTemplate": {},
-              "virtualNetworkFunctionTemplate": {
-                "virtualNetworkFunctionRoleConfigurations": [
+              "networkFunctionTemplate": {
+                "networkFunctionRoleConfigurations": [
                   {
                     "roleName": "test",
                     "roleType": "VirtualMachine",

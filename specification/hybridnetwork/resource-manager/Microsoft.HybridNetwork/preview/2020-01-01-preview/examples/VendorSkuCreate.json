@@ -9,8 +9,8 @@
         "deploymentMode": "PrivateEdgeZone",
         "preview": true,
         "managedApplicationTemplate": {},
-        "virtualNetworkFunctionTemplate": {
-          "virtualNetworkFunctionRoleConfigurations": [
+        "networkFunctionTemplate": {
+          "networkFunctionRoleConfigurations": [
             {
               "roleName": "test",
               "roleType": "VirtualMachine",
@@ -38,7 +38,6 @@
               },
               "osProfile": {
                 "adminUsername": "dummyuser",
-                "adminPassword": "dummypassword",
                 "sshPublicKey": null,
                 "customData": null
               },
@@ -94,8 +93,8 @@
           "preview": true,
           "provisioningState": "Succeeded",
           "managedApplicationTemplate": {},
-          "virtualNetworkFunctionTemplate": {
-            "virtualNetworkFunctionRoleConfigurations": [
+          "networkFunctionTemplate": {
+            "networkFunctionRoleConfigurations": [
               {
                 "roleName": "test",
                 "roleType": "VirtualMachine",
@@ -176,8 +175,8 @@
           "preview": true,
           "provisioningState": "Accepted",
           "managedApplicationTemplate": {},
-          "virtualNetworkFunctionTemplate": {
-            "virtualNetworkFunctionRoleConfigurations": [
+          "networkFunctionTemplate": {
+            "networkFunctionRoleConfigurations": [
               {
                 "roleName": "test",
                 "roleType": "VirtualMachine",
