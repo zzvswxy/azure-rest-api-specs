@@ -592,7 +592,7 @@
             "name": "parameters",
             "in": "body",
             "description": "Parameter that describes the Regenerate Key Operation.",
-            "required": true,
+            "required": false,
             "schema": {
               "$ref": "#/definitions/RegenerateKeyParameters"
             }
