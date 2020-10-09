@@ -43,6 +43,9 @@
         "description": "Deletes the specified device.",
         "parameters": [
           {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
             "name": "deviceName",
             "in": "path",
             "required": true,
@@ -54,9 +57,6 @@
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
-          },
-		  {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           }
         ],
         "responses": {
@@ -94,6 +94,9 @@
         "description": "Gets information about the specified device.",
         "parameters": [
           {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
             "name": "deviceName",
             "in": "path",
             "required": true,
@@ -105,9 +108,6 @@
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
-          },
-		  {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           }
         ],
         "responses": {
@@ -138,6 +138,9 @@
         "description": "Creates or updates a device.",
         "parameters": [
           {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
             "name": "deviceName",
             "in": "path",
             "required": true,
@@ -158,9 +161,6 @@
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
-          },
-		  {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           }
         ],
         "responses": {
@@ -201,6 +201,9 @@
         "description": "Updates device tags.",
         "parameters": [
           {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
             "name": "deviceName",
             "in": "path",
             "required": true,
@@ -221,9 +224,6 @@
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
-          },
-		  {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           }
         ],
         "responses": {
@@ -295,13 +295,13 @@
         "description": "Lists all the device resource in a resource group.",
         "parameters": [
           {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
-          },
-		  {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           }
         ],
         "responses": {
@@ -337,6 +337,9 @@
         "description": "List the registration key for the device.",
         "parameters": [
           {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
             "name": "deviceName",
             "in": "path",
             "required": true,
@@ -348,9 +351,6 @@
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
-          },
-		  {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           }
         ],
         "responses": {
