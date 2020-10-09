@@ -143,7 +143,7 @@
 							"type": "string",
 							"readOnly": false
 						},
-						"providerTenantId": {
+						"sourceTenantId": {
 						    "type": "string",
 							"readOnly": false
 						},
