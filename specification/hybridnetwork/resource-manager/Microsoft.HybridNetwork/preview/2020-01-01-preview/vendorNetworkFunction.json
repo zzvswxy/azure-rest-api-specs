@@ -47,7 +47,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The Azure region where the virtual network function resource was created by the customer."
+            "description": "The Azure region where the network function resource was created by the customer."
           },
           {
             "name": "vendorName",
@@ -64,10 +64,10 @@
             "description": "The GUID for the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -80,7 +80,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -128,10 +128,10 @@
             "description": "Parameters supplied to the create or update vendor network function operation."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -150,7 +150,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -202,10 +202,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -218,7 +218,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -270,10 +270,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -286,7 +286,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -338,10 +338,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -354,7 +354,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -406,10 +406,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -422,7 +422,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -463,10 +463,10 @@
             "description": "The filter to apply on the operation. The properties you can use for eq (equals) are: skuType, skuName and vendorProvisioningState."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -479,7 +479,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -524,10 +524,10 @@
             "description": "The GUID for the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -540,7 +540,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -583,7 +583,7 @@
       },
       "allOf": [
         {
-          "$ref": "./common.json#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
         }
       ],
       "description": "Vendor network function sub resource."
