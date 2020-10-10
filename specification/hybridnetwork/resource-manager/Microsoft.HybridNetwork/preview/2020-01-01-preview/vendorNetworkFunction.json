@@ -583,7 +583,7 @@
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
+          "$ref": "./common.json#/definitions/Resource"
         }
       ],
       "description": "Vendor network function sub resource."
