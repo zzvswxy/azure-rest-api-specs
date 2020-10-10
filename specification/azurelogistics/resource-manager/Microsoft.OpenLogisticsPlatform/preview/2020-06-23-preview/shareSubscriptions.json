@@ -161,7 +161,7 @@
 							"description": "The share name",
 							"readOnly": true
 						},
-						"providerTenantId": {
+						"sourceTenantId": {
 							"type": "string",
 							"readOnly": false
 						},
