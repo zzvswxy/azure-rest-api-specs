@@ -493,7 +493,6 @@
         }
       }
     },
-
     "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/networkFunctions/{serviceKey}/roleInstances": {
       "get": {
         "tags": [
