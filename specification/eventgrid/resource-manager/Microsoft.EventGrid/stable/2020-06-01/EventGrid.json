@@ -22,7 +22,7 @@
           "Domains"
         ],
         "summary": "Get a domain.",
-        "description": "Get properties of a domain.",
+        "description": "Get properties of a domain. ",
         "operationId": "Domains_Get",
         "consumes": [],
         "produces": [
