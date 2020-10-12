@@ -2,12 +2,10 @@
   "swagger": "2.0",
   "info": {
     "title": "Azure Communication Services Management API",
-    "version": "2020-08-20-alpha",
+    "version": "2020-08-20-beta",
     "description": "REST API for Azure Communication Services, (internal APIs)"
   },
-  "schemes": [
-    "https"
-  ],
+  "schemes": [ "https" ],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -23,13 +21,13 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}/eventgridfilters/{eventGridFilterName}": {
       "parameters": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+          "$ref": "CommunicationService.json#/parameters/ApiVersionParameter"
         },
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+          "$ref": "CommunicationService.json#/parameters/SubscriptionIdParameter"
         },
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+          "$ref": "CommunicationService.json#/parameters/ResourceGroupParameter"
         },
         {
           "$ref": "CommunicationService.json#/parameters/CommunicationServiceName"
@@ -42,9 +40,7 @@
         "description": "Update an existing eventgridfilters resource's properties.",
         "operationId": "EventGridFilter_Update",
         "summary": "Update",
-        "tags": [
-          "EventGridFilter"
-        ],
+        "tags": [ "EventGridFilter" ],
         "parameters": [
           {
             "name": "parameters",
@@ -70,9 +66,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Update resource": {
             "$ref": "./examples/eventGridFilterUpdate.json"
@@ -83,9 +77,7 @@
         "description": "Get an existing eventgridfilters resource and its properties",
         "operationId": "EventGridFilter_Get",
         "summary": "Get",
-        "tags": [
-          "EventGridFilter"
-        ],
+        "tags": [ "EventGridFilter" ],
         "responses": {
           "200": {
             "description": "Success. The response describe the corresponding CommunicationService.",
@@ -100,9 +92,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Get resource": {
             "$ref": "./examples/eventGridFilterGet.json"
@@ -113,9 +103,7 @@
         "description": "Create or update a eventgrid filter on an existing resource.",
         "operationId": "EventGridFilter_CreateOrUpdate",
         "summary": "Create Or Update",
-        "tags": [
-          "EventGridFilter"
-        ],
+        "tags": [ "EventGridFilter" ],
         "parameters": [
           {
             "name": "parameters",
@@ -127,9 +115,7 @@
             }
           }
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "responses": {
           "200": {
             "description": "An existing resource was updated.",
@@ -144,9 +130,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Create or udate resource": {
             "$ref": "./examples/eventGridFilterCreateOrUpdate.json"
@@ -157,9 +141,7 @@
         "description": "Operation to delete a eventgrid filter.",
         "operationId": "EventGridFilter_Delete",
         "summary": "Delete",
-        "tags": [
-          "EventGridFilter"
-        ],
+        "tags": [ "EventGridFilter" ],
         "responses": {
           "200": {
             "description": "The resource has been deleted successfully."
@@ -191,13 +173,13 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/CommunicationServices/{communicationServiceName}/eventgridfilters": {
       "parameters": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+          "$ref": "CommunicationService.json#/parameters/ApiVersionParameter"
         },
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+          "$ref": "CommunicationService.json#/parameters/SubscriptionIdParameter"
         },
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+          "$ref": "CommunicationService.json#/parameters/ResourceGroupParameter"
         },
         {
           "$ref": "CommunicationService.json#/parameters/CommunicationServiceName"
@@ -207,9 +189,7 @@
         "description": "Handles requests to list all eventgridfilters on a CommunicationService resource.",
         "operationId": "EventGridFilters_ListByCommunicationServiceResource",
         "summary": "List All EventGrid Filters on a CommunicationService Resource",
-        "tags": [
-          "EventGridFilter"
-        ],
+        "tags": [ "EventGridFilter" ],
         "responses": {
           "200": {
             "description": "Success. The response describes the list of EventGridFilters in a CommunicationService.",
@@ -227,9 +207,7 @@
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "List by resource group": {
             "$ref": "./examples/eventGridFilterListByParent.json"
@@ -301,23 +279,23 @@
           "properties": {
             "clientPrincipalId": {
               "description": "The client principal ID",
-              "type": "string"
+              "type":"string"
             },
             "clientObjectId": {
               "description": "The client object ID",
-              "type": "string"
+              "type":"string"
             },
             "clientTenantId": {
               "description": "The client tenant ID",
-              "type": "string"
+              "type":"string"
             },
             "clientApplicationId": {
               "description": "The client application ID",
-              "type": "string"
+              "type":"string"
             },
             "clientAuthorizationSource": {
               "description": "The client authorization source",
-              "type": "string"
+              "type":"string"
             }
           }
         }

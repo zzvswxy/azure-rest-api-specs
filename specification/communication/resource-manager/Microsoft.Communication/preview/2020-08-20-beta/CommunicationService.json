@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Azure Communication Services Management API",
-    "version": "2020-08-20-alpha",
+    "version": "2020-08-20-beta",
     "description": "REST API for Azure Communication Services"
   },
   "consumes": [
@@ -12,9 +12,7 @@
     "application/json"
   ],
   "host": "management.azure.com",
-  "schemes": [
-    "https"
-  ],
+  "schemes": [ "https" ],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -32,12 +30,10 @@
         "description": "Lists all of the available REST API operations of the Microsoft.Communication provider.",
         "operationId": "Operations_List",
         "summary": "List Operations",
-        "tags": [
-          "Operations"
-        ],
+        "tags": [ "Operations" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -54,65 +50,9 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Communication/checkNameAvailability": {
-      "post": {
-        "description": "Checks that the CommunicationService name is valid and is not already in use.",
-        "operationId": "CommunicationService_CheckNameAvailability",
-        "summary": "Check Name Availability",
-        "tags": [
-          "CommunicationService"
-        ],
-        "parameters": [
-          {
-            "name": "nameAvailabilityParameters",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/NameAvailabilityParameters"
-            },
-            "description": "Parameters supplied to the operation."
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
-          }
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success. The response describes the name availability.",
-            "schema": {
-              "$ref": "#/definitions/NameAvailability"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "produces": [
-          "application/json"
-        ],
-        "x-ms-examples": {
-          "Check name availability available": {
-            "$ref": "./examples/checkNameAvailabilityAvailable.json"
-          },
-          "Check name availability unavailable": {
-            "$ref": "./examples/checkNameAvailabilityUnavailable.json"
-          }
         }
       }
     },
@@ -121,9 +61,7 @@
         "description": "Links an Azure Notification Hub to this communication service.",
         "operationId": "CommunicationService_LinkNotificationHub",
         "summary": "Link Notification Hub",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
             "name": "linkNotificationHubParameters",
@@ -134,21 +72,19 @@
             "description": "Parameters supplied to the operation."
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
           }
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "responses": {
           "200": {
             "description": "Success. The notification hub has been linked.",
@@ -163,9 +99,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Link notification hub": {
             "$ref": "./examples/linkNotificationHub.json"
@@ -178,12 +112,10 @@
         "description": "Gets the current status of an async operation.",
         "operationId": "OperationStatuses_Get",
         "summary": "Get Operation Status",
-        "tags": [
-          "OperationStatus"
-        ],
+        "tags": [ "OperationStatus" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/LocationParameter"
@@ -192,9 +124,7 @@
             "$ref": "#/parameters/OperationIdParameter"
           }
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "responses": {
           "200": {
             "description": "The requested operation status",
@@ -209,9 +139,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Get OperationStatus": {
             "$ref": "./examples/getOperationStatus.json"
@@ -224,15 +152,13 @@
         "description": "Handles requests to list all resources in a subscription.",
         "operationId": "CommunicationService_ListBySubscription",
         "summary": "List By Subscription",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -249,9 +175,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         },
@@ -267,18 +191,16 @@
         "description": "Handles requests to list all resources in a resource group.",
         "operationId": "CommunicationService_ListByResourceGroup",
         "summary": "List By Resource Group",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
@@ -298,9 +220,7 @@
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "List by resource group": {
             "$ref": "./examples/listByResourceGroup.json"
@@ -313,9 +233,7 @@
         "description": "Operation to update an existing CommunicationService.",
         "operationId": "CommunicationService_Update",
         "summary": "Update",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
             "name": "parameters",
@@ -327,13 +245,13 @@
             }
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
@@ -353,9 +271,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Update resource": {
             "$ref": "./examples/update.json"
@@ -366,18 +282,16 @@
         "description": "Get the CommunicationService and its properties.",
         "operationId": "CommunicationService_Get",
         "summary": "Get",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
@@ -397,9 +311,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Get resource": {
             "$ref": "./examples/get.json"
@@ -410,9 +322,7 @@
         "description": "Create a new CommunicationService or update an existing CommunicationService.",
         "operationId": "CommunicationService_CreateOrUpdate",
         "summary": "Create Or Update",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
             "name": "parameters",
@@ -424,21 +334,19 @@
             }
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
           }
         ],
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
         "responses": {
           "200": {
             "description": "The create or update request was completed successfully",
@@ -465,9 +373,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
@@ -482,18 +388,16 @@
         "description": "Operation to delete a CommunicationService.",
         "operationId": "CommunicationService_Delete",
         "summary": "Delete",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
@@ -538,18 +442,16 @@
         "description": "Get the access keys of the CommunicationService resource.",
         "operationId": "CommunicationService_ListKeys",
         "summary": "List Keys",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
@@ -569,9 +471,7 @@
             }
           }
         },
-        "produces": [
-          "application/json"
-        ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "List keys": {
             "$ref": "./examples/listKeys.json"
@@ -584,9 +484,7 @@
         "description": "Regenerate CommunicationService access key. PrimaryKey and SecondaryKey cannot be regenerated at the same time.",
         "operationId": "CommunicationService_RegenerateKey",
         "summary": "Regenerate Key",
-        "tags": [
-          "CommunicationService"
-        ],
+        "tags": [ "CommunicationService" ],
         "parameters": [
           {
             "name": "parameters",
@@ -598,13 +496,13 @@
             }
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/CommunicationServiceName"
@@ -630,12 +528,8 @@
             }
           }
         },
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
         "x-ms-examples": {
           "Regenerate key": {
             "$ref": "./examples/regenerateKey.json"
@@ -823,42 +717,6 @@
         }
       }
     },
-    "NameAvailabilityParameters": {
-      "description": "Data POST-ed to the nameAvailability action",
-      "required": [
-        "type",
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "type": {
-          "description": "The resource type. Should be always \"Microsoft.Communication/CommunicationServices\".",
-          "type": "string"
-        },
-        "name": {
-          "description": "The CommunicationService name to validate. e.g.\"my-CommunicationService-name-here\"",
-          "type": "string"
-        }
-      }
-    },
-    "NameAvailability": {
-      "description": "Result of the request to check name availability. It contains a flag and possible reason of failure.",
-      "type": "object",
-      "properties": {
-        "nameAvailable": {
-          "description": "Indicates whether the name is available or not.",
-          "type": "boolean"
-        },
-        "reason": {
-          "description": "The reason of the availability. Required if name is not available.",
-          "type": "string"
-        },
-        "message": {
-          "description": "The message of the operation.",
-          "type": "string"
-        }
-      }
-    },
     "LinkNotificationHubParameters": {
       "description": "Description of an Azure Notification Hub to link to the communication service",
       "required": [
@@ -1007,10 +865,7 @@
         "location": {
           "description": "The Azure location where the CommunicationService is running.",
           "type": "string",
-          "x-ms-mutability": [
-            "create",
-            "read"
-          ]
+          "x-ms-mutability": ["create", "read"]
         }
       }
     },
@@ -1131,6 +986,31 @@
     }
   },
   "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "description": "Client Api Version.",
+      "required": true,
+      "type": "string",
+      "enum": [
+        "2020-08-20-beta"
+      ]
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "Gets subscription ID which uniquely identifies the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+      "required": true,
+      "type": "string"
+    },
+    "ResourceGroupParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "CommunicationServiceName": {
       "name": "communicationServiceName",
       "in": "path",
@@ -1157,3 +1037,4 @@
     }
   }
 }
+
