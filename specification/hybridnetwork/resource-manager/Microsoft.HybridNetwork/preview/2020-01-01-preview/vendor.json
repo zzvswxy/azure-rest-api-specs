@@ -991,6 +991,11 @@
       "properties": {
         "uri": {
           "type": "string",
+          "x-ms-secret": true,
+          "x-ms-mutability": [
+            "create",
+            "update"
+          ],
           "description": "Specifies the virtual hard disk's uri."
         }
       },
