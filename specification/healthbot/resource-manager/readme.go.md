@@ -14,6 +14,5 @@ These settings apply only when `--tag=package-2020-12-10 --go` is specified on t
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
 ```yaml $(tag) == 'package-2020-12-10' && $(go)
-namespace: Microsoft.HealthcareBot
 output-folder: $(go-sdks-folder)/healthbot/Generated
 ```
