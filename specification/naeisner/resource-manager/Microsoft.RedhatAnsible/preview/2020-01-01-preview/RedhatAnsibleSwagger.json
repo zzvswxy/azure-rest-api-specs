@@ -105,6 +105,45 @@
             "description": "Deletes the ansibletowers resource."
           }
         }
+      },
+      "patch": {
+        "operationId": "ansibletowers_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ansibletowersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "ansibletowers",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ansibletowersPatch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the ansibletowers resource.",
+            "schema": {
+              "$ref": "#/definitions/ansibletowers"
+            }
+          },
+          "201": {
+            "description": "Updates the ansibletowers resource.",
+            "schema": {
+              "$ref": "#/definitions/ansibletowers"
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedhatAnsible/ansibletowers": {
@@ -216,6 +255,19 @@
     }
   },
   "definitions": {
+    "ansibletowersPatch": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        }
+      },
+      "description": "The cassandraDataCenters resource patch definition."
+    },
     "ansiblecondition": {
       "type": "object",
       "properties": {
@@ -284,6 +336,7 @@
           "type": "string"
         },
         "tower_admin_password": {
+          "x-ms-secret": true,
           "type": "string"
         },
         "tower_task_image": {
