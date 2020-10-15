@@ -173,23 +173,19 @@
 				"description": "Portal Settings"
 			},
 			"PortalSettingProperties": {
-				"required":[
-				    "BladeTarget", 
-					"add",
-					"remove"
-				],
+				"type": "object",
 				"properties":{
 					"ResourceProvider": {
 						"type": "string",
-						"description": "Targetted RP for the custom portal settings",
+						"description": "Targetted RP for the custom portal settings"
 					},
 					"ResourceType": {
 						"type": "string",
-						"description": "Targetted resource type under the RP for the custom portal settings",
+						"description": "Targetted resource type under the RP for the custom portal settings"
 					},
 					"BladeTarget": {
 						"type": "string",
-						"description": "Blade target where the customization needs to be applied",
+						"description": "Blade target where the customization needs to be applied"
 					},
 					"add": {
 						"type": "array",
