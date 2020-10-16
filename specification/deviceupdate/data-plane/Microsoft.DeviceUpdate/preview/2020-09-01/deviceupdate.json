@@ -1824,7 +1824,7 @@
           "$ref": "#/definitions/DeviceDeploymentState",
           "description": "State of the device in its last deployment."
         },
-        "installedUpdatId": {
+        "installedUpdateId": {
           "$ref": "#/definitions/UpdateId",
           "description": "Update identity."
         },
