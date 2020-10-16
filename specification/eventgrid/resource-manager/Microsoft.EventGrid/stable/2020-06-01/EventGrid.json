@@ -23,7 +23,7 @@
         ],
         "summary": "Get a domain.",
         "description": "Get properties of a domain. ",
-        "operationId": "Domains_Get",
+        "operationId": "Domain_Get",
         "consumes": [],
         "produces": [
           "application/json"
