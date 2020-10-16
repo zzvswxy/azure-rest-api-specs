@@ -386,6 +386,10 @@
 							"type": "string",
 							"readOnly": false
 						},
+            "shareState":{
+              "type":"string",
+              "readOnly":true
+            },
              "shareId": {
 							"type": "string",
 							"readOnly": true

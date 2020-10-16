@@ -1,0 +1,410 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2020-12-10",
+    "title": "healthbot",
+    "description": "Microsoft Healthcare Bot is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.",
+    "x-ms-code-generation-settings": {
+      "name": "healthbotClient"
+    }
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationValidate": {
+      "post": {
+        "operationId": "resource_creationValidate",
+        "x-ms-examples": {
+          "BatchAccountDelete": {
+            "$ref": "./examples/ResourceCreationValidatePost.json"
+          }
+        },
+        "description": "Validates a name of a new Healthcare Bot. Name must not collide with names of bot registrations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            },
+            "description": "The parameters to provide for the created bot."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If resource name passes or fails the validation, the service should return 200.",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}": {
+      "put": {
+        "operationId": "create_bot",
+        "x-ms-examples": {
+          "BatchAccountDelete": {
+            "$ref": "./examples/ResourceCreationPut.json"
+          }
+        },
+        "description": "Create a new Healthcare Bot.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            },
+            "description": "The parameters to provide for the created bot."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If resource is created successfully, the service should return 200.",
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationCompleted": {
+      "post": {
+        "operationId": "resource_creationCompleted",
+        "x-ms-examples": {
+          "BatchAccountDelete": {
+            "$ref": "./examples/ResourceCreationCompletedPost.json"
+          }
+        },
+        "description": "Complete Healthcare bot creation",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            },
+            "description": "The parameters to provide for the created bot."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If resource creation was successful, the service should return 200.",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.HealthcareBot/operations": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "description": "Lists all the available HealthcareBot operations.",
+        "operationId": "Operations_List",
+        "x-ms-examples": {
+          "Get Operations": {
+            "$ref": "./examples/GetOperations.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/OperationEntityListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Resource": {
+      "description": "Azure resource",
+      "x-ms-azure-resource": true,
+      "properties": {
+        "id": {
+          "description": "Specifies the resource ID.",
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "description": "Specifies the name of the resource.",
+          "type": "string",
+          "readOnly": true
+        },
+        "location": {
+          "description": "Specifies the location of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Specifies the type of the resource.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Bot": {
+      "type": "object",
+      "description": "Bot resource definition",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/BotProperties",
+          "description": "The set of properties specific to healthcare bot resource."
+        }
+      }
+    },
+    "BotProperties": {
+      "title": "BotProperties",
+      "description": "The properties provided for bot creation",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the bot."
+        },
+        "planId": {
+          "type": "string",
+          "description": "The plan ID of the bot."
+        },
+        "offerId": {
+          "type": "string",
+          "description": "The offer ID of the bot."
+        }
+      }
+    },
+    "ValidationResult": {
+      "title": "ValidationResult",
+      "description": "The response returned from validation process",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "The status code of the response validation."
+        }
+      }
+    },
+    "Error": {
+      "title": "Error",
+      "description": "Bot error object.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "The status code of the response validation."
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorBody",
+          "description": "The error body."
+        }
+      }
+    },
+    "ErrorBody": {
+      "title": "ErrorBody",
+      "description": "Error structure.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "error code."
+        },
+        "message": {
+          "type": "string",
+          "description": "error message."
+        }
+      }
+    },
+    "OperationEntityListResult": {
+      "description": "The list of healthcare bot operation response.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of operations.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of operations.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OperationEntity"
+          }
+        }
+      }
+    },
+    "OperationEntity": {
+      "description": "The operations supported by HealthcareBot Management.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}.",
+          "type": "string"
+        },
+        "display": {
+          "$ref": "#/definitions/OperationDisplayInfo",
+          "description": "The operation supported by HealthcareBot Management."
+        },
+        "origin": {
+          "description": "The origin of the operation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Additional properties.",
+          "type": "object"
+        }
+      }
+    },
+    "OperationDisplayInfo": {
+      "description": "The operation supported by Healthcare Bot Management.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "The description of the operation.",
+          "type": "string"
+        },
+        "operation": {
+          "description": "The action that users can perform, based on their permission level.",
+          "type": "string"
+        },
+        "provider": {
+          "description": "Service provider: Microsoft Healthcare Bot.",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Resource on which the operation is performed.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "resourceGroupNameParameter": {
+      "name": "resourceGroupName",
+      "x-ms-parameter-location": "method",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "maxLength": 64,
+      "minLength": 2,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+      "description": "The name of the Bot resource group in the user subscription."
+    },
+    "resourceNameParameter": {
+      "name": "resourceName",
+      "x-ms-parameter-location": "method",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "maxLength": 64,
+      "minLength": 2,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+      "description": "The name of the Bot resource."
+    },
+    "subscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "Azure Subscription ID.",
+      "required": true,
+      "type": "string"
+    },
+    "apiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "Version of the API to be used with the client request."
+    }
+  }
+}

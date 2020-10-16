@@ -39,9 +39,9 @@ input-file:
   - Microsoft.HybridNetwork/preview/2020-01-01-preview/common.json
   - Microsoft.HybridNetwork/preview/2020-01-01-preview/networkFunction.json
   - Microsoft.HybridNetwork/preview/2020-01-01-preview/device.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/operations.json
+  - Microsoft.HybridNetwork/preview/2020-01-01-preview/operation.json
   - Microsoft.HybridNetwork/preview/2020-01-01-preview/vendor.json
-  - Microsoft.HybridNetwork/preview/2020-01-01-preview/networkFunctionVendors.json
+  - Microsoft.HybridNetwork/preview/2020-01-01-preview/networkFunctionVendor.json
   - Microsoft.HybridNetwork/preview/2020-01-01-preview/vendorNetworkFunction.json
 ```
 
