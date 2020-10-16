@@ -256,6 +256,10 @@
 							"$ref": "#/definitions/ShareList"
 						}
 					},
+          "204": {
+						"description": ""
+						
+					},
 					"default": {
 						"x-nullable": false,
 						"description": "",
@@ -377,6 +381,18 @@
 						"targetTenantId": {
 							"type": "string",
 							"readOnly": false
+						},
+            "description": {
+							"type": "string",
+							"readOnly": false
+						},
+            "shareState":{
+              "type":"string",
+              "readOnly":true
+            },
+             "shareId": {
+							"type": "string",
+							"readOnly": true
 						},
 						"provisioningState": {
 							"description": "The provisioning state of the resource.",

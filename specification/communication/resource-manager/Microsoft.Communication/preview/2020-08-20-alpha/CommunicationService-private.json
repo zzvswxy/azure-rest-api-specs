@@ -147,7 +147,6 @@
         "produces": [
           "application/json"
         ],
-        "x-ms-long-running-operation": true,
         "x-ms-examples": {
           "Create or udate resource": {
             "$ref": "./examples/eventGridFilterCreateOrUpdate.json"
@@ -179,6 +178,9 @@
           }
         },
         "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
           "Delete resource": {
             "$ref": "./examples/eventGridFilterDelete.json"

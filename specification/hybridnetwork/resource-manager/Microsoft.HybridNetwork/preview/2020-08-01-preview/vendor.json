@@ -891,10 +891,6 @@
           },
           "description": "The network interface configurations."
         },
-        "imageReference": {
-          "$ref": "#/definitions/ImageReference1",
-          "description": "The image reference properties."
-        },
         "storageProfile": {
           "$ref": "#/definitions/StorageProfile",
           "description": "Specifies the storage settings for the virtual machine disks."
@@ -904,50 +900,6 @@
           "description": "Specifies the custom settings for the virtual machine."
         }
       }
-    },
-    "ImageReference1": {
-      "properties": {
-        "osType": {
-          "type": "string",
-          "description": "The OS type.",
-          "enum": [
-            "Unknown",
-            "Windows",
-            "Linux"
-          ],
-          "x-ms-enum": {
-            "name": "OperatingSystemTypes",
-            "modelAsString": true
-          }
-        },
-        "vhdName": {
-          "type": "string",
-          "description": "The VHD name."
-        },
-        "vhdType": {
-          "type": "string",
-          "description": "The VHD type.",
-          "enum": [
-            "Unknown",
-            "VHD",
-            "VHDX"
-          ],
-          "x-ms-enum": {
-            "name": "VHDType",
-            "modelAsString": true
-          }
-        },
-        "sasUri": {
-          "type": "string",
-          "x-ms-secret": true,
-          "x-ms-mutability": [
-            "create",
-            "update"
-          ],
-          "description": "The VHD SAS URI."
-        }
-      },
-      "description": "The image reference properties."
     },
     "ImageReference": {
       "properties": {
