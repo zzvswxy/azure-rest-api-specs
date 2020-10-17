@@ -3157,6 +3157,15 @@
             "create"
           ]
         },
+		"kind": {
+          "type": "string",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ],
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.",
+          "pattern": "^[-\\w\\._,\\(\\)]+$"
+        },
         "tags": {
           "description": "Gets or sets the Resource tags.",
           "type": "object",
