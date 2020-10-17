@@ -8,17 +8,16 @@
       "InstanceResource": {
         "properties": {
           "versionId": "v1",
+          "targetResourceGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deployment-rg",
           "parameters": {
             "infra1": {
-              "ResourceGroup": { 
-                "value":"deployment-rg"
+              "param-a": { 
+                "value":"value-for-param-a"
               }
             }
            },
           "description": "POC deployment"
-        },
-        "location":"westus",
-        "tags": {}
+        }
       }
     },
     "responses": {
@@ -26,14 +25,15 @@
         "body": {
           "properties": {
             "versionId": "v1",
+            "targetResourceGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deployment-rg",
             "userManagedIdentity": "",
             "parameters": {
               "infra1": {
-                "ResourceGroup": { 
-                  "value":"deployment-rg"
+                "param-a": { 
+                  "value":"value-for-param-a"
                 }
               }
-             },
+            },
             "artifactsStatus": {
               "infra1": {
                 "state": "NotStarted",
@@ -51,23 +51,22 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",
           "name": "poc1",
-          "type": "Microsoft.WorkloadBuilder/Workloads/instances",
-          "location":"westus",
-          "tags": {}
+          "type": "Microsoft.WorkloadBuilder/Workloads/instances"
        }
       },
       "201": {
         "body": {
           "properties": {
             "versionId": "v1",
+            "targetResourceGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deployment-rg",
             "userManagedIdentity": "",
             "parameters": {
               "infra1": {
-                "ResourceGroup": { 
-                  "value":"deployment-rg"
+                "param-a": { 
+                  "value":"value-for-param-a"
                 }
               }
-             },
+            },
             "artifactsStatus": {
               "infra1": {
                 "state": "NotStarted",
@@ -85,9 +84,7 @@
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp/instances/poc1",
           "name": "poc1",
-          "type": "Microsoft.WorkloadBuilder/Workloads/instances",
-          "location":"westus",
-          "tags": {}
+          "type": "Microsoft.WorkloadBuilder/Workloads/instances"
        }
     }
   }

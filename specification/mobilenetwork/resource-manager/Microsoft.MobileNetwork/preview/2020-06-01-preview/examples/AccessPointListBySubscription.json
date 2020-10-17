@@ -1,0 +1,51 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestAccessPoint",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/accessPoints",
+            "type": "Microsoft.MobileNetwork/accessPoints",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Succeeded",
+              "mobileNetwork": {
+                "id": "TestMobileNetworkId"
+              },
+              "packetCoreUserPlane": {
+                "id": "TestPacketCoreUserPlaneId"
+              },
+              "pdnName": "TestPdnName",
+              "dnsServers": [
+                "TestDnsServer"
+              ],
+              "dnsProvider": "TestDnsProvider",
+              "azureCgNatIPAddress": [
+                {
+                  "id": "TestAzureCgNatIPAddressId"
+                }
+              ],
+              "customerCgNatIPAddress": [
+                "TestCustomerCgNatIPAddress"
+              ],
+              "azureUeIPAddress": [
+                {
+                  "id": "TestAzureUeIPAddressId"
+                }
+              ],
+              "customerUeIPAddress": [
+                "TestCustomerUeIPAddress"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

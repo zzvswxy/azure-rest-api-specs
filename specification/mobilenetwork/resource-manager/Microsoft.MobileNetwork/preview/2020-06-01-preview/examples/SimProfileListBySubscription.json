@@ -1,0 +1,37 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestSimProfile",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simProfiles",
+            "type": "Microsoft.MobileNetwork/simProfiles",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Accepted",
+              "masterSimProfile": {
+                "id": "MasterSimProfileId"
+              },
+              "mobileDevice": {
+                "id": "TestMobileDeviceId"
+              },
+              "iccId": "TestIccId",
+              "imsi": "TestImsi",
+              "networkActivationState": "Not Provisioned",
+              "networkActivationDate": "TestNetworkActivationDate",
+              "voiceNumber": "TestVoiceNumber",
+              "subscriberAuthKey": "TestSubscriberAuthKey",
+              "operatorCode": "TestOperatorCode"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

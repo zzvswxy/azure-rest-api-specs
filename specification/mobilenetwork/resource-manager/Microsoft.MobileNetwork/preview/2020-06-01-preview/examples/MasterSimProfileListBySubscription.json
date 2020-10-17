@@ -1,0 +1,37 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestMasterSimProfile",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/masterSimProfiles",
+            "type": "Microsoft.MobileNetwork/masterSimProfiles",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Accepted",
+              "vendorProvisioningState": "Not Provisioned",
+              "mobileNetwork": {
+                "id": "TestMobileNetworkId"
+              },
+              "simVendor": "TestSimVendor",
+              "simType": "Physical",
+              "eSimProfileType": "Consumer",
+              "imsis": [
+                "TestImsis"
+              ],
+              "iccIds": [
+                "TestIccIds"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

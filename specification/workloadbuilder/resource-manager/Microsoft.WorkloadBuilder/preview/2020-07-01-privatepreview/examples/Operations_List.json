@@ -68,34 +68,34 @@
             }
           },
           {
-              "name": "Microsoft.WorkloadBuilder/workloads/versions/artifacts/Write",
-              "isDataAction": false,
-              "display": {
-                  "provider": "Microsoft.WorkloadBuilder",
-                  "resource": "artifacts",
-                  "operation": "Creates or updates the artifacts",
-                  "description": "Set artifacts"
-              }
+            "name": "Microsoft.WorkloadBuilder/workloads/versions/artifacts/Write",
+            "isDataAction": false,
+            "display": {
+              "provider": "Microsoft.WorkloadBuilder",
+              "resource": "artifacts",
+              "operation": "Creates or updates the artifacts",
+              "description": "Set artifacts"
+            }
           },
           {
-              "name": "Microsoft.WorkloadBuilder/workloads/versions/artifacts/Delete",
-              "isDataAction": false,
-              "display": {
-                  "provider": "Microsoft.WorkloadBuilder",
-                  "resource": "artifacts",
-                  "operation": "Deletes the artifacts",
-                  "description": "Delete artifacts"
-              }
+            "name": "Microsoft.WorkloadBuilder/workloads/versions/artifacts/Delete",
+            "isDataAction": false,
+            "display": {
+              "provider": "Microsoft.WorkloadBuilder",
+              "resource": "artifacts",
+              "operation": "Deletes the artifacts",
+              "description": "Delete artifacts"
+            }
           },
           {
-              "name": "Microsoft.WorkloadBuilder/workloads/versions/artifacts/Read",
-              "isDataAction": false,
-              "display": {
-                  "provider": "Microsoft.WorkloadBuilder",
-                  "resource": "artifacts",
-                  "operation": "Reads the artifacts",
-                  "description": "Read artifacts"
-              }
+            "name": "Microsoft.WorkloadBuilder/workloads/versions/artifacts/Read",
+            "isDataAction": false,
+            "display": {
+              "provider": "Microsoft.WorkloadBuilder",
+              "resource": "artifacts",
+              "operation": "Reads the artifacts",
+              "description": "Read artifacts"
+            }
           },
           {
             "name": "Microsoft.WorkloadBuilder/workloads/instances/Write",
@@ -126,7 +126,7 @@
               "operation": "Reads the instances",
               "description": "Read instances"
             }
-          }          
+          }
         ]
       }
     }

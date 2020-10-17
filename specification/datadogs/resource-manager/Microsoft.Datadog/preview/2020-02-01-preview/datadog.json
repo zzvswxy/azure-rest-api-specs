@@ -4,6 +4,27 @@
         "title": "Microsoft.Datadog",
         "version": "2020-02-01-preview"
     },
+    "host": "management.azure.com",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "azure_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+            "flow": "implicit",
+            "description": "Azure Active Directory OAuth2 Flow",
+            "scopes": {
+                "user_impersonation": "impersonate your user account"
+            }
+        }
+    },
     "paths": {
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/listApiKeys": {
             "post": {
@@ -17,22 +38,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -71,22 +83,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -125,22 +128,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "body",
@@ -168,6 +162,96 @@
                 }
             }
         },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/listHosts": {
+            "post": {
+                "tags": [
+                    "Hosts"
+                ],
+                "summary": "List the hosts for a given monitor resource.",
+                "operationId": "Hosts_List",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/MonitorNameParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/DatadogHostListResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Default error response.",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                },
+                "x-ms-examples": {
+                    "Hosts_List": {
+                        "$ref": "./examples/Hosts_List.json"
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/listLinkedResources": {
+            "post": {
+                "tags": [
+                    "LinkedResources"
+                ],
+                "summary": "List all Azure resources associated to the same Datadog organization as the target resource.",
+                "operationId": "LinkedResources_List",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/MonitorNameParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/LinkedResourceListResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Default error response.",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                },
+                "x-ms-examples": {
+                    "LinkedResources_List": {
+                        "$ref": "./examples/LinkedResources_List.json"
+                    }
+                }
+            }
+        },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/listMonitoredResources": {
             "post": {
                 "tags": [
@@ -180,22 +264,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -268,10 +343,7 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     }
                 ],
                 "responses": {
@@ -310,16 +382,10 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     }
                 ],
                 "responses": {
@@ -358,22 +424,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -410,22 +467,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "body",
@@ -476,22 +524,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "body",
@@ -514,6 +553,11 @@
                             "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
                         }
                     }
+                },
+                "x-ms-examples": {
+                    "Monitors_Update": {
+                        "$ref": "./examples/Monitors_Update.json"
+                    }
                 }
             },
             "delete": {
@@ -527,22 +571,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -562,7 +597,54 @@
                         }
                     }
                 },
-                "x-ms-long-running-operation": true
+                "x-ms-long-running-operation": true,
+                "x-ms-examples": {
+                    "Monitors_Delete": {
+                        "$ref": "./examples/Monitors_Delete.json"
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/refreshSetPasswordLink": {
+            "post": {
+                "tags": [
+                    "RefreshSetPasswordLink"
+                ],
+                "summary": "Refresh the setpassword link and return a latest one.",
+                "operationId": "RefreshSetPassword_Get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/MonitorNameParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/DatadogSetPasswordLink"
+                        }
+                    },
+                    "default": {
+                        "description": "Default error response.",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "RefreshSetPassword_Get": {
+                        "$ref": "./examples/RefreshSetPassword_Get.json"
+                    }
+                }
             }
         },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/tagRules": {
@@ -577,22 +659,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -634,22 +707,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "path",
@@ -696,22 +760,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "path",
@@ -753,22 +808,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     }
                 ],
                 "responses": {
@@ -810,22 +856,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "path",
@@ -879,22 +916,13 @@
                 ],
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "subscriptionId",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/SubscriptionIdParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "resourceGroupName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/ResourceGroupNameParameter"
                     },
                     {
-                        "in": "path",
-                        "name": "monitorName",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#/parameters/MonitorNameParameter"
                     },
                     {
                         "in": "path",
@@ -932,7 +960,7 @@
             ],
             "type": "object",
             "properties": {
-                "created_by": {
+                "createdBy": {
                     "description": "The user that created the API key.",
                     "type": "string"
                 },
@@ -995,6 +1023,117 @@
                 }
             }
         },
+        "DatadogInstallMethod": {
+            "type": "object",
+            "properties": {
+                "tool": {
+                    "description": "The tool.",
+                    "type": "string"
+                },
+                "toolVersion": {
+                    "description": "The tool version.",
+                    "type": "string"
+                },
+                "installerVersion": {
+                    "description": "The installer version.",
+                    "type": "string"
+                }
+            }
+        },
+        "DatadogLogsAgent": {
+            "type": "object",
+            "properties": {
+                "transport": {
+                    "description": "The transport.",
+                    "type": "string"
+                }
+            }
+        },
+        "DatadogHostMetadata": {
+            "type": "object",
+            "properties": {
+                "agentVersion": {
+                    "description": "The agent version.",
+                    "type": "string"
+                },
+                "installMethod": {
+                    "$ref": "#/definitions/DatadogInstallMethod"
+                },
+                "logsAgent": {
+                    "$ref": "#/definitions/DatadogLogsAgent"
+                }
+            }
+        },
+        "DatadogHost": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "The name of the host.",
+                    "type": "string"
+                },
+                "aliases": {
+                    "description": "The aliases for the host.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "apps": {
+                    "description": "The Datadog integrations reporting metrics for the host.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "meta": {
+                    "$ref": "#/definitions/DatadogHostMetadata"
+                }
+            }
+        },
+        "DatadogHostListResponse": {
+            "description": "Response of a list operation.",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "description": "Results of a list operation.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DatadogHost"
+                    }
+                },
+                "nextLink": {
+                    "description": "Link to the next set of results, if any.",
+                    "type": "string"
+                }
+            }
+        },
+        "LinkedResource": {
+            "description": "The definition of a linked resource.",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "The ARM id of the linked resource.",
+                    "type": "string"
+                }
+            }
+        },
+        "LinkedResourceListResponse": {
+            "description": "Response of a list operation.",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "description": "Results of a list operation.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LinkedResource"
+                    }
+                },
+                "nextLink": {
+                    "description": "Link to the next set of results, if any.",
+                    "type": "string"
+                }
+            }
+        },
         "MonitoredResource": {
             "description": "The properties of a resource currently being monitored by the Datadog monitor resource.",
             "type": "object",
@@ -1003,8 +1142,20 @@
                     "description": "The ARM id of the resource.",
                     "type": "string"
                 },
-                "location": {
-                    "description": "The location of the resource.",
+                "sendingMetrics": {
+                    "description": "Flag indicating if resource is sending metrics to Datadog.",
+                    "type": "boolean"
+                },
+                "reasonForMetricsStatus": {
+                    "description": "Reason for why the resource is sending metrics (or why it is not sending).",
+                    "type": "string"
+                },
+                "sendingLogs": {
+                    "description": "Flag indicating if resource is sending logs to Datadog.",
+                    "type": "boolean"
+                },
+                "reasonForLogsStatus": {
+                    "description": "Reason for why the resource is sending logs (or why it is not sending).",
                     "type": "string"
                 }
             }
@@ -1099,7 +1250,8 @@
                 "Succeeded",
                 "Failed",
                 "Canceled",
-                "Deleted"
+                "Deleted",
+                "NotSpecified"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -1107,16 +1259,28 @@
                 "name": "ProvisioningState"
             }
         },
-        "DatadogSubscriptionTypes": {
+        "MonitoringStatus": {
+            "description": "Flag specifying if the resource monitoring is enabled or disabled.",
             "enum": [
-                "trial",
-                "free",
-                "pro"
+                "Enabled",
+                "Disabled"
             ],
             "type": "string",
             "x-ms-enum": {
                 "modelAsString": true,
-                "name": "DatadogSubscriptionTypes"
+                "name": "MonitoringStatus"
+            }
+        },
+        "MarketplaceSubscriptionStatus": {
+            "description": "Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.",
+            "enum": [
+                "Active",
+                "Suspended"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+                "modelAsString": true,
+                "name": "MarketplaceSubscriptionStatus"
             }
         },
         "DatadogOrganizationProperties": {
@@ -1132,18 +1296,22 @@
                     "type": "string",
                     "readOnly": true
                 },
-                "datadogSubscriptionType": {
-                    "$ref": "#/definitions/DatadogSubscriptionTypes"
-                },
-                "apiKey": {
-                    "description": "Api key associated to the Datadog organization.",
+                "linkingAuthCode": {
+                    "description": "The auth code used to linking to an existing datadog organization.",
                     "type": "string",
                     "x-ms-mutability": [
                         "create"
                     ]
                 },
-                "applicationKey": {
-                    "description": "Application key associated to the Datadog organization.",
+                "linkingClientId": {
+                    "description": "The client_id from an existing in exchange for an auth token to link organization.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                        "create"
+                    ]
+                },
+                "enterpriseAppId": {
+                    "description": "The Id of the Enterprise App used for Single sign on.",
                     "type": "string",
                     "x-ms-mutability": [
                         "create"
@@ -1161,15 +1329,27 @@
                 },
                 "emailAddress": {
                     "description": "Email of the user used by Datadog for contacting them if needed",
-                    "pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$",
+                    "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$",
                     "type": "string"
                 },
                 "phoneNumber": {
                     "description": "Phone number of the user used by Datadog for contacting them if needed",
-                    "pattern": "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+                    "maxLength": 40,
                     "type": "string"
                 }
             }
+        },
+        "LiftrResourceCategories": {
+            "enum": [
+                "Unknown",
+                "MonitorLogs"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+                "modelAsString": true,
+                "name": "LiftrResourceCategories"
+            },
+            "readOnly": true
         },
         "MonitorProperties": {
             "description": "Properties specific to the monitor resource.",
@@ -1178,11 +1358,26 @@
                 "provisioningState": {
                     "$ref": "#/definitions/ProvisioningState"
                 },
+                "monitoringStatus": {
+                    "$ref": "#/definitions/MonitoringStatus"
+                },
+                "marketplaceSubscriptionStatus": {
+                    "$ref": "#/definitions/MarketplaceSubscriptionStatus"
+                },
                 "datadogOrganizationProperties": {
                     "$ref": "#/definitions/DatadogOrganizationProperties"
                 },
                 "userInfo": {
                     "$ref": "#/definitions/UserInfo"
+                },
+                "liftrResourceCategory": {
+                    "$ref": "#/definitions/LiftrResourceCategories"
+                },
+                "liftrResourcePreference": {
+                    "description": "The priority of the resource.",
+                    "format": "int32",
+                    "type": "integer",
+                    "readOnly": true
                 }
             }
         },
@@ -1220,6 +1415,7 @@
                 "location"
             ],
             "type": "object",
+            "x-ms-azure-resource": true,
             "properties": {
                 "id": {
                     "description": "ARM id of the monitor resource.",
@@ -1273,14 +1469,36 @@
                 }
             }
         },
-        "DatadogMonitorResourceUpdateParameters": {
+        "MonitorUpdateProperties": {
+            "description": "The set of properties that can be update in a PATCH request to a monitor resource.",
             "type": "object",
             "properties": {
+                "monitoringStatus": {
+                    "$ref": "#/definitions/MonitoringStatus"
+                }
+            }
+        },
+        "DatadogMonitorResourceUpdateParameters": {
+            "description": "The parameters for a PATCH request to a monitor resource.",
+            "type": "object",
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/MonitorUpdateProperties"
+                },
                 "tags": {
+                    "description": "The new tags of the monitor resource.",
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "DatadogSetPasswordLink": {
+            "type": "object",
+            "properties": {
+                "setPasswordLink": {
+                    "type": "string"
                 }
             }
         },
@@ -1297,7 +1515,7 @@
             }
         },
         "FilteringTag": {
-            "description": "The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.",
+            "description": "The definition of a filtering tag. Filtering tags are used for\r\ncapturing resources and include/exclude them from being monitored.",
             "type": "object",
             "properties": {
                 "name": {
@@ -1322,15 +1540,15 @@
                     "type": "boolean"
                 },
                 "sendSubscriptionLogs": {
-                    "description": "Flag specifying if subscription logs should be sent for the Monitor resource.",
+                    "description": "Flag specifying if Azure subscription logs should be sent for the Monitor resource.",
                     "type": "boolean"
                 },
-                "sendActivityLogs": {
-                    "description": "Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.",
+                "sendResourceLogs": {
+                    "description": "Flag specifying if Azure resource logs should be sent for the Monitor resource.",
                     "type": "boolean"
                 },
                 "filteringTags": {
-                    "description": "List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
+                    "description": "List of filtering tags to be used for capturing logs.\r\nThis only takes effect if SendResourceLogs flag is enabled.\r\nIf empty, all resources will be captured.\r\nIf only Exclude action is specified, the rules will apply to the list of all available resources.\r\nIf Include actions are specified, the rules will only include resources with the associated tags.",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/FilteringTag"
@@ -1343,7 +1561,7 @@
             "type": "object",
             "properties": {
                 "filteringTags": {
-                    "description": "List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
+                    "description": "List of filtering tags to be used for capturing metrics.\r\nIf empty, all resources will be captured.\r\nIf only Exclude action is specified, the rules will apply to the list of all available resources.\r\nIf Include actions are specified, the rules will only include resources with the associated tags.",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/FilteringTag"
@@ -1366,6 +1584,7 @@
         "MonitoringTagRules": {
             "description": "Capture logs and metrics of Azure resources based on ARM tags.",
             "type": "object",
+            "x-ms-azure-resource": true,
             "properties": {
                 "name": {
                     "description": "Name of the rule set.",
@@ -1404,23 +1623,31 @@
                 }
             }
         },
+        "SingleSignOnStates": {
+            "description": "Various states of the SSO resource",
+            "enum": [
+                "Initial",
+                "Enable",
+                "Disable",
+                "Existing"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+                "modelAsString": true,
+                "name": "SingleSignOnStates"
+            }
+        },
         "DatadogSingleSignOnProperties": {
             "type": "object",
             "properties": {
                 "singleSignOnState": {
-                    "description": "This state of single sign-on funtionality, \"Enabled\"/\"Disabled\".",
-                    "type": "string"
-                },
-                "metadataXML": {
-                    "description": "The metadataXML from the Azure AD app to setup SSO.",
-                    "type": "string"
+                    "$ref": "#/definitions/SingleSignOnStates"
                 },
                 "enterpriseAppId": {
                     "description": "The Id of the Enterprise App used for Single sign-on.",
                     "type": "string"
                 },
                 "singleSignOnUrl": {
-                    "format": "uri",
                     "description": "The login URL specific to this Datadog Organization.",
                     "type": "string"
                 }
@@ -1428,6 +1655,7 @@
         },
         "DatadogSingleSignOnResource": {
             "type": "object",
+            "x-ms-azure-resource": true,
             "properties": {
                 "id": {
                     "description": "ARM id of the resource.",
@@ -1465,6 +1693,31 @@
                     "type": "string"
                 }
             }
+        }
+    },
+    "parameters": {
+        "SubscriptionIdParameter": {
+            "name": "subscriptionId",
+            "in": "path",
+            "description": "The Microsoft Azure subscription ID.",
+            "required": true,
+            "type": "string"
+        },
+        "ResourceGroupNameParameter": {
+            "name": "resourceGroupName",
+            "in": "path",
+            "description": "The name of the resource group to which the Datadog resource belongs.",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+        },
+        "MonitorNameParameter": {
+            "in": "path",
+            "name": "monitorName",
+            "description": "Monitor resource name",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
         }
     }
 }
