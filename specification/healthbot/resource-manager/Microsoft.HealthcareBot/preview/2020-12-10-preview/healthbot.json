@@ -143,15 +143,6 @@
           },
           {
             "$ref": "#/parameters/resourceNameParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Bot"
-            },
-            "description": "The parameters to provide for the required bot."
           }
         ],
         "responses": {
@@ -229,15 +220,6 @@
           },
           {
             "$ref": "#/parameters/resourceNameParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Bot"
-            },
-            "description": "The parameters to provide for the required bot."
           }
         ],
         "responses": {
