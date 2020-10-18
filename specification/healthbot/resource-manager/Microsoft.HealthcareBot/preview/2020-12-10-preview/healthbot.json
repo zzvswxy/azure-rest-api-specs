@@ -64,6 +64,9 @@
               "$ref": "#/definitions/Bot"
             },
             "description": "The parameters to provide for the created bot."
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -109,6 +112,9 @@
               "$ref": "#/definitions/Bot"
             },
             "description": "The parameters to provide for the created bot."
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -143,7 +149,11 @@
           },
           {
             "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
+
         ],
         "responses": {
           "200": {
@@ -186,6 +196,9 @@
               "$ref": "#/definitions/Bot"
             },
             "description": "The parameters to provide for the required bot."
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -220,6 +233,9 @@
           },
           {
             "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -253,6 +269,9 @@
           },
           {
             "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -286,6 +305,9 @@
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -334,6 +356,9 @@
               "$ref": "#/definitions/Bot"
             },
             "description": "The parameters to provide for the created bot."
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
