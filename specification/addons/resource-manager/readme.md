@@ -12,7 +12,7 @@ To build the SDK for Addons, simply [Install AutoRest](https://aka.ms/autorest/i
 
 > `autorest`
 
-To see additional help and options, run:
+To see additional help and options, run: 
 
 > `autorest --help`
 ---
@@ -22,7 +22,7 @@ To see additional help and options, run:
 
 
 ### Basic Information 
-These are the global settings for the Addons API.
+These are the global settings for the Addons API test.
 
 ``` yaml
 openapi-type: arm
