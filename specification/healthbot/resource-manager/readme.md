@@ -32,11 +32,11 @@ tag: package-2020-12-10-preview
 
 ### Tag: package-2020-12-10
 
-These settings apply only when `--tag=package-2020-12-10` is specified on the command line.
+These settings apply only when `--tag=package-2020-12-10-preview` is specified on the command line.
 
-```yaml $(tag) == 'package-2020-12-10'
+```yaml $(tag) == 'package-2020-12-10-preview'
 input-file:
-  - Microsoft.HealthcareBot/preview/2020-12-10/healthbot.json
+  - Microsoft.HealthcareBot/preview/2020-12-10-preview/healthbot.json
 ```
 
 ---
