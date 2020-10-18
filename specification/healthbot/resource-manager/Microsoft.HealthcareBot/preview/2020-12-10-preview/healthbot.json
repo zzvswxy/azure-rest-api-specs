@@ -158,7 +158,7 @@
           "200": {
             "description": "If resource is got successfully, the service should return 200.",
             "schema": {
-              "$ref": "#/definitions/ValidationResult"
+              "$ref": "#/definitions/Bot"
             }
           },
           "default": {
@@ -201,7 +201,7 @@
           "200": {
             "description": "If resource is patched successfully, the service should return 200.",
             "schema": {
-              "$ref": "#/definitions/ValidationResult"
+              "$ref": "#/definitions/Bot"
             }
           },
           "default": {
