@@ -1,0 +1,18 @@
+{
+  "parameters": {
+    "resourceGroupName": "healthbotClient",
+    "subscriptionId": "subid",
+    "resourceName": "MyBot"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "properties": {
+          "displayName": "My Bot",
+          "planId": "free",
+          "offerId": "microsofthealthcarebot"
+        }
+      }
+    }
+  }
+}
