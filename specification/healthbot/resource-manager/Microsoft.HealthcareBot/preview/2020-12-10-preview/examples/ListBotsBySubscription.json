@@ -7,15 +7,19 @@
   "responses": {
     "200": {
       "body": {
-        "location": "East US",
-        "name": "samplebotname",
-        "type": "Microsoft.HealthcareBot/healthcareBots",
-        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthcareBots/samplebotname",
-        "properties": {
-          "displayName": "My Bot",
-          "planId": "free",
-          "offerId": "microsofthealthcarebot"
-        }
+        "value": [
+            {
+              "location": "East US",
+              "name": "samplebotname",
+              "type": "Microsoft.HealthcareBot/healthcareBots",
+              "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthcareBots/samplebotname",
+              "properties": {
+                "displayName": "My Bot",
+                "planId": "free",
+                "offerId": "microsofthealthcarebot"
+              }
+            }
+        ]
       }
     }
   }
