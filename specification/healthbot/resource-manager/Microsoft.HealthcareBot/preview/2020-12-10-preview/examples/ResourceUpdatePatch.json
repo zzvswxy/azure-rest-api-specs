@@ -14,7 +14,11 @@
   "responses": {
     "200": {
       "body": {
-        "status": "OK"
+        "properties": {
+          "displayName": "My Bot",
+          "planId": "free",
+          "offerId": "microsofthealthcarebot"
+        }
       }
     }
   }
