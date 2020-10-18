@@ -238,7 +238,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a resource group",
         "operationId": "Bots_ListByResourceGroup",
@@ -274,7 +274,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.BotService/botServices": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/healthcareBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "operationId": "Bots_List",
