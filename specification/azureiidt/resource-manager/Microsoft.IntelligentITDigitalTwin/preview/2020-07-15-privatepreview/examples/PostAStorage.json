@@ -12,8 +12,7 @@
     "200": {
       "body": {
         "name": "idtCentral",
-        "url": "url to the storage",
-        "connectionString": "connection string value"
+        "url": "url to the storage"
       }
     }
   }
