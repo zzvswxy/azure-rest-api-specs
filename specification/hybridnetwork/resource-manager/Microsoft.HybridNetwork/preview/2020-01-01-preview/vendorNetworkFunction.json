@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "HybridNetworkManagementClient",
-    "description": "The resources in this swagger specification will be used by vendors to on-board offerings and manage vendor network function.",
+    "description": "The resources in this swagger specification will be used to manage the vendor network function deployment in the Microsoft.HybridNetwork resource provider.",
     "version": "2020-01-01-preview"
   },
   "host": "management.azure.com",
@@ -47,7 +47,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The Azure region where the network function sub resource was created by the customer."
+            "description": "The Azure region where the network function resource was created by the customer."
           },
           {
             "name": "vendorName",
@@ -64,10 +64,10 @@
             "description": "The GUID for the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -80,7 +80,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -128,10 +128,10 @@
             "description": "Parameters supplied to the create or update vendor network function operation."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -150,7 +150,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -202,10 +202,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -218,7 +218,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -270,10 +270,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -286,7 +286,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -338,10 +338,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -354,7 +354,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -406,10 +406,10 @@
             "description": "The name of the role instance of the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -422,7 +422,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -463,15 +463,15 @@
             "description": "The filter to apply on the operation. The properties you can use for eq (equals) are: skuType, skuName and vendorProvisioningState."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": "Request is successful. The operation returns the resulting hybrid network vendor network function sub resource.",
+            "description": "Request is successful. The operation returns the resulting vendor network function sub resource.",
             "schema": {
               "$ref": "#/definitions/VendorNetworkFunctionListResult"
             }
@@ -479,7 +479,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -493,7 +493,6 @@
         }
       }
     },
-
     "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/networkFunctions/{serviceKey}/roleInstances": {
       "get": {
         "tags": [
@@ -524,10 +523,10 @@
             "description": "The GUID for the vendor network function."
           },
           {
-            "$ref": "./common.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
@@ -540,7 +539,7 @@
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "./common.json#/definitions/ErrorDetails"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -583,7 +582,7 @@
       },
       "allOf": [
         {
-          "$ref": "./common.json#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
         }
       ],
       "description": "Vendor network function sub resource."

@@ -1983,6 +1983,12 @@
               "$ref": "#/definitions/LiveDataMigration"
             }
           },
+          "201": {
+            "description": "Creating LiveDataMigration.",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          },
           "default": {
             "description": "Error response describing the reason for operation failure.",
             "schema": {
