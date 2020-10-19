@@ -2921,7 +2921,8 @@
       "required": [
         "displayName",
         "metadataEndpoint",
-        "clientId"
+        "clientId",
+        "clientSecret"
       ],
       "description": "OpenID Connect Providers Contract."
     },
