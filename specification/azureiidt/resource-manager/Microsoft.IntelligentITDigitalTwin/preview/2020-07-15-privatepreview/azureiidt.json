@@ -120,7 +120,7 @@
             "schema": {
               "$ref": "#/definitions/ITDigitalTwin"
             },
-            "description": "Parameters supplied to the Update IT Digial Twin operation."
+            "description": "Parameters supplied to the Update IT Digital Twin operation."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -326,7 +326,7 @@
         },
         "x-ms-examples": {
           "List all it digital twins in a subscription.": {
-            "$ref": "./examples/ListSubscriptionITDigialTwins.json"
+            "$ref": "./examples/ListSubscriptionITDigitalTwins.json"
           }
         }
       }
@@ -367,13 +367,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelligentITDigitalTwin/digitalTwins/{iidtName}/storage": {
-      "get": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelligentITDigitalTwin/digitalTwins/{iidtName}/checkStorage": {
+      "post": {
         "tags": [
-          "ITDigitalTwinsStorage"
+          "ITDigitalTwins"
         ],
-        "operationId": "IDTStorage_Get",
-        "description": "The operation to get a IT Digital Twins centralized storage account.",
+        "operationId": "IDTStorage_Post",
+        "description": "The operation to return IT Digital Twins centralized storage account info.",
         "parameters": [
           {
             "name": "resourceGroupName",
@@ -412,118 +412,11 @@
         },
         "x-ms-examples": {
           "Create an IT Digital Twin.": {
-            "$ref": "./examples/GetAStorage.json"
+            "$ref": "./examples/PostAStorage.json"
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelligentITDigitalTwin/digitalTwins/{iidtName}/startdiscovery": {
-      "put": {
-        "tags": [
-          "ITDigitalTwins"
-        ],
-        "operationId": "IDTDiscovery_CreateOrUpdate",
-        "description": "The operation to create or update a discovery process.",
-        "parameters": [
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the resource group."
-          },
-          {
-            "name": "iidtName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the it digital twin."
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/DiscoveryMetaData"
-            },
-            "description": "Parameters supplied to the Create it digital twin operation."
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/DiscoveryMetaData"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Create an IDT discovery.": {
-            "$ref": "./examples/CreateADiscovery.json"
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "ITDigitalTwins"
-        ],
-        "operationId": "IDTDiscovery_Get",
-        "description": "The operation to get a discovery meta data",
-        "parameters": [
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the resource group."
-          },
-          {
-            "name": "iidtName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the it digital twin."
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/DiscoveryMetaData"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Create an IT Digital Twin.": {
-            "$ref": "./examples/GetADiscovery.json"
-          }
-        }
-      }
-    }
   },
   "definitions": {
     "Resource": {
@@ -578,7 +471,13 @@
         },
         "provisioningState": {
           "description": "The provisioning state.",
-          "enum": [ "Succeeded", "Created", "Configured", "Deployed", "Failed" ],
+          "enum": [
+            "Succeeded",
+            "Created",
+            "Configured",
+            "Deployed",
+            "Failed"
+          ],
           "type": "string",
           "readOnly": true,
           "x-ms-enum": {
@@ -590,18 +489,8 @@
           "description": "Link to the ADLS account.",
           "type": "string"
         },
-        // Pending disucssion with team
-        "idtState": {
-          "description": "the states of it digital twin",
-          "enum": [ "Created", "Configured", "Deploying", "Deployed" ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "idtState",
-            "modelAsString": true
-          }
-        },
-        "idtMetaData": {
-          "description": "store meta data from idt",
+        "configuration": {
+          "description": "configuration for the digital twin project.",
           "type": "string"
         }
       },
@@ -708,6 +597,11 @@
           "type": "string",
           "x-nullable": true
         },
+        "url": {
+          "description": "Url of centralized storage account",
+          "type": "string",
+          "x-nullable": true
+        },
         "connectionString": {
           "x-ms-secret": true,
           "description": "Connection string to the centralized storage account to get ",
@@ -716,35 +610,6 @@
         }
       },
       "description": "Describes storage account for idt."
-    },
-    "DiscoveryMetaData": {
-      "properties": {
-        "commercialId": {
-          "description": "commercialId for current user ",
-          "type": "string",
-          "x-nullable": true
-        },
-        "tenantId": {
-          "description": "tenantId for current user ",
-          "type": "string",
-          "x-nullable": true
-        },
-        "discoveryState": {
-          "description": "the state of discovery service",
-          "enum": [ "NotStarted","Running","Ready" ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "discoveryState",
-            "modelAsString": true
-          }
-        },
-        "discoveryResult": {
-          "description": "result for the discovery service",
-          "type": "string",
-          "x-nullable": true
-        }
-      },
-      "description": "Describes discovery result"
     }
   },
   "parameters": {
