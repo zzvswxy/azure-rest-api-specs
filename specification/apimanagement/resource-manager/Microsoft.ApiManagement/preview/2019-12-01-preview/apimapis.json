@@ -164,7 +164,7 @@
         "description": "Gets the details of the API specified by its identifier.",
         "x-ms-examples": {
           "ApiManagementGetApiContract": {
-            "$ref": "./examples/333.json"
+            "$ref": "./examples/ApiManagementGetApiContract.json"
           },
           "ApiManagementGetApiRevisionContract": {
             "$ref": "./examples/ApiManagementGetApiRevision.json"
