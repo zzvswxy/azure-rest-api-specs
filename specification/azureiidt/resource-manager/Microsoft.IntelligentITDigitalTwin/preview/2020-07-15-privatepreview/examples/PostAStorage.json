@@ -11,10 +11,9 @@
   "responses": {
     "200": {
       "body": {
-        "properties": {
-          "name": "idtCentral",
-          "connectionString": "connection string value"
-        }
+        "name": "idtCentral",
+        "url": "url to the storage",
+        "connectionString": "connection string value"
       }
     }
   }
