@@ -46,7 +46,6 @@
         },
         "x-ms-examples": {
           "ApiManagementListApis": {
-            "$ref": "./examples/ApiManagementListApis.json"
           }
         },
         "parameters": [
@@ -119,7 +118,7 @@
         "description": "Gets the entity state (Etag) version of the API specified by its identifier.",
         "x-ms-examples": {
           "ApiManagementHeadApi": {
-            "$ref": "./examples/ApiManagementHeadApi.json"
+            "$ref": ""
           }
         },
         "parameters": [
@@ -165,7 +164,7 @@
         "description": "Gets the details of the API specified by its identifier.",
         "x-ms-examples": {
           "ApiManagementGetApiContract": {
-            "$ref": "./examples/ApiManagementGetApiContract.json"
+            "$ref": "./examples/333.json"
           },
           "ApiManagementGetApiRevisionContract": {
             "$ref": "./examples/ApiManagementGetApiRevision.json"
