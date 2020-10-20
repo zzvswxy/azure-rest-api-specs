@@ -84,7 +84,7 @@
           "200": {
             "description": "Iot Hub Link Details",
             "schema": {
-              "$ref": "#/definitions/IotHubName"
+              "$ref": "#/definitions/IotHubLink"
             }
           },
           "default": {
@@ -120,7 +120,7 @@
           "200": {
             "description": "IotHub Link Details",
             "schema": {
-              "$ref": "#/definitions/IotHubName"
+              "$ref": "#/definitions/IotHubLink"
             }
           },
           "default": {
