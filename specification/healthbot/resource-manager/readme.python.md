@@ -10,7 +10,7 @@ python:
   payload-flattening-threshold: 2
   namespace: Microsoft.HealthcareBot
   package-name: healthbot
-  package-version: 2020-06-01-preview
+  package-version: 2020-10-20-preview
   clear-output-folder: true
 ```
 
