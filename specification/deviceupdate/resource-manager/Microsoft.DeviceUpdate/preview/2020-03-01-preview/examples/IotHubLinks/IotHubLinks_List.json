@@ -9,11 +9,11 @@
         "value": [
           {
             "provisioningState": "Succeeded",
-            "IotHubLinkId": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
+            "IotHubName": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
           },
           {
             "provisioningState": "Succeeded",
-            "IotHubLinkId": "/providers/Microsoft.DeviceUpdate/iotHubLinks/red-fabrikam-hub"
+            "IotHubName": "/providers/Microsoft.DeviceUpdate/iotHubLinks/red-fabrikam-hub"
           }
         ]
       }

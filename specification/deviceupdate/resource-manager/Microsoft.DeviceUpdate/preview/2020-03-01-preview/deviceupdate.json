@@ -68,23 +68,23 @@
         }
       }
     },
-    "/providers/Microsoft.DeviceUpdate/iothublinks/{linkId}": {
+    "/providers/Microsoft.DeviceUpdate/iothublinks/{iotHubName}": {
       "get": {
-        "description": "Return Iot Hub Link",
+        "description": "Return Details Of Iot Hub Link",
         "operationId": "IotHubLinks_Get",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "#/parameters/IotHubLink"
+            "$ref": "#/parameters/IotHubName"
           }
         ],
         "responses": {
           "200": {
-            "description": "Iot Hub Link Id",
+            "description": "Iot Hub Link Details",
             "schema": {
-              "$ref": "#/definitions/IotHubLink"
+              "$ref": "#/definitions/IotHubName"
             }
           },
           "default": {
@@ -102,9 +102,9 @@
         }
       },
       "put": {
-        "description": "Creates or Updates Iot Hub Link.",
+        "description": "Creates or Updates Iot Hub Link",
         "operationId": "IotHubLink_Create",
-        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation": false,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
         },
@@ -113,14 +113,14 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "#/parameters/IotHubLink"
+            "$ref": "#/parameters/IotHubName"
           }
         ],
         "responses": {
-          "201": {
-            "description": "Async operation to create or update IotHub Link was created.",
+          "200": {
+            "description": "IotHub Link Details",
             "schema": {
-              "$ref": "#/definitions/IotHubLink"
+              "$ref": "#/definitions/IotHubName"
             }
           },
           "default": {
@@ -139,7 +139,7 @@
       "delete": {
         "description": "Deletes IotHub Link.",
         "operationId": "IotHub_Link_Delete",
-        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation": false,
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
@@ -148,15 +148,12 @@
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "#/parameters/IotHubLink"
+            "$ref": "#/parameters/IotHubName"
           }
         ],
         "responses": {
-          "202": {
-            "description": "Async operation to delete IotHub Link was created."
-          },
-          "204": {
-            "description": "IotHub Link has already been deleted."
+          "200": {
+            "description": "Delete IoT Hub Link"
           },
           "default": {
             "description": "Error response describing the reason for operation failure.",
@@ -840,7 +837,7 @@
       }
     },
     "IotHubLink": {
-      "description": "IotHubLink Description",
+      "description": "IotHub Link Description",
       "type": "object",
       "properties": {
         "provisioningState": {
@@ -850,10 +847,7 @@
             "Succeeded",
             "Deleted",
             "Failed",
-            "Canceled",
-            "Accepted",
-            "Creating",
-            "Deleting"
+            "Canceled"
           ],
           "readOnly": true,
           "x-ms-enum": {
@@ -861,8 +855,8 @@
             "modelAsString": true
           }
         },
-        "IotHubLinkId": {
-          "description": "IotHub Link properties",
+        "IotHubName": {
+          "description": "IotHub Name Info",
           "x-ms-client-flatten": true,
           "type": "string",
           "readOnly": true
@@ -1111,12 +1105,12 @@
       "minLength": 3,
       "maxLength": 36
     },
-    "IotHubLink": {
-      "name": "linkId",
+    "IotHubName": {
+      "name": "iotHubName",
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The Iot Hub Link Id",
+      "description": "The Iot Hub Name",
       "x-ms-parameter-location": "method"
     }
   }

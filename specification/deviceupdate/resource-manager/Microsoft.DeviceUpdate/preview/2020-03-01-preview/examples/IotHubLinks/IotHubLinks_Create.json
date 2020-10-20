@@ -1,13 +1,13 @@
 {
   "parameters": {
     "api-version": "2020-03-01-preview",
-    "linkId": "providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
+    "iotHubName": "providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
   },
   "responses": {
     "201": {
       "body": {
         "provisioningState": "Succeeded",
-        "linkId": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
+        "IotHubName": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
       }
     }
   }
