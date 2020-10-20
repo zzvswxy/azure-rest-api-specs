@@ -34,6 +34,97 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.DeviceUpdate/iothublinks": {
+      "get": {
+        "description": "Returns list of registered IotHubLink",
+        "operationId": "IotHubLink_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of IotHubLink",
+            "schema": {
+              "$ref": "#/definitions/IotHubLinks"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/providers/Microsoft.DeviceUpdate/iothublinks/{linkId}": {
+    "put": {
+      "description": "Creates or updates IotHub Link.",
+      "operationId": "IotHub Link_Create",
+      "x-ms-long-running-operation": true,
+      "x-ms-long-running-operation-options": {
+        "final-state-via": "azure-async-operation"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/ApiVersionParameter"
+        },
+        {
+          "$ref": "#/parameters/IotHubLink"
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Async operation to create or update IotHub Link was created.",
+          "schema": {
+            "$ref": "#/definitions/IotHubLink"
+          }
+        },
+        "default": {
+          "description": "Error response describing the reason for operation failure.",
+          "schema": {
+            "$ref": "#/definitions/ErrorResponse"
+          }
+        }
+      }
+    },
+    "delete": {
+      "description": "Deletes IotHub Link.",
+      "operationId": "IotHub_Link_Delete",
+      "x-ms-long-running-operation": true,
+      "x-ms-long-running-operation-options": {
+        "final-state-via": "location"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/ApiVersionParameter"
+        },
+        {
+          "$ref": "#/parameters/IotHubLink"
+        }
+      ],
+      "responses": {
+        "202": {
+          "description": "Async operation to delete IotHub Link was created."
+        },
+        "204": {
+          "description": "IotHub Link has already been deleted."
+        },
+        "default": {
+          "description": "Error response describing the reason for operation failure.",
+          "schema": {
+            "$ref": "#/definitions/ErrorResponse"
+          }
+        }
+      }
+    }
+   },
     "/subscriptions/{subscriptionId}/providers/Microsoft.DeviceUpdate/accounts": {
       "get": {
         "description": "Returns list of accounts.",
@@ -686,6 +777,46 @@
         }
       }
     },
+    "IotHubLinks": {
+      "description": "List of IotHub Link",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of iot hub list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List of Iot Hubs Link",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IotHubLink"
+          }
+        }
+      }
+    },
+    "IotHubLink": {
+      "description": "Device Update IotHubLink details.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "IotHubLink properties.",
+          "x-ms-client-flatten": true,
+          "type": "object",
+          "properties": {
+            "linkId": {
+              "description": "IotHub LinkId",
+              "type": "string",
+              "readOnly": true
+            }
+          }
+        }
+      }
+    },
     "Instance": {
       "description": "Device Update instance details.",
       "type": "object",
@@ -927,6 +1058,14 @@
       "pattern": "^[A-Za-z][A-Za-z0-9]+$",
       "minLength": 3,
       "maxLength": 36
+    },
+    "IotHubLink": {
+      "name": "linkId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "IotHub LinkId",
+      "x-ms-parameter-location": "method"
     }
   }
 }
