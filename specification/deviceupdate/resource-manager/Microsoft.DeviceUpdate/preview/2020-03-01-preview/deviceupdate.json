@@ -62,7 +62,7 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "Gets a list of IoTHub Link": {
+          "Gets a list of IoTHub Links": {
             "$ref": "./examples/IotHubLinks/IotHubLinks_List.json"
           }
         }
@@ -163,11 +163,11 @@
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
-          },
-          "x-ms-examples": {
-            "Gets a list of IoTHub Link": {
-              "$ref": "./examples/IotHubLinks/IotHubLinks_Delete.json"
-            }
+          }
+        },
+        "x-ms-examples": {
+          "Gets a list of IoTHub Link": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_Delete.json"
           }
         }
       }
