@@ -36,8 +36,8 @@
   "paths": {
     "/providers/Microsoft.DeviceUpdate/iothublinks": {
       "get": {
-        "description": "Returns list of registered IotHubLink",
-        "operationId": "IotHubLink_List",
+        "description": "Returns the list of IotHubLinks",
+        "operationId": "IotHubLinks_List",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -45,7 +45,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of IotHubLink",
+            "description": "List of IotHub Links",
             "schema": {
               "$ref": "#/definitions/IotHubLinks"
             }
@@ -60,71 +60,118 @@
         "deprecated": false,
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Gets a list of IoTHub Link": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_List.json"
+          }
         }
       }
     },
     "/providers/Microsoft.DeviceUpdate/iothublinks/{linkId}": {
-    "put": {
-      "description": "Creates or updates IotHub Link.",
-      "operationId": "IotHub Link_Create",
-      "x-ms-long-running-operation": true,
-      "x-ms-long-running-operation-options": {
-        "final-state-via": "azure-async-operation"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/ApiVersionParameter"
-        },
-        {
-          "$ref": "#/parameters/IotHubLink"
-        }
-      ],
-      "responses": {
-        "201": {
-          "description": "Async operation to create or update IotHub Link was created.",
-          "schema": {
-            "$ref": "#/definitions/IotHubLink"
+      "get": {
+        "description": "Return Iot Hub Link",
+        "operationId": "IotHubLinks_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IotHubLink"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Iot Hub Link Id",
+            "schema": {
+              "$ref": "#/definitions/IotHubLink"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
           }
         },
-        "default": {
-          "description": "Error response describing the reason for operation failure.",
-          "schema": {
-            "$ref": "#/definitions/ErrorResponse"
+        "deprecated": false,
+        "x-ms-examples": {
+          "Gets a list of IoTHub Link": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_Get.json"
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or Updates Iot Hub Link.",
+        "operationId": "IotHubLink_Create",
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IotHubLink"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Async operation to create or update IotHub Link was created.",
+            "schema": {
+              "$ref": "#/definitions/IotHubLink"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "x-ms-examples": {
+            "Gets a list of IoTHub Link": {
+              "$ref": "./examples/IotHubLinks/IotHubLinks_Create.json"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes IotHub Link.",
+        "operationId": "IotHub_Link_Delete",
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IotHubLink"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Async operation to delete IotHub Link was created."
+          },
+          "204": {
+            "description": "IotHub Link has already been deleted."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "x-ms-examples": {
+            "Gets a list of IoTHub Link": {
+              "$ref": "./examples/IotHubLinks/IotHubLinks_Delete.json"
+            }
           }
         }
       }
     },
-    "delete": {
-      "description": "Deletes IotHub Link.",
-      "operationId": "IotHub_Link_Delete",
-      "x-ms-long-running-operation": true,
-      "x-ms-long-running-operation-options": {
-        "final-state-via": "location"
-      },
-      "parameters": [
-        {
-          "$ref": "#/parameters/ApiVersionParameter"
-        },
-        {
-          "$ref": "#/parameters/IotHubLink"
-        }
-      ],
-      "responses": {
-        "202": {
-          "description": "Async operation to delete IotHub Link was created."
-        },
-        "204": {
-          "description": "IotHub Link has already been deleted."
-        },
-        "default": {
-          "description": "Error response describing the reason for operation failure.",
-          "schema": {
-            "$ref": "#/definitions/ErrorResponse"
-          }
-        }
-      }
-    }
-   },
     "/subscriptions/{subscriptionId}/providers/Microsoft.DeviceUpdate/accounts": {
       "get": {
         "description": "Returns list of accounts.",
@@ -778,7 +825,7 @@
       }
     },
     "IotHubLinks": {
-      "description": "List of IotHub Link",
+      "description": "List of IotHub Links",
       "type": "object",
       "properties": {
         "nextLink": {
@@ -786,8 +833,6 @@
           "type": "string"
         },
         "value": {
-          "description": "List of Iot Hubs Link",
-          "type": "array",
           "items": {
             "$ref": "#/definitions/IotHubLink"
           }
@@ -795,25 +840,32 @@
       }
     },
     "IotHubLink": {
-      "description": "Device Update IotHubLink details.",
+      "description": "IotHubLink Description",
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
       "properties": {
-        "properties": {
-          "description": "IotHubLink properties.",
-          "x-ms-client-flatten": true,
-          "type": "object",
-          "properties": {
-            "linkId": {
-              "description": "IotHub LinkId",
-              "type": "string",
-              "readOnly": true
-            }
+        "provisioningState": {
+          "description": "Provisioning state.",
+          "type": "string",
+          "enum": [
+            "Succeeded",
+            "Deleted",
+            "Failed",
+            "Canceled",
+            "Accepted",
+            "Creating",
+            "Deleting"
+          ],
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "ProvisioningState",
+            "modelAsString": true
           }
+        },
+        "IotHubLinkId": {
+          "description": "IotHub Link properties",
+          "x-ms-client-flatten": true,
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -1064,7 +1116,7 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "IotHub LinkId",
+      "description": "The Iot Hub Link Id",
       "x-ms-parameter-location": "method"
     }
   }

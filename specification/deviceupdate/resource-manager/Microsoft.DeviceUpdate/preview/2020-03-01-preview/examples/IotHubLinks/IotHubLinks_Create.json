@@ -1,0 +1,14 @@
+{
+  "parameters": {
+    "api-version": "2020-03-01-preview",
+    "linkId": "/providers/Microsoft.DeviceUpdate/iotHubsLinks/123"
+  },
+  "responses": {
+    "201": {
+      "body": {
+        "provisioningState": "Succeeded",
+        "linkId": "/providers/Microsoft.DeviceUpdate/iotHubsLinks/123"
+      }
+    }
+  }
+}

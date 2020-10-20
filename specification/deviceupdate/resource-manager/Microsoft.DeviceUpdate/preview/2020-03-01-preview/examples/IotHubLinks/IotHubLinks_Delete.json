@@ -1,0 +1,10 @@
+{
+  "parameters": {
+    "linkId": "/providers/Microsoft.DeviceUpdate/iotHubsLinks/123",
+    "api-version": "2020-03-01-preview"
+  },
+  "responses": {
+    "202": {},
+    "204": {}
+  }
+}
