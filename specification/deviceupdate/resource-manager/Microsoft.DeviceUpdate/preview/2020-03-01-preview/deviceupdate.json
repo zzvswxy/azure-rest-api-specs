@@ -96,7 +96,7 @@
         },
         "deprecated": false,
         "x-ms-examples": {
-          "Gets a list of IoTHub Link": {
+          "Gets IoTHub Link Details": {
             "$ref": "./examples/IotHubLinks/IotHubLinks_Get.json"
           }
         }
@@ -130,7 +130,7 @@
             }
           },
           "x-ms-examples": {
-            "Gets a list of IoTHub Link": {
+            "Create IotHub Link": {
               "$ref": "./examples/IotHubLinks/IotHubLinks_Create.json"
             }
           }
@@ -163,7 +163,7 @@
           }
         },
         "x-ms-examples": {
-          "Gets a list of IoTHub Link": {
+          "Delete IoTHub Link": {
             "$ref": "./examples/IotHubLinks/IotHubLinks_Delete.json"
           }
         }
