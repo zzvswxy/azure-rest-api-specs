@@ -124,6 +124,12 @@
               "$ref": "#/definitions/Bot"
             }
           },
+          "201": {
+            "description": "If resource is updated successfully, the service should return 201 (Created). Execution to continue asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            }
+          },
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
