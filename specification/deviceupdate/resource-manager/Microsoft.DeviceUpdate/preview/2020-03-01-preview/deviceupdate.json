@@ -145,7 +145,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Delete IoT Hub Link"
+            "description": "IoTHubLink Deleted"
+          },
+          "204": {
+            "description": "IoTHubLink already deleted."
           },
           "default": {
             "description": "Error response describing the reason for operation failure.",
