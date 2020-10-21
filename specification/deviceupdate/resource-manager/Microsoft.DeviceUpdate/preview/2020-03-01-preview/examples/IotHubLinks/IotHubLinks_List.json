@@ -1,0 +1,23 @@
+{
+  "parameters": {
+    "api-version": "2020-03-01-preview"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "nextLink": "string",
+        "value": [
+          {
+            "name": "blue-contoso-hub",
+            "id": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub",
+            "type": "Microsoft.DeviceUpdate/iothublinks",
+            "location": "West US 2",
+            "properties": {
+              "provisioningState": "Succeeded"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
