@@ -4,6 +4,7 @@
     "iotHubName": "providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
   },
   "responses": {
-    "200": {}
+    "200": {},
+    "204": {}
   }
 }
