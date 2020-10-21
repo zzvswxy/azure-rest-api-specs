@@ -6,8 +6,13 @@
   "responses": {
     "200": {
       "body": {
-        "provisioningState": "Succeeded",
-        "IotHubName": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
+        "name": "blue-contoso-hub",
+        "id": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub",
+        "type": "Microsoft.DeviceUpdate/iothublinks",
+        "location": "West US 2",
+        "properties": {
+          "provisioningState": "Succeeded"
+        }
       }
     }
   }

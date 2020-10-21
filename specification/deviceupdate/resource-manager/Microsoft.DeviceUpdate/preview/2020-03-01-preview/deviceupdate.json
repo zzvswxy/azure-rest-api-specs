@@ -861,11 +861,6 @@
                 "name": "ProvisioningState",
                 "modelAsString": true
               }
-            },
-            "IotHubName": {
-              "description": "IotHub Name.",
-              "type": "string",
-              "readOnly": true
             }
           }
         }
