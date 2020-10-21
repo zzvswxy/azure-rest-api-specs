@@ -128,11 +128,11 @@
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
-          },
-          "x-ms-examples": {
-            "Create IotHub Link": {
-              "$ref": "./examples/IotHubLinks/IotHubLinks_Create.json"
-            }
+          }
+        },
+        "x-ms-examples": {
+          "Create IotHub Link": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_Create.json"
           }
         }
       },
