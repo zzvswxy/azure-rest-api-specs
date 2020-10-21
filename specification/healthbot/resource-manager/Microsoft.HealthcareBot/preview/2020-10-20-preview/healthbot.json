@@ -37,6 +37,48 @@
     }
   },
   "paths": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/checkNameAvailability": {
+      "post": {
+        "description": "Check whether a bot name is available.",
+        "operationId": "Bots_GetCheckNameAvailability",
+        "x-ms-examples": {
+          "check Name Availability": {
+            "$ref": "./examples/CheckNameAvailability.json"
+          }
+        },
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityRequestBody"
+            },
+            "description": "The request body parameters to provide for the check name availability request"
+          },
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource provider should return 200 (OK) to indicate that the operation completed successfully. For other errors (e.g. internal errors) use the appropriate HTTP error code.",
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityResponseBody"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationValidate": {
       "post": {
         "operationId": "resource_creationValidate",
@@ -426,6 +468,34 @@
     }
   },
   "definitions": {
+    "CheckNameAvailabilityRequestBody": {
+      "description": "The request body for a request to to check availability of a bot name.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "the name of the bot for which availability needs to be checked.",
+          "type": "string"
+        },
+        "type": {
+          "description": "the type of the bot for which availability needs to be checked",
+          "type": "string"
+        }
+      }
+    },
+    "CheckNameAvailabilityResponseBody": {
+      "description": "The response body returned for a request to check availability of a bot name.",
+      "type": "object",
+      "properties": {
+        "valid": {
+          "description": "indicates if the bot name is valid.",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "additional message from server",
+          "type": "string"
+        }
+      }
+    },
     "Resource": {
       "description": "Azure resource",
       "x-ms-azure-resource": true,

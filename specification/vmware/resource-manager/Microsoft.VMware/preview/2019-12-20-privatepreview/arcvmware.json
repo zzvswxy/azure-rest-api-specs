@@ -2740,6 +2740,31 @@
         }
       }
     },
+    "ConditionDict": {
+      "description": "Condition defines an extension to status.",
+      "properties": {
+        "status": {
+          "description": "Status of the condition.",
+          "type": "string",
+          "readOnly": true
+        },
+        "reason": {
+          "description": "The reason for the condition's status.",
+          "type": "string",
+          "readOnly": true
+        },
+        "message": {
+          "description": "A human readable message indicating details about the status.",
+          "type": "string",
+          "readOnly": true
+        },
+        "severity": {
+          "description": "Severity with which to treat failures of this type of condition.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
     "VCenter": {
       "description": "Define the vCenter.",
       "required": [
@@ -3096,6 +3121,13 @@
             "$ref": "#/definitions/Condition"
           },
           "readOnly": true
+        },
+        "conditionsDict": {
+          "description": "Gets or sets the Resource tags.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ConditionDict"
+          }
         },
         "provisioningState": {
           "description": "Gets or sets the provisioning state.",

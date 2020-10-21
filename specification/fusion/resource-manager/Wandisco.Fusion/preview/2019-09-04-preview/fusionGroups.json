@@ -1996,6 +1996,10 @@
             }
           }
         },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
           "Create Migration": {
             "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationCreate.json"
