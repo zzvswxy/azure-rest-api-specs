@@ -138,7 +138,7 @@
       },
       "delete": {
         "description": "Deletes IotHub Link.",
-        "operationId": "IotHub_Link_Delete",
+        "operationId": "IotHubLink_Delete",
         "x-ms-long-running-operation": false,
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
