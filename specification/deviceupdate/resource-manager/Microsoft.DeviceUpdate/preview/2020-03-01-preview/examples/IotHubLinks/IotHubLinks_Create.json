@@ -4,7 +4,7 @@
     "iotHubName": "providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"
   },
   "responses": {
-    "201": {
+    "200": {
       "body": {
         "provisioningState": "Succeeded",
         "IotHubName": "/providers/Microsoft.DeviceUpdate/iotHubLinks/blue-contoso-hub"

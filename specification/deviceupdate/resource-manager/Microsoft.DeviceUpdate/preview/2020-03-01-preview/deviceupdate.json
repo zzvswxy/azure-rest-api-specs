@@ -839,6 +839,11 @@
     "IotHubLink": {
       "description": "IotHub Link Description",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ]
       "properties": {
         "provisioningState": {
           "description": "Provisioning state.",
