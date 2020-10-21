@@ -104,10 +104,6 @@
       "put": {
         "description": "Creates or Updates Iot Hub Link",
         "operationId": "IotHubLink_Create",
-        "x-ms-long-running-operation": false,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
-        },
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -139,10 +135,6 @@
       "delete": {
         "description": "Deletes IotHub Link.",
         "operationId": "IotHubLink_Delete",
-        "x-ms-long-running-operation": false,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
-        },
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -830,6 +822,8 @@
           "type": "string"
         },
         "value": {
+          "description": "List Of IotHub Links",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/IotHubLink"
           }
@@ -837,7 +831,7 @@
       }
     },
     "IotHubLink": {
-      "description": "IotHub Link Description",
+      "description": "Device Update IotHubLink details.",
       "type": "object",
       "allOf": [
         {
@@ -845,26 +839,35 @@
         }
       ],
       "properties": {
-        "provisioningState": {
-          "description": "Provisioning state.",
-          "type": "string",
-          "enum": [
-            "Succeeded",
-            "Deleted",
-            "Failed",
-            "Canceled"
-          ],
-          "readOnly": true,
-          "x-ms-enum": {
-            "name": "ProvisioningState",
-            "modelAsString": true
-          }
-        },
-        "IotHubName": {
-          "description": "IotHub Name Info",
+        "properties": {
+          "description": "Device Update IotHubLink properties.",
           "x-ms-client-flatten": true,
-          "type": "string",
-          "readOnly": true
+          "type": "object",
+          "properties": {
+            "provisioningState": {
+              "description": "Provisioning state.",
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Deleted",
+                "Failed",
+                "Canceled",
+                "Accepted",
+                "Creating",
+                "Deleting"
+              ],
+              "readOnly": true,
+              "x-ms-enum": {
+                "name": "ProvisioningState",
+                "modelAsString": true
+              }
+            },
+            "IotHubName": {
+              "description": "IotHub Name.",
+              "type": "string",
+              "readOnly": true
+            }
+          }
         }
       }
     },
