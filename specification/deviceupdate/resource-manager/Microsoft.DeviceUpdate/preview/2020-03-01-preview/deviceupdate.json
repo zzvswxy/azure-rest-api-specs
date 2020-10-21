@@ -844,7 +844,7 @@
         {
           "$ref": "#/definitions/Resource"
         }
-      ]
+      ],
       "properties": {
         "provisioningState": {
           "description": "Provisioning state.",
