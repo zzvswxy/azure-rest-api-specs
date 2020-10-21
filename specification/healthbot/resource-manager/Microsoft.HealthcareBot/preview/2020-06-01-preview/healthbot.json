@@ -57,6 +57,9 @@
             "description": "The request body parameters to provide for the check name availability request"
           },
           {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
             "$ref": "#/parameters/apiVersionParameter"
           }
         ],
