@@ -1983,12 +1983,22 @@
               "$ref": "#/definitions/LiveDataMigration"
             }
           },
+          "201": {
+            "description": "Creating LiveDataMigration.",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          },
           "default": {
             "description": "Error response describing the reason for operation failure.",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
             }
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
         },
         "x-ms-examples": {
           "Create Migration": {
@@ -2762,6 +2772,46 @@
       }
     },
     "/providers/Wandisco.Fusion/locations/{locationName}/operationStatuses/{operationStatusId}": {
+      "get": {
+        "tags": [
+          "operationStatus"
+        ],
+        "description": "Return the given operationStatus.",
+        "operationId": "OperationStatuses_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/LocationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/OperationStatusIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "operationStatus details.",
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful get": {
+            "$ref": "./examples/FusionGroup/OperationStatusGet.json"
+          },
+          "Successful get of failed operation": {
+            "$ref": "./examples/FusionGroup/OperationStatusGetError.json"
+          }
+        }
+      },
       "patch": {
         "tags": [
           "operationStatus"
@@ -3250,6 +3300,12 @@
               "description": "The health of the Fusion Group",
               "$ref": "#/definitions/HealthStatus",
               "readOnly": true
+            },
+            "allowance": {
+              "title": "Allowance",
+              "description": "The remaining allowance for the company associated with the Fusion Group",
+              "$ref": "#/definitions/Allowance",
+              "readOnly": true
             }
           }
         },
@@ -3345,7 +3401,9 @@
         },
         "storageAccessKey": {
           "x-ms-secret": true,
-          "x-ms-mutability": ["create"],
+          "x-ms-mutability": [
+            "create"
+          ],
           "description": "Access Key for storage (use either key or identity)",
           "type": "string"
         },
@@ -3636,7 +3694,7 @@
           },
           "default": "HDPSandbox"
         },
-        "externalIp" : {
+        "externalIp": {
           "description": "The external IP of the managed OnPrem fusion server",
           "type": "string"
         },
@@ -3744,7 +3802,7 @@
           "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
         },
-        "deploymentType" : {
+        "deploymentType": {
           "description": "The type of install required for the migrator",
           "type": "string",
           "enum": [
@@ -3774,6 +3832,45 @@
           "title": "KerberosConfiguration",
           "description": "The configuration properties for authenticating to the source filesystem",
           "$ref": "#/definitions/KerberosConfiguration"
+        },
+        "allowance": {
+          "title": "Allowance",
+          "description": "The remaining allowance for the company associated with the Migrator",
+          "$ref": "#/definitions/Allowance",
+          "readOnly": true
+        },
+        "migratorStatus": {
+          "description": "Status of the Migrator server",
+          "$ref": "#/definitions/MigratorDetails"
+        }
+      }
+    },
+    "MigratorDetails": {
+      "title": "MigratorDetails",
+      "description": "Details of a migrator",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "The status of the migrator (Up/Down)",
+          "type": "string",
+          "enum": [
+            "Up",
+            "Down"
+          ],
+          "x-ms-enum": {
+            "name": "MigratorServerStatus",
+            "modelAsString": true
+          }
+        },
+        "seenAt": {
+          "description": "last time a response was received from the server",
+          "type": "string",
+          "format": "date-time"
+        },
+        "consecutiveErrors": {
+          "description": "failed attempts to reach the server",
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -3830,7 +3927,9 @@
         },
         "storageAccessKey": {
           "x-ms-secret": true,
-          "x-ms-mutability": ["create"],
+          "x-ms-mutability": [
+            "create"
+          ],
           "description": "Access Key for storage",
           "type": "string"
         }
@@ -4103,15 +4202,31 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Operation Id",
+          "description": "Full Operation Id",
           "type": "string"
+        },
+        "name": {
+          "description": "Just the name part",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Some details (unspecified)",
+          "type": "object"
         },
         "status": {
           "description": "Operation Status",
           "type": "string"
         },
+        "resourceId": {
+          "description": "ResourceId to which this operation applied",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "When operation started",
+          "type": "string"
+        },
         "error": {
-          "description": "Hdi cluster with Fusion client installed",
+          "description": "If present, details of the error.",
           "type": "object",
           "$ref": "#/definitions/OperationStatusError"
         }
@@ -4348,6 +4463,12 @@
           "type": "string",
           "description": "Migration path on the source file system"
         },
+        "provisioningState": {
+          "title": "ProvisioningState",
+          "description": "Provisioning State of resource",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        },
         "targetId": {
           "type": "string",
           "description": "ID of the target file system"
@@ -4464,6 +4585,17 @@
           "items": {
             "$ref": "#/definitions/ErrorDefinition"
           }
+        }
+      }
+    },
+    "Allowance": {
+      "description": "The remaining allowance included as part of any plan for a resource",
+      "properties": {
+        "remainingData": {
+          "description": "The number of MBs remaining",
+          "type": "integer",
+          "format": "int64",
+          "readOnly": true
         }
       }
     },

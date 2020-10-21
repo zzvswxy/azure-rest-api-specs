@@ -4832,6 +4832,9 @@
             "type": "string"
           },
           "description": "Resource tags"
+        },
+        "properties": {
+          "$ref": "#/definitions/cassandraDataCentersProperties"
         }
       },
       "description": "The cassandraDataCenters resource patch definition."

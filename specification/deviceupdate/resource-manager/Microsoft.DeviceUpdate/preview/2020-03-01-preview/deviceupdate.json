@@ -34,6 +34,136 @@
     }
   },
   "paths": {
+    "/providers/Microsoft.DeviceUpdate/iothublinks": {
+      "get": {
+        "description": "Returns the list of IotHubLinks",
+        "operationId": "IotHubLinks_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of IotHub Links",
+            "schema": {
+              "$ref": "#/definitions/IotHubLinks"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Gets a list of IoTHub Links": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_List.json"
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.DeviceUpdate/iothublinks/{iotHubName}": {
+      "get": {
+        "description": "Return Details Of Iot Hub Link",
+        "operationId": "IotHubLinks_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IotHubName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Iot Hub Link Details",
+            "schema": {
+              "$ref": "#/definitions/IotHubLink"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-examples": {
+          "Gets IoTHub Link Details": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_Get.json"
+          }
+        }
+      },
+      "put": {
+        "description": "Creates or Updates Iot Hub Link",
+        "operationId": "IotHubLink_Create",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IotHubName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IotHub Link Details",
+            "schema": {
+              "$ref": "#/definitions/IotHubLink"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create IotHub Link": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_Create.json"
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes IotHub Link.",
+        "operationId": "IotHubLink_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IotHubName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IoTHubLink Deleted"
+          },
+          "204": {
+            "description": "IoTHubLink already deleted."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete IoTHub Link": {
+            "$ref": "./examples/IotHubLinks/IotHubLinks_Delete.json"
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.DeviceUpdate/accounts": {
       "get": {
         "description": "Returns list of accounts.",
@@ -67,6 +197,45 @@
         "x-ms-examples": {
           "Gets a list of accounts": {
             "$ref": "./examples/Accounts/Accounts_List.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/instances": {
+      "get": {
+        "description": "Returns instances for the given account name.",
+        "operationId": "Instances_ListBySubscription",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/AccountNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of instances.",
+            "schema": {
+              "$ref": "#/definitions/InstanceList"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Gets a list of instances by account": {
+            "$ref": "./examples/Instances/Instances_ListByAccount.json"
           }
         }
       }
@@ -154,7 +323,7 @@
         "operationId": "Accounts_Create",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
+          "final-state-via": "azure-async-operation"
         },
         "parameters": [
           {
@@ -375,7 +544,7 @@
         "operationId": "Instances_Create",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
+          "final-state-via": "azure-async-operation"
         },
         "parameters": [
           {
@@ -449,7 +618,7 @@
         ],
         "responses": {
           "202": {
-            "description": "Async operation to delete Intance was created."
+            "description": "Async operation to delete Instance was created."
           },
           "204": {
             "description": "Instance has already been deleted."
@@ -647,6 +816,59 @@
         }
       }
     },
+    "IotHubLinks": {
+      "description": "List of IotHub Links",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of iot hub list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List Of IotHub Links",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IotHubLink"
+          }
+        }
+      }
+    },
+    "IotHubLink": {
+      "description": "Device Update IotHubLink details.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "Device Update IotHubLink properties.",
+          "x-ms-client-flatten": true,
+          "type": "object",
+          "properties": {
+            "provisioningState": {
+              "description": "Provisioning state.",
+              "type": "string",
+              "enum": [
+                "Succeeded",
+                "Deleted",
+                "Failed",
+                "Canceled",
+                "Accepted",
+                "Creating",
+                "Deleting"
+              ],
+              "readOnly": true,
+              "x-ms-enum": {
+                "name": "ProvisioningState",
+                "modelAsString": true
+              }
+            }
+          }
+        }
+      }
+    },
     "Instance": {
       "description": "Device Update instance details.",
       "type": "object",
@@ -678,6 +900,11 @@
                 "name": "ProvisioningState",
                 "modelAsString": true
               }
+            },
+            "accountName": {
+              "description": "Parent Device Update Account name to which Instance belongs to.",
+              "type": "string",
+              "readOnly": true
             },
             "iotHubs": {
               "description": "List of IoT Hubs associated with the account.",
@@ -734,6 +961,8 @@
         }
       },
       "required": [
+        "name",
+        "resourceId",
         "ioTHubConnectionString",
         "eventHubConnectionString"
       ]
@@ -867,7 +1096,7 @@
       "type": "string",
       "description": "Account name.",
       "x-ms-parameter-location": "method",
-      "pattern": "[a-z][a-z0-9]+",
+      "pattern": "^[A-Za-z][A-Za-z0-9]+$",
       "minLength": 3,
       "maxLength": 24
     },
@@ -878,9 +1107,17 @@
       "type": "string",
       "description": "Instance name.",
       "x-ms-parameter-location": "method",
-      "pattern": "[a-z][a-z0-9-_]+",
+      "pattern": "^[A-Za-z][A-Za-z0-9]+$",
       "minLength": 3,
       "maxLength": 36
+    },
+    "IotHubName": {
+      "name": "iotHubName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The Iot Hub Name",
+      "x-ms-parameter-location": "method"
     }
   }
 }
