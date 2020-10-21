@@ -37,7 +37,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/providers/Microsoft.BotService/checkNameAvailability": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/checkNameAvailability": {
       "post": {
         "description": "Check whether a bot name is available.",
         "operationId": "Bots_GetCheckNameAvailability",
