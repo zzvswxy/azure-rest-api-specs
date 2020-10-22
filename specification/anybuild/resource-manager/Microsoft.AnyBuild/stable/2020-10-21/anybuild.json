@@ -651,6 +651,9 @@
     },
     "ClusterUpdate": {
       "properties": {
+        "properties": {
+          "type": "object"
+        },
         "tags": {
           "type": "object",
           "additionalProperties": {
