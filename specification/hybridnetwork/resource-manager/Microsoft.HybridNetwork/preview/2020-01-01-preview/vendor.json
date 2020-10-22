@@ -774,11 +774,11 @@
           "type": "object",
           "description": "The template for the managed application deployment."
         },
-        "armTemplate": {
+        "azureResourceManagerTemplate": {
           "type": "object",
           "description": "The parameters for arm resource deployment."
         },
-        "armParameters": {
+        "azureResourceManagerParameters": {
           "type": "object",
           "description": "The parameters for arm resource deployment."
         },
