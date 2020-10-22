@@ -1374,8 +1374,8 @@
                 "liftrResourceCategory": {
                     "$ref": "#/definitions/LiftrResourceCategories"
                 },
-                "liftrResourceIndex": {
-                    "description": "The index of the resource.",
+                "liftrResourcePreference": {
+                    "description": "The priority of the resource.",
                     "format": "int32",
                     "type": "integer",
                     "readOnly": true
