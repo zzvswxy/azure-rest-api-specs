@@ -655,29 +655,15 @@
     },
     "ClusterUpdate": {
       "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/ClusterProperties"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/UpdateResource"
-        }
-      ],
-      "description": "Updated information for AnyBuild cluster and its pools of agents."
-    },
-    "UpdateResource": {
-      "description": "The Update Resource model definition.",
-      "properties": {
         "tags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags"
-        }
-      }
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Resource tags."
+          }
+        },
+      "description": "Updated information for AnyBuild cluster (only tags are allowed)."
     },
     "OperationListResult": {
       "description": "The List AnyBuild operations response.",

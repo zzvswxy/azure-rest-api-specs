@@ -7,60 +7,9 @@
     "parameters": {
       "properties": {
         "agentsMode": "Deflated",
-        "pools": [
-          {
-            "cores": 2,
-            "agentOs": {
-              "osOffer": "UbuntuServer",
-              "osSKU": "18.04-LTS"
-            },
-            "capacity": {
-              "minimum": 2,
-              "maximum": 12
-            }
-          },
-          {
-            "cores": 4,
-            "agentOs": {
-              "osOffer": "Windows-10",
-              "osSKU": "19h2-pro"
-            },
-            "capacity": {
-              "minimum": 4,
-              "maximum": 8
-            }
-          },
-          {
-            "cores": 16,
-            "agentOs": {
-              "osOffer": "Windows-10",
-              "osSKU": "19h2-pro"
-            },
-            "capacity": {
-              "minimum": 1,
-              "maximum": 6
-            },
-            "schedules": [
-              {
-                "capacity": {
-                  "minimum": 0,
-                  "maximum": 4
-                },
-                "timeZone": "Pacific Standard Time",
-                "begin": {
-                  "dayOfWeek": "Friday",
-                  "hour": 17,
-                  "minute": 0
-                },
-                "end": {
-                  "dayOfWeek": "Monday",
-                  "hour": 7,
-                  "minute": 0
-                }
-              }
-            ]
-          }
-        ]
+        "tags": {
+          "key": "value"
+        }
       }
     }
   },
