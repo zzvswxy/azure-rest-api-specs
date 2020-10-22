@@ -655,6 +655,9 @@
     },
     "ClusterUpdate": {
         "properties": {
+        "properties": {
+          "x-ms-client-flatten": true
+        }
         },
         "allOf": [
         {
