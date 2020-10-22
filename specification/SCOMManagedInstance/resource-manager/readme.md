@@ -24,6 +24,7 @@ These are the global settings for the API.
 
 ``` yaml
 openapi-type: arm
+openapi-subtype: rpaas
 tag: package-2020-11-30-preview
 ```
 
