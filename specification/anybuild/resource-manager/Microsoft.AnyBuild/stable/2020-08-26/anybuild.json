@@ -654,7 +654,9 @@
       "description": "Parameters for Resetting a Cluster."
     },
     "ClusterUpdate": {
-      "allOf": [
+        "properties": {
+        },
+        "allOf": [
         {
           "$ref": "#/definitions/UpdateResource"
         }
