@@ -251,13 +251,11 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {
-            }
+            "schema": {}
           },
           "202": {
             "description": "The operation will be completed asynchronously.",
-            "schema": {
-            },
+            "schema": {},
             "headers": {
               "Location": {
                 "description": "The URL of the resource used to check the status of the asynchronous operation.",
@@ -652,21 +650,24 @@
       "description": "Parameters for Resetting a Cluster."
     },
     "ClusterUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UpdateResource"
+        }
+      ],
+      "description": "Updated information for AnyBuild cluster (only tags are allowed)."
+    },
+    "UpdateResource": {
+      "description": "The Update Resource model definition.",
       "properties": {
         "tags": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "x-ms-mutability": [
-            "read",
-            "create",
-            "update"
-          ],
-          "description": "Resource tags."
+          "description": "Resource tags"
         }
-      },
-      "description": "Updated information for AnyBuild cluster (only tags are allowed)."
+      }
     },
     "OperationListResult": {
       "description": "The List AnyBuild operations response.",
