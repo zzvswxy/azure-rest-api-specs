@@ -774,6 +774,14 @@
           "type": "object",
           "description": "The template for the managed application deployment."
         },
+        "armTemplate": {
+          "type": "object",
+          "description": "The parameters for arm resource deployment."
+        },
+        "armParameters": {
+          "type": "object",
+          "description": "The parameters for arm resource deployment."
+        },
         "networkFunctionTemplate": {
           "$ref": "#/definitions/NetworkFunctionTemplate",
           "description": "The template definition of the network function."
