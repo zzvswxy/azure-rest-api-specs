@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2020-06-01-preview",
+    "version": "2020-10-20-preview",
     "title": "healthbot",
     "description": "Microsoft Healthcare Bot is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.",
     "x-ms-code-generation-settings": {
@@ -166,12 +166,22 @@
               "$ref": "#/definitions/Bot"
             }
           },
+          "201": {
+            "description": "If resource is updated successfully, the service should return 201 (Created). Execution to continue asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            }
+          },
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
               "$ref": "#/definitions/Error"
             }
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
         }
       },
       "get": {
