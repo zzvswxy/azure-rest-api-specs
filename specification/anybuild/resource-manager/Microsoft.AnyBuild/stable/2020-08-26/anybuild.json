@@ -656,13 +656,18 @@
     "ClusterUpdate": {
       "properties": {
         "tags": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "description": "Resource tags."
-          }
-        },
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ],
+          "description": "Resource tags."
+        }
+      },
       "description": "Updated information for AnyBuild cluster (only tags are allowed)."
     },
     "OperationListResult": {
