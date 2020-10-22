@@ -654,18 +654,17 @@
       "description": "Parameters for Resetting a Cluster."
     },
     "ClusterUpdate": {
-      "properties": {
         "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/ClusterProperties"
+        "properties": {
+          "x-ms-client-flatten": true
         }
-      },
-      "allOf": [
+        },
+        "allOf": [
         {
           "$ref": "#/definitions/UpdateResource"
         }
       ],
-      "description": "Updated information for AnyBuild cluster and its pools of agents."
+      "description": "Updated information for AnyBuild cluster (only tags are allowed)."
     },
     "UpdateResource": {
       "description": "The Update Resource model definition.",
