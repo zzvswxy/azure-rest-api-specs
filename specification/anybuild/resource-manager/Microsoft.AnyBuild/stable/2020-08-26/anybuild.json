@@ -252,13 +252,11 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/Cluster"
             }
           },
           "202": {
             "description": "The operation will be completed asynchronously.",
             "schema": {
-              "$ref": "#/definitions/Cluster"
             },
             "headers": {
               "Location": {
