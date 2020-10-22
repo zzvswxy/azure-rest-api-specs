@@ -251,11 +251,15 @@
         "responses": {
           "200": {
             "description": "Success",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/Cluster"
+            }
           },
           "202": {
             "description": "The operation will be completed asynchronously.",
-            "schema": {},
+            "schema": {
+              "$ref": "#/definitions/Cluster"
+            },
             "headers": {
               "Location": {
                 "description": "The URL of the resource used to check the status of the asynchronous operation.",
@@ -652,7 +656,8 @@
     "ClusterUpdate": {
       "properties": {
         "properties": {
-          "x-ms-client-flatten": true
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ClusterProperties"
         }
       },
       "allOf": [
@@ -660,7 +665,7 @@
           "$ref": "#/definitions/UpdateResource"
         }
       ],
-      "description": "Updated information for AnyBuild cluster (only tags are allowed)."
+      "description": "Updated information for AnyBuild cluster and its pools of agents."
     },
     "UpdateResource": {
       "description": "The Update Resource model definition.",
