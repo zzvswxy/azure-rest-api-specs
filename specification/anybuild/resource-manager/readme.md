@@ -41,6 +41,23 @@ input-file:
 
 ---
 
+```yaml
+openapi-type: arm
+openapi-subtype: rpaas
+tag: package-2020-10-21
+```
+
+### Tag: package-2020-10-21
+
+These settings apply only when `--tag=package-2020-10-21` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-10-21'
+input-file:
+  - Microsoft.AnyBuild/stable/2020-10-21/anybuild.json
+```
+
+---
+
 # Code Generation
 
 ## Swagger to SDK
