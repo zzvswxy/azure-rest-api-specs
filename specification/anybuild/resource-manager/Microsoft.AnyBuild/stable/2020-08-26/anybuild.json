@@ -654,12 +654,13 @@
       "description": "Parameters for Resetting a Cluster."
     },
     "ClusterUpdate": {
+      "properties": {
         "properties": {
-        "properties": {
-          "x-ms-client-flatten": true
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ClusterProperties"
         }
-        },
-        "allOf": [
+      },
+      "allOf": [
         {
           "$ref": "#/definitions/UpdateResource"
         }
