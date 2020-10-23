@@ -67,7 +67,7 @@
               }
             }
           },
-          "put": {
+          "post": {
             "tags": [
               "Agreements"
             ],
