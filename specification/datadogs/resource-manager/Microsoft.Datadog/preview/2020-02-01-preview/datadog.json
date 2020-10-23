@@ -26,8 +26,8 @@
         }
     },
     "paths": {
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/list": {
-          "post": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements": {
+          "get": {
             "tags": [
               "Agreements"
             ],
@@ -66,10 +66,8 @@
                 "$ref": "./examples/MarketplaceAgreements_List.json"
               }
             }
-          }
-        },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/set": {
-          "post": {
+          },
+          "put": {
             "tags": [
               "Agreements"
             ],
