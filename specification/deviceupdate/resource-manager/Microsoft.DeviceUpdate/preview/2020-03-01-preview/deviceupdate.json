@@ -896,7 +896,10 @@
         },
         "resourceId": {
           "description": "IoTHub resource ID",
-          "type": "string"
+          "type": "string",
+          "pasttern": "^\/subscriptions\/.+\/resourceGroups\/.+\/providers\/Microsoft\.Devices\/IotHubs\/.+$",
+          "minLength": 108,
+          "maxLength": 244,
         },
         "ioTHubConnectionString": {
           "description": "IoTHub connection string.",
