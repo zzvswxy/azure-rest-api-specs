@@ -16,7 +16,7 @@
       "body": {
         "id": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.OperationsMgr/managedInstances/myManagedInstace",
         "name": "myManagedInstace",
-        "type": "Microsoft.SCOM/managedInstances",
+        "type": "Microsoft.OperationsMgr/managedInstances",
         "location": "eastus2",
 		"tags": {
 			"tag1": "value1",
@@ -45,7 +45,7 @@
       "body": {
         "id": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.OperationsMgr/managedInstances/myManagedInstace",
         "name": "myManagedInstace",
-        "type": "Microsoft.SCOM/managedInstances",
+        "type": "Microsoft.OperationsMgr/managedInstances",
         "location": "eastus2",
 		"tags": {
 			"tag1": "value1",
