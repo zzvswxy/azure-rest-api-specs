@@ -5,26 +5,10 @@
     "resourceGroupName": "mySCOMMIGroup",
     "instanceName": "myManagedInstace",
     "ManagedInstance": {
-      "location": "eastus2",
-      "properties": {
-        "productVersion": "latest",
-        "actionAccount": "gmsaaccount1",
-        "dasAccount": "gmsaaccount1",
-        "dataReaderAccount": "gmsaaccount1",
-        "dataWriterAccount": "gmsaaccount1",
-        "vNetSubnetId": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.Network/virtualNetworks/vNet2/subnets/default",
-        "aksResourceId": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.ContainerService/managedClusters/myManagedInstaceAKS",
-        "dnsServer": "10.20.0.60",
-        "domainName": "domain.net",
-        "domainUserName": "domain.net\\user1",
-        "domainUserPassword": "xxxxxxxx",
-        "additionalServerAccounts": [
-          "gmsaaccount2",
-          "gmsaaccount3",
-          "gmsaaccount4"
-        ]
-      },
-      "tags": {}
+      "tags": {
+        "tag1": "value1",
+        "tag2": "value2"
+      }
     }
   },
   "responses": {
@@ -34,6 +18,10 @@
         "name": "myManagedInstace",
         "type": "Microsoft.OperationsMgr/managedInstances",
         "location": "eastus2",
+		"tags": {
+			"tag1": "value1",
+			"tag2": "value2"
+         },
         "properties": {
           "productVersion": "latest",
           "actionAccount": "gmsaaccount1",
@@ -59,6 +47,10 @@
         "name": "myManagedInstace",
         "type": "Microsoft.OperationsMgr/managedInstances",
         "location": "eastus2",
+		"tags": {
+			"tag1": "value1",
+			"tag2": "value2"
+         },
         "properties": {
           "productVersion": "latest",
           "actionAccount": "gmsaaccount1",
