@@ -10,30 +10,30 @@ go:
 
 ### Tag: package-2020-06-10 and go
 
-These settings apply only when `--tag=package-2020-06-10 --go` is specified on the command line.
+These settings apply only when `--tag=package-2020-06-10-privatepreview --go` is specified on the command line.
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
-```yaml $(tag) == 'package-2020-06-10' && $(go)
-namespace: Microsoft.IntelligentITDigitalTwin
-output-folder: $(go-sdks-folder)/azureiidt/Generated
+```yaml $(tag) == 'package-2020-06-10-privatepreview' && $(go)
+namespace: azureiidt
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-06-10-privatepreview/$(namespace)
 ```
 
 ### Tag: package-2020-07-01 and go
 
-These settings apply only when `--tag=package-2020-07-01 --go` is specified on the command line.
+These settings apply only when `--tag=package-2020-07-01-privatepreview --go` is specified on the command line.
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
-```yaml $(tag) == 'package-2020-07-01' && $(go)
-namespace: Microsoft.IntelligentITDigitalTwin
-output-folder: $(go-sdks-folder)/azureiidt/Generated
+```yaml $(tag) == 'package-2020-07-01-privatepreview' && $(go)
+namespace: azureiidt
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-07-01-privatepreview/$(namespace)
 ```
 
 ### Tag: package-2020-07-15 and go
 
-These settings apply only when `--tag=package-2020-07-15 --go` is specified on the command line.
+These settings apply only when `--tag=package-2020-07-15-privatepreview --go` is specified on the command line.
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
-```yaml $(tag) == 'package-2020-07-15' && $(go)
-namespace: Microsoft.IntelligentITDigitalTwin
-output-folder: $(go-sdks-folder)/azureiidt/Generated
+```yaml $(tag) == 'package-2020-07-15-privatepreview' && $(go)
+namespace: azureiidt
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-07-15-privatepreview/$(namespace)
 ```
