@@ -240,7 +240,7 @@
                       },
                       {
                         "in": "body",
-                        "name": "PortalTestResourcePatch",
+                        "name": "PortalTestResource",
                         "required": true,
                         "schema": {
                           "$ref": "#/definitions/PortalTestResourcePatch"
