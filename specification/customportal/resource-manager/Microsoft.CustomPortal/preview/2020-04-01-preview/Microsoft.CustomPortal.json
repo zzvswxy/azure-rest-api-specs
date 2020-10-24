@@ -215,6 +215,54 @@
                     "final-state-via": "azure-async-operation"
                   }
                 },
+                "patch": {
+                    "summary": "Updates a test resource.",
+                    "operationId": "PortalTestResource_Update",
+                    "description": "API to update certain properties of the portal test resource",
+                    "consumes": [
+                      "application/json"
+                    ],
+                    "produces": [
+                      "application/json"
+                    ],
+                    "parameters": [
+                      {
+                        "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                      },
+                      {
+                        "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                      },
+                      {
+                        "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                      },
+                      {
+                        "$ref": "#/parameters/TestResourcePathParam"
+                      },
+                      {
+                        "in": "body",
+                        "name": "PortalTestResource",
+                        "required": true,
+                        "schema": {
+                          "$ref": "#/definitions/PortalTestResourcePatch"
+                        },
+                        "description": "Parameters supplied to update Portal Test Resource."
+                      }
+                    ],
+                    "responses": {
+                      "200": {
+                        "description": "OK",
+                        "schema": {
+                          "$ref": "#/definitions/PortalTestResource"
+                        }
+                      },
+                      "default": {
+                        "description": "Resource Provider error response describing why the operation failed.",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorResponse"
+                        }
+                      }
+                    }
+                  },            
                 "get": {
                   "summary": "Get the properties of the portal test resource",
                   "operationId": "PortalTestResource_Get",
@@ -429,7 +477,34 @@
                   "name": "ProvisioningState",
                   "modelAsString": true
                 }
+              },
+        "PortalTestResourcePatch": {
+            "type": "object",
+            "properties": {
+              "tags": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Resource tags."
+              },
+              "properties": {
+                "x-ms-client-flatten": true,
+                "$ref": "#/definitions/PortalTestResourcePatchProperties",
+                "description": "Describes the portal test resource properties that can be updated during PATCH operation."
               }
+            },
+            "description": "Object containing updates for patch operations."
+          },
+          "PortalTestResourcePatchProperties": {
+            "type": "object",
+            "properties": {
+              "resourceVersion": {
+                "type": "string",
+                "description": "Version"
+              }
+            }
+          }
 	},
 	"parameters": {
 		"SubscriptionIdParameter": {
@@ -469,6 +544,6 @@
             "type": "string",
             "description": "The name of the test resource on which get is called.",
             "x-ms-parameter-location": "method"
-        }
+        }          
 	}
 }
