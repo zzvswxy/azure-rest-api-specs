@@ -45,10 +45,7 @@
               "200": {
                 "description": "Success",
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/AgreementTerms"
-                  }
+                  "$ref": "#/definitions/AgreementTermsListResponse"
                 }
               },
               "default": {
@@ -1105,6 +1102,23 @@
             "$ref": "#/definitions/AgreementProperties",
             "description": "Represents the properties of the resource.",
             "x-ms-client-flatten": true
+          }
+        }
+      },
+      "AgreementTermsListResponse": {
+        "description": "Response of a list operation.",
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "Results of a list operation.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AgreementTerms"
+            }
+          },
+          "nextLink": {
+            "description": "Link to the next set of results, if any.",
+            "type": "string"
           }
         }
       },
