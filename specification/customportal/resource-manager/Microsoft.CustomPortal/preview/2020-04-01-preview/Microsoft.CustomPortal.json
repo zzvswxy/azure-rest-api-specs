@@ -367,7 +367,7 @@
 					}
 				}
             },
-            "portaltestresource": {
+            "PortalTestResource": {
                 "type": "object",
                 "required": [
                   "properties"
@@ -389,8 +389,8 @@
             "portaltestresourceproperties": {
                 "type": "object",
                 "required": [
-                  "agentPublicKeyCertificate",
-                  "aadProfile"
+                  "resourceVersion",
+                  "totalNodeCount"
                 ],
                 "properties": {
                   "resourceVersion": {
