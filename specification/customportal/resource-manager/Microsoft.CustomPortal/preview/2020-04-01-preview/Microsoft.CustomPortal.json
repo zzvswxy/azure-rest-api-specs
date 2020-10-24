@@ -342,7 +342,45 @@
                     "final-state-via": "location"
                   }
                 }
-            }
+            },
+            "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.customPortal/portalTestResources": {
+                "get": {
+                  "summary": "Lists all portal test resources",
+                  "operationId": "PortalTestResource_ListByResourceGroup",
+                  "description": "API to enumerate registered test resources under a Resource Group",
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResourceList"
+                      }
+                    },
+                    "default": {
+                      "description": "Resource Provider error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  },
+                  "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                  }
+                }
+              }
 	},
 	"definitions": {
 			"PortalSetting": {
@@ -415,6 +453,23 @@
 					}
 				}
             },
+            "PortalTestResourceList": {
+                "description": "The paginated list of test resources",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "The list of test resources",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/PortalTestResource"
+                    }
+                  },
+                  "nextLink": {
+                    "description": "The link to fetch the next page of resource",
+                    "type": "string"
+                  }
+                }
+              },
             "PortalTestResource": {
                 "type": "object",
                 "required": [
