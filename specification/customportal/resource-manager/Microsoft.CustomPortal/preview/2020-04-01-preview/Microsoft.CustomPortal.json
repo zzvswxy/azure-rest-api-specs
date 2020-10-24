@@ -156,7 +156,7 @@
 					}
 				}
             },
-            "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CustomPortal/portalTestResources/{resourceName}": {
+            "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CustomPortal/portalTestResources/{portalResourceName}": {
                 "put": {
                   "summary": "Register a new portal test resource with Azure Resource Manager.",
                   "operationId": "PortalTestResource_Create",
@@ -463,7 +463,7 @@
 			"x-ms-parameter-location": "method"
         },
         "TestResourcePathParam": {
-            "name": "testresourcename",
+            "name": "portalResourceName",
             "in": "path",
             "required": true,
             "type": "string",
