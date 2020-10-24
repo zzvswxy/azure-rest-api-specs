@@ -380,6 +380,41 @@
                     "nextLinkName": "nextLink"
                   }
                 }
+              },
+              "/subscriptions/{subscriptionId}/providers/Microsoft.customPortal/portalTestResources": {
+                "get": {
+                  "summary": "Lists all test resources",
+                  "operationId": "PortalTestResource_ListBySubscription",
+                  "description": "API to enumerate test resources under a Subscription",
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResourceList"
+                      }
+                    },
+                    "default": {
+                      "description": "Resource Provider error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  },
+                  "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                  }
+                }
               }
 	},
 	"definitions": {
