@@ -3,7 +3,7 @@
   "info": {
     "version": "2020-07-01-preview",
     "title": "adp",
-    "description": "Microsoft Autonomoud Development Platform"
+    "description": "Microsoft Autonomous Development Platform"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -327,7 +327,7 @@
           "200": {
             "description": "The ADP account was successfully deleted."
           },
-          "201": {
+          "202": {
             "description": "The ADP account will be deleted asynchronously."
           },
           "204": {
@@ -580,7 +580,7 @@
           "200": {
             "description": "The Data Pool was successfully deleted."
           },
-          "201": {
+          "202": {
             "description": "The Data Pool will be deleted asynchronously."
           },
           "204": {
@@ -665,6 +665,23 @@
           "description": "The account's data-plane ID",
           "type": "string",
           "readOnly": true
+        },
+        "provisioningState": {
+          "readOnly": true,
+          "type": "string",
+          "description": "Gets the status of the account at the time the operation was called.",
+          "enum": [
+            "Succeeded",
+            "Failed",
+            "Canceled",
+            "Accepted",
+            "Provisioning",
+            "Deleting"
+          ],
+          "x-ms-enum": {
+            "name": "ProvisioningState",
+            "modelAsString": true
+          }
         }
       }
     },
@@ -725,11 +742,29 @@
           "type": "string",
           "readOnly": true
         },
+        "provisioningState": {
+          "readOnly": true,
+          "type": "string",
+          "description": "Gets the status of the data pool at the time the operation was called.",
+          "enum": [
+            "Succeeded",
+            "Failed",
+            "Canceled",
+            "Accepted",
+            "Provisioning",
+            "Deleting"
+          ],
+          "x-ms-enum": {
+            "name": "ProvisioningState",
+            "modelAsString": true
+          }
+        },
         "locations": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/DataPoolLocation"
           },
+          "minItems": 1,
           "description": "Gets or sets the collection of locations where Data Pool resources should be created."
         }
       }

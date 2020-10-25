@@ -3,19 +3,33 @@
 These settings apply only when `--python` is specified on the command line.
 Please also specify `--python-sdks-folder=<path to the root directory of your azure-sdk-for-python clone>`.
 
-```yaml $(python)
-python:
-  azure-arm: true
-  license-header: MICROSOFT_MIT_NO_VERSION
-  payload-flattening-threshold: 2
-  namespace: Microsoft.AutonomousDevelopmentPlatform
-  package-name: adp
-  package-version: 2020-07-01-preview
-  clear-output-folder: true
+```yaml $(track2)
+azure-arm: true
+license-header: MICROSOFT_MIT_NO_VERSION
+package-name: azure-mgmt-adp
+clear-output-folder: true
+no-namespace-folders: true
+modelerfour:
+  lenient-model-deduplication: true
 ```
 
-```yaml $(python)
+```yaml $(multiapi)
+clear-output-folder: true
+batch:
+  - tag: package-2020-07-01-preview
+  - multiapiscript: true
+```
+
+``` yaml $(multiapiscript)
+output-folder: $(python-sdks-folder)/adp/azure-mgmt-adp/azure/mgmt/adp/
+clear-output-folder: false
+perform-load: false
+```
+
+``` yaml $(tag) == 'package-2020-07-01-preview'
+namespace: azure.mgmt.adp.v2020_07_01_preview
+output-folder: $(python-sdks-folder)/adp/azure-mgmt-adp/azure/mgmt/adp/v2020_07_01_preview
 python:
-  no-namespace-folders: true
-  output-folder: $(python-sdks-folder)/azure-mgmt/adp
+  namespace: azure.mgmt.adp.v2020_07_01_preview
+  output-folder: $(python-sdks-folder)/adp/azure-mgmt-adp/azure/mgmt/adp/v2020_07_01_preview
 ```
