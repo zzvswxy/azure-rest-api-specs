@@ -63,7 +63,9 @@
                 "$ref": "./examples/MarketplaceAgreements_List.json"
               }
             }
-          },
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/setTerms": {
           "post": {
             "tags": [
               "Agreements"
@@ -95,10 +97,7 @@
               "200": {
                 "description": "Success",
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/AgreementTerms"
-                  }
+                  "$ref": "#/definitions/AgreementTermsListResponse"
                 }
               },
               "default": {
