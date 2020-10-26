@@ -81,7 +81,7 @@
             "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
-               },
+              },
               {
                 "in": "body",
                 "name": "body",
