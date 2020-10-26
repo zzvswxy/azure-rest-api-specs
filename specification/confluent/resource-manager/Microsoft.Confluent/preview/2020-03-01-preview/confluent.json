@@ -460,6 +460,85 @@
     }
   },
   "definitions": {
+    "AgreementProperties": {
+        "description": "Terms properties for Marketplace and Confluent.",
+        "type": "object",
+        "properties": {
+          "publisher": {
+            "description": "Publisher identifier string.",
+            "type": "string"
+          },
+          "product": {
+            "description": "Product identifier string.",
+            "type": "string"
+          },
+          "plan": {
+            "description": "Plan identifier string.",
+            "type": "string"
+          },
+          "licenseTextLink": {
+            "description": "Link to HTML with Microsoft and Publisher terms.",
+            "type": "string"
+          },
+          "privacyPolicyLink": {
+            "description": "Link to the privacy policy of the publisher.",
+            "type": "string"
+          },
+          "retrieveDatetime": {
+            "format": "date-time",
+            "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+            "type": "string"
+          },
+          "signature": {
+            "description": "Terms signature.",
+            "type": "string"
+          },
+          "accepted": {
+            "description": "If any version of the terms have been accepted, otherwise false.",
+            "type": "boolean"
+          }
+        }
+      },
+     "AgreementTerms": {
+        "description": "Agreement Terms definition",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The id of agreement resource.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the agreement.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of the agreement.",
+            "type": "string"
+          },
+          "properties": {
+            "$ref": "#/definitions/AgreementProperties",
+            "description": "Represents the properties of the resource.",
+            "x-ms-client-flatten": true
+          }
+        }
+      },
+     "AgreementTermsListResponse": {
+        "description": "Response of a list operation.",
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "Results of a list operation.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AgreementTerms"
+            }
+          },
+          "nextLink": {
+            "description": "Link to the next set of results, if any.",
+            "type": "string"
+          }
+        }
+    },
     "OperationDisplay": {
       "description": "The object that represents the operation.",
       "type": "object",
@@ -765,80 +844,6 @@
           }
         }
       }
-    },
-    "AgreementTerms": {
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/AgreementProperties",
-          "description": "Represents the properties of the resource.",
-          "x-ms-client-flatten": true
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "description": "Terms properties for provided Publisher/Offer/Plan tuple"
-    },
-    "AgreementProperties": {
-      "properties": {
-        "publisher": {
-          "type": "string",
-          "description": "Publisher identifier string of image being deployed."
-        },
-        "product": {
-          "type": "string",
-          "description": "Offer identifier string of image being deployed."
-        },
-        "plan": {
-          "type": "string",
-          "description": "Plan identifier string of image being deployed."
-        },
-        "licenseTextLink": {
-          "type": "string",
-          "description": "Link to HTML with Microsoft and Publisher terms."
-        },
-        "privacyPolicyLink": {
-          "type": "string",
-          "description": "Link to the privacy policy of the publisher."
-        },
-        "retrieveDatetime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false."
-        },
-        "signature": {
-          "type": "string",
-          "description": "Terms signature."
-        },
-        "accepted": {
-          "type": "string",
-          "description": "If any version of the terms have been accepted, otherwise false."
-        }
-      },
-      "description": "Agreement Terms definition"
-    },
-    "Resource": {
-      "description": "ARM resource.",
-      "properties": {
-        "id": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Resource ID."
-        },
-        "name": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Resource name."
-        },
-        "type": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Resource type."
-        }
-      },
-      "x-ms-azure-resource": true
     }
   },
   "parameters": {
