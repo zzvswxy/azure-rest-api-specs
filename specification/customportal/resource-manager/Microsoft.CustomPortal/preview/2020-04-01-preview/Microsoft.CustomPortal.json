@@ -332,10 +332,6 @@
                         "$ref": "#/definitions/ErrorResponse"
                       }
                     }
-                  },
-                  "x-ms-long-running-operation": true,
-                  "x-ms-long-running-operation-options": {
-                    "final-state-via": "location"
                   }
                 }
             },
