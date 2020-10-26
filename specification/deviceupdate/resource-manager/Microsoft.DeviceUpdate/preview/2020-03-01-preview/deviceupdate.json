@@ -869,7 +869,9 @@
                 "Succeeded",
                 "Deleted",
                 "Failed",
-                "Canceled"
+                "Canceled",
+                "Accepted",
+                "Creating"
               ],
               "readOnly": true,
               "x-ms-enum": {
