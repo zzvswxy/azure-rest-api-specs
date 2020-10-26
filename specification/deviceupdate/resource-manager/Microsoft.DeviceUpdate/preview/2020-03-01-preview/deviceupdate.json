@@ -458,7 +458,7 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "Gets list of Instances by account": {
+          "Gets list of Instances by Account": {
             "$ref": "./examples/Instances/Instances_ListByAccount.json"
           }
         }
@@ -876,6 +876,13 @@
                 "name": "ProvisioningState",
                 "modelAsString": true
               }
+            },
+            "instanceId": {
+              "description": "Device Update Instance resource ID which IoT Hub was linked with..",
+              "type": "string",
+              "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.DeviceUpdate\\/instances\\/.+$",
+              "minLength": 115,
+              "maxLength": 247
             }
           }
         }
@@ -894,7 +901,7 @@
         "resourceId": {
           "description": "IoTHub resource ID",
           "type": "string",
-          "pattern": "^\\/subscriptions\\/(.+){36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.Devices\\/IotHubs\\/.+$",
+          "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.Devices\\/IotHubs\\/.+$",
           "minLength": 108,
           "maxLength": 244
         },
@@ -1059,14 +1066,14 @@
       "pattern": "^[A-Za-z][A-Za-z0-9]+$",
       "minLength": 3,
       "maxLength": 36
-    },	
-    "IotHubName": {	
-      "name": "iotHubName",	
-      "in": "path",	
-      "required": true,	
-      "type": "string",	
-      "description": "The Iot Hub Name",	
-      "x-ms-parameter-location": "method"	
+    },
+    "IotHubName": {
+      "name": "iotHubName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The Iot Hub Name",
+      "x-ms-parameter-location": "method"
     }
   }
 }
