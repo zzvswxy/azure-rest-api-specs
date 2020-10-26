@@ -502,10 +502,6 @@
               },
             "portaltestresourceproperties": {
                 "type": "object",
-                "required": [
-                  "resourceVersion",
-                  "totalNodeCount"
-                ],
                 "properties": {
                   "resourceVersion": {
                     "readOnly": true,
