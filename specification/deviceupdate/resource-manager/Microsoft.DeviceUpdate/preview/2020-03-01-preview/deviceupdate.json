@@ -892,11 +892,16 @@
       "properties": {
         "name": {
           "description": "IoTHub name",
-          "type": "string"
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
         },
         "resourceId": {
           "description": "IoTHub resource ID",
-          "type": "string"
+          "type": "string",
+          "pattern": "^\\/subscriptions\\/.+\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.Devices\\/IotHubs\\/.+$",
+          "minLength": 108,
+          "maxLength": 244
         },
         "ioTHubConnectionString": {
           "description": "IoTHub connection string.",
