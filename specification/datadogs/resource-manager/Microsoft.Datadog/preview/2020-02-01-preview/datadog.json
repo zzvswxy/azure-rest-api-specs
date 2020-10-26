@@ -86,10 +86,7 @@
                 "in": "body",
                 "name": "body",
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/AgreementTerms"
-                  }
+                  "$ref": "#/definitions/AgreementTermsListResponse"
                 }
               }
             ],
