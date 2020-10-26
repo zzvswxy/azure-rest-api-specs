@@ -297,7 +297,7 @@
                 },
                 "delete": {
                   "summary": "Delete a portal test resource.",
-                  "operationId": "ConnectedCluster_Delete",
+                  "operationId": "PortalTestResource_Delete",
                   "description": "Delete a portal test resource, removing the tracked resource in Azure Resource Manager (ARM).",
                   "produces": [
                     "application/json"
@@ -319,12 +319,6 @@
                   "responses": {
                     "200": {
                       "description": "OK"
-                    },
-                    "202": {
-                      "description": "Resource deletion is in progress"
-                    },
-                    "204": {
-                      "description": "The resource was not found but the request is well formed"
                     },
                     "default": {
                       "description": "Resource Provider error response describing why the operation failed.",
@@ -508,10 +502,6 @@
               },
             "portaltestresourceproperties": {
                 "type": "object",
-                "required": [
-                  "resourceVersion",
-                  "totalNodeCount"
-                ],
                 "properties": {
                   "resourceVersion": {
                     "readOnly": true,
