@@ -892,7 +892,9 @@
       "properties": {
         "name": {
           "description": "IoTHub name",
-          "type": "string"
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
         },
         "resourceId": {
           "description": "IoTHub resource ID",
