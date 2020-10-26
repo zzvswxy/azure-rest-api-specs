@@ -116,79 +116,92 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements": {
       "get": {
-	      "tags": [
-          "AgreementTerms"
-        ],
-		    "summary": "Get marketplace terms.",
-        "operationId": "GetAgreementMarketplaceTerms",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Terms returned successfully",
-            "schema": {
-              "$ref": "#/definitions/AgreementTerms"
+         "tags": [
+           "Agreements"
+          ],
+          "summary": "List Confluent marketplace agreements in the subscription.",
+          "operationId": "MarketplaceAgreements_List",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/AgreementTermsListResponse"
+              }
+            },
+           "default": {
+              "description": "Default error response.",
+              "schema": {
+                "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              }
             }
           },
-          "default": {
-            "description": "Microsoft.Confluent error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
-            }
-          }
-        },
-		    "x-ms-examples": {
-          "GetAgreementMarketplaceTerms": {
-            "$ref": "./examples/GetAgreementMarketplaceTerms.json"
-          }
-        }
-      },
-	    "post": {
-		    "tags": [
-          "AgreementTerms"
-      ],
-        "summary": "Sign marketplace terms.",
-		    "operationId": "SetMarketplaceAgreements",
-		    "produces": [
-        "application/json"
-       ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
           },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-       ],
-        "responses": {
-          "200": {
-            "description": "OK. The request was successfully processed and the terms were accepted.",
-            "schema": {
-              "$ref": "#/definitions/AgreementTerms"
+          "x-ms-examples": {
+             "MarketplaceAgreements_List": {
+             "$ref": "./examples/MarketplaceAgreements_List.json"
+           }
+         }
+       },
+       "post": {
+         "tags": [
+            "Agreements"
+          ],
+         "summary": "Save marketplace terms.",
+         "operationId": "MarketplaceAgreements_Set",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+               "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+               "in": "body",
+                "name": "body",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AgreementTerms"
+                  }
+                }
             }
-          },
-          "default": {
-            "description": "Microsoft.Confluent error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+           ],
+           "responses": {
+              "200": {
+                "description": "Success",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AgreementTerms"
+                  }
+                }
+              },
+              "default": {
+                "description": "Default error response.",
+                "schema": {
+                  "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+                }
+              }
+            },
+          "x-ms-examples": {
+            "MarketplaceAgreements_Set": {
+               "$ref": "./examples/MarketplaceAgreements_Set.json"
             }
           }
-        },
-		    "x-ms-examples": {
-          "SetMarketplaceTerms": {
-            "$ref": "./examples/SignMarketplaceTerms.json"
-          }
-        }
-	    }
+       }     
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations": {
       "get": {
