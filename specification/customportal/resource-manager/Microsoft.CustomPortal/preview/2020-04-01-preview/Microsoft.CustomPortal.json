@@ -367,9 +367,6 @@
                         "$ref": "#/definitions/ErrorResponse"
                       }
                     }
-                  },
-                  "x-ms-pageable": {
-                    "nextLinkName": "nextLink"
                   }
                 }
               },
@@ -402,9 +399,6 @@
                         "$ref": "#/definitions/ErrorResponse"
                       }
                     }
-                  },
-                  "x-ms-pageable": {
-                    "nextLinkName": "nextLink"
                   }
                 }
               }
@@ -490,10 +484,6 @@
                     "items": {
                       "$ref": "#/definitions/PortalTestResource"
                     }
-                  },
-                  "nextLink": {
-                    "description": "The link to fetch the next page of resource",
-                    "type": "string"
                   }
                 }
               },
