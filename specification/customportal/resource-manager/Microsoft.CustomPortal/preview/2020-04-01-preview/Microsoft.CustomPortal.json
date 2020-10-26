@@ -155,7 +155,253 @@
 						}
 					}
 				}
-			}
+            },
+            "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CustomPortal/portalTestResources/{portalResourceName}": {
+                "put": {
+                  "summary": "Register a new portal test resource with Azure Resource Manager.",
+                  "operationId": "PortalTestResource_Create",
+                  "description": "API to register a new portal test resource in Azure Resource Manager (ARM).",
+                  "consumes": [
+                    "application/json"
+                  ],
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/TestResourcePathParam"
+                    },
+                    {
+                      "in": "body",
+                      "name": "PortalTestResource",
+                      "required": true,
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResource"
+                      },
+                      "description": "Parameters supplied to Create a portal test resource."
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResource"
+                      }
+                    },
+                    "201": {
+                      "description": "Resource creation request accepted",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResource"
+                      }
+                    },
+                    "default": {
+                      "description": "Resource Provider error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  }
+                },
+                "patch": {
+                    "summary": "Updates a test resource.",
+                    "operationId": "PortalTestResource_Update",
+                    "description": "API to update certain properties of the portal test resource",
+                    "consumes": [
+                      "application/json"
+                    ],
+                    "produces": [
+                      "application/json"
+                    ],
+                    "parameters": [
+                      {
+                        "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                      },
+                      {
+                        "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                      },
+                      {
+                        "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                      },
+                      {
+                        "$ref": "#/parameters/TestResourcePathParam"
+                      },
+                      {
+                        "in": "body",
+                        "name": "PortalTestResource",
+                        "required": true,
+                        "schema": {
+                          "$ref": "#/definitions/PortalTestResourcePatch"
+                        },
+                        "description": "Parameters supplied to update Portal Test Resource."
+                      }
+                    ],
+                    "responses": {
+                      "200": {
+                        "description": "OK",
+                        "schema": {
+                          "$ref": "#/definitions/PortalTestResource"
+                        }
+                      },
+                      "default": {
+                        "description": "Resource Provider error response describing why the operation failed.",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorResponse"
+                        }
+                      }
+                    }
+                  },            
+                "get": {
+                  "summary": "Get the properties of the portal test resource",
+                  "operationId": "PortalTestResource_Get",
+                  "description": "Returns the properties of the portal test resource",
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/TestResourcePathParam"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "Resource retrieved successfully.",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResource"
+                      }
+                    },
+                    "default": {
+                      "description": "Error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  }
+                },
+                "delete": {
+                  "summary": "Delete a portal test resource.",
+                  "operationId": "ConnectedCluster_Delete",
+                  "description": "Delete a portal test resource, removing the tracked resource in Azure Resource Manager (ARM).",
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/TestResourcePathParam"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK"
+                    },
+                    "202": {
+                      "description": "Resource deletion is in progress"
+                    },
+                    "204": {
+                      "description": "The resource was not found but the request is well formed"
+                    },
+                    "default": {
+                      "description": "Resource Provider error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  }
+                }
+            },
+            "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.customPortal/portalTestResources": {
+                "get": {
+                  "summary": "Lists all portal test resources",
+                  "operationId": "PortalTestResource_ListByResourceGroup",
+                  "description": "API to enumerate registered test resources under a Resource Group",
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResourceList"
+                      }
+                    },
+                    "default": {
+                      "description": "Resource Provider error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  }
+                }
+              },
+              "/subscriptions/{subscriptionId}/providers/Microsoft.customPortal/portalTestResources": {
+                "get": {
+                  "summary": "Lists all test resources",
+                  "operationId": "PortalTestResource_ListBySubscription",
+                  "description": "API to enumerate test resources under a Subscription",
+                  "produces": [
+                    "application/json"
+                  ],
+                  "parameters": [
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/PortalTestResourceList"
+                      }
+                    },
+                    "default": {
+                      "description": "Resource Provider error response describing why the operation failed.",
+                      "schema": {
+                        "$ref": "#/definitions/ErrorResponse"
+                      }
+                    }
+                  }
+                }
+              }
 	},
 	"definitions": {
 			"PortalSetting": {
@@ -227,7 +473,110 @@
 					"readOnly": true
 					}
 				}
-			}
+            },
+            "PortalTestResourceList": {
+                "description": "The paginated list of test resources",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "The list of test resources",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/PortalTestResource"
+                    }
+                  }
+                }
+              },
+            "PortalTestResource": {
+                "type": "object",
+                "required": [
+                  "properties"
+                ],
+                "properties": {
+                  "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/portaltestresourceproperties",
+                    "description": "Describes the connected cluster resource properties."
+                  }
+                },
+                "allOf": [
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/TrackedResource"
+                  }
+                ],
+                "description": "Represents a portal test resource."
+              },
+            "portaltestresourceproperties": {
+                "type": "object",
+                "required": [
+                  "resourceVersion",
+                  "totalNodeCount"
+                ],
+                "properties": {
+                  "resourceVersion": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "The version of the test cluster resource"
+                  },
+                  "totalNodeCount": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "description": "Number of nodes present"
+                  },
+                  "agentVersion": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Version of the agent running on the resource"
+                  },
+                  "provisioningState": {
+                    "$ref": "#/definitions/ProvisioningState"
+                  }
+                }
+              },
+              "ProvisioningState": {
+                "type": "string",
+                "description": "The current deployment state of resource.",
+                "enum": [
+                  "Succeeded",
+                  "Failed",
+                  "Canceled",
+                  "Provisioning",
+                  "Updating",
+                  "Deleting",
+                  "Accepted"
+                ],
+                "x-ms-enum": {
+                  "name": "ProvisioningState",
+                  "modelAsString": true
+                }
+              },
+        "PortalTestResourcePatch": {
+            "type": "object",
+            "properties": {
+              "tags": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Resource tags."
+              },
+              "properties": {
+                "x-ms-client-flatten": true,
+                "$ref": "#/definitions/PortalTestResourcePatchProperties",
+                "description": "Describes the portal test resource properties that can be updated during PATCH operation."
+              }
+            },
+            "description": "Object containing updates for patch operations."
+          },
+          "PortalTestResourcePatchProperties": {
+            "type": "object",
+            "properties": {
+              "resourceVersion": {
+                "type": "string",
+                "description": "Version"
+              }
+            }
+          }
 	},
 	"parameters": {
 		"SubscriptionIdParameter": {
@@ -259,6 +608,14 @@
 			"type": "string",
 			"description": "The namespace of the resource provider.",
 			"x-ms-parameter-location": "method"
-		}
+        },
+        "TestResourcePathParam": {
+            "name": "portalResourceName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the test resource on which get is called.",
+            "x-ms-parameter-location": "method"
+        }          
 	}
 }
