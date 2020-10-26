@@ -63,7 +63,9 @@
                 "$ref": "./examples/MarketplaceAgreements_List.json"
               }
             }
-          },
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/{resourceGroupName}/setTerms": {
           "post": {
             "tags": [
               "Agreements"
@@ -79,7 +81,10 @@
             "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
-               },
+              },
+              {
+                "$ref": "#/parameters/ResourceGroupNameParameter"
+              },
               {
                 "in": "body",
                 "name": "body",
@@ -95,10 +100,7 @@
               "200": {
                 "description": "Success",
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/AgreementTerms"
-                  }
+                  "$ref": "#/definitions/AgreementTermsListResponse"
                 }
               },
               "default": {
