@@ -876,14 +876,14 @@
                 "name": "ProvisioningState",
                 "modelAsString": true
               }
+            },
+            "instanceId": {
+              "description": "Device Update Instance resource ID which IoT Hub was linked with..",
+              "type": "string",
+              "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.DeviceUpdate\\/instances\\/.+$",
+              "minLength": 115,
+              "maxLength": 247
             }
-          },
-          "instanceId": {
-            "description": "Device Update Instance resource ID which IoT Hub was linked with..",
-            "type": "string",
-            "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.DeviceUpdate\\/instances\\/.+$",
-            "minLength": 115,
-            "maxLength": 247
           }
         }
       }
