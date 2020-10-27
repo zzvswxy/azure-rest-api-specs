@@ -458,7 +458,7 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "Gets list of Instances by account": {
+          "Gets list of Instances by Account": {
             "$ref": "./examples/Instances/Instances_ListByAccount.json"
           }
         }
@@ -747,8 +747,7 @@
                 "Failed",
                 "Canceled",
                 "Accepted",
-                "Creating",
-                "Deleting"
+                "Creating"
               ],
               "readOnly": true,
               "x-ms-enum": {
@@ -805,8 +804,7 @@
                 "Failed",
                 "Canceled",
                 "Accepted",
-                "Creating",
-                "Deleting"
+                "Creating"
               ],
               "readOnly": true,
               "x-ms-enum": {
@@ -873,14 +871,20 @@
                 "Failed",
                 "Canceled",
                 "Accepted",
-                "Creating",
-                "Deleting"
+                "Creating"
               ],
               "readOnly": true,
               "x-ms-enum": {
                 "name": "ProvisioningState",
                 "modelAsString": true
               }
+            },
+            "instanceId": {
+              "description": "Device Update Instance resource ID which IoT Hub was linked with..",
+              "type": "string",
+              "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.DeviceUpdate\\/accounts\\/.+\\/instances\\/.+$",
+              "minLength": 115,
+              "maxLength": 247
             }
           }
         }
@@ -892,11 +896,16 @@
       "properties": {
         "name": {
           "description": "IoTHub name",
-          "type": "string"
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
         },
         "resourceId": {
           "description": "IoTHub resource ID",
-          "type": "string"
+          "type": "string",
+          "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.Devices\\/IotHubs\\/.+$",
+          "minLength": 108,
+          "maxLength": 244
         },
         "ioTHubConnectionString": {
           "description": "IoTHub connection string.",

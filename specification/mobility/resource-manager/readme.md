@@ -1,8 +1,8 @@
-# ExtendedLocation
+# mobility
 
 > see https://aka.ms/autorest
 
-This is the AutoRest configuration file for extendedLocation.
+This is the AutoRest configuration file for mobility.
 
 ## Getting Started
 
@@ -22,21 +22,21 @@ For other options on installation see [Installing AutoRest](https://aka.ms/autor
 
 ### Basic Information
 
-These are the global settings for the extendedLocation.
+These are the global settings for the mobility.
 
 ```yaml
 openapi-type: arm
 openapi-subtype: rpaas
-tag: package-2019-10-01-privatepreview
+tag: package-2020-12-01-preview
 ```
 
-### Tag: package-2019-10-01-privatepreview
+### Tag: package-2020-12-01-preview
 
-These settings apply only when `--tag=package-2019-10-01-privatepreview` is specified on the command line.
+These settings apply only when `--tag=package-2020-12-01-preview` is specified on the command line.
 
-```yaml $(tag) == 'package-2019-10-01-privatepreview'
+```yaml $(tag) == 'package-2020-12-01-preview'
 input-file:
-  - Microsoft.ExtendedLocation/preview/2019-10-01-privatepreview/iotlocations.json
+  - Microsoft.Mobility/preview/2020-12-01-preview/mobility.json
 ```
 
 ---
@@ -56,7 +56,8 @@ swagger-to-sdk:
   - repo: azure-sdk-for-js
   - repo: azure-sdk-for-ruby
     after_scripts:
-      - bundle install && rake arm:regen_all_profiles['azure_mgmt_extendedLocation']
+      - bundle install && rake arm:regen_all_profiles['azure_mgmt_mobility']
+  - repo: azure-cli-extensions
 ```
 
 ## Go
@@ -78,3 +79,11 @@ See configuration in [readme.typescript.md](./readme.typescript.md)
 ## CSharp
 
 See configuration in [readme.csharp.md](./readme.csharp.md)
+
+## Az
+
+See configuration in [readme.az.md](./readme.az.md)
+
+## CLI
+
+See configuration in [readme.cli.md](./readme.cli.md)
