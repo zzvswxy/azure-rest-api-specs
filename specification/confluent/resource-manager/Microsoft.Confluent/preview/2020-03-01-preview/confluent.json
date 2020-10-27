@@ -870,7 +870,7 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    }
+    },
     "OrganizationResourceNameParameter": {
       "in": "path",
       "name": "organizationName",
