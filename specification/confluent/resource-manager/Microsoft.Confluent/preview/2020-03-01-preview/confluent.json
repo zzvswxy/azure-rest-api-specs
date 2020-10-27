@@ -33,7 +33,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/{planId}": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements": {
         "get": {
           "tags": [
             "Agreements"
@@ -46,9 +46,6 @@
            "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
-              },
-              {
-                "$ref": "#/parameters/PlansParameter"
               }
            ],
            "responses": {
@@ -75,7 +72,7 @@
           }
         }
      },
-     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/{planId}/setTerms": {
+     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/acceptTerms": {
           "post": {
             "tags": [
               "Agreements"
@@ -91,9 +88,6 @@
             "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
-              },
-              {
-                "$ref": "#/parameters/PlansParameter"
               },
               {
                 "in": "body",
@@ -876,14 +870,6 @@
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
-    },
-    "PlansParameter": {
-      "name": "planId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method",
-      "description": "Plan identifier string of image being deployed."
     },
     "OrganizationResourceNameParameter": {
       "in": "path",
