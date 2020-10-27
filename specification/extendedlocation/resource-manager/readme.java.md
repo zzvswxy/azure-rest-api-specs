@@ -17,18 +17,18 @@ description: "Extended Location Client"
 
 ``` yaml $(java) && $(multiapi)
 batch:
-  - tag: package-2020-10-01-privatepreview
+  - tag: package-2019-10-01-privatepreview
 ```
 
-### Tag: package-2020-10-01-privatepreview and java
+### Tag: package-2019-10-01-privatepreview and java
 
-These settings apply only when `--tag=package-2020-10-01-privatepreview` is specified on the command line.
+These settings apply only when `--tag=package-2019-10-01-privatepreview` is specified on the command line.
 Please also specify `--azure-libraries-for-java-folder=<path to the root directory of your azure-sdk-for-java clone>`.
 
-``` yaml $(tag) == 'package-2020-10-01-privatepreview' && $(java) && $(multiapi)
+``` yaml $(tag) == 'package-2019-10-01-privatepreview' && $(java) && $(multiapi)
 java:
-  namespace: com.microsoft.azure.management.extendedlocation.v2020_10_01_privatepreview
-  output-folder: $(azure-libraries-for-java-folder)/extendedlocation/resource-manager/v2020_10_01_privatepreview
+  namespace: com.microsoft.azure.management.extendedlocation.v2019_10_01_privatepreview
+  output-folder: $(azure-libraries-for-java-folder)/extendedlocation/resource-manager/v2019_10_01_privatepreview
 regenerate-manager: true
 generate-interface: true
 ```
