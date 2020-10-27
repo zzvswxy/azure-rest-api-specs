@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2020-10-01-privatepreview",
+    "version": "2019-10-01-privatepreview",
     "title": "iotLocations",
     "description": "The iotLocations Rest API spec."
   },
