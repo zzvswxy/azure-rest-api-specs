@@ -1,0 +1,31 @@
+{
+    "parameters": {
+      "api-version": "2020-06-01-preview",
+      "subscriptionId": "subid",
+      "resourceGroupName": "rg1",
+      "packetCoreName": "TestPacketCore"
+    },
+    "responses": {
+      "200": {
+        "body": {
+          "value": [
+            {
+              "name": "TestControlPlane",
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore/controlPlanes",
+              "type": "Microsoft.MobileNetwork/packetCores/controlPlanes",
+              "location": "eastus",
+              "tags": {},
+              "properties": {
+                "provisioningState": "Accepted",
+                "azureSubnets": [
+                  {
+                    "id": "TestAzureSubNetId"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }

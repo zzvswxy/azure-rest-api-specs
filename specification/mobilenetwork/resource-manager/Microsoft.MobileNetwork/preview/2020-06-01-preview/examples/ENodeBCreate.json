@@ -1,0 +1,71 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "eNodeBName": "TestENodeB",
+    "parameters": {
+      "properties": {
+        "mobileNetwork": {
+          "id": "TestMobileNetworkId"
+        },
+        "skuVendor": "TestSkuVendor",
+        "skuModel": "TestSkuModel",
+        "eNodeBId": "TestENodeBId",
+        "eNodeBIpAddress": "TestENodeBIPAddress",
+        "locationLatitude": "TestLocationLatitude",
+        "locationLongitude": "TestLocationLongitude"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestENodeB",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/eNodeBs/TestENodeB",
+        "type": "Microsoft.MobileNetwork/eNodeBs",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "eNodeBId": "TestENodeBId",
+          "eNodeBIpAddress": "TestENodeBIPAddress",
+          "locationLatitude": "TestLocationLatitude",
+          "locationLongitude": "TestLocationLongitude",
+          "mmeIPAddress": "TestMmeIPAddress",
+          "mmePortNumber": "TestMmePortNumber"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestENodeB",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/eNodeBs/TestENodeB",
+        "type": "Microsoft.MobileNetwork/eNodeBs",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "eNodeBId": "TestENodeBId",
+          "eNodeBIpAddress": "TestENodeBIPAddress",
+          "locationLatitude": "TestLocationLatitude",
+          "locationLongitude": "TestLocationLongitude",
+          "mmeIPAddress": "TestMmeIPAddress",
+          "mmePortNumber": "TestMmePortNumber"
+        }
+      }
+    }
+  }
+}

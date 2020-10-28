@@ -1,0 +1,439 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MobileNetworkManagementClient",
+    "description": "The resources in this swagger specification will be used to manage moblie network site resources",
+    "version": "2020-06-01-preview"
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileNetworkSites/{mobileNetworkSiteName}": {
+      "delete": {
+        "tags": [
+          "MobileNetworkSites"
+        ],
+        "operationId": "MobileNetworkSites_Delete",
+        "description": "Deletes the specified mobile network site.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileNetworkSiteName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the mobile network site."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete mobile network site resource": {
+            "$ref": "./examples/MobileNetworkSiteDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "MobileNetworkSites"
+        ],
+        "operationId": "MobileNetworkSites_Get",
+        "description": "Gets information about the specified mobile network site.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileNetworkSiteName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of mobile network site."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting mobile network site resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSite"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get mobile network site": {
+            "$ref": "./examples/MobileNetworkSiteGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MobileNetworkSites"
+        ],
+        "operationId": "MobileNetworkSites_CreateOrUpdate",
+        "description": "Creates or updates a mobile network site.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileNetworkSiteName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the mobile network site resource."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSite"
+            },
+            "description": "Parameters supplied to the create or update mobile network site operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting mobile network site resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSite"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting mobile network site resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSite"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create mobile network site": {
+            "$ref": "./examples/MobileNetworkSiteCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "MobileNetworkSites"
+        ],
+        "operationId": "MobileNetworkSites_UpdateTags",
+        "description": "Updates a mobile network site update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "mobileNetworkSiteName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the mobile network site."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update mobile network site tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting mobile network site resource.",
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSite"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update mobile network site tags": {
+            "$ref": "./examples/MobileNetworkSiteUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/mobileNetworkSites": {
+      "get": {
+        "tags": [
+          "MobileNetworkSites"
+        ],
+        "operationId": "MobileNetworkSites_ListBySubscription",
+        "description": "Lists all the mobile network sites in a subscription.",
+        "parameters": [
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of mobile network site resources.",
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSiteListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List all mobile network sites": {
+            "$ref": "./examples/MobileNetworkSiteListBySubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileNetworkSites": {
+      "get": {
+        "tags": [
+          "MobileNetworkSites"
+        ],
+        "operationId": "MobileNetworkSites_ListByResourceGroup",
+        "description": "Lists all the mobile network sites in a resource group.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of mobile network site resources.",
+            "schema": {
+              "$ref": "#/definitions/MobileNetworkSiteListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List mobile network sites in resource group": {
+            "$ref": "./examples/MobileNetworkSiteListByResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MobileNetworkSite": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MobileNetworkSitePropertiesFormat",
+          "description": "Mobile network site properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "Mobile network site resource."
+    },
+    "MobileNetworkSitePropertiesFormat": {
+      "description": "Mobile network site properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the mobile network site resource."
+        },
+        "mobileNetwork": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The unique id of the mobile network"
+        },
+        "trackingAreaCode": {
+          "type": "string",
+          "description": "The tracking area code for the eNodeB resources in the site."
+        },
+        "address": {
+          "type": "string",
+          "description": "The postal address of the mobile network site."
+        },
+        "locationLatitude": {
+          "type": "string",
+          "description": "The geo location latitude for spectrum access registration."
+        },
+        "locationLongitude": {
+          "type": "string",
+          "description": "The geo location longitude for spectrum access registration."
+        },
+        "packetCoreUserPlane": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the packetcore user plane."
+        },
+        "packetCoreControlPlane": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the packetcore control plane."
+        },
+        "expressRouteCircuit": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The expressRoute reference for connection to the packet core control plane in Azure."
+        },
+        "localNetworkGateway": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The VPN connection reference for VPN connection to the packet core control plane in Azure."
+        },
+        "eNodeBs": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "The reference to the eNodeBs in the mobile network site."
+        }
+      }
+    },
+    "MobileNetworkSiteListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MobileNetworkSite"
+          },
+          "description": "A list of mobile network sites in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for mobile network sites API service call."
+    }
+  }
+}

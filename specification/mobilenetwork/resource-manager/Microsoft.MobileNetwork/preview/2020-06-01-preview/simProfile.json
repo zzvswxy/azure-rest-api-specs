@@ -1,0 +1,432 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MobileNetworkManagementClient",
+    "description": "The resources in this swagger specification will be used to manage sim profile resources.",
+    "version": "2020-06-01-preview"
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "azure_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "flow": "implicit",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      }
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simProfiles/{simProfileName}": {
+      "delete": {
+        "tags": [
+          "SimProfiles"
+        ],
+        "operationId": "SimProfiles_Delete",
+        "description": "Deletes the specified sim profile.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "simProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the sim profile."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete successful."
+          },
+          "202": {
+            "description": "Accepted. Sets 'Deleting' provisioningState until the operation completes. Returns an operation URI that can be queried to find the current state of the operation."
+          },
+          "204": {
+            "description": "Request successful. Resource does not exist."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete sim profile resource": {
+            "$ref": "./examples/SimProfileDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      },
+      "get": {
+        "tags": [
+          "SimProfiles"
+        ],
+        "operationId": "SimProfiles_Get",
+        "description": "Gets information about the specified sim profile.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "simProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of sim profile."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/SimProfile"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get sim profile": {
+            "$ref": "./examples/SimProfileGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SimProfiles"
+        ],
+        "operationId": "SimProfiles_CreateOrUpdate",
+        "description": "Creates or updates a sim profile.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "simProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the sim profile."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SimProfile"
+            },
+            "description": "Parameters supplied to the create or update sim profile operation."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/SimProfile"
+            }
+          },
+          "201": {
+            "description": "Create successful. The operation returns the resulting sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/SimProfile"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create sim profile": {
+            "$ref": "./examples/SimProfileCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "patch": {
+        "tags": [
+          "SimProfiles"
+        ],
+        "operationId": "SimProfiles_UpdateTags",
+        "description": "Updates a sim profile update tags.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "simProfileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the sim profile."
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./common.json#/definitions/TagsObject"
+            },
+            "description": "Parameters supplied to update sim profile tags."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successful. The operation returns the resulting sim profile resource.",
+            "schema": {
+              "$ref": "#/definitions/SimProfile"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update sim profile tags": {
+            "$ref": "./examples/SimProfileUpdateTags.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/simProfiles": {
+      "get": {
+        "tags": [
+          "SimProfiles"
+        ],
+        "operationId": "SimProfiles_ListBySubscription",
+        "description": "Lists all the sim profiles in a resource group.",
+        "parameters": [
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of sim profile resources.",
+            "schema": {
+              "$ref": "#/definitions/SimProfileListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List all sim profiles": {
+            "$ref": "./examples/SimProfileListBySubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simProfiles": {
+      "get": {
+        "tags": [
+          "SimProfiles"
+        ],
+        "operationId": "SimProfiles_ListByResourceGroup",
+        "description": "Lists all the sim profiles in a resource group.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "$ref": "./common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./common.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of sim profile resources.",
+            "schema": {
+              "$ref": "#/definitions/SimProfileListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/ErrorDetails"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List sim profiles in resource group": {
+            "$ref": "./examples/SimProfileListByResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SimProfile": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/SimProfilePropertiesFormat",
+          "description": "Sim profile properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "./common.json#/definitions/Resource"
+        }
+      ],
+      "description": "Sim profile resource."
+    },
+    "SimProfilePropertiesFormat": {
+      "description": "SimProfile properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the sim resource."
+        },
+        "masterSimProfile": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the master sim profile resource."
+        },
+        "mobileDevice": {
+          "$ref": "./common.json#/definitions/SubResource",
+          "description": "The reference to the mobile device activated with the operational sim profile."          
+        },
+        "iccId": {
+          "type": "string",
+          "description": "The unique identifier for the operational sim profile."
+        },
+        "imsi": {
+          "type": "string",
+          "description": "The IMSI."
+        },
+        "networkActivationState": {
+          "type": "string",
+          "description": "The network provisioning state for the operational sim profile."
+        },
+        "networkActivationDate": {
+          "type": "string",
+          "description": "The network activation date for the operational sim profile."
+        },
+        "voiceNumber": {
+          "type": "string",
+          "description": "The voice number."
+        },
+        "subscriberAuthKey": {
+          "type": "string",
+          "description": "The ki value for SIM activation on the packet core."
+        },
+        "operatorCode": {
+          "type": "string",
+          "description": "The operator code value for SIM activation on the packet core."
+        }
+      }
+    },
+    "SimProfileListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SimProfile"
+          },
+          "description": "A list of sim profiles in a resource group."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for sim profiles API service call."
+    }
+  }
+}
