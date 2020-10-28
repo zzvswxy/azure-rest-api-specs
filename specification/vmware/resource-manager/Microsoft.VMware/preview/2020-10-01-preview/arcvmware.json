@@ -2333,8 +2333,7 @@
       "description": "Define the resourcePool.",
       "required": [
         "location",
-        "properties",
-		"extendedLocation"
+        "properties"
       ],
       "type": "object",
       "x-ms-azure-resource": true,
@@ -2450,8 +2449,7 @@
       "description": "Define the arcZone.",
       "required": [
         "location",
-        "properties",
-		"extendedLocation"
+        "properties"
       ],
       "type": "object",
       "x-ms-azure-resource": true,
@@ -2764,8 +2762,7 @@
       "description": "Define the vCenter.",
       "required": [
         "location",
-        "properties",
-		"extendedLocation"
+        "properties"
       ],
       "type": "object",
       "x-ms-azure-resource": true,
@@ -3046,8 +3043,7 @@
       "description": "Defines the resource properties.",
       "required": [
         "resourcePoolId",
-        "templateId",
-        "vCenterId"
+        "templateId"
       ],
       "type": "object",
       "properties": {
@@ -3138,8 +3134,7 @@
       "description": "Define the virtualMachine.",
       "required": [
         "location",
-        "properties",
-		"extendedLocation"
+        "properties"
       ],
       "type": "object",
       "x-ms-azure-resource": true,
@@ -3374,8 +3369,7 @@
       "description": "Define the virtualMachineTemplate.",
       "required": [
         "location",
-        "properties",
-		"extendedLocation"
+        "properties"
       ],
       "type": "object",
       "x-ms-azure-resource": true,
@@ -3502,8 +3496,7 @@
       "description": "Define the virtualNetwork.",
       "required": [
         "location",
-        "properties",
-		"extendedLocation"
+        "properties"
       ],
       "type": "object",
       "x-ms-azure-resource": true,
