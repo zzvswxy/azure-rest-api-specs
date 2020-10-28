@@ -81,16 +81,6 @@
             "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
-              },
-              {
-                "in": "body",
-                "name": "body",
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/AgreementTerms"
-                  }
-                }
               }
             ],
             "responses": {
