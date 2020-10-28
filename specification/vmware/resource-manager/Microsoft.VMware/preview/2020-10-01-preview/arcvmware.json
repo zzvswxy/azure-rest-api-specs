@@ -279,6 +279,13 @@
           },
           {
             "$ref": "#/parameters/api-version"
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "description": "Whether force delete was specified.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -382,337 +389,6 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ResourcePoolsList"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMware/ArcZones/{arcZoneName}": {
-      "put": {
-        "tags": [
-          "ArcZones"
-        ],
-        "operationId": "ArcZones_Create",
-        "description": "Create Or Update arcZone.",
-        "summary": "Implements arcZone PUT method.",
-        "x-ms-examples": {
-          "CreateArcZone": {
-            "$ref": "./examples/CreateArcZone.json"
-          }
-        },
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupName"
-          },
-          {
-            "in": "path",
-            "name": "arcZoneName",
-            "required": true,
-            "type": "string",
-            "description": "Name of the arcZone."
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Request payload.",
-            "schema": {
-              "$ref": "#/definitions/ArcZone"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ArcZone"
-            }
-          },
-          "201": {
-            "description": "Created",
-            "schema": {
-              "$ref": "#/definitions/ArcZone"
-            },
-            "headers": {
-              "Azure-AsyncOperation": {
-                "description": "Tracking URL for long running operation.",
-                "type": "string"
-              }
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
-        }
-      },
-      "get": {
-        "tags": [
-          "ArcZones"
-        ],
-        "operationId": "ArcZones_Get",
-        "summary": "Gets a arcZone.",
-        "description": "Implements arcZone GET method.",
-        "x-ms-examples": {
-          "GetArcZone": {
-            "$ref": "./examples/GetArcZone.json"
-          }
-        },
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupName"
-          },
-          {
-            "in": "path",
-            "name": "arcZoneName",
-            "required": true,
-            "type": "string",
-            "description": "Name of the arcZone."
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ArcZone"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "ArcZones"
-        ],
-        "operationId": "ArcZones_Update",
-        "summary": "Updates a arcZone.",
-        "description": "API to update certain properties of the arcZone resource.",
-        "x-ms-examples": {
-          "UpdateArcZone": {
-            "$ref": "./examples/UpdateArcZone.json"
-          }
-        },
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupName"
-          },
-          {
-            "in": "path",
-            "name": "arcZoneName",
-            "required": true,
-            "type": "string",
-            "description": "Name of the arcZone."
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Resource properties to update.",
-            "schema": {
-              "$ref": "#/definitions/ResourcePatch"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ArcZone"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "ArcZones"
-        ],
-        "operationId": "ArcZones_Delete",
-        "summary": "Deletes an arcZone.",
-        "description": "Implements arcZone DELETE method.",
-        "x-ms-examples": {
-          "DeleteArcZone": {
-            "$ref": "./examples/DeleteArcZone.json"
-          }
-        },
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupName"
-          },
-          {
-            "in": "path",
-            "name": "arcZoneName",
-            "required": true,
-            "type": "string",
-            "description": "Name of the arcZone."
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "202": {
-            "description": "Accepted",
-            "headers": {
-              "Azure-AsyncOperation": {
-                "description": "Tracking URL for long running operation.",
-                "type": "string"
-              }
-            }
-          },
-          "204": {
-            "description": "No Content"
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-long-running-operation": true
-      }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.VMware/ArcZones": {
-      "get": {
-        "tags": [
-          "ArcZones"
-        ],
-        "operationId": "ArcZones_List",
-        "summary": "Implements GET arcZones in a subscription.",
-        "description": "List of arcZones in a subscription.",
-        "x-ms-examples": {
-          "ListArcZones": {
-            "$ref": "./examples/ListArcZones.json"
-          }
-        },
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ArcZonesList"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMware/ArcZones": {
-      "get": {
-        "tags": [
-          "ArcZones"
-        ],
-        "operationId": "ArcZones_ListByResourceGroup",
-        "summary": "Implements GET arcZones in a resource group.",
-        "description": "List of arcZones in a resource group.",
-        "x-ms-examples": {
-          "ListArcZonesByResourceGroup": {
-            "$ref": "./examples/ListArcZonesByResourceGroup.json"
-          }
-        },
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionId"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupName"
-          },
-          {
-            "$ref": "#/parameters/api-version"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ArcZonesList"
             }
           },
           "default": {
@@ -941,6 +617,13 @@
           },
           {
             "$ref": "#/parameters/api-version"
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "description": "Whether force delete was specified.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1285,6 +968,13 @@
           },
           {
             "$ref": "#/parameters/api-version"
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "description": "Whether force delete was specified.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1789,6 +1479,13 @@
           },
           {
             "$ref": "#/parameters/api-version"
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "description": "Whether force delete was specified.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2120,6 +1817,13 @@
           },
           {
             "$ref": "#/parameters/api-version"
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "description": "Whether force delete was specified.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2278,11 +1982,6 @@
           "type": "string",
           "readOnly": true
         },
-        "status": {
-          "description": "Gets or sets the status of the resource.",
-          "type": "string",
-          "readOnly": true
-        },
         "cpuSharesLevel": {
           "description": "Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.\r\nThis property is used in relative allocation between resource consumers.",
           "type": "string",
@@ -2352,18 +2051,12 @@
           ]
         },
         "extendedLocation": {
-          "type": "object",
-          "description": "The extended location.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
-          }
+          "$ref": "#/definitions/ExtendedLocation",
+          "description": "Gets or sets the extended location."
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "description": "The system data."
         },
         "tags": {
           "description": "Gets or sets the Resource tags.",
@@ -2379,11 +2072,6 @@
         },
         "id": {
           "description": "Gets or sets the Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "identity": {
-          "description": "Gets or sets the identity.",
           "type": "string",
           "readOnly": true
         },
@@ -2413,157 +2101,6 @@
         "value"
       ]
     },
-    "ArcZoneProperties": {
-      "description": "Defines the resource properties.",
-      "required": [
-        "hostId"
-      ],
-      "type": "object",
-      "properties": {
-        "uuid": {
-          "description": "Gets or sets a unique identifier for this zone.",
-          "type": "string",
-          "readOnly": true
-        },
-        "hostId": {
-          "description": "Gets or Sets the Arm Id of the cluster resource (AKS Cluster Id).",
-          "type": "string"
-        },
-        "namespace": {
-          "description": "Gets the K8s namespace for the arc zone.",
-          "type": "string",
-          "readOnly": true
-        },
-        "authentication": {
-          "description": "Credentials to authenticate to k8s.",
-          "$ref": "#/definitions/KubernetesAuthentication"
-        },
-        "provisioningState": {
-          "description": "Gets or sets the provisioning state.",
-          "type": "string",
-          "readOnly": true
-        }
-      }
-    },
-    "ArcZone": {
-      "description": "Define the arcZone.",
-      "required": [
-        "location",
-        "properties"
-      ],
-      "type": "object",
-      "x-ms-azure-resource": true,
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "description": "Resource properties.",
-          "$ref": "#/definitions/ArcZoneProperties"
-        },
-        "location": {
-          "description": "Gets or sets the location.",
-          "type": "string",
-          "x-ms-mutability": [
-            "read",
-            "create"
-          ]
-        },
-        "extendedLocation": {
-          "type": "object",
-          "description": "The extended location.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
-          }
-        },
-        "tags": {
-          "description": "Gets or sets the Resource tags.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "name": {
-          "description": "Gets or sets the name.",
-          "type": "string",
-          "readOnly": true
-        },
-        "id": {
-          "description": "Gets or sets the Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "identity": {
-          "description": "Gets or sets the identity.",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Gets or sets the type of the resource.",
-          "type": "string",
-          "readOnly": true
-        }
-      }
-    },
-    "ArcZonesList": {
-      "description": "List of ArcZones.",
-      "properties": {
-        "nextLink": {
-          "description": "Url to follow for getting next page of ArcZones.",
-          "type": "string"
-        },
-        "value": {
-          "description": "Array of ArcZones",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ArcZone"
-          }
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "KubernetesSecret": {
-      "description": "A k8s secret identifier.",
-      "type": "object",
-      "properties": {
-        "secretName": {
-          "description": "Gets or sets the name of the secret in Kubernetes.",
-          "type": "string"
-        },
-        "secretNamespace": {
-          "description": "Gets or sets a namespace in which the specified secret exists.",
-          "type": "string"
-        }
-      }
-    },
-    "KubernetesAuthenticationType": {
-      "enum": [
-        "KubeConfig",
-        "ListCredential"
-      ],
-      "type": "string"
-    },
-    "KubernetesAuthentication": {
-      "description": "Defines the kubernetes authentication class.",
-      "type": "object",
-      "properties": {
-        "type": {
-          "description": "Gets or sets kubernetes authentication type.",
-          "$ref": "#/definitions/KubernetesAuthenticationType"
-        },
-        "value": {
-          "description": "Gets or sets kubernetes authentication value.",
-          "type": "string"
-        }
-      }
-    },
     "VICredential": {
       "description": "Username / Password Credentials to connect to vcenter.",
       "type": "object",
@@ -2586,7 +2123,8 @@
     "VCenterProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "fqdn"
+        "fqdn",
+        "credentials"
       ],
       "type": "object",
       "properties": {
@@ -2606,10 +2144,6 @@
           "minimum": 1,
           "type": "integer"
         },
-        "credentials": {
-          "description": "Credentials to connect to vcenter.",
-          "$ref": "#/definitions/KubernetesSecret"
-        },
         "version": {
           "description": "Gets or sets the version of the vCenter.",
           "type": "string",
@@ -2625,19 +2159,22 @@
           "type": "string",
           "readOnly": true
         },
-        "errorMessage": {
-          "description": "Gets or sets any error message if connection to vCenter is having any issue.",
-          "type": "string",
-          "readOnly": true
-        },
         "customResourceName": {
           "description": "Gets the name of the corresponding resource in Kubernetes.",
           "type": "string",
           "readOnly": true
         },
-        "vcenterCredentials": {
+        "credentials": {
           "description": "Username / Password Credentials to connect to vcenter.",
           "$ref": "#/definitions/VICredential"
+        },
+        "conditions": {
+          "description": "Defines a list of readiness conditions for the vcenter.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Condition"
+          },
+          "readOnly": true
         },
         "provisioningState": {
           "description": "Gets or sets the provisioning state.",
@@ -2692,8 +2229,8 @@
           "type": "string",
           "readOnly": true
         },
-        "diskId": {
-          "description": "Gets or sets the disk id.",
+        "diskObjectId": {
+          "description": "Gets or sets the disk object id.",
           "type": "string",
           "readOnly": true
         },
@@ -2701,11 +2238,6 @@
           "format": "int32",
           "description": "Gets or sets the disk total size.",
           "type": "integer"
-        },
-        "diskName": {
-          "description": "Gets or sets the disk name.",
-          "type": "string",
-          "readOnly": true
         },
         "deviceKey": {
           "format": "int32",
@@ -2731,11 +2263,6 @@
     "Condition": {
       "description": "Condition defines an extension to status.",
       "properties": {
-        "type": {
-          "description": "Type of condition.",
-          "type": "string",
-          "readOnly": true
-        },
         "status": {
           "description": "Status of the condition.",
           "type": "string",
@@ -2759,7 +2286,7 @@
       }
     },
     "VCenter": {
-      "description": "Define the vCenter.",
+      "description": "Defines the vCenter.",
       "required": [
         "location",
         "properties"
@@ -2780,25 +2307,19 @@
             "create"
           ]
         },
+        "extendedLocation": {
+          "$ref": "#/definitions/ExtendedLocation",
+          "description": "Gets or sets the extended location."
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "description": "The system data."
+        },
         "tags": {
           "description": "Gets or sets the Resource tags.",
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
-        },
-        "extendedLocation": {
-          "type": "object",
-          "description": "The extended location.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
           }
         },
         "name": {
@@ -2808,11 +2329,6 @@
         },
         "id": {
           "description": "Gets or sets the Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "identity": {
-          "description": "Gets or sets the identity.",
           "type": "string",
           "readOnly": true
         },
@@ -2844,12 +2360,17 @@
     },
     "OsType": {
       "description": "Defines the different types of VM guest operating systems.",
+      "readOnly": true,
       "enum": [
         "Windows",
         "Linux",
         "Other"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "OsType"
+      }
     },
     "OsProfile": {
       "description": "Defines the resource properties.",
@@ -2857,8 +2378,7 @@
       "properties": {
         "computerName": {
           "description": "Gets or sets computer name.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "adminUsername": {
           "description": "Gets or sets administrator username.",
@@ -2866,7 +2386,12 @@
         },
         "adminPassword": {
           "description": "Gets or sets administrator password.",
-          "type": "string"
+          "type": "string",
+          "x-ms-mutability": [
+            "create",
+            "update"
+          ],
+          "x-ms-secret": true
         },
         "osType": {
           "description": "Gets or sets the type of the os.",
@@ -2965,7 +2490,11 @@
         "pvscsi",
         "lsilogicsas"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "SCSIControllerType"
+      }
     },
     "VirtualSCSISharing": {
       "description": "Defines the sharing mode for sharing the SCSI bus.",
@@ -2974,7 +2503,11 @@
         "physicalSharing",
         "virtualSharing"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "VirtualSCSISharing"
+      }
     },
     "VirtualSCSIController": {
       "description": "This data object type contains the properties of a SCSI controller device attached to a virtual machine that is reported by the controller.",
@@ -3039,6 +2572,20 @@
         }
       }
     },
+    "ExtendedLocation": {
+      "type": "object",
+      "description": "The extended location.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The extended location type."
+        },
+        "name": {
+          "type": "string",
+          "description": "The extended location name."
+        }
+      }
+    },
     "VirtualMachineProperties": {
       "description": "Defines the resource properties.",
       "required": [
@@ -3082,8 +2629,7 @@
         },
         "moRefId": {
           "description": "Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         },
         "moName": {
           "description": "Gets or sets the vCenter Managed Object name for the virtual machine.",
@@ -3092,11 +2638,6 @@
         },
         "folderPath": {
           "description": "Gets or sets the folder path of the vm.",
-          "type": "string",
-          "readOnly": true
-        },
-        "status": {
-          "description": "Gets or sets the status of the resource.",
           "type": "string",
           "readOnly": true
         },
@@ -3117,8 +2658,8 @@
         },
         "conditions": {
           "description": "Defines a list of readiness conditions for the vm.",
-          "type": "array",
-          "items": {
+          "type": "object",
+          "additionalProperties": {
             "$ref": "#/definitions/Condition"
           },
           "readOnly": true
@@ -3152,35 +2693,19 @@
             "create"
           ]
         },
-		"kind": {
-          "type": "string",
-          "x-ms-mutability": [
-            "read",
-            "create"
-          ],
-          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.",
-          "pattern": "^[-\\w\\._,\\(\\)]+$",
-		  "readOnly": true
+        "extendedLocation": {
+          "$ref": "#/definitions/ExtendedLocation",
+          "description": "Gets or sets the extended location."
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "description": "The system data."
         },
         "tags": {
           "description": "Gets or sets the Resource tags.",
           "type": "object",
           "additionalProperties": {
             "type": "string"
-          }
-        },
-        "extendedLocation": {
-          "type": "object",
-          "description": "The extended location.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
           }
         },
         "name": {
@@ -3190,11 +2715,6 @@
         },
         "id": {
           "description": "Gets or sets the Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "identity": {
-          "description": "Gets or sets the identity.",
           "type": "string",
           "readOnly": true
         },
@@ -3261,15 +2781,8 @@
       "properties": {
         "skipShutdown": {
           "description": "Gets or sets a value indicating whether to request non-graceful VM shutdown. True value for this flag indicates non-graceful shutdown whereas false indicates otherwise. Defaults to false.",
-          "type": "string",
-          "enum": [
-            "false",
-            "true"
-          ],
-          "x-ms-enum": {
-            "modelAsString": true,
-            "name": "SkipShutdown"
-          }
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -3348,11 +2861,6 @@
           },
           "readOnly": true
         },
-        "status": {
-          "description": "Gets or sets the status of the resource.",
-          "type": "string",
-          "readOnly": true
-        },
         "customResourceName": {
           "description": "Gets the name of the corresponding resource in Kubernetes.",
           "type": "string",
@@ -3388,18 +2896,12 @@
           ]
         },
         "extendedLocation": {
-          "type": "object",
-          "description": "The extended location.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
-          }
+          "$ref": "#/definitions/ExtendedLocation",
+          "description": "Gets or sets the extended location."
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "description": "The system data."
         },
         "tags": {
           "description": "Gets or sets the Resource tags.",
@@ -3415,11 +2917,6 @@
         },
         "id": {
           "description": "Gets or sets the Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "identity": {
-          "description": "Gets or sets the identity.",
           "type": "string",
           "readOnly": true
         },
@@ -3475,11 +2972,6 @@
           "type": "string",
           "readOnly": true
         },
-        "status": {
-          "description": "Gets or sets the status of the resource.",
-          "type": "string",
-          "readOnly": true
-        },
         "customResourceName": {
           "description": "Gets the name of the corresponding resource in Kubernetes.",
           "type": "string",
@@ -3515,18 +3007,12 @@
           ]
         },
         "extendedLocation": {
-          "type": "object",
-          "description": "The extended location.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
-          }
+          "$ref": "#/definitions/ExtendedLocation",
+          "description": "Gets or sets the extended location."
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "description": "The system data."
         },
         "tags": {
           "description": "Gets or sets the Resource tags.",
@@ -3542,11 +3028,6 @@
         },
         "id": {
           "description": "Gets or sets the Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "identity": {
-          "description": "Gets or sets the identity.",
           "type": "string",
           "readOnly": true
         },
@@ -3590,19 +3071,7 @@
         },
         "nicType": {
           "description": "NIC type",
-          "type": "string",
-          "enum": [
-            "vmxnet3",
-            "vmxnet2",
-            "vmxnet",
-            "e1000",
-            "e1000e",
-            "pcnet32"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "NICType"
-          }
+          "$ref": "#/definitions/NICType"
         },
         "powerOnBoot": {
           "description": "Gets or sets the power on boot.",
@@ -3646,29 +3115,7 @@
         },
         "nicType": {
           "description": "NIC type",
-          "type": "string",
-          "enum": [
-            "vmxnet3",
-            "vmxnet2",
-            "vmxnet",
-            "e1000",
-            "e1000e",
-            "pcnet32"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false,
-            "name": "NICType"
-          }
-        },
-        "nicId": {
-          "description": "Gets or sets the network interface Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "nicName": {
-          "description": "Gets or sets the network interface name.",
-          "type": "string",
-          "readOnly": true
+          "$ref": "#/definitions/NICType"
         },
         "powerOnBoot": {
           "description": "Gets or sets the power on boot.",
@@ -3679,13 +3126,8 @@
           "type": "string",
           "readOnly": true
         },
-        "networkName": {
+        "networkMoName": {
           "description": "Gets or sets the name of the virtual network in vCenter that the nic is connected to.",
-          "type": "string",
-          "readOnly": true
-        },
-        "networkUuid": {
-          "description": "Gets or sets a unique identifier for the network.",
           "type": "string",
           "readOnly": true
         },
@@ -3706,19 +3148,40 @@
         "enabled",
         "disabled"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "PowerOnBootOption"
+      }
     },
     "DiskMode": {
       "description": "Defines the different types of disk modes.",
       "enum": [
         "persistent",
-        "nonpersistent",
-        "undoable",
         "independent_persistent",
-        "independent_nonpersistent",
-        "append"
+        "independent_nonpersistent"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "DiskMode"
+      }
+    },
+    "NICType": {
+      "description": "NIC type",
+      "type": "string",
+      "enum": [
+        "vmxnet3",
+        "vmxnet2",
+        "vmxnet",
+        "e1000",
+        "e1000e",
+        "pcnet32"
+      ],
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "NICType"
+      }
     },
     "IPAddressAllocationMethod": {
       "description": "IP address allocation method.",
@@ -3730,7 +3193,11 @@
         "random",
         "other"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "IPAddressAllocationMethod"
+      }
     },
     "NicIPAddressSettings": {
       "description": "IP address information for a virtual network adapter reported by the fabric.",
@@ -3766,8 +3233,7 @@
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "readOnly": true
+          }
         },
         "gateway": {
           "description": "Gets or sets the gateway.",
@@ -3810,6 +3276,10 @@
         "name": {
           "type": "string",
           "description": "Name of the operation"
+        },
+        "isDataAction": {
+          "description": "Indicates whether the operation is data action or not.",
+          "type": "boolean"
         },
         "display": {
           "type": "object",
