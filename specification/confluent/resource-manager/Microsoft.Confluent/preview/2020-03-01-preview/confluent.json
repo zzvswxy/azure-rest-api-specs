@@ -72,7 +72,7 @@
           }
         }
      },
-     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/all/acceptTerms": {
+     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/all/setTerms": {
           "post": {
             "tags": [
               "Agreements"
