@@ -65,7 +65,7 @@
             }
           }
         },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/setTerms": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/all/setTerms": {
           "post": {
             "tags": [
               "Agreements"
