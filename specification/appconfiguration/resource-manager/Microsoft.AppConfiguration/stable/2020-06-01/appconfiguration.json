@@ -20,7 +20,7 @@
         "tags": [
           "ConfigurationStores"
         ],
-        "description": "Lists the configuration stores for a given subscription.",
+        "description": "Lists the configuration stores for a given subscriptionxxx.",
         "operationId": "ConfigurationStores_List",
         "parameters": [
           {
@@ -67,7 +67,7 @@
           "ConfigurationStores"
         ],
         "description": "Lists the configuration stores for a given resource group.",
-        "operationId": "ConfigurationStores_ListByResourceGroup",
+        "operationId": "ConfigurationStores_ListByResourceGroupXXXX",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
