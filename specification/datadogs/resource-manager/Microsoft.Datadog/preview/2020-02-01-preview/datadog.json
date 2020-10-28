@@ -65,12 +65,12 @@
             }
           }
         },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/SetAgreements": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/all/acceptTerms": {
           "post": {
             "tags": [
-              "SetAgreements"
+              "Agreements"
             ],
-            "summary": "Save marketplace terms.",
+            "summary": "Accept marketplace terms.",
             "operationId": "MarketplaceAgreements_Set",
             "consumes": [
               "application/json"
