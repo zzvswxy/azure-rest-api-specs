@@ -70,7 +70,7 @@
             "tags": [
               "Agreements"
             ],
-            "summary": "Save marketplace terms.",
+            "summary": "Accept marketplace terms.",
             "operationId": "MarketplaceAgreements_Set",
             "consumes": [
               "application/json"
