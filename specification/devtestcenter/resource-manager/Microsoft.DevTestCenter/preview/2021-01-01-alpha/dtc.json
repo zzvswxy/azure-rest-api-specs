@@ -3,7 +3,10 @@
   "info": {
     "title": "DevTestCenter",
     "description": "DevTestCenter provider",
-    "version": "2021-01-01"
+    "version": "2021-01-01-alpha",
+    "x-ms-code-generation-settings": {
+      "name": "devtestcenterClient"
+    }
   },
   "host": "management.azure.com",
   "schemes": ["https"],
@@ -787,14 +790,14 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The Azure subscription ID."
+      "description": "The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)"
     },
     "ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
       "required": true,
       "type": "string",
-      "description": "Client Api Version."
+      "description": "The API version to be used with the HTTP request."
     },
     "ResourceGroupNameParameter": {
       "name": "resourceGroupName",
@@ -809,7 +812,7 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name Project resource.",
+      "description": "The name of the Project resource.",
       "x-ms-parameter-location": "method"
     },
     "NestedResourceNameParameter": {
