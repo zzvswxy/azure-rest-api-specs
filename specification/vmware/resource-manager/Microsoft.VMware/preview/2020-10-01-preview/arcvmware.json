@@ -2123,8 +2123,7 @@
     "VCenterProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "fqdn",
-        "credentials"
+        "fqdn"
       ],
       "type": "object",
       "properties": {
@@ -2658,8 +2657,8 @@
         },
         "conditions": {
           "description": "Defines a list of readiness conditions for the vm.",
-          "type": "object",
-          "additionalProperties": {
+          "type": "array",
+          "items": {
             "$ref": "#/definitions/Condition"
           },
           "readOnly": true
