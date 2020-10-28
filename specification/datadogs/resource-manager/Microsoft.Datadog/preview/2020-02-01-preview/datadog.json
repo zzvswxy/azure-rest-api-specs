@@ -32,7 +32,7 @@
               "Agreements"
             ],
             "summary": "List Datadog marketplace agreements in the subscription.",
-            "operationId": "MarketplaceAgreements_List",
+            "operationId": "Agreements_List",
             "produces": [
               "application/json"
             ],
@@ -60,18 +60,18 @@
             },
             "x-ms-examples": {
               "MarketplaceAgreements_List": {
-                "$ref": "./examples/MarketplaceAgreements_List.json"
+                "$ref": "./examples/Agreements_List.json"
               }
             }
           }
         },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/SetAgreements": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/all/setTerms": {
           "post": {
             "tags": [
-              "SetAgreements"
+              "agreements"
             ],
-            "summary": "Save marketplace terms.",
-            "operationId": "MarketplaceAgreements_Set",
+            "summary": "Set marketplace terms.",
+            "operationId": "Agreements_Set",
             "consumes": [
               "application/json"
             ],
@@ -86,6 +86,9 @@
             "responses": {
               "200": {
                 "description": "Success"
+                "schema": {
+                  "$ref": "#/definitions/AgreementTermsListResponse"
+                }
               },
               "default": {
                 "description": "Default error response.",
@@ -96,7 +99,7 @@
             },
             "x-ms-examples": {
               "MarketplaceAgreements_Set": {
-                "$ref": "./examples/MarketplaceAgreements_Set.json"
+                "$ref": "./examples/Agreements_Set.json"
               }
             }
           }
