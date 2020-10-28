@@ -1,0 +1,24 @@
+{
+  "parameters": {
+    "location": "eastus",
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "Microsoft.MobileNetwork/accessPoint/read",
+            "display": {
+              "provider": "Microsoft MobileNetwork Network",
+              "resource": "AccessPoint",
+              "operation": "Get AccessPoint",
+              "description": "Gets AccessPoint"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

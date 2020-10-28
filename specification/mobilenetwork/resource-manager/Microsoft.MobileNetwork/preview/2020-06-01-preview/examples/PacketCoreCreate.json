@@ -1,0 +1,87 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "packetCoreName": "TestPacketCore",
+    "parameters": {
+      "properties": {
+        "mobileNetwork": {
+          "id": "TestMobileNetworkId"
+        },
+        "skuVendor": "TestSkuVendor",
+        "skuModel": "TestSkuModel",
+        "azureControlPlanes": [
+          {
+            "id": "TestAzureControlPlaneId"
+          }
+        ],
+        "azureUserPlanes": [
+          {
+            "id": "TestAzureUserPlaneId"
+          }
+        ]
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "TestPacketCore",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore",
+        "type": "Microsoft.MobileNetwork/packetCores",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Accepted",
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "azureControlPlanes": [
+            {
+              "id": "TestAzureControlPlaneId"
+            }
+          ],
+          "azureUserPlanes": [
+            {
+              "id": "TestAzureUserPlaneId"
+            }
+          ],
+          "mobileNetworkSites": []
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "TestPacketCore",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/TestPacketCore",
+        "type": "Microsoft.MobileNetwork/packetCores",
+        "location": "eastus",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Created",
+          "vendorProvisioningState": "Not Provisioned",
+          "mobileNetwork": {
+            "id": "TestMobileNetworkId"
+          },
+          "skuVendor": "TestSkuVendor",
+          "skuModel": "TestSkuModel",
+          "azureControlPlanes": [
+            {
+              "id": "TestAzureControlPlaneId"
+            }
+          ],
+          "azureUserPlanes": [
+            {
+              "id": "TestAzureUserPlaneId"
+            }
+          ],
+          "mobileNetworkSites": []
+        }
+      }
+    }
+  }
+}

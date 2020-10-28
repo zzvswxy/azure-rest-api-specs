@@ -1,0 +1,37 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "TestMobileDevice",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileDevices",
+            "type": "Microsoft.MobileNetwork/mobileDevices",
+            "location": "eastus",
+            "tags": {},
+            "properties": {
+              "provisioningState": "Succeeded",
+              "mobileNetwork": {
+                "id": "MobileNetworkId"
+              },
+              "imei": "TestImei",
+              "deviceVendor": "TestDeviceVendor",
+              "deviceModel": "TestDeviceModel",
+              "simProfiles": [
+                {
+                  "id": "TestSimProfileId"
+                }
+              ],
+              "deviceActivationState": "Not Activated",
+              "deviceActivationDate": "TestDeviceActivationDate"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
