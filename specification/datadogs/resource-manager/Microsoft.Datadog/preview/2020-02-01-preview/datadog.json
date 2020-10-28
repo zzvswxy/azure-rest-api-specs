@@ -65,7 +65,7 @@
             }
           }
         },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/all/setTerms": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/all/acceptTerms": {
           "post": {
             "tags": [
               "Agreements"
@@ -85,10 +85,7 @@
             ],
             "responses": {
               "200": {
-                "description": "Success",
-                "schema": {
-                  "$ref": "#/definitions/AgreementTermsListResponse"
-                }
+                "description": "Success"
               },
               "default": {
                 "description": "Default error response.",
