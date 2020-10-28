@@ -32,7 +32,7 @@
               "Agreements"
             ],
             "summary": "List Datadog marketplace agreements in the subscription.",
-            "operationId": "Agreements_List",
+            "operationId": "MarketplaceAgreements_List",
             "produces": [
               "application/json"
             ],
@@ -60,18 +60,18 @@
             },
             "x-ms-examples": {
               "MarketplaceAgreements_List": {
-                "$ref": "./examples/Agreements_List.json"
+                "$ref": "./examples/MarketplaceAgreements_List.json"
               }
             }
           }
         },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/all/setTerms": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/setTerms": {
           "post": {
             "tags": [
-              "agreements"
+              "Agreements"
             ],
-            "summary": "Set marketplace terms.",
-            "operationId": "Agreements_Set",
+            "summary": "Save marketplace terms.",
+            "operationId": "MarketplaceAgreements_Set",
             "consumes": [
               "application/json"
             ],
@@ -81,11 +81,21 @@
             "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
+              },
+              {
+                "in": "body",
+                "name": "body",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AgreementTerms"
+                  }
+                }
               }
             ],
             "responses": {
               "200": {
-                "description": "Success"
+                "description": "Success",
                 "schema": {
                   "$ref": "#/definitions/AgreementTermsListResponse"
                 }
@@ -99,7 +109,7 @@
             },
             "x-ms-examples": {
               "MarketplaceAgreements_Set": {
-                "$ref": "./examples/Agreements_Set.json"
+                "$ref": "./examples/MarketplaceAgreements_Set.json"
               }
             }
           }
