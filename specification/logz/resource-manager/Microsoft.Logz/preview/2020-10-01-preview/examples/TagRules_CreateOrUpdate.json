@@ -26,9 +26,6 @@
               "action": "Exclude"
             }
           ]
-        },
-        "metricRules": {
-          "filteringTags": []
         }
       }
     }
@@ -56,9 +53,6 @@
                 "action": "Exclude"
               }
             ]
-          },
-          "metricRules": {
-            "filteringTags": []
           }
         }
       }

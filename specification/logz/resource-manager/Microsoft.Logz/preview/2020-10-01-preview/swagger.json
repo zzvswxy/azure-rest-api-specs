@@ -995,16 +995,27 @@
       "properties": {
         "companyName": {
           "description": "Name of the Logz organization.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         },
         "id": {
           "description": "Id of the Logz organization.",
           "type": "string",
           "readOnly": true
         },
+        "apiKey": {
+          "description": "Api key associated to the Logz organization.",
+          "type": "string",
+          "x-ms-mutability": [
+            "create"
+          ]
+        },
         "enterpriseAppId": {
           "description": "The Id of the Enterprise App used for Single sign on.",
-          "type": "string"
+          "type": "string",
+          "x-ms-mutability": [
+            "create"
+          ]
         }
       }
     },
@@ -1089,6 +1100,9 @@
         "userInfo": {
           "$ref": "#/definitions/UserInfo"
         },
+        "planData": {
+          "$ref": "#/definitions/PlanData"
+        },
         "liftrResourceCategory": {
           "$ref": "#/definitions/LiftrResourceCategories"
         },
@@ -1152,7 +1166,7 @@
           "readOnly": true
         },
         "sku": {
-          "$ref": "#/definitions/PlanData"
+          "$ref": "#/definitions/ResourceSku"
         },
         "properties": {
           "$ref": "#/definitions/MonitorProperties"
@@ -1267,12 +1281,28 @@
         }
       }
     },
+    "MetricRules": {
+      "description": "Set of rules for sending metrics for the Monitor resource.",
+      "type": "object",
+      "properties": {
+        "filteringTags": {
+          "description": "List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilteringTag"
+          }
+        }
+      }
+    },
     "MonitoringTagRulesProperties": {
       "description": "Definition of the properties for a TagRules resource.",
       "type": "object",
       "properties": {
         "logRules": {
           "$ref": "#/definitions/LogRules"
+        },
+        "metricRules": {
+          "$ref": "#/definitions/MetricRules"
         }
       }
     },

@@ -5,23 +5,21 @@
     "resourceGroupName": "myResourceGroup",
     "monitorName": "myMonitor",
     "requestBody": {
-      "name": "myMonitor",
-      "type": "Microsoft.Logz/monitors",
       "sku": {
-        "name": "free_Monthly"
+        "planData": {
+          "usageType": "Committed",
+          "billingCycle": "Monthly",
+          "planDetails": "logzapitestplan",
+          "effectiveDate": "2019-08-30T15:14:33+02:00"
+        }
       },
       "properties": {
-        "provisioningState": "Succeeded",
-        "monitoringStatus": "Enabled",
-        "marketplaceSubscriptionStatus": "Active",
-        "logzOrganizationProperties": {
-          "companyName": "myOrg",
-          "id": "myOrg123",
-          "apiKey": null,
-          "enterpriseAppId": null
-        },
-        "liftrResourceCategory": "MonitorLogs",
-        "liftrResourcePreference": 1
+        "userInfo": {
+          "firstName": "Alice",
+          "lastName": "Bob",
+          "emailAddress": "alice@microsoft.com",
+          "phoneNumber": "123456"
+        }
       },
       "tags": {
         "Environment": "Dev"
@@ -33,19 +31,16 @@
     "200": {
       "body": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
-        "name": "myMonitor",
-        "type": "Microsoft.Logz/monitors",
         "sku": {
-          "name": "free_Monthly"
+          "planData": {
+            "usageType": "Committed",
+            "billingCycle": "Monthly",
+            "planDetails": "logzapitestplan",
+            "effectiveDate": "2019-08-30T15:14:33+02:00"
+          }
         },
         "properties": {
-          "provisioningState": "Succeeded",
-          "logzOrganizationProperties": {
-            "companyName": "myOrg",
-            "id": "myOrg123",
-            "apiKey": null,
-            "enterpriseAppId": null
-          }
+          "provisioningState": "Succeeded"
         },
         "tags": {
           "Environment": "Dev"
@@ -56,19 +51,17 @@
     "201": {
       "body": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
-        "name": "myMonitor",
         "type": "Microsoft.Logz/monitors",
         "sku": {
-          "name": "free_Monthly"
+          "planData": {
+            "usageType": "Committed",
+            "billingCycle": "Monthly",
+            "planDetails": "logzapitestplan",
+            "effectiveDate": "2019-08-30T15:14:33+02:00"
+          }
         },
         "properties": {
-          "provisioningState": "Succeeded",
-          "logzOrganizationProperties": {
-            "companyName": "myOrg",
-            "id": "myOrg123",
-            "apiKey": null,
-            "enterpriseAppId": null
-          }
+          "provisioningState": "Succeeded"
         },
         "tags": {
           "Environment": "Dev"
