@@ -37,7 +37,12 @@
               "secondary": "sample-secondary-certificate"
             }
           },
-          "provisioningState": "Succeeded"
+          "provisioningState": "Succeeded",
+          "stampLocations": [
+            {
+              "locationName": "sample-location-name"
+            }
+          ]
         },
         "sku": {
           "name": "D0",
