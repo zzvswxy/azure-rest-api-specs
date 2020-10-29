@@ -23,6 +23,7 @@ These are the global settings for the devtestcenter.
 
 ```yaml
 openapi-type: arm
+openapi-subtype: rpaas
 tag: package-2021-01-01-alpha
 ```
 
@@ -32,7 +33,7 @@ These settings apply only when `--tag=package-2021-01-01-alpha` is specified on 
 
 ```yaml $(tag) == 'package-2021-01-01-alpha'
 input-file:
-  - Microsoft.DevTestCenter/preview/2021-01-01-alpha/devtestcenter.json
+  - preview/2021-01-01-alpha/devtestcenter.json
 ```
 
 ---
