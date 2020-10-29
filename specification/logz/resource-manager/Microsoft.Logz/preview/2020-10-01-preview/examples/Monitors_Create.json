@@ -31,14 +31,8 @@
     "200": {
       "body": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
-        "sku": {
-          "planData": {
-            "usageType": "Committed",
-            "billingCycle": "Monthly",
-            "planDetails": "logzapitestplan",
-            "effectiveDate": "2019-08-30T15:14:33+02:00"
-          }
-        },
+        "name": "myMonitor",
+        "type": "Microsoft.Logz/monitors",
         "properties": {
           "provisioningState": "Succeeded"
         },
@@ -51,15 +45,8 @@
     "201": {
       "body": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
+        "name": "myMonitor",
         "type": "Microsoft.Logz/monitors",
-        "sku": {
-          "planData": {
-            "usageType": "Committed",
-            "billingCycle": "Monthly",
-            "planDetails": "logzapitestplan",
-            "effectiveDate": "2019-08-30T15:14:33+02:00"
-          }
-        },
         "properties": {
           "provisioningState": "Succeeded"
         },

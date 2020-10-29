@@ -4,6 +4,7 @@
     "subscriptionId": "00000000-0000-0000-0000-000000000000",
     "resourceGroupName": "myResourceGroup",
     "monitorName": "myMonitor",
+    "subAccountName": "SubAccount1",
     "requestBody": {
       "properties": {
         "monitoringStatus": "Enabled"
@@ -16,12 +17,23 @@
   "responses": {
     "200": {
       "body": {
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/SubAccounts/SubAccount1",
         "name": "myMonitor",
         "type": "Microsoft.Logz/monitors",
+        "sku": {
+          "name": "free_Monthly"
+        },
         "properties": {
           "provisioningState": "Succeeded",
-          "monitoringStatus": "Enabled"
+          "monitoringStatus": "Enabled",
+          "logzOrganizationProperties": {
+            "companyName": "myOrg",
+            "id": "myOrg123",
+            "apiKey": null,
+            "enterpriseAppId": null
+          },
+          "liftrResourceCategory": "MonitorLogs",
+          "liftrResourcePreference": 1
         },
         "tags": {
           "Environment": "Dev"
