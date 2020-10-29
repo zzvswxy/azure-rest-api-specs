@@ -1,17 +1,14 @@
 {
   "parameters": {
     "accountName": "sampleacct",
-    "resourceGroupName": "YourServiceNameClient",
-    "api-version": "2019-12-01",
+    "resourceGroupName": "easystartClient",
+    "api-version": "2020-08-27-privatepreview",
     "subscriptionId": "subid"
   },
   "responses": {
     "200": {
       "body": {
-        "name": "sampleacct",
-        "location": "uswest",
-        "id": "/subscriptions/subid/resourceGroups/YourServiceNameClient/providers/Microsoft.YourServiceName/batchAccounts/sampleacct",
-        "type": "Microsoft.YourServiceName/YourServiceName"
+        "sampleProperty": "sampleProperty"
       }
     }
   }
