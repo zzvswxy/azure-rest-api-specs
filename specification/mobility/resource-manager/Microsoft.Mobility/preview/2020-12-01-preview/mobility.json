@@ -605,13 +605,13 @@
     },
     "StampLocation": {
       "properties": {
-        "name": {
+        "locationName": {
           "type": "string",
-          "description": "Specifies the name of the stamp location."
+          "description": "Specifies the location name of the stamp location."
         }
       },
       "required": [
-        "name"
+        "locationName"
       ],
       "description": "Specifies the stamp location."
     },
