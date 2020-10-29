@@ -569,9 +569,9 @@
           "type": "string",
           "description": "The Kuberenetes distribution on which the agents are running",
           "enum": [
-            "OpenShift",
-            "Rancher_RKE",
-            "Rancher_k3s",
+            "openShift",
+            "rancher_RKE",
+            "rancher_k3s",
             "kind",
             "GKE",
             "EKS",
@@ -580,7 +580,7 @@
             "CAPZ",
             "AKS-engine",
             "TKG",
-            "Generic"
+            "generic"
           ],
           "x-ms-enum": {
             "name": "Distribution",
@@ -591,14 +591,14 @@
           "type": "string",
           "description": "The Kubernetes infrastructure on which the agents are running",
           "enum": [
-            "Azure",
+            "azure",
             "AWS",
             "GCP",
             "Azure_Stack_HC",
             "Azure_Stack_Hub",
             "Azure_Stack_Edge",
             "vSphere",
-            "Generic"
+            "generic"
           ],
           "x-ms-enum": {
             "name": "Infrastructure",
