@@ -93,7 +93,7 @@
         ],
         "summary": "Retrieve Azure Advisor configurations.",
         "description": "Retrieve Azure Advisor configurations and also retrieve configurations of contained resource groups.",
-        "operationId": "Configurations_ListBySubscription",
+        "operationId": "Configurations_AAAABySubscription",
         "parameters": [
           {
             "$ref": "#/parameters/apiVersionParameter"
@@ -308,7 +308,7 @@
           "GenerateRecommendations"
         ],
         "description": "Initiates the recommendation generation or computation process for a subscription. This operation is asynchronous. The generated recommendations are stored in a cache in the Advisor service.",
-        "operationId": "Recommendations_Generate",
+        "operationId": "Recommendations_GabABDAate",
         "parameters": [
           {
             "$ref": "#/parameters/subscriptionIdParameter"
