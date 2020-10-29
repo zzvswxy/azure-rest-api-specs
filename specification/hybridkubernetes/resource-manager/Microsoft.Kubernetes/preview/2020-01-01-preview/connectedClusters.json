@@ -565,13 +565,45 @@
         "provisioningState": {
           "$ref": "#/definitions/ConnectedClusterProvisioningState"
         },
-        "kubernetesDistro": {
+        "distribution": {
           "type": "string",
-          "description": "The Kuberenetes distribution on which the agents are running"
+          "description": "The Kuberenetes distribution on which the agents are running",
+          "enum": [
+            "OpenShift",
+            "Rancher_RKE",
+            "Rancher_k3s",
+            "kind",
+            "GKE",
+            "EKS",
+            "AKS",
+            "AKS-HCI",
+            "CAPZ",
+            "AKS-engine",
+            "TKG",
+            "Generic"
+          ],
+          "x-ms-enum": {
+            "name": "Distribution",
+            "modelAsString": false
+          }
         },
-        "kubernetesInfra": {
+        "infrastructure": {
           "type": "string",
-          "description": "The Kubernetes infrastructure on which the agents are running"
+          "description": "The Kubernetes infrastructure on which the agents are running",
+          "enum": [
+            "Azure",
+            "AWS",
+            "GCP",
+            "Azure_Stack_HC",
+            "Azure_Stack_Hub",
+            "Azure_Stack_Edge",
+            "vSphere",
+            "Generic"
+          ],
+          "x-ms-enum": {
+            "name": "Infrastructure",
+            "modelAsString": false
+          }
         },
         "offering": {
           "readOnly": true,
