@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
+    "version": "2021-01-01-alpha",
     "title": "DevTestCenter",
     "description": "DevTestCenter provider",
-    "version": "2021-01-01-alpha",
     "x-ms-code-generation-settings": {
       "name": "devtestcenterClient"
     }
@@ -22,766 +22,87 @@
       "type": "oauth2",
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
       "flow": "implicit",
-      "description": "Azure Active Directory OAuth2 Flow.",
+      "description": "Azure Active Directory OAuth2 Flow",
       "scopes": {
         "user_impersonation": "impersonate your user account"
       }
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestCenter/operations": {
       "get": {
-        "description": "Returns list of Project.",
-        "operationId": "Project_List",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Project details.",
-            "schema": {
-              "$ref": "#/definitions/ProjectResourceList"
-            }
-          }
+        "tags": ["Tag1"],
+        "operationId": "OperationGroup_Get",
+        "x-ms-examples": {
+          "BatchAccountDelete": { "$ref": "./examples/OperationGroupGet.json" }
         },
-        "deprecated": false,
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{projectName}": {
-      "get": {
-        "description": "Returns Project resource for a given name.",
-        "operationId": "Project_Get",
+        "description": "This is a sample get operation, please see guidelines in azure-rest-api-specs repository for more info",
         "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ProjectNameParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Project details.",
-            "schema": {
-              "$ref": "#/definitions/ProjectResource"
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Create or update Project resource.",
-        "operationId": "Project_CreateAndUpdate",
-        "parameters": [
-          {
             "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ProjectNameParameter"
-          },
-          {
-            "name": "ProjectResource",
-            "description": "Project details.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ProjectResource"
-            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful.",
+            "description": "Describe the result of a successful operation.",
             "schema": {
-              "$ref": "#/definitions/ProjectResource"
+              "$ref": "#/definitions/Result"
             }
           },
-          "201": {
-            "description": "Long running operation."
-          }
-        }
-      },
-      "patch": {
-        "description": "Update Project details.",
-        "operationId": "Project_Update",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ProjectNameParameter"
-          },
-          {
-            "name": "ProjectPatchResource",
-            "description": "Project patch details.",
-            "in": "body",
-            "required": true,
+          "default": {
+            "description": "Error response describing why the operation failed.",
             "schema": {
-              "$ref": "#/definitions/ProjectPatchResource"
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/ProjectResource"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{projectName}/nestedResourceType/{nestedResourceName}": {
-      "get": {
-        "description": "Returns nested resources for a given Project name",
-        "operationId": "NestedResourceType_Get",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ProjectNameParameter"
-          },
-          {
-            "$ref": "#/parameters/NestedResourceNameParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Nested Resource Types.",
-            "schema": {
-              "$ref": "#/definitions/NestedResource"
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Create or update nested resource type.",
-        "operationId": "NestedResourceType_CreateAndUpdate",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ProjectNameParameter"
-          },
-          {
-            "$ref": "#/parameters/NestedResourceNameParameter"
-          },
-          {
-            "name": "NestedResourceType",
-            "description": "Nested Resource Type details.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/NestedResource"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/NestedResource"
-            }
-          }
-        }
-      },
-      "patch": {
-        "description": "Update nested resource type details.",
-        "operationId": "NestedResourceType_Update",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ProjectNameParameter"
-          },
-          {
-            "$ref": "#/parameters/NestedResourceNameParameter"
-          },
-          {
-            "name": "NestedResourcePatchResource",
-            "description": "Nested resource patch details.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/NestedResource"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/NestedResource"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{projectName}/nestedResourceType": {
-      "get": {
-        "description": "Returns nested resources for a given Project name",
-        "operationId": "NestedResourceType_List",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ProjectNameParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Nested Resource Types.",
-            "schema": {
-              "$ref": "#/definitions/NestedResourceList"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/extensionResourceType": {
-      "get": {
-        "description": "Returns nextension resource for a given Project name",
-        "operationId": "ExtensionResourceType_Get",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Nested Resource Types.",
-            "schema": {
-              "$ref": "#/definitions/ExtensionResourceList"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/extensionResourceType/{extensionResourceName}": {
-      "get": {
-        "description": "Returns extension resources",
-        "operationId": "ExtensionResource_Get",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ExtensionResourceNameParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Extension Resources.",
-            "schema": {
-              "$ref": "#/definitions/ExtensionResource"
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Create or update extension resource.",
-        "operationId": "ExtensionResource_CreateAndUpdate",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ExtensionResourceNameParameter"
-          },
-          {
-            "name": "ExtensionResourceType",
-            "description": "ExtensionResource details.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExtensionResource"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/ExtensionResource"
-            }
-          }
-        }
-      },
-      "patch": {
-        "description": "Update extension resource details.",
-        "operationId": "ExtensionResource_Update",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ExtensionResourceNameParameter"
-          },
-          {
-            "name": "ExtensionResourcePatchResource",
-            "description": "Extension Resource patch details.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExtensionResource"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/ExtensionResource"
-            }
-          }
-        }
-      }
-    },
-    "/providers/microsoft.DevTestCenter/operations": {
-      "get": {
-        "description": "Returns list of operations.",
-        "operationId": "Operation_List",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Operation details.",
-            "schema": {
-              "$ref": "#/definitions/operationsList"
-            }
-          }
-        },
-        "deprecated": false,
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
         }
       }
     }
   },
   "definitions": {
-    "Resource": {
-      "description": "An Azure resource.",
+    "Result": {
+      "description": "Sample result definition",
       "properties": {
-        "id": {
-          "description": "Azure resource Id.",
+        "sampleProperty": {
           "type": "string",
-          "readOnly": true
-        },
-        "name": {
-          "description": "Azure resource name.",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Azure resource type.",
-          "type": "string",
-          "readOnly": true
-        },
-        "location": {
-          "description": "Location of the resource.",
-          "type": "string",
-          "readOnly": false
-        },
-        "tags": {
-          "description": "resource tags.",
-          "type": "object",
-          "readOnly": false,
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      },
-      "x-ms-azure-resource": true
-    },
-    "ProjectResource": {
-      "type": "object",
-      "description": "Project details",
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "required": ["properties"],
-      "properties": {
-        "properties": {
-          "type": "object",
-          "required": ["firstName", "lastName", "group", "likesTea"],
-          "properties": {
-            "firstName": {
-              "type": "string",
-              "description": "Project full name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "middleName": {
-              "type": "string",
-              "description": "Project middle name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "lastName": {
-              "type": "string",
-              "description": "Project last name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "group": {
-              "type": "string",
-              "description": "group like Finance, HR etc...",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "password": {
-              "type": "string",
-              "description": "password.",
-              "x-ms-secret": true
-            },
-            "identificationNumber": {
-              "type": "string",
-              "readOnly": true,
-              "description": "unique id assigned at the time of user creation"
-            },
-            "likesTea": {
-              "type": "string",
-              "description": "Gets or sets the deployment mode.",
-              "enum": ["Yes"],
-              "x-ms-enum": {
-                "name": "likesTea",
-                "modelAsString": true
-              }
-            }
-          }
+          "description": "Sample property of type string"
         }
       }
     },
-    "ProjectPatchResource": {
-      "type": "object",
-      "description": "Project patch properties",
+    "ErrorResponse": {
+      "description": "Error response.",
       "properties": {
-        "tags": {
-          "description": "resource tags.",
-          "type": "object",
-          "readOnly": false,
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "properties": {
-          "type": "object",
-          "properties": {
-            "group": {
-              "type": "string",
-              "description": "group like Finance, HR etc..."
-            }
-          }
+        "error": {
+          "$ref": "#/definitions/ErrorDefinition",
+          "description": "The error details."
         }
       }
     },
-    "ProjectResourceList": {
-      "description": "The list of Project.",
-      "type": "object",
+    "ErrorDefinition": {
+      "description": "Error definition.",
       "properties": {
-        "nextLink": {
-          "description": "The link used to get the next page of Project list.",
-          "type": "string"
+        "code": {
+          "description": "Service specific error code which serves as the substatus for the HTTP error code.",
+          "type": "string",
+          "readOnly": true
         },
-        "value": {
-          "description": "The list of recommendations.",
+        "message": {
+          "description": "Description of the error.",
+          "type": "string",
+          "readOnly": true
+        },
+        "details": {
+          "description": "Internal error details.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ProjectResource"
-          }
-        }
-      }
-    },
-    "NestedResource": {
-      "type": "object",
-      "description": "Nested Resource details",
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "required": ["properties"],
-      "properties": {
-        "properties": {
-          "properties": {
-            "firstName": {
-              "type": "string",
-              "description": "Nested Resource full name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "middleName": {
-              "type": "string",
-              "description": "Nested Resource name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "lastName": {
-              "type": "string",
-              "description": "Nested Resource name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "group": {
-              "type": "string",
-              "description": "group like Finance, HR etc...",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "identificationNumber": {
-              "type": "string",
-              "readOnly": true,
-              "description": "unique id assigned at the time of user creation"
-            },
-            "likesTea": {
-              "type": "string",
-              "description": "Gets or sets the deployment mode.",
-              "enum": ["Yes"],
-              "x-ms-enum": {
-                "name": "likesTea",
-                "modelAsString": true
-              }
-            }
+            "$ref": "#/definitions/ErrorDefinition"
           },
-          "required": ["firstName", "lastName", "group", "likesTea"],
-          "type": "object"
+          "readOnly": true
         }
       }
-    },
-    "NestedResourceList": {
-      "description": "The list of nested resources.",
-      "type": "object",
-      "properties": {
-        "nextLink": {
-          "description": "The link used to get the next page of nested resources list.",
-          "type": "string"
-        },
-        "value": {
-          "description": "The list of recommendations.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/NestedResource"
-          }
-        }
-      }
-    },
-    "ExtensionResource": {
-      "type": "object",
-      "description": "Extension Resource details",
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "required": ["properties"],
-      "properties": {
-        "properties": {
-          "properties": {
-            "firstName": {
-              "type": "string",
-              "description": "Extension Resource full name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "middleName": {
-              "type": "string",
-              "description": "Extension Resource name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "lastName": {
-              "type": "string",
-              "description": "Extension Resource name.",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "group": {
-              "type": "string",
-              "description": "group like Finance, HR etc...",
-              "minLength": 1,
-              "maxLength": 10,
-              "pattern": "^[A-Za-z0-9-._]+$"
-            },
-            "identificationNumber": {
-              "type": "string",
-              "readOnly": true,
-              "description": "unique id assigned at the time of user creation"
-            },
-            "likesTea": {
-              "type": "string",
-              "description": "Gets or sets the deployment mode.",
-              "enum": ["Yes"],
-              "x-ms-enum": {
-                "name": "likesTea",
-                "modelAsString": true
-              }
-            }
-          },
-          "required": ["firstName", "lastName", "group", "likesTea"],
-          "type": "object"
-        }
-      }
-    },
-    "ExtensionResourceList": {
-      "description": "The list of extension resources.",
-      "type": "object",
-      "properties": {
-        "nextLink": {
-          "description": "The link used to get the next page of extension resources list.",
-          "type": "string"
-        },
-        "value": {
-          "description": "The list of recommendations.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ExtensionResource"
-          }
-        }
-      }
-    },
-    "operation": {
-      "description": "Operation provided by provider",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the operation"
-        },
-        "display": {
-          "type": "object",
-          "description": "Properties of the operation",
-          "properties": {
-            "provider": {
-              "type": "string",
-              "description": "Provider name"
-            },
-            "resource": {
-              "type": "string",
-              "description": "Resource name"
-            },
-            "operation": {
-              "type": "string",
-              "description": "Operation name"
-            },
-            "description": {
-              "type": "string",
-              "description": "Description of the operation"
-            }
-          }
-        }
-      }
-    },
-    "operationsList": {
-      "description": "Lists the operations available.",
-      "properties": {
-        "nextLink": {
-          "description": "Url to follow for getting next page of operations.",
-          "type": "string"
-        },
-        "value": {
-          "description": "Array of operations",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/operation"
-          }
-        }
-      },
-      "required": ["value"]
     }
   },
   "parameters": {
@@ -792,13 +113,6 @@
       "type": "string",
       "description": "The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)"
     },
-    "ApiVersionParameter": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
-      "type": "string",
-      "description": "The API version to be used with the HTTP request."
-    },
     "ResourceGroupNameParameter": {
       "name": "resourceGroupName",
       "in": "path",
@@ -807,29 +121,12 @@
       "description": "The name of the resource group.",
       "x-ms-parameter-location": "method"
     },
-    "ProjectNameParameter": {
-      "name": "projectName",
-      "in": "path",
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
       "required": true,
       "type": "string",
-      "description": "The name of the Project resource.",
-      "x-ms-parameter-location": "method"
-    },
-    "NestedResourceNameParameter": {
-      "name": "nestedResourceName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The name of nested resource.",
-      "x-ms-parameter-location": "method"
-    },
-    "ExtensionResourceNameParameter": {
-      "name": "extensionResourceName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The name of extension resource.",
-      "x-ms-parameter-location": "method"
+      "description": "The API version to be used with the HTTP request."
     }
   }
 }

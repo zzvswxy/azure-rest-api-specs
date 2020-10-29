@@ -15,5 +15,5 @@ Please also specify `--go-sdks-folder=<path to the root directory of your azure-
 
 ```yaml $(tag) == 'package-2021-01-01-alpha' && $(go)
 namespace: devtestcenter
-output-folder: $(go-sdks-folder)/devtestcenter/Generated
+output-folder: $(go-sdks-folder)/services/preview/$(namespace)/mgmt/2021-01-01-alpha/$(namespace)
 ```
