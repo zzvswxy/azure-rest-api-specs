@@ -34,7 +34,7 @@
       "body": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
         "name": "myMonitor",
-        "type": "Microsoft.Elastic/monitors",
+        "type": "Microsoft.Logz/monitors",
         "sku": {
           "name": "free_Monthly"
         },
@@ -57,7 +57,7 @@
       "body": {
         "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
         "name": "myMonitor",
-        "type": "Microsoft.Elastic/monitors",
+        "type": "Microsoft.Logz/monitors",
         "sku": {
           "name": "free_Monthly"
         },
