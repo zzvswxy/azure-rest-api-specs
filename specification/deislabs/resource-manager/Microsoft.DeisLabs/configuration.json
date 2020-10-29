@@ -376,19 +376,13 @@
             "type": "string"
           },
           "brokerPodSpec": {
-            "type": "object",
-            "x-kubernetes-preserve-unknown-fields": "true",
-            "nullable": "true"
+            "type": "object"
           },
           "instanceServiceSpec": {
-            "type": "object",
-            "x-kubernetes-preserve-unknown-fields": "true",
-            "nullable": "true"
+            "type": "object"
           },
           "configurationServiceSpec": {
-            "type": "object",
-            "x-kubernetes-preserve-unknown-fields": "true",
-            "nullable": "true"
+            "type": "object"
           },
           "properties": {
             "type": "object",
@@ -398,9 +392,6 @@
           },
           "provisioningState": {
             "type": "string"
-          },
-          "status": {
-            "properties": {}
           }
         }
       },
