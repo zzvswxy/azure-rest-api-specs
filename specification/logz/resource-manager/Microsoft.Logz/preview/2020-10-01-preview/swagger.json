@@ -60,7 +60,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -108,7 +108,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -142,7 +142,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -184,7 +184,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -229,7 +229,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -277,7 +277,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -340,7 +340,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -393,7 +393,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -439,7 +439,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -485,7 +485,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -553,7 +553,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -602,7 +602,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -647,7 +647,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -721,7 +721,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -770,7 +770,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -815,7 +815,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -880,7 +880,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -926,7 +926,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -975,7 +975,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1032,7 +1032,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1080,7 +1080,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1151,7 +1151,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1203,7 +1203,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1251,7 +1251,7 @@
           "default": {
             "description": "Default error response.",
             "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1305,23 +1305,6 @@
         "nextLink": {
           "description": "Link to the next set of results, if any.",
           "type": "string"
-        }
-      }
-    },
-    "ErrorResponseBody": {
-      "x-ms-external": true,
-      "properties": {
-        "error": {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
-        }
-      },
-      "description": "An error response from the service."
-    },
-    "ResourceProviderDefaultErrorResponse": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "$ref": "#/definitions/ErrorResponseBody"
         }
       }
     },

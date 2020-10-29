@@ -31,9 +31,6 @@
                     "action": "Exclude"
                   }
                 ]
-              },
-              "metricRules": {
-                "filteringTags": []
               }
             }
           }
