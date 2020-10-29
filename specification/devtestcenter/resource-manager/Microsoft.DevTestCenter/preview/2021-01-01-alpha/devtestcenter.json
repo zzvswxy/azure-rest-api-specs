@@ -58,7 +58,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{resourceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{projectName}": {
       "get": {
         "description": "Returns Project resource for a given name.",
         "operationId": "Project_Get",
@@ -159,7 +159,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{resourceName}/nestedResourceType/{nestedResourceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{projectName}/nestedResourceType/{nestedResourceName}": {
       "get": {
         "description": "Returns nested resources for a given Project name",
         "operationId": "NestedResourceType_Get",
@@ -266,7 +266,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{resourceName}/nestedResourceType": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.DevTestCenter/Project/{projectName}/nestedResourceType": {
       "get": {
         "description": "Returns nested resources for a given Project name",
         "operationId": "NestedResourceType_List",
