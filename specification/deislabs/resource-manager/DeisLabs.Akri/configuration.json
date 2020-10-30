@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
       "title": "Deislabs",
-      "description": "The Microsoft.Deislabs Rest API spec.",
+      "description": "The Deislabs.Akri Rest API spec.",
       "version": "2020-01-01-preview",
       "x-ms-code-generation-settings": {
         "name": "DeislabsClient"
@@ -19,7 +19,7 @@
       "application/json"
     ],
     "paths": {
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Deislabs/configurations/{configurationsName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Deislabs.Akri/configurations/{configurationsName}": {
         "get": {
           "operationId": "configurations_Retrieve",
           "parameters": [
@@ -146,7 +146,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Deislabs/configurations": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Deislabs.Akri/configurations": {
         "get": {
           "operationId": "configurations_ListByResourceGroup",
           "parameters": [
@@ -173,7 +173,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/providers/Microsoft.Deislabs/configurations": {
+      "/subscriptions/{subscriptionId}/providers/Deislabs.Akri/configurations": {
         "get": {
           "operationId": "configurations_ListBySubscription",
           "parameters": [
@@ -197,7 +197,7 @@
           }
         }
       },
-      "/providers/Microsoft.Deislabs/operations": {
+      "/providers/Deislabs.Akri/operations": {
         "get": {
           "operationId": "Operations_List",
           "parameters": [
