@@ -1247,7 +1247,7 @@
         "provisioningState": {
           "readOnly": true,
           "$ref": "./common.json#/definitions/ProvisioningState",
-          "description": "The provisioning state of the sim resource. **TODO**: Confirm if this is needed"
+          "description": "The provisioning state of the site resource. **TODO**: Confirm if this is needed"
         },
         "region": {
           "type": "string",
@@ -1341,20 +1341,20 @@
         "provisioningState": {
           "readOnly": true,
           "$ref": "./common.json#/definitions/ProvisioningState",
-          "description": "The provisioning state of the sim resource."
+          "description": "The provisioning state of the sim profile resource."
         },
         "activationState": {
           "readOnly": true,
           "$ref": "./common.json#/definitions/ActivationState",
-          "description": "The activation state of the sim resource."
+          "description": "The activation state of the sim profile resource."
         },
         "internationalMobileSubscriberIdentity": {
           "type": "string",
-          "description": "The International Mobile Subscriber Identity (IMSI) for the sim"
+          "description": "The International Mobile Subscriber Identity (IMSI) for the sim profile."
         },
         "integratedCircuitCardIdentifier": {
           "type": "string",
-          "description": "The Integrated Circuit Card ID (ICC Id) for the sim"
+          "description": "The Integrated Circuit Card ID (ICC Id) for the sim profile."
         },
         "authenticationKey": {
           "type": "string",
@@ -1362,7 +1362,7 @@
           "x-ms-mutability": [
             "create"
           ],
-          "description": "The ki value for the sim"
+          "description": "The ki value for the sim profile."
         },
         "operatorKeyCode": {
           "type": "string",
@@ -1370,7 +1370,7 @@
           "x-ms-mutability": [
             "create"
           ],
-          "description": "The Opc value for the sim"
+          "description": "The Opc value for the sim profile."
         },
         "mobileNetworks": {
           "type": "array",
