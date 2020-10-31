@@ -24,19 +24,13 @@
         },
         "properties": {
           "provisioningState": "Accepted",
-          "masterSimProfile": {
-            "id": "MasterSimProfileId"
-          },
-          "mobileDevice": {
-            "id": "TestMobileDeviceId"
-          },
-          "iccId": "TestIccId",
-          "imsi": "TestImsi",
-          "networkActivationState": "Not Provisioned",
-          "networkActivationDate": "TestNetworkActivationDate",
+          "integratedCircuitCardIdentifier": "TestIccId",
+          "internationalMobileSubscriberIdentity": "TestImsi",
           "voiceNumber": "TestVoiceNumber",
-          "subscriberAuthKey": "TestSubscriberAuthKey",
-          "operatorCode": "TestOperatorCode"
+          "deviceActivationCode": "TestDeviceActivationCode",
+          "mobileDeviceId": "TestMobileDeviceId",
+          "tarrif": "TestTarrif",
+          "simProfileConfigurationTemplateId": "TestSimProfileConfigurationTemplateId"
         }
       }
     }

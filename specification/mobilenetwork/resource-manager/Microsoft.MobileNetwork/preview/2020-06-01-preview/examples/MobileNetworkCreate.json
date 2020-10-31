@@ -3,57 +3,63 @@
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
     "resourceGroupName": "rg1",
-    "mobileNetworkName": "TestMobileNetwork",
+    "mobileNetworkName": "testMobileNetwork",
     "parameters": {
+      "location": "eastus",
       "properties": {
-        "plmnId": "TestPlmnId",
-        "spectrumAccessProvider": "TestSpectrumAccessProvider",
-        "monitoringWorkSpace": {
-          "id": "TestMonitoringWorkSpaceId"
-        }
+        "publicLandMobileNetworkIdentifier": "testPublicLandMobileNetworkIdentifier",
+        "spectrumAccessProvider": "testSpectrumAccessProvider"
       }
     }
   },
   "responses": {
     "200": {
       "body": {
-        "name": "TestMobileNetwork",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/TestMobileNetwork",
+        "name": "testMobileNetwork",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
         "type": "Microsoft.MobileNetwork/mobileNetworks",
         "location": "eastus",
         "tags": {},
         "properties": {
-          "provisioningState": "Accepted",
-          "plmnId": "TestPlmnId",
+          "provisioningState": "Succeeded",
+          "publicLandMobileNetworkIdentifier": "testPublicLandMobileNetworkIdentifier",
           "networkType": "Public",
-          "spectrumAccessProvider": "TestSpectrumAccessProvider",
-          "packetCore": [],
-          "mobileNetworkSites": [],
-          "mobileDevices": [],
-          "monitoringWorkSpace": {
-            "id": "TestMonitoringWorkSpaceId"
-          }
+          "spectrumAccessProvider": "testSpectrumAccessProvider",
+          "sites": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite"
+            }
+          ],
+          "sims": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim"
+            }
+          ]
         }
       }
     },
     "201": {
       "body": {
-        "name": "TestMobileNetwork",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/TestMobileNetwork",
+        "name": "testMobileNetwork",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
         "type": "Microsoft.MobileNetwork/mobileNetworks",
         "location": "eastus",
         "tags": {},
         "properties": {
           "provisioningState": "Created",
-          "plmnId": "TestPlmnId",
+          "publicLandMobileNetworkIdentifier": "testPublicLandMobileNetworkIdentifier",
           "networkType": "Public",
-          "spectrumAccessProvider": "TestSpectrumAccessProvider",
-          "packetCore": [],
-          "mobileNetworkSites": [],
-          "mobileDevices": [],
-          "monitoringWorkSpace": {
-            "id": "TestMonitoringWorkSpaceId"
-          }
+          "spectrumAccessProvider": "testSpectrumAccessProvider",
+          "sites": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite"
+            }
+          ],
+          "sims": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim"
+            }
+          ]
         }
       }
     }
