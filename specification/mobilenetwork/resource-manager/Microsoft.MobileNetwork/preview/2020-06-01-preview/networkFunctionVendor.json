@@ -234,18 +234,18 @@
         },
         "region": {
           "type": "string",
-          "description": "Azure region where the mobile network site is paired **TODO**: Confirm type and property"
+          "description": "Azure region where the mobile network site is paired. **TODO**: Confirm type and property"
         },
         "customLocation": {
           "type": "string",
-          "description": "Azure arc custom location where the mobile network site is paired **TODO**: Confirm type and property"
+          "description": "Azure arc custom location where the mobile network site is paired. **TODO**: Confirm type and property"
         },
         "networkFunctions": {
           "type": "array",
           "items": {
             "$ref": "./common.json#/definitions/SubResource"
           },
-          "description": "An array of networkFunctions deployed on the site"
+          "description": "An array of ids of the network functions deployed on the sites."
         }        
       }
     },
