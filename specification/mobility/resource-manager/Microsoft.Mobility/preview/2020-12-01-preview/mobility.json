@@ -615,6 +615,26 @@
       ],
       "description": "Specifies the stamp location."
     },
+    "MCVPAccountPropertiesUpdateParameters": {
+      "properties": {
+        "extensions": {
+          "$ref": "#/definitions/Extensions",
+          "description": "Specifies the extensions configuration."
+        },
+        "networking": {
+          "$ref": "#/definitions/Networking",
+          "description": "Specifies the networking configuration."
+        },
+        "stampLocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StampLocation"
+          },
+          "description": "Specifies the list of stamp locations."
+        }
+      },
+      "description": "Specifies the properties of the MCVP account to update."
+    },
     "MCVPAccountUpdateParameters": {
       "properties": {
         "sku": {
@@ -627,6 +647,11 @@
             "type": "string"
           },
           "description": "Specifies the list of key-value pairs that describe the MCVP account."
+        },
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/MCVPAccountPropertiesUpdateParameters",
+          "description": "Specifies the properties of the MCVP account to update."
         }
       },
       "description": "Specifies the parameters used to update the properties of an MCVP account."
@@ -643,7 +668,7 @@
         },
         "extensions": {
           "$ref": "#/definitions/Extensions",
-          "description": "Specifies the ID to the custom extensions resource in the user's subscription."
+          "description": "Specifies the extensions configuration."
         },
         "networking": {
           "$ref": "#/definitions/Networking",
