@@ -1,0 +1,54 @@
+{
+  "parameters": {
+    "api-version": "2020-06-01-preview",
+    "subscriptionId": "subid",
+    "resourceGroupName": "rg1",
+    "mobileNetworkName": "testMobileNetwork",
+    "siteName": "testSite",
+    "parameters": {
+      "properties": {
+        "region": "testRegion",
+        "customLocation": "testCustomLocation",
+        "networkFunctions": [
+          {
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNf"
+          }
+        ]
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "name": "testSite",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobieNetwork/sites/testSite",
+        "type": "Microsoft.MobileNetwork/mobileNetworks/sites",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "region": "testRegion",
+          "networkFunctions": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNf"
+            }
+          ]
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "name": "testSite",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobieNetwork/sites/testSite",
+        "type": "Microsoft.MobileNetwork/mobileNetworks/sites",
+        "properties": {
+          "provisioningState": "Created",
+          "region": "testRegion",
+          "networkFunctions": [
+            {
+              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNf"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

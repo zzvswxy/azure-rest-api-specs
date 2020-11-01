@@ -2,17 +2,9 @@
   "parameters": {
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
-    "resourceGroupName": "rg1",
-    "simName": "testSim",
-    "simProfileName": "TestSimProfile",
-    "parameters": {
-      "properties": {
-        "integratedCircuitCardIdentifier": "TestIccId",
-        "internationalMobileSubscriberIdentity": "TestImsi",
-        "authenticationKey": "testAuthKey",
-        "operatorKeyCode": "testOpc"
-      }
-    }
+    "resourceGroupName": "testResourceGroupName",
+    "simName": "testSimName",
+    "simProfileName": "testSimProfileName"
   },
   "responses": {
     "200": {
@@ -33,7 +25,7 @@
         }
       }
     },
-    "201": {
+    "202": {
       "body": {
         "name": "TestSimProfile",
         "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim/simProfiles/testSimProfile",
