@@ -4,29 +4,33 @@
     "subscriptionId": "00000000-0000-0000-0000-000000000000",
     "resourceGroupName": "myResourceGroup",
     "monitorName": "myMonitor",
+    "subAccountName":  "SubAccount1",
     "requestBody": {
+      "name": "myMonitor",
+      "type": "Microsoft.Logz/monitors",
       "properties": {
+        "provisioningState": "Accepted",
         "monitoringStatus": "Enabled"
       },
       "tags": {
         "Environment": "Dev"
-      }
+      },
+      "location": "West US"
     }
   },
   "responses": {
-    "200": {
+    "201": {
       "body": {
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/subAccounts/SubAccount1",
         "name": "myMonitor",
         "type": "Microsoft.Logz/monitors",
         "properties": {
-          "provisioningState": "Succeeded",
-          "monitoringStatus": "Enabled"
+          "provisioningState": "Succeeded"
         },
         "tags": {
           "Environment": "Dev"
         },
-        "location": "West US"
+        "location": "West US 2"
       }
     }
   }
