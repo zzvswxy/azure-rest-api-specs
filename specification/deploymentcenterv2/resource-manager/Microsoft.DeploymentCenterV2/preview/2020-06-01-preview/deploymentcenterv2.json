@@ -65,7 +65,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deployments/{deploymentName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deploymentsv2/{deploymentName}": {
       "get": {
         "description": "Returns the deployment resource.",
         "operationId": "deployments_Get",
@@ -242,6 +242,45 @@
           }
         }
       }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deploymentsv2": {
+      "get": {
+        "description": "Lists the deployment resources under the resource group.",
+        "operationId": "deployments_ListByResourceGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deployment list details.",
+            "schema": {
+              "$ref": "#/definitions/DeploymentListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Get a deployment resource": {
+            "$ref": "./examples/ListDeploymentsByResourceGroup.json"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -277,6 +316,22 @@
           "items": {
             "$ref": "#/definitions/ErrorDefinition"
           }
+        }
+      }
+    },
+    "DeploymentListResult": {
+      "description": "Result of a request to list all deployments under a given scope.",
+      "properties": {
+        "value": {
+          "description": "List of deployments.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Deployment"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to get the next set of Deployments, if there are any."
         }
       }
     },
@@ -523,7 +578,7 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The deployment name.",
+      "description": "The deployment name",
       "x-ms-parameter-location": "method"
     }
   }
