@@ -551,6 +551,10 @@
         "offerId": {
           "type": "string",
           "description": "The offer ID of the bot."
+        },
+        "provisioningState": {
+          "type": "string",
+          "description": "Gets the provisioning state of the Healthcare bot resource."
         }
       }
     },

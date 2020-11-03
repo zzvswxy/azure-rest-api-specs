@@ -9,34 +9,26 @@
       "body": {
         "value": [
           {
-            "name": "TestMobileNetwork",
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks",
+            "name": "testMobileNetwork",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
             "type": "Microsoft.MobileNetwork/mobileNetworks",
             "location": "eastus",
             "tags": {},
             "properties": {
               "provisioningState": "Succeeded",
-              "plmnId": "TestPlmnId",
+              "publicLandMobileNetworkIdentifier": "testPublicLandMobileNetworkIdentifier",
               "networkType": "Public",
-              "spectrumAccessProvider": "TestSpectrumAccessProvider",
-              "packetCore": [
+              "spectrumAccessProvider": "testSpectrumAccessProvider",
+              "sites": [
                 {
-                  "id": "TestPacketCoreId"
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite"
                 }
               ],
-              "mobileNetworkSites": [
+              "sims": [
                 {
-                  "id": "TestMobileNetworkSiteId"
+                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim"
                 }
-              ],
-              "mobileDevices": [
-                {
-                  "id": "TestMobileDeviceId"
-                }
-              ],
-              "monitoringWorkSpace": {
-                "id": "TestMonitoringWorkSpaceId"
-              }
+              ]
             }
           }
         ]

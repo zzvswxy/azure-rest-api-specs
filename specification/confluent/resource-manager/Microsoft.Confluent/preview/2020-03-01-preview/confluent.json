@@ -72,13 +72,16 @@
           }
         }
      },
-     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/all/setTerms": {
-          "post": {
+     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/default/acceptTerms": {
+          "put": {
             "tags": [
               "Agreements"
             ],
-            "summary": "Save marketplace terms.",
+            "summary": "Accept marketplace terms.",
             "operationId": "MarketplaceAgreements_Set",
+            "consumes": [
+              "application/json"
+            ],
             "produces": [
               "application/json"
             ],
@@ -89,10 +92,7 @@
             ],
             "responses": {
               "200": {
-                "description": "Success",
-                "schema": {
-                  "$ref": "#/definitions/AgreementTermsListResponse"
-                }
+                "description": "Success"
               },
               "default": {
                 "description": "Default error response.",
@@ -100,9 +100,6 @@
                   "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
                 }
               }
-            },
-            "x-ms-pageable": {
-              "nextLinkName": "nextLink"
             },
             "x-ms-examples": {
               "MarketplaceAgreements_Set": {
