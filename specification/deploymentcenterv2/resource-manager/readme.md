@@ -2,7 +2,7 @@
 
 > see https://aka.ms/autorest
 
-This is the AutoRest configuration file for deploymentcenterv2.
+This is the AutoRest configuration file for deploymentcenterv2
 
 ```yaml
 openapi-subtype: rpaas
