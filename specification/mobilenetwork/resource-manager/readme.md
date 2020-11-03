@@ -26,6 +26,7 @@ These are the global settings for the mobilenetwork.
 
 ```yaml
 openapi-type: arm
+openapi-subtype: rpaas
 tag: package-2020-06-01-preview
 ```
 
@@ -35,16 +36,10 @@ These settings apply only when `--tag=package-2020-06-01-preview` is specified o
 
 ```yaml $(tag) == 'package-2020-06-01-preview'
 input-file:
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/accessPoint.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/eNodeB.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/common.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/masterSimProfile.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/mobileDevice.json
+  - Microsoft.MobileNetwork/preview/2020-06-01-preview/operation.json
   - Microsoft.MobileNetwork/preview/2020-06-01-preview/mobileNetwork.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/mobileNetworkSite.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/operations.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/packetCore.json
-  - Microsoft.MobileNetwork/preview/2020-06-01-preview/simProfile.json
+  - Microsoft.MobileNetwork/preview/2020-06-01-preview/networkFunctionVendor.json
 ```
 
 # Code Generation

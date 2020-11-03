@@ -3,7 +3,8 @@
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
     "resourceGroupName": "rg1",
-    "simProfileName": "TestSimProfile"
+    "simName": "testSim",
+    "simProfileName": "testSimProfile"
   },
   "responses": {
     "200": {},

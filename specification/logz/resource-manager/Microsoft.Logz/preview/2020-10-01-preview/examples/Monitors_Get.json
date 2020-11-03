@@ -13,15 +13,7 @@
         "type": "Microsoft.Logz/monitors",
         "properties": {
           "provisioningState": "Succeeded",
-          "monitoringStatus": "Enabled",
-          "logzOrganizationProperties": {
-            "companyName": "myOrg",
-            "id": "myOrg123",
-            "apiKey": null,
-            "enterpriseAppId": null
-          },
-          "liftrResourceCategory": "MonitorLogs",
-          "liftrResourcePreference": 1
+          "monitoringStatus": "Enabled"
         },
         "tags": {
           "Environment": "Dev"
