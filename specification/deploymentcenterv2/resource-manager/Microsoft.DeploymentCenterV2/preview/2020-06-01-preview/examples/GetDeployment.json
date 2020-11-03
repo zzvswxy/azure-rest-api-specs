@@ -9,9 +9,9 @@
     "200": {
       "description": "The Azure Pipeline has been configured successfully.",
       "body": {
-        "id": "/subscriptions/{subscriptionId}/resourceGroups/myDeploymentResource-rg/providers/Microsoft.DeploymentCenterV2/deploymnents/myDeployment",
+        "id": "/subscriptions/{subscriptionId}/resourceGroups/myDeploymentResource-rg/providers/Microsoft.DeploymentCenterV2/deployments/myDeployment",
         "name": "myDeployment",
-        "type": "Microsoft.DeploymentCenterV2/deploymnents",
+        "type": "Microsoft.DeploymentCenterV2/deployments",
         "location": "South India",
         "properties": {
           "targetResource": {
