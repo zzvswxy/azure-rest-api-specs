@@ -8,9 +8,6 @@
       "tags": {
         "Team": "Dev Exp",
         "Division": "LT"
-      },
-      "properties": {
-        "description": "This is new load test resource"
       }
     }
   },
