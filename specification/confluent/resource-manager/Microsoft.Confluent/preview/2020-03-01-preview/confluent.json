@@ -72,8 +72,8 @@
           }
         }
      },
-     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/all/acceptTerms": {
-          "post": {
+     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/default/acceptTerms": {
+          "put": {
             "tags": [
               "Agreements"
             ],
@@ -91,7 +91,7 @@
               }
             ],
             "responses": {
-              "200": {
+              "204": {
                 "description": "Success"
               },
               "default": {
