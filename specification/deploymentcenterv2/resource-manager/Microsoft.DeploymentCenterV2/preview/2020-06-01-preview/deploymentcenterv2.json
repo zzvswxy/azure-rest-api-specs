@@ -65,7 +65,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deployments/{deploymentName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deploymentsv2/{deploymentName}": {
       "get": {
         "description": "Returns the deployment resource.",
         "operationId": "deployments_Get",
@@ -523,7 +523,7 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The deployment name.",
+      "description": "The deployment name",
       "x-ms-parameter-location": "method"
     }
   }
