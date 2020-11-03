@@ -29,6 +29,10 @@ These are the global settings for the Kubernetes Connect RP.
 openapi-type: arm
 tag: package-2020-01-01-preview
 ```
+```yaml
+openapi-subtype: rpaas
+```
+
 
 ### Tag: package-2020-06-22-preview
 These settings apply only when `--tag=package-2020-06-22-preview` is specified on the command line.

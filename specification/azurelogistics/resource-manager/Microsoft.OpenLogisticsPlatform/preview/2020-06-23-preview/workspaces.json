@@ -480,12 +480,8 @@
               "readOnly": true,
               "$ref": "#/definitions/ProvisioningState"
             },
-            "transportationProviders": {
-              "description": "The transportation providers.",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/TransportationProviderInfo"
-              },
+            "shareId": {
+              "type": "string",
               "readOnly": false
             }
           }
