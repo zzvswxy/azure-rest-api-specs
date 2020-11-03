@@ -65,10 +65,10 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deploymnents/{deploymentName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentCenterV2/deployments/{deploymentName}": {
       "get": {
         "description": "Returns the deployment resource.",
-        "operationId": "Deploymnents_Get",
+        "operationId": "deployments_Get",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
