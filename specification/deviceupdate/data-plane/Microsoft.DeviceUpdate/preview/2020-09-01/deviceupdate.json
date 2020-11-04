@@ -77,11 +77,11 @@
             "headers": {
               "Location": {
                 "type": "string",
-                "description": "Url to retrieve the final update resource."
+                "description": "Url to retrieve the import operation status."
               },
               "Operation-Location": {
                 "type": "string",
-                "description": "Url to retrieve the operation status."
+                "description": "Url to retrieve the import operation status."
               }
             }
           },
@@ -192,7 +192,7 @@
         "tags": [
           "Update management"
         ],
-        "description": "Enumerate all providers.",
+        "description": "Get a list of all update providers that have been imported to ADU.",
         "operationId": "Updates_GetProviders",
         "x-ms-examples": {
           "Updates_GetProviders": {
@@ -206,13 +206,10 @@
         ],
         "responses": {
           "200": {
-            "description": "All available providers.",
+            "description": "All imported update providers, or empty list if there is none.",
             "schema": {
               "$ref": "#/definitions/PageableListOfStrings"
             }
-          },
-          "304": {
-            "description": "Not modified."
           },
           "429": {
             "description": "Too many requests; there is a rate limit on how many operations can be executed within a time period.",
@@ -229,7 +226,7 @@
         "tags": [
           "Update management"
         ],
-        "description": "Enumerate all names for a specific provider.",
+        "description": "Get a list of all update names that match the specified provider.",
         "operationId": "Updates_GetNames",
         "x-ms-examples": {
           "Updates_GetNames": {
@@ -246,13 +243,10 @@
         ],
         "responses": {
           "200": {
-            "description": "All available names.",
+            "description": "All update names that match the specified provider, or empty list if there is none.",
             "schema": {
               "$ref": "#/definitions/PageableListOfStrings"
             }
-          },
-          "304": {
-            "description": "Not modified."
           },
           "404": {
             "description": "Not found.",
@@ -273,7 +267,7 @@
         "tags": [
           "Update management"
         ],
-        "description": "Enumerate all update versions for a specific provider and name.",
+        "description": "Get a list of all update versions that match the specified provider and name.",
         "operationId": "Updates_GetVersions",
         "x-ms-examples": {
           "Updates_GetVersions": {
@@ -293,13 +287,10 @@
         ],
         "responses": {
           "200": {
-            "description": "All available update versions.",
+            "description": "All update versions that match the specified provider and name, or empty list if there is none.",
             "schema": {
               "$ref": "#/definitions/PageableListOfStrings"
             }
-          },
-          "304": {
-            "description": "Not modified."
           },
           "404": {
             "description": "Not found.",
@@ -320,7 +311,7 @@
         "tags": [
           "Update management"
         ],
-        "description": "Enumerate all file identifiers for a specific update version.",
+        "description": "Get a list of all update file identifiers for the specified version.",
         "operationId": "Updates_GetFiles",
         "x-ms-examples": {
           "Updates_GetFiles": {
@@ -343,7 +334,7 @@
         ],
         "responses": {
           "200": {
-            "description": "All available file identifiers.",
+            "description": "All update file identifiers for the specified version.",
             "schema": {
               "$ref": "#/definitions/PageableListOfStrings"
             }
@@ -367,7 +358,7 @@
         "tags": [
           "Update management"
         ],
-        "description": "Get a specific update version file.",
+        "description": "Get a specific update file from the version.",
         "operationId": "Updates_GetFile",
         "x-ms-examples": {
           "Updates_GetFile": {
@@ -389,6 +380,9 @@
           },
           {
             "$ref": "#/parameters/FileIdParameter"
+          },
+          {
+            "$ref": "#/parameters/IfNoneMatchParameter"
           }
         ],
         "responses": {
@@ -418,7 +412,7 @@
           "Update management"
         ],
         "operationId": "Updates_GetOperations",
-        "description": "Enumerate operations details.",
+        "description": "Get a list of all import update operations. Completed operations are kept for 7 days before auto-deleted. Delete operations are not returned by this API version.",
         "x-ms-examples": {
           "Updates_GetOperations": {
             "$ref": "./examples/Updates_GetOperations.json"
@@ -433,7 +427,7 @@
             "in": "query",
             "required": false,
             "type": "string",
-            "description": "Restricts the set of operations returned. You can filter on Status and you can only select NotStarted and Running operation status when creating filter query."
+            "description": "Restricts the set of operations returned. Only one specific filter is supported: \"status eq 'NotStarted' or status eq 'Running'\""
           },
           {
             "name": "$top",
@@ -450,9 +444,6 @@
             "schema": {
               "$ref": "#/definitions/PageableListOfOperations"
             }
-          },
-          "304": {
-            "description": "Not modified."
           },
           "429": {
             "description": "Too many requests; there is a rate limit on how many operations can be executed within a time period.",
@@ -492,13 +483,9 @@
           "200": {
             "description": "Operation status.",
             "headers": {
-              "Location": {
-                "type": "string",
-                "description": "Url to retrieve the final resource."
-              },
               "Retry-After": {
                 "type": "string",
-                "description": "Number of seconds to check the operation status again."
+                "description": "Number of seconds to wait before checking the operation status again."
               }
             },
             "schema": {
@@ -1372,7 +1359,7 @@
             "$ref": "#/definitions/FileImportMetadata"
           },
           "minItems": 1,
-          "description": "File properties like filename and source URL."
+          "description": "One or more update file properties like filename and source URL."
         }
       },
       "required": [
@@ -1386,7 +1373,7 @@
       "properties": {
         "url": {
           "type": "string",
-          "description": "Source download URL."
+          "description": "Azure Blob location from which the import manifest can be downloaded by ADU. This is typically a read-only SAS-protected blob URL with an expiration set to at least 4 hours."
         },
         "sizeInBytes": {
           "type": "integer",
@@ -1398,7 +1385,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Hash(es) of import manifest file."
+          "description": "A JSON object containing the hash(es) of the file. At least SHA256 hash is required. This object can be thought of as a set of key-value pairs where the key is the hash algorithm, and the value is the hash of the file calculated using that algorithm."
         }
       },
       "required": [
@@ -1406,25 +1393,25 @@
         "sizeInBytes",
         "hashes"
       ],
-      "description": "Import manifest metadata."
+      "description": "Metadata describing the import manifest, a document which describes the files and other metadata about an update version."
     },
     "FileImportMetadata": {
       "type": "object",
       "properties": {
         "filename": {
           "type": "string",
-          "description": "File name."
+          "description": "Update file name as specified inside import manifest."
         },
         "url": {
           "type": "string",
-          "description": "Source download URL."
+          "description": "Azure Blob location from which the update file can be downloaded by ADU. This is typically a read-only SAS-protected blob URL with an expiration set to at least 4 hours."
         }
       },
       "required": [
         "filename",
         "url"
       ],
-      "description": "Import file metadata."
+      "description": "Metadata describing an update file."
     },
     "Update": {
       "type": "object",
@@ -1435,11 +1422,11 @@
         },
         "updateType": {
           "type": "string",
-          "description": "Update type. Optional."
+          "description": "Update type."
         },
         "installedCriteria": {
           "type": "string",
-          "description": "Installed Criteria. Will always be present in manifest version 0.1 or later."
+          "description": "String interpreted by ADU client to determine if the update is installed on the device."
         },
         "compatibility": {
           "type": "array",
@@ -1451,21 +1438,21 @@
         },
         "manifestVersion": {
           "type": "string",
-          "description": "Update manifest schema version. Optional."
+          "description": "Schema version of manifest used to import the update."
         },
         "importedDateTime": {
           "type": "string",
-          "description": "Date and time when update was imported.",
+          "description": "Date and time in UTC when the update was imported.",
           "format": "date-time"
         },
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Date and time when the update was created."
+          "description": "Date and time in UTC when the update was created."
         },
         "etag": {
           "type": "string",
-          "description": "Update etag."
+          "description": "Update ETag."
         }
       },
       "required": [
@@ -1474,7 +1461,8 @@
         "installedCriteria",
         "compatibility",
         "manifestVersion",
-        "importedDateTime"
+        "importedDateTime",
+        "createdDateTime"
       ],
       "description": "Update metadata."
     },
@@ -1541,7 +1529,7 @@
       "properties": {
         "fileId": {
           "type": "string",
-          "description": "File identity."
+          "description": "File identity, generated by server at import time."
         },
         "fileName": {
           "type": "string",
@@ -1565,16 +1553,16 @@
         },
         "etag": {
           "type": "string",
-          "description": "Gets or sets the ETag of the entity."
+          "description": "File ETag."
         }
       },
       "required": [
         "fileId",
         "fileName",
-        "hashes",
-        "sizeInBytes"
+        "sizeInBytes",
+        "hashes"
       ],
-      "description": "File metadata."
+      "description": "Update file metadata."
     },
     "Operation": {
       "type": "object",
@@ -1589,33 +1577,33 @@
         },
         "updateId": {
           "$ref": "#/definitions/UpdateId",
-          "description": "The identity of update the operation is working on."
+          "description": "The identity of update being imported or deleted. For import, this property will only be populated after import manifest is processed successfully."
         },
         "resourceLocation": {
           "type": "string",
-          "description": "The created resource location if any (PUT or POST methods)."
+          "description": "Location of the imported update when operation is successful."
         },
         "error": {
           "$ref": "#/definitions/Error",
-          "description": "Operation error encountered if any."
+          "description": "Operation error encountered, if any."
         },
         "traceId": {
           "type": "string",
-          "description": "W3C Trace Context base traceId used for creating and running the job."
+          "description": "Operation correlation identity that can used by Microsoft Support for troubleshooting."
         },
         "lastActionDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Date time when the operation status was last updated."
+          "description": "Date and time in UTC when the operation status was last updated."
         },
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Date time when the operation was created."
+          "description": "Date and time in UTC when the operation was created."
         },
         "etag": {
           "type": "string",
-          "description": "Operation etag."
+          "description": "Operation ETag."
         }
       },
       "required": [
@@ -1688,7 +1676,7 @@
           "items": {
             "$ref": "#/definitions/Error"
           },
-          "description": "An array of details about specific errors that led to the reported error."
+          "description": "An array of errors that led to the reported error."
         },
         "innererror": {
           "$ref": "#/definitions/InnerError",
@@ -1696,7 +1684,7 @@
         },
         "occurredDateTime": {
           "type": "string",
-          "description": "Date and time when the error occured.",
+          "description": "Date and time in UTC when the error occured.",
           "format": "date-time"
         }
       },
@@ -1711,7 +1699,7 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "A more specific error code than was provided by the containing error."
+          "description": "A more specific error code than what was provided by the containing error."
         },
         "message": {
           "type": "string",
@@ -1719,7 +1707,7 @@
         },
         "errorDetail": {
           "type": "string",
-          "description": "The internal error message or exception dump."
+          "description": "The internal error or exception message."
         },
         "innerError": {
           "$ref": "#/definitions/InnerError",
