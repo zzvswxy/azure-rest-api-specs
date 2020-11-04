@@ -29,7 +29,7 @@ openapi-subtype: rpaas
 tag: package-2020-07-23-preview
 ```
 
-### Tag: package-2020-03-01-preview
+### Tag: package-2020-07-23-preview
 
 These settings apply only when `--tag=package-2020-07-23-preview` is specified on the command line.
 
