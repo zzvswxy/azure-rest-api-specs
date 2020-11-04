@@ -297,6 +297,12 @@
               "$ref": "#/definitions/ValidationResult"
             }
           },
+          "204": {
+            "description": "If resource is deleted successfully, the service should return 204.",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          },
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
