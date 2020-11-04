@@ -35,57 +35,6 @@
   },
   "paths": {},
   "definitions": {
-    "ErrorDetails": {
-      "description": "Error details.",
-      "type": "object",
-      "additionalProperties": true,
-      "required": [
-        "code",
-        "message"
-      ],
-      "properties": {
-        "code": {
-          "description": "Error code.",
-          "type": "string"
-        },
-        "message": {
-          "description": "Error message.",
-          "type": "string"
-        }
-      }
-    },
-    "Resource": {
-      "properties": {
-        "id": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Resource ID."
-        },
-        "name": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Resource name."
-        },
-        "type": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Resource type."
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location."
-        },
-        "tags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags."
-        }
-      },
-      "description": "Common resource representation.",
-      "x-ms-azure-resource": true
-    },
     "SubResource": {
       "properties": {
         "id": {
@@ -126,7 +75,6 @@
     },
     "NetworkType": {
       "type": "string",
-      "readOnly": true,
       "description": "The packet core type.",
       "enum": [
         "Unknown",
@@ -137,22 +85,36 @@
         "name": "NetworkType",
         "modelAsString": true
       }
-    }
-  },
-  "parameters": {
-    "SubscriptionIdParameter": {
-      "name": "subscriptionId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
     },
-    "ApiVersionParameter": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
+    "SimType": {
       "type": "string",
-      "description": "Client API version."
+      "description": "The sim type.",
+      "enum": [
+        "Unknown",
+        "Physical",
+        "ESim"
+      ],
+      "x-ms-enum": {
+        "name": "SimType",
+        "modelAsString": true
+      }
+    },
+    "ActivationState": {
+      "type": "string",
+      "readOnly": true,
+      "description": "The current activation state of the SimProfile on the network.",
+      "enum": [
+        "NotActivated",
+        "Activated",
+        "Activating",
+        "Deactivating",
+        "Deactivated",
+        "Failed"
+      ],
+      "x-ms-enum": {
+        "name": "ActivationState",
+        "modelAsString": true
+      }
     }
   }
 }

@@ -3,16 +3,14 @@
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
     "resourceGroupName": "rg1",
+    "simName": "testSim",
     "simProfileName": "TestSimProfile",
     "parameters": {
       "properties": {
-        "masterSimProfile": {
-          "id": "MasterSimProfileId"
-        },
-        "iccId": "TestIccId",
-        "imsi": "TestImsi",
-        "subscriberAuthKey": "TestSubscriberAuthKey",
-        "operatorCode": "TestOperatorCode"
+        "integratedCircuitCardIdentifier": "TestIccId",
+        "internationalMobileSubscriberIdentity": "TestImsi",
+        "authenticationKey": "testAuthKey",
+        "operatorKeyCode": "testOpc"
       }
     }
   },
@@ -20,50 +18,36 @@
     "200": {
       "body": {
         "name": "TestSimProfile",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simProfiles/TestSimProfile",
-        "type": "Microsoft.MobileNetwork/simProfiles",
-        "location": "eastus",
-        "tags": {},
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim/simProfiles/testSimProfile",
+        "type": "Microsoft.MobileNetwork/sims/simProfiles",
         "properties": {
-          "provisioningState": "Accepted",
-          "masterSimProfile": {
-            "id": "MasterSimProfileId"
-          },
-          "mobileDevice": {
-            "id": "TestMobileDeviceId"
-          },
-          "iccId": "TestIccId",
-          "imsi": "TestImsi",
-          "networkActivationState": "Not Provisioned",
-          "networkActivationDate": "TestNetworkActivationDate",
-          "voiceNumber": "TestVoiceNumber",
-          "subscriberAuthKey": "TestSubscriberAuthKey",
-          "operatorCode": "TestOperatorCode"
+          "provisioningState": "Succeeded",
+          "activationState": "Activated",
+          "internationalMobileSubscriberIdentity": "TestImsi",
+          "integratedCircuitCardIdentifier": "testIccid",
+          "mobileNetworks": [
+            {
+              "id": "TestMobileNetwork"
+            }
+          ]
         }
       }
     },
     "201": {
       "body": {
         "name": "TestSimProfile",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simProfiles/TestSimProfile",
-        "type": "Microsoft.MobileNetwork/simProfiles",
-        "location": "eastus",
-        "tags": {},
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim/simProfiles/testSimProfile",
+        "type": "Microsoft.MobileNetwork/sims/simProfiles",
         "properties": {
-          "provisioningState": "Created",
-          "masterSimProfile": {
-            "id": "MasterSimProfileId"
-          },
-          "mobileDevice": {
-            "id": "TestMobileDeviceId"
-          },
-          "iccId": "TestIccId",
-          "imsi": "TestImsi",
-          "networkActivationState": "Not Provisioned",
-          "networkActivationDate": "TestNetworkActivationDate",
-          "voiceNumber": "TestVoiceNumber",
-          "subscriberAuthKey": "TestSubscriberAuthKey",
-          "operatorCode": "TestOperatorCode"
+          "provisioningState": "Accepted",
+          "activationState": "Activated",
+          "internationalMobileSubscriberIdentity": "TestImsi",
+          "integratedCircuitCardIdentifier": "testIccid",
+          "mobileNetworks": [
+            {
+              "id": "TestMobileNetwork"
+            }
+          ]
         }
       }
     }
