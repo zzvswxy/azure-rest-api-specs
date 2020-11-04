@@ -72,7 +72,7 @@
           }
         }
      },
-     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/default/acceptTerms": {
+     "/subscriptions/{subscriptionId}/providers/Microsoft.Confluent/agreements/default": {
           "put": {
             "tags": [
               "Agreements"
@@ -90,6 +90,11 @@
                 "$ref": "#/parameters/SubscriptionIdParameter"
               }
             ],
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Agreements Terms resource"
+            },
             "responses": {
               "200": {
                 "description": "Success"
