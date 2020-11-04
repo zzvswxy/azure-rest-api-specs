@@ -1,0 +1,26 @@
+{
+  "parameters": {
+    "subscriptionId": "subscription-id",
+    "resourceGroupName": "OneResourceGroupName",
+    "api-version": "2020-11-04-preview"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+            {
+              "location": "East US",
+              "name": "samplebotname",
+              "type": "Microsoft.HealthcareBot/healthcareBots",
+              "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthcareBotsDev/samplebotname",
+              "properties": {
+                "displayName": "My Bot",
+                "planId": "free",
+                "offerId": "microsofthealthcarebot"
+              }
+            }
+        ]
+      }
+    }
+  }
+}

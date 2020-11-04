@@ -1,0 +1,15 @@
+{
+  "parameters": {
+    "resourceGroupName": "healthbotClient",
+    "api-version": "2020-11-04-preview",
+    "subscriptionId": "subid",
+    "resourceName": "MyBot"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "status": "OK"
+      }
+    }
+  }
+}
