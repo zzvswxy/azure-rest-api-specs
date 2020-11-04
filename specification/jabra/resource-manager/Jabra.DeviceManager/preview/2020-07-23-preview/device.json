@@ -285,10 +285,6 @@
               "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse"
             }
           }
-        },
-        "deprecated": false,
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
         }
       }
     },
