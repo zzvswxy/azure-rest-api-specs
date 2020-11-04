@@ -735,33 +735,52 @@
       }
     },
     "operation": {
-      "description": "Operation provided by provider",
+      "description": "Operation provided by provider.",
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the operation"
-        },
         "display": {
-          "type": "object",
-          "description": "Properties of the operation",
-          "properties": {
-            "provider": {
-              "type": "string",
-              "description": "Provider name"
-            },
-            "resource": {
-              "type": "string",
-              "description": "Resource name"
-            },
-            "operation": {
-              "type": "string",
-              "description": "Operation name"
-            },
-            "description": {
-              "type": "string",
-              "description": "Description of the operation"
-            }
-          }
+          "$ref": "#/definitions/operationValueDisplay",
+          "description": "Describes the properties of an Operation Value Display.",
+          "x-ms-client-flatten": true
+        },
+        "isDataAction": {
+          "description": "Is this Operation a data plane operation",
+          "type": "boolean",
+          "readOnly": true
+        },
+        "name": {
+          "description": "The name of the compute operation.",
+          "type": "string",
+          "readOnly": true
+        },
+        "origin": {
+          "description": "The origin of the compute operation.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "operationValueDisplay": {
+      "description": "Describes the properties of an Operation Value Display.",
+      "properties": {
+        "description": {
+          "description": "The description of the operation.",
+          "type": "string",
+          "readOnly": true
+        },
+        "operation": {
+          "description": "The display name of the operation.",
+          "type": "string",
+          "readOnly": true
+        },
+        "provider": {
+          "description": "The resource provider for the operation.",
+          "type": "string",
+          "readOnly": true
+        },
+        "resource": {
+          "description": "The display name of the resource the operation applies to.",
+          "type": "string",
+          "readOnly": true
         }
       }
     },
