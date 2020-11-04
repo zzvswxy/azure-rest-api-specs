@@ -79,7 +79,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/ResourceCreationValidate": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/resourceCreationValidate": {
       "post": {
         "operationId": "resource_creationValidate",
         "x-ms-examples": {
@@ -381,7 +381,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/ResourceCreationCompleted": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/resourceCreationCompleted": {
       "post": {
         "operationId": "resource_creationCompleted",
         "x-ms-examples": {
