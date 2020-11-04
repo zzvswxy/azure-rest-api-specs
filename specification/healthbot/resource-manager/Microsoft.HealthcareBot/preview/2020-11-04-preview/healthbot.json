@@ -267,49 +267,6 @@
             }
           }
         }
-      },
-      "delete": {
-        "operationId": "delete_bot",
-        "x-ms-examples": {
-          "BatchAccountDelete": {
-            "$ref": "./examples/ResourceDeletionDelete.json"
-          }
-        },
-        "description": "Delete a Healthcare Bot.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/resourceNameParameter"
-          },
-          {
-            "$ref": "#/parameters/apiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "If resource is deleted successfully, the service should return 200.",
-            "schema": {
-              "$ref": "#/definitions/ValidationResult"
-            }
-          },
-          "204": {
-            "description": "If resource is deleted successfully, the service should return 204.",
-            "schema": {
-              "$ref": "#/definitions/ValidationResult"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots": {
