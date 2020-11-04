@@ -26,10 +26,10 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Jabra.DeviceManager/jabra_Evolve2_40": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Jabra.DeviceManager/jabraEvolve240": {
       "get": {
         "description": "Returns list of Jabra_Evolve2_40 resources.",
-        "operationId": "JabraEvolve240_ListByResourceGroup",
+        "operationId": "JabraEvolve240s_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -61,10 +61,10 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Jabra.DeviceManager/jabra_Evolve2_40": {
+    "/subscriptions/{subscriptionId}/providers/Jabra.DeviceManager/jabraEvolve240": {
       "get": {
         "description": "Returns list of Jabra_Evolve2_40.",
-        "operationId": "JabraEvolve240_ListBySubscription",
+        "operationId": "JabraEvolve240s_ListBySubscription",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -93,10 +93,10 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Jabra.DeviceManager/jabra_Evolve2_40/{deviceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Jabra.DeviceManager/jabraEvolve240/{deviceName}": {
       "get": {
         "description": "Returns Jabra_Evolve2_40 resource for a given name.",
-        "operationId": "JabraEvolve240_Get",
+        "operationId": "JabraEvolve240s_Get",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -131,7 +131,7 @@
       },
       "put": {
         "description": "Create or update Jabra_Evolve2_40 resource.",
-        "operationId": "JabraEvolve240_CreateAndUpdate",
+        "operationId": "JabraEvolve240s_CreateAndUpdate",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -179,7 +179,7 @@
       },
       "patch": {
         "description": "Update Jabra_Evolve2_40 resource.",
-        "operationId": "JabraEvolve240_Update",
+        "operationId": "JabraEvolve240s_Update",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -217,7 +217,7 @@
       },
       "delete": {
         "description": "Deletes the Jabra_Evolve2_40.",
-        "operationId": "JabraEvolve240_Delete",
+        "operationId": "JabraEvolve240s_Delete",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -252,10 +252,10 @@
         "x-ms-long-running-operation": true
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Jabra.DeviceManager/jabra_Evolve2_40/{deviceName}/scheduleFirmwareUpdate": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Jabra.DeviceManager/jabraEvolve240/{deviceName}/scheduleFirmwareUpdate": {
       "post": {
         "description": "This command schedules a firmware update of the Jabra_Evolve2_40 device..",
-        "operationId": "JabraEvove240_ScheduleFirmwareUpdate",
+        "operationId": "JabraEvove240s_ScheduleFirmwareUpdate",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
@@ -521,7 +521,7 @@
     "/providers/Jabra.DeviceManager/operations": {
       "get": {
         "description": "Returns list of operations.",
-        "operationId": "Operation_List",
+        "operationId": "Jabra_ListOperations",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
