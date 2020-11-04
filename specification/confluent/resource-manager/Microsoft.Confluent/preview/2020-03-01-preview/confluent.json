@@ -90,11 +90,6 @@
                 "$ref": "#/parameters/SubscriptionIdParameter"
               }
             ],
-            {
-              "in": "body",
-              "name": "body",
-              "description": "Agreements Terms resource"
-            },
             "responses": {
               "200": {
                 "description": "Success"
