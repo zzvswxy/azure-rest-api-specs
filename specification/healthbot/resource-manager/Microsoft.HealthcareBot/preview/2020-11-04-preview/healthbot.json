@@ -297,8 +297,6 @@
               "$ref": "#/definitions/ValidationResult"
             }
           },
-          "204": {}
-          },
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
