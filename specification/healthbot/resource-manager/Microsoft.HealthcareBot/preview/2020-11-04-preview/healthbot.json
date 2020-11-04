@@ -79,7 +79,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBotsDev/{resourceName}/ResourceCreationValidate": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/ResourceCreationValidate": {
       "post": {
         "operationId": "resource_creationValidate",
         "x-ms-examples": {
@@ -127,7 +127,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBotsDev/{resourceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}": {
       "put": {
         "operationId": "create_bot",
         "x-ms-examples": {
@@ -306,7 +306,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBotsDev": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a resource group",
         "operationId": "Bots_ListByResourceGroup",
@@ -345,7 +345,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/healthcareBotsDev": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/healthBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "operationId": "Bots_List",
@@ -381,7 +381,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBotsDev/{resourceName}/ResourceCreationCompleted": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/ResourceCreationCompleted": {
       "post": {
         "operationId": "resource_creationCompleted",
         "x-ms-examples": {
