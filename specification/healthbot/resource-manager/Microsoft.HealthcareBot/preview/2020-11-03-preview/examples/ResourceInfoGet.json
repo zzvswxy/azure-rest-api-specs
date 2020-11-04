@@ -1,16 +1,9 @@
 {
   "parameters": {
     "resourceGroupName": "healthbotClient",
-    "api-version": "2020-11-04-preview",
+    "api-version": "2020-11-03-preview",
     "subscriptionId": "subid",
-    "resourceName": "MyBot",
-    "parameters": {
-      "properties": {
-        "displayName": "My Bot",
-        "planId": "free",
-        "offerId": "microsofthealthcarebot"
-      }
-    }
+    "resourceName": "MyBot"
   },
   "responses": {
     "200": {

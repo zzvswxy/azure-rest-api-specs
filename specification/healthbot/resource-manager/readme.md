@@ -42,13 +42,13 @@ input-file:
 
 ---
 
-### Tag2: package-2020-11-04-preview
+### Tag2: package-2020-11-03-preview
 
-These settings apply only when `--tag=package-2020-11-04-preview` is specified on the command line.
+These settings apply only when `--tag=package-2020-11-03-preview` is specified on the command line.
 
-```yaml $(tag) == 'package-2020-11-04-preview'
+```yaml $(tag) == 'package-2020-11-03-preview'
 input-file:
-  - Microsoft.HealthcareBot/preview/2020-11-04-preview/healthbot.json
+  - Microsoft.HealthcareBot/preview/2020-11-03-preview/healthbot.json
 ```
 
 ---
