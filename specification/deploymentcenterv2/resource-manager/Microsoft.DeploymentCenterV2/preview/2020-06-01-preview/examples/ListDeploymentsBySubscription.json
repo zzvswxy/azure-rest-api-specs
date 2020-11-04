@@ -1,0 +1,52 @@
+{
+    "parameters": {
+        "subscriptionId": "{subscriptionId}",
+        "api-version": "2020-06-01-preview"
+      },
+    "responses": {
+      "200": {
+        "description": "The Deployment resources has been fetched successfully.",
+        "body": {
+          "value": [
+            {
+                "id": "/subscriptions/{subscriptionId}/providers/Microsoft.DeploymentCenterV2/deploymentsv2/myDeployment",
+                "name": "myDeployment",
+                "type": "Microsoft.DeploymentCenterV2/deploymentsv2",
+                "location": "South India",
+                "properties": {
+                  "targetResource": {
+                    "targetResourceId": "dummy",
+                    "targetResourceType": "dummy",
+                    "targetResourceDataProperties": {
+                      "namespace": "dummy"
+                    }
+                  },
+                  "deployer": {
+                    "deployerType": "dummy",
+                    "deployerProperties": {
+                      "provider": "dummy",
+                      "workflowId": "dummy",
+                      "workflowRunId": "dummy",
+                      "workflowRunproperties": {
+                      }
+                    }
+                  },
+                  "resourceChange": {
+                    "resourceChangeType": "dummy",
+                    "targetResourceDataProperties": {
+                      "ArmDeploymentId": "dummy",
+                      "ArmPropertyChanges": "dummy",
+                      "DataPropertyChanges": "dummy"
+                    }
+                  },
+                  "status": "Succeeded",
+                  "startedAt": "2020-10-29T09:42:52.858948",
+                  "finishedAt": "2020-10-29T09:42:52.858948"
+                }
+            }
+          ]
+        }
+      }
+    }
+  }
+  
