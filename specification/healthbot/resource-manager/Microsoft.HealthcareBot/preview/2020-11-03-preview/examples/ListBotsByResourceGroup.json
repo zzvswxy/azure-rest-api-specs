@@ -2,7 +2,7 @@
   "parameters": {
     "subscriptionId": "subscription-id",
     "resourceGroupName": "OneResourceGroupName",
-    "api-version": "2020-11-04-preview"
+    "api-version": "2020-11-03-preview"
   },
   "responses": {
     "200": {
