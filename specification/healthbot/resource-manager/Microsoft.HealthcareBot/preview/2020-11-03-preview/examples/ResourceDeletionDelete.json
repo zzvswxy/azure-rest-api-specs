@@ -10,6 +10,11 @@
       "body": {
         "status": "OK"
       }
+    },
+    "204": {
+      "body": {
+        "status": "OK"
+      }
     }
   }
 }
