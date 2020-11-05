@@ -569,8 +569,7 @@
         },
         "location": {
           "description": "Location of the resource.",
-          "type": "string",
-          "readOnly": false
+          "type": "string"
         },
         "tags": {
           "description": "resource tags.",
@@ -579,11 +578,6 @@
           "additionalProperties": {
             "type": "string"
           }
-        },
-        "extendedLocation": {
-          "description": "The extended locations.",
-          "type": "object",
-          "readOnly": false
         }
       },
       "x-ms-azure-resource": true
@@ -605,12 +599,24 @@
         }
       }
     },
+    "ExtendedLocations": {
+      "description": "An extended location.",
+      "properties": {
+        "extendedLocation": {
+          "description": "The extended locations.",
+          "type": "object"
+        }
+      }
+    },
     "JabraEvolve240": {
       "type": "object",
       "description": "The JabraEvolve240 resource.",
        "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
+        },
+        {
+          "$ref": "#/definitions/ExtendedLocations"
         }
       ],
       "properties":{
@@ -683,12 +689,35 @@
     "Thermostat": {
       "type": "object",
       "description": "The thermostat resource.",
-       "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
       "properties":{
+        "id": {
+          "description": "Azure resource Id.",
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "description": "Azure resource name.",
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "description": "Azure resource type.",
+          "type": "string",
+          "readOnly": true
+        },
+        "location": {
+          "description": "Location of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
+        "tags": {
+          "description": "resource tags.",
+          "type": "object",
+          "readOnly": false,
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "properties": {
           "type":"object",
           "description":"The properties",
