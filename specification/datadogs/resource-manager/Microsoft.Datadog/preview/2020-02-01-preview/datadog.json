@@ -1062,8 +1062,8 @@
         }
     },
     "definitions": {
-      "AgreementProperties": {
-        "description": "Terms properties for Marketplace and Datadog.",
+      "DatadogAgreementProperties": {
+        "description": "Terms properties.",
         "type": "object",
         "properties": {
           "publisher": {
@@ -1101,30 +1101,31 @@
           }
         }
       },
-      "AgreementTerms": {
-        "description": "Agreement Terms definition",
+      "DatadogAgreementResource": {
         "type": "object",
         "properties": {
           "id": {
-            "description": "The id of agreement resource.",
-            "type": "string"
+            "description": "ARM id of the resource.",
+            "type": "string",
+            "readOnly": true
           },
           "name": {
-            "description": "The name of the agreement.",
-            "type": "string"
+            "description": "Name of the agreement.",
+            "type": "string",
+            "readOnly": true
           },
           "type": {
-            "description": "The type of the agreement.",
-            "type": "string"
+            "description": "The type of the resource.",
+            "type": "string",
+            "readOnly": true
           },
           "properties": {
-            "$ref": "#/definitions/AgreementProperties",
-            "description": "Represents the properties of the resource.",
-            "x-ms-client-flatten": true
+            "$ref": "#/definitions/DatadogAgreementProperties",
+            "description": "Represents the properties of the resource."
           }
         }
       },
-      "AgreementTermsListResponse": {
+      "DatadogAgreementResourceListResponse": {
         "description": "Response of a list operation.",
         "type": "object",
         "properties": {
@@ -1132,7 +1133,7 @@
             "description": "Results of a list operation.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/AgreementTerms"
+              "$ref": "#/definitions/DatadogAgreementResource"
             }
           },
           "nextLink": {
