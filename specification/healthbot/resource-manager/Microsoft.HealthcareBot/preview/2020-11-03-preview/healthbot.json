@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2020-10-20-preview",
+    "version": "2020-11-03-preview",
     "title": "healthbot",
     "description": "Microsoft Healthcare Bot is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.",
     "x-ms-code-generation-settings": {
@@ -79,7 +79,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationValidate": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/resourceCreationValidate": {
       "post": {
         "operationId": "resource_creationValidate",
         "x-ms-examples": {
@@ -127,7 +127,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}": {
       "put": {
         "operationId": "create_bot",
         "x-ms-examples": {
@@ -297,6 +297,9 @@
               "$ref": "#/definitions/ValidationResult"
             }
           },
+          "204": {
+            "description": "No content."
+          },
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
@@ -306,7 +309,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a resource group",
         "operationId": "Bots_ListByResourceGroup",
@@ -345,7 +348,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/healthcareBots": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/healthBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "operationId": "Bots_List",
@@ -381,7 +384,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationCompleted": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthBots/{resourceName}/resourceCreationCompleted": {
       "post": {
         "operationId": "resource_creationCompleted",
         "x-ms-examples": {
@@ -551,10 +554,6 @@
         "offerId": {
           "type": "string",
           "description": "The offer ID of the bot."
-        },
-        "provisioningState": {
-          "type": "string",
-          "description": "Gets the provisioning state of the Healthcare bot resource."
         }
       }
     },

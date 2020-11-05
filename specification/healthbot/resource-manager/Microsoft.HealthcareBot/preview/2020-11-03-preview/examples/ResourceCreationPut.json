@@ -1,7 +1,7 @@
 {
   "parameters": {
     "resourceGroupName": "healthbotClient",
-    "api-version": "2020-10-20-preview",
+    "api-version": "2020-11-03-preview",
     "subscriptionId": "subid",
     "resourceName": "MyBot",
     "parameters": {
@@ -17,8 +17,8 @@
       "body": {
         "location": "East US",
         "name": "samplebotname",
-        "type": "Microsoft.HealthcareBot/healthcareBots",
-        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthcareBots/samplebotname",
+        "type": "Microsoft.HealthcareBot/healthBots",
+        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthBots/samplebotname",
         "properties": {
           "displayName": "My Bot",
           "planId": "free",
@@ -30,13 +30,12 @@
       "body": {
         "location": "East US",
         "name": "samplebotname",
-        "type": "Microsoft.HealthcareBot/healthcareBots",
-        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthcareBots/samplebotname",
+        "type": "Microsoft.HealthcareBot/healthBots",
+        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthBots/samplebotname",
         "properties": {
           "displayName": "My Bot",
           "planId": "free",
-          "offerId": "microsofthealthcarebot",
-          "provisioningState": "Provisioning"
+          "offerId": "microsofthealthcarebot"
         }
       }
     }
