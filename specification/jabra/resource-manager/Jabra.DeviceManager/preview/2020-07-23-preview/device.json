@@ -579,11 +579,6 @@
           "additionalProperties": {
             "type": "string"
           }
-        },
-        "extendedLocation": {
-          "description": "The extended locations.",
-          "type": "object",
-          "readOnly": false
         }
       },
       "x-ms-azure-resource": true
@@ -610,7 +605,10 @@
       "description": "The JabraEvolve240 resource.",
        "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
+        },
+        {
+          "$ref": "#/definitions/ExtendedLocations"
         }
       ],
       "properties":{
@@ -685,7 +683,10 @@
       "description": "The thermostat resource.",
        "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
+        },
+        {
+          "$ref": "#/definitions/ExtendedLocations"
         }
       ],
       "properties":{
