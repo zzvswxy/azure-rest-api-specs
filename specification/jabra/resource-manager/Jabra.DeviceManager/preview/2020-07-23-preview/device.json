@@ -579,13 +579,7 @@
           "additionalProperties": {
             "type": "string"
           }
-        }
-      },
-      "x-ms-azure-resource": true
-    },
-    "ExtendedLocations": {
-      "description": "An extended location.",
-      "properties": {
+        },
         "extendedLocation": {
           "description": "The extended locations.",
           "type": "object",
@@ -617,9 +611,6 @@
        "allOf": [
         {
           "$ref": "#/definitions/Resource"
-        },
-        {
-          "$ref": "#/definitions/ExtendedLocations"
         }
       ],
       "properties":{
@@ -695,9 +686,6 @@
        "allOf": [
         {
           "$ref": "#/definitions/Resource"
-        },
-        {
-          "$ref": "#/definitions/ExtendedLocations"
         }
       ],
       "properties":{
