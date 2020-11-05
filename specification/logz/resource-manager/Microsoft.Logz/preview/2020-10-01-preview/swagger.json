@@ -1403,18 +1403,6 @@
         }
       }
     },
-    "ResourceSku": {
-      "required": [
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Name of the SKU.",
-          "type": "string"
-        }
-      }
-    },
     "ProvisioningState": {
       "enum": [
         "Accepted",
