@@ -1753,6 +1753,7 @@
         },
         "bestCompatibleUpdateId": {
           "$ref": "#/definitions/UpdateId",
+          "x-nullable": true,
           "description": "Update identity."
         }
       },
@@ -1806,6 +1807,7 @@
         },
         "lastAttempedUpdateId": {
           "$ref": "#/definitions/UpdateId",
+          "x-nullable": true,
           "description": "Update identity."
         },
         "deploymentStatus": {
@@ -1814,6 +1816,7 @@
         },
         "installedUpdateId": {
           "$ref": "#/definitions/UpdateId",
+          "x-nullable": true,
           "description": "Update identity."
         },
         "onLatestUpdate": {
@@ -2106,7 +2109,7 @@
           "$ref": "#/definitions/UpdateId",
           "description": "Update identity."
         },
-        "isCancelled": {
+        "isCanceled": {
           "type": "boolean",
           "description": "Boolean flag indicating whether the deployment was canceled."
         },
