@@ -45,7 +45,7 @@
               "200": {
                 "description": "Success",
                 "schema": {
-                  "$ref": "#/definitions/AgreementTermsListResponse"
+                  "$ref": "#/definitions/DatadogAgreementResourceListResponse"
                 }
               },
               "default": {
@@ -65,13 +65,13 @@
             }
           }
         },
-        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/default/acceptTerms": {
-          "post": {
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Datadog/agreements/default": {
+          "put": {
             "tags": [
               "Agreements"
             ],
-            "summary": "Accept marketplace terms.",
-            "operationId": "MarketplaceAgreements_Set",
+            "summary": "Create Datadog marketplace agreement in the subscription.",
+            "operationId": "MarketplaceAgreements_Create",
             "consumes": [
               "application/json"
             ],
@@ -81,11 +81,21 @@
             "parameters": [
               {
                 "$ref": "#/parameters/SubscriptionIdParameter"
+              },
+              {
+                "in": "body",
+                "name": "body",
+                "schema": {
+                  "$ref": "#/definitions/DatadogAgreementResource"
+                }
               }
             ],
             "responses": {
               "200": {
-                "description": "Success"
+                "description": "Success",
+                "schema": {
+                  "$ref": "#/definitions/DatadogAgreementResource"
+                }
               },
               "default": {
                 "description": "Default error response.",
@@ -95,8 +105,8 @@
               }
             },
             "x-ms-examples": {
-              "MarketplaceAgreements_Set": {
-                "$ref": "./examples/MarketplaceAgreements_Set.json"
+              "MarketplaceAgreements_Create": {
+                "$ref": "./examples/MarketplaceAgreements_Create.json"
               }
             }
           }
