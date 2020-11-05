@@ -579,8 +579,7 @@
             "type": "string"
           }
         }
-      },
-      "x-ms-azure-resource": true
+      }
     },
     "JabraEvolve240Firmware": {
       "description": "Jabra Evolve2 40 firmware details.",
@@ -689,35 +688,15 @@
     "Thermostat": {
       "type": "object",
       "description": "The thermostat resource.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        },
+        {
+          "$ref": "#/definitions/ExtendedLocations"
+        }
+      ],
       "properties":{
-        "id": {
-          "description": "Azure resource Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "name": {
-          "description": "Azure resource name.",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Azure resource type.",
-          "type": "string",
-          "readOnly": true
-        },
-        "location": {
-          "description": "Location of the resource.",
-          "type": "string",
-          "readOnly": false
-        },
-        "tags": {
-          "description": "resource tags.",
-          "type": "object",
-          "readOnly": false,
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "properties": {
           "type":"object",
           "description":"The properties",
