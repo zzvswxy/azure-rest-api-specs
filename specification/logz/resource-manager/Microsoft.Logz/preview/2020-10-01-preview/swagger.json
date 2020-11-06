@@ -1606,7 +1606,7 @@
           "type": "string",
           "readOnly": true
         },
-        "sku": {
+        "planDetails": {
           "$ref": "#/definitions/PlanData"
         },
         "properties": {
