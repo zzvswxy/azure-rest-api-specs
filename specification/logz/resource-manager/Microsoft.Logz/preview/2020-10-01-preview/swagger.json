@@ -1544,7 +1544,7 @@
         "userInfo": {
           "$ref": "#/definitions/UserInfo"
         },
-        "planDetails": {
+        "planData": {
           "$ref": "#/definitions/PlanData"
         },
         "liftrResourceCategory": {
