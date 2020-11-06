@@ -1544,6 +1544,9 @@
         "userInfo": {
           "$ref": "#/definitions/UserInfo"
         },
+        "planDetails": {
+          "$ref": "#/definitions/PlanData"
+        },
         "liftrResourceCategory": {
           "$ref": "#/definitions/LiftrResourceCategories"
         },
@@ -1605,9 +1608,6 @@
           "description": "The type of the monitor resource.",
           "type": "string",
           "readOnly": true
-        },
-        "planDetails": {
-          "$ref": "#/definitions/PlanData"
         },
         "properties": {
           "$ref": "#/definitions/MonitorProperties"
