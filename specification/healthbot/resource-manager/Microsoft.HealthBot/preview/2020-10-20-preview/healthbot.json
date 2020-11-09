@@ -507,37 +507,42 @@
         }
       }
     },
-    "OperationEntityListResult": {
-      "description": "The list of healthcare bot operation response.",
+    "AvailableOperations": {
+      "description": "Available operations of the service",
       "type": "object",
       "properties": {
-        "nextLink": {
-          "description": "The link used to get the next page of operations.",
-          "type": "string"
-        },
         "value": {
-          "description": "The list of operations.",
+          "description": "Collection of available operation details",
+          "uniqueItems": false,
           "type": "array",
           "items": {
-            "$ref": "#/definitions/OperationEntity"
+            "$ref": "#/definitions/OperationDetail"
           }
+        },
+        "nextLink": {
+          "description": "URL client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     },
-    "OperationEntity": {
-      "description": "The operations supported by HealthBot Management.",
+    "OperationDetail": {
+      "description": "Operation detail payload",
       "type": "object",
       "properties": {
         "name": {
-          "description": "Operation name: {provider}/{resource}/{operation}.",
+          "description": "Name of the operation",
           "type": "string"
         },
+        "isDataAction": {
+          "description": "Indicates whether the operation is a data action",
+          "type": "boolean"
+        },
         "display": {
-          "$ref": "#/definitions/OperationDisplayInfo",
-          "description": "The operation supported by HealthBot Management."
+          "$ref": "#/definitions/OperationDisplay",
+          "description": "Display of the operation"
         },
         "origin": {
-          "description": "The origin of the operation.",
+          "description": "Origin of the operation",
           "type": "string"
         },
         "properties": {
@@ -546,24 +551,24 @@
         }
       }
     },
-    "OperationDisplayInfo": {
-      "description": "The operation supported by Healthcare Bot Management.",
+    "OperationDisplay": {
+      "description": "Operation display payload",
       "type": "object",
       "properties": {
-        "description": {
-          "description": "The description of the operation.",
-          "type": "string"
-        },
-        "operation": {
-          "description": "The action that users can perform, based on their permission level.",
-          "type": "string"
-        },
         "provider": {
-          "description": "Service provider: Microsoft Healthcare Bot.",
+          "description": "Resource provider of the operation",
           "type": "string"
         },
         "resource": {
-          "description": "Resource on which the operation is performed.",
+          "description": "Resource of the operation",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Localized friendly name for the operation",
+          "type": "string"
+        },
+        "description": {
+          "description": "Localized friendly description for the operation",
           "type": "string"
         }
       }
