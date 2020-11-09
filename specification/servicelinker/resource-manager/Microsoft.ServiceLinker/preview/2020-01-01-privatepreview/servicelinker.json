@@ -32,7 +32,7 @@
         "description": "Returns list of Linkers.",
         "operationId": "linker_List",
         "x-ms-examples": {
-          "DeleteLink": {
+          "LinkList": {
             "$ref": "./examples/LinkList.json"
           }
         },
@@ -68,7 +68,7 @@
         "description": "Returns Linker resource for a given name.",
         "operationId": "linker_Get",
         "x-ms-examples": {
-          "DeleteLink": {
+          "Link": {
             "$ref": "./examples/Link.json"
           }
         },
@@ -103,7 +103,7 @@
         "operationId": "Linker_CreateAndUpdate",
         "x-ms-long-running-operation":true,
         "x-ms-examples": {
-          "DeleteLink": {
+          "PutLink": {
             "$ref": "./examples/PutLink.json"
           }
         },
@@ -236,9 +236,6 @@
         ],
         "operationId": "Operations_List",
         "description": "Lists the available ServiceLinker REST API operations.",
-        "externalDocs": {
-          "url": "https://docs.microsoft.com/en-us/rest/api/servicelinker/"
-        },
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -480,6 +477,7 @@
     },
     "OperationListResult": {
       "description": "The list of servicelinker operations and a URL link to get the next set of results.",
+      "type": "object",
       "properties": {
         "value": {
           "description": "The list of servicelinker operations supported by the Microsoft.ServiceLinker resource provider.",
