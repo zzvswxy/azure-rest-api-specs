@@ -102,6 +102,9 @@
         "description": "Create or update linker resource.",
         "operationId": "Linker_CreateAndUpdate",
         "x-ms-long-running-operation":true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
           "PutLink": {
             "$ref": "./examples/PutLink.json"
@@ -128,8 +131,17 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/LinkerResource"
+            }
+          },
           "201": {
-            "description": "Long running operation."
+            "description": "Long running operation.",
+            "schema": {
+              "$ref": "#/definitions/LinkerResource"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -240,6 +252,12 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/OperationListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -469,6 +487,10 @@
         "name": {
           "type": "string",
           "description": "Name of the operation"
+        },
+        "isDataAction": {
+          "description": "Indicates whether the operation is a data action",
+          "type": "boolean"
         },
         "display": {
           "type": "object",
