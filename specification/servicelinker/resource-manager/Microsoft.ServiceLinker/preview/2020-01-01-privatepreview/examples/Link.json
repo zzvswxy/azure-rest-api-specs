@@ -1,22 +1,19 @@
 {
   "parameters": {
-    "api-version": "2020-07-01-preview",
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "resourceGroupName": "myResourceGroup",
-    "linkName": "linkName"
+    "api-version": "2020-01-01-privatepreview",
+    "resourceUri": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+    "linkerName": "linkName"
   },
   "responses": {
     "200": {
       "body": {
-        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.ServiceLinker/links/linkName",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName",
         "name": "linkName",
         "type": "Microsoft.ServiceLinker/links",
         "properties": {
-          "provisioningState": "Succeeded",
           "authInfo": {
             "authType": "secret"
           },
-          "sourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
           "targetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
           "sourceConfigurations": [
             {
@@ -26,9 +23,6 @@
               }
             }
           ]
-        },
-        "systemData": {
-          "createdAt": "2020-07-12T22:05:09Z"
         }
       }
     }
