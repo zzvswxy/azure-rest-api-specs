@@ -128,13 +128,7 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/LinkerResource"
-            }
-          },
-          "202": {
+          "201": {
             "description": "Long running operation."
           },
           "default": {
@@ -247,12 +241,6 @@
             "schema": {
               "$ref": "#/definitions/OperationListResult"
             }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
           }
         },
         "x-ms-pageable": {
@@ -331,7 +319,7 @@
       "type": "object",
       "properties": {
         "nextLink": {
-          "description": "The linker used to get the next page of Linker list.",
+          "description": "The link used to get the next page of Linker list.",
           "type": "string"
         },
         "value": {
@@ -472,6 +460,37 @@
         "authType": {
           "description": "The authentication type.",
           "$ref": "#/definitions/AuthType"
+        }
+      }
+    },
+    "Operation": {
+      "description": "Operation provided by provider",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the operation"
+        },
+        "display": {
+          "type": "object",
+          "description": "Properties of the operation",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "Provider name"
+            },
+            "resource": {
+              "type": "string",
+              "description": "Resource name"
+            },
+            "operation": {
+              "type": "string",
+              "description": "Operation name"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of the operation"
+            }
+          }
         }
       }
     },
