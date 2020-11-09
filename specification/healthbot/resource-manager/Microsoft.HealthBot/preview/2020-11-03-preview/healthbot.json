@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2020-10-20-preview",
+    "version": "2020-11-03-preview",
     "title": "healthbot",
     "description": "Microsoft Healthcare Bot is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.",
     "x-ms-code-generation-settings": {
@@ -37,7 +37,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/checkNameAvailability": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthBot/checkNameAvailability": {
       "post": {
         "description": "Check whether a bot name is available.",
         "operationId": "Bots_GetCheckNameAvailability",
@@ -79,7 +79,55 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthBot/healthBots/{resourceName}/resourceCreationValidate": {
+      "post": {
+        "operationId": "resource_creationValidate",
+        "x-ms-examples": {
+          "BatchAccountDelete": {
+            "$ref": "./examples/ResourceCreationValidatePost.json"
+          }
+        },
+        "description": "Validates a name of a new Healthcare Bot. Name must not collide with names of bot registrations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            },
+            "description": "The parameters to provide for the created bot."
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If resource name passes or fails the validation, the service should return 200.",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthBot/healthBots/{resourceName}": {
       "put": {
         "operationId": "create_bot",
         "x-ms-examples": {
@@ -249,6 +297,9 @@
               "$ref": "#/definitions/ValidationResult"
             }
           },
+          "204": {
+            "description": "No content."
+          },
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
@@ -258,7 +309,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthBot/healthBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a resource group",
         "operationId": "Bots_ListByResourceGroup",
@@ -297,7 +348,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareBot/healthcareBots": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.HealthBot/healthBots": {
       "get": {
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "operationId": "Bots_List",
@@ -333,12 +384,60 @@
         }
       }
     },
-    "/providers/Microsoft.HealthcareBot/operations": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthBot/healthBots/{resourceName}/resourceCreationCompleted": {
+      "post": {
+        "operationId": "resource_creationCompleted",
+        "x-ms-examples": {
+          "BatchAccountDelete": {
+            "$ref": "./examples/ResourceCreationCompletedPost.json"
+          }
+        },
+        "description": "Complete Healthcare bot creation",
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Bot"
+            },
+            "description": "The parameters to provide for the created bot."
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If resource creation was successful, the service should return 200.",
+            "schema": {
+              "$ref": "#/definitions/ValidationResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.HealthBot/operations": {
       "get": {
         "tags": [
           "Operations"
         ],
-        "description": "Lists all the available HealthcareBot operations.",
+        "description": "Lists all the available HealthBot operations.",
         "operationId": "Operations_List",
         "x-ms-examples": {
           "Get Operations": {
@@ -390,13 +489,9 @@
       "description": "The response body returned for a request to check availability of a bot name.",
       "type": "object",
       "properties": {
-        "nameAvailable": {
-          "description": "indicates if the bot name is valid and available.",
+        "valid": {
+          "description": "indicates if the bot name is valid.",
           "type": "boolean"
-        },
-        "reason": {
-          "description": "Reason for the result",
-          "type": "string"
         },
         "message": {
           "description": "additional message from server",
@@ -459,10 +554,6 @@
         "offerId": {
           "type": "string",
           "description": "The offer ID of the bot."
-        },
-        "provisioningState": {
-          "type": "string",
-          "description": "Gets the provisioning state of the Healthcare bot resource."
         }
       }
     },
@@ -522,7 +613,7 @@
       }
     },
     "OperationEntity": {
-      "description": "The operations supported by HealthcareBot Management.",
+      "description": "The operations supported by HealthBot Management.",
       "type": "object",
       "properties": {
         "name": {
@@ -531,7 +622,7 @@
         },
         "display": {
           "$ref": "#/definitions/OperationDisplayInfo",
-          "description": "The operation supported by HealthcareBot Management."
+          "description": "The operation supported by HealthBot Management."
         },
         "origin": {
           "description": "The origin of the operation.",
