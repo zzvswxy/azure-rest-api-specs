@@ -633,8 +633,8 @@
           "type": "string"
         },
         "properties": {
-          "$ref": "#/definitions/OperationProperties",
-          "description": "Properties of the operation"
+          "description": "Additional properties.",
+          "type": "object"
         }
       }
     },
