@@ -116,8 +116,7 @@
             "Unknown",
             "Management",
             "Wan",
-            "Lan",
-            "Internal"
+            "Lan"
           ],
           "x-ms-enum": {
             "name": "VMSwitchType",
@@ -217,6 +216,7 @@
         },
         "customDataRequired": {
           "type": "boolean",
+          "default": true,
           "description": "Indicates if custom data is required to deploy this role."
         }
       },

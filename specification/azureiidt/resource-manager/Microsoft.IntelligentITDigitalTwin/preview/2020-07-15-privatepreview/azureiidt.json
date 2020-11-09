@@ -120,7 +120,7 @@
             "schema": {
               "$ref": "#/definitions/ITDigitalTwin"
             },
-            "description": "Parameters supplied to the Update IT Digial Twin operation."
+            "description": "Parameters supplied to the Update IT Digital Twin operation."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -326,7 +326,7 @@
         },
         "x-ms-examples": {
           "List all it digital twins in a subscription.": {
-            "$ref": "./examples/ListSubscriptionITDigialTwins.json"
+            "$ref": "./examples/ListSubscriptionITDigitalTwins.json"
           }
         }
       }
@@ -363,6 +363,56 @@
         "x-ms-examples": {
           "List all it digital twins in a subscription.": {
             "$ref": "./examples/ListOperations.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelligentITDigitalTwin/digitalTwins/{iidtName}/checkStorage": {
+      "post": {
+        "tags": [
+          "ITDigitalTwins"
+        ],
+        "operationId": "IDTStorage_Post",
+        "description": "The operation to return IT Digital Twins centralized storage account info.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "iidtName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the it digital twin."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StorageMetaData"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create an IT Digital Twin.": {
+            "$ref": "./examples/PostAStorage.json"
           }
         }
       }
@@ -421,7 +471,13 @@
         },
         "provisioningState": {
           "description": "The provisioning state.",
-          "enum": [ "Succeeded", "Created", "Configured", "Deployed", "Failed" ],
+          "enum": [
+            "Succeeded",
+            "Created",
+            "Configured",
+            "Deployed",
+            "Failed"
+          ],
           "type": "string",
           "readOnly": true,
           "x-ms-enum": {
@@ -431,6 +487,10 @@
         },
         "adlsId": {
           "description": "Link to the ADLS account.",
+          "type": "string"
+        },
+        "configuration": {
+          "description": "configuration for the digital twin project.",
           "type": "string"
         }
       },
@@ -529,6 +589,27 @@
           "description": "URL to get the next set of operation list results if there are any."
         }
       }
+    },
+    "StorageMetaData": {
+      "properties": {
+        "name": {
+          "description": "Name of centralized storage account",
+          "type": "string",
+          "x-nullable": true
+        },
+        "url": {
+          "description": "Url of centralized storage account",
+          "type": "string",
+          "x-nullable": true
+        },
+        "connectionString": {
+          "x-ms-secret": true,
+          "description": "Connection string to the centralized storage account to get ",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "description": "Describes storage account for idt."
     }
   },
   "parameters": {

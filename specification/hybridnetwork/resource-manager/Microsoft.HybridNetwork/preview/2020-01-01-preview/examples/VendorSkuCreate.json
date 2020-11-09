@@ -121,9 +121,7 @@
                     "osType": "Linux",
                     "name": "vhdName",
                     "diskSizeGB": 30,
-                    "vhd": {
-                      "uri": "https://contoso.net/link/vnd.vhd?sp=rl&st=2020-10-08T20:38:19Z&se=2020-12-09T19:38:00Z&sv=2019-12-12&sr=b&sig=7BM2f4yOw%3D"
-                    }
+                    "vhd": {}
                   },
                   "dataDisks": [
                     {
@@ -215,9 +213,7 @@
                     "osType": "Linux",
                     "name": "vhdName",
                     "diskSizeGB": 30,
-                    "vhd": {
-                      "uri": "https://contoso.net/link/vnd.vhd?sp=rl&st=2020-10-08T20:38:19Z&se=2020-12-09T19:38:00Z&sv=2019-12-12&sr=b&sig=7BM2f4yOw%3D"
-                    }
+                    "vhd": {}
                   },
                   "dataDisks": [
                     {

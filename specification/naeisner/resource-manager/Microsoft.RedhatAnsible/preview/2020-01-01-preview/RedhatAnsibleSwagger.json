@@ -105,6 +105,45 @@
             "description": "Deletes the ansibletowers resource."
           }
         }
+      },
+      "patch": {
+        "operationId": "ansibletowers_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ansibletowersNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "ansibletowers",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ansibletowersPatch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the ansibletowers resource.",
+            "schema": {
+              "$ref": "#/definitions/ansibletowers"
+            }
+          },
+          "201": {
+            "description": "Updates the ansibletowers resource.",
+            "schema": {
+              "$ref": "#/definitions/ansibletowers"
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedhatAnsible/ansibletowers": {
@@ -216,6 +255,19 @@
     }
   },
   "definitions": {
+    "ansibletowersPatch": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        }
+      },
+      "description": "The cassandraDataCenters resource patch definition."
+    },
     "ansiblecondition": {
       "type": "object",
       "properties": {
@@ -258,65 +310,27 @@
     },
     "ansibletowersProperties": {
       "properties": {
-        "deployment_type": {
-          "type": "string",
-          "pattern": "^(tower|awx)(-)?.*$"
-        },
-        "tower_ingress_type": {
+        "deploymentType": {
           "type": "string"
         },
-        "tower_task_privileged": {
-          "type": "boolean"
-        },
-        "tower_hostname": {
+        "ingressType": {
           "type": "string"
         },
-        "tower_secret_key": {
+        "hostname": {
           "type": "string"
         },
-        "tower_broadcast_websocket_secret": {
+        "secretKey": {
+          "x-ms-secret": true,
           "type": "string"
         },
-        "tower_admin_user": {
+        "user": {
           "type": "string"
         },
-        "tower_admin_email": {
+        "email": {
           "type": "string"
         },
-        "tower_admin_password": {
-          "type": "string"
-        },
-        "tower_task_image": {
-          "type": "string"
-        },
-        "tower_web_image": {
-          "type": "string"
-        },
-        "tower_web_mem_request": {
-          "type": "string"
-        },
-        "tower_web_cpu_request": {
-          "type": "string"
-        },
-        "tower_create_preload_data": {
-          "type": "boolean"
-        },
-        "tower_memcached_image": {
-          "type": "string"
-        },
-        "tower_redis_image": {
-          "type": "string"
-        },
-        "tower_postgres_pass": {
-          "type": "string"
-        },
-        "tower_postgres_image": {
-          "type": "string"
-        },
-        "tower_postgres_storage_request": {
-          "type": "string"
-        },
-        "tower_postgres_storage_class": {
+        "password": {
+          "x-ms-secret": true,
           "type": "string"
         },
         "provisioningState": {

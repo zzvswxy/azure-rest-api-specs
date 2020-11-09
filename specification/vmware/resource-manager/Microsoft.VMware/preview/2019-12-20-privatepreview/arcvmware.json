@@ -2255,7 +2255,6 @@
     "ResourcePoolProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "arcZoneId",
         "moRefId",
         "vCenterId"
       ],
@@ -2563,8 +2562,7 @@
     "VCenterProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "fqdn",
-        "arcZoneId"
+        "fqdn"
       ],
       "type": "object",
       "properties": {
@@ -2718,6 +2716,31 @@
           "type": "string",
           "readOnly": true
         },
+        "status": {
+          "description": "Status of the condition.",
+          "type": "string",
+          "readOnly": true
+        },
+        "reason": {
+          "description": "The reason for the condition's status.",
+          "type": "string",
+          "readOnly": true
+        },
+        "message": {
+          "description": "A human readable message indicating details about the status.",
+          "type": "string",
+          "readOnly": true
+        },
+        "severity": {
+          "description": "Severity with which to treat failures of this type of condition.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ConditionDict": {
+      "description": "Condition defines an extension to status.",
+      "properties": {
         "status": {
           "description": "Status of the condition.",
           "type": "string",
@@ -3010,10 +3033,8 @@
     "VirtualMachineProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "arcZoneId",
         "resourcePoolId",
-        "templateId",
-        "vCenterId"
+        "templateId"
       ],
       "type": "object",
       "properties": {
@@ -3096,6 +3117,13 @@
             "$ref": "#/definitions/Condition"
           },
           "readOnly": true
+        },
+        "conditionsDict": {
+          "description": "Gets or sets the Resource tags.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ConditionDict"
+          }
         },
         "provisioningState": {
           "description": "Gets or sets the provisioning state.",
@@ -3226,7 +3254,6 @@
     "VirtualMachineTemplateProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "arcZoneId",
         "moRefId",
         "vCenterId"
       ],
@@ -3393,7 +3420,6 @@
     "VirtualNetworkProperties": {
       "description": "Defines the resource properties.",
       "required": [
-        "arcZoneId",
         "moRefId",
         "vCenterId"
       ],

@@ -28,7 +28,21 @@ These are the global settings for the Azure Communication Services API.
 title: CommunicationServiceManagementClient
 openapi-type: arm
 openapi-subtype: rpaas
-tag: package-2020-08-20-alpha
+tag: package-2020-08-20-preview
+```
+
+### Tag: package-2020-08-20-preview
+
+These settings apply only when `--tag=package-2020-08-20-preview` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-08-20-preview'
+input-file:
+  - Microsoft.Communication/preview/2020-08-20-preview/CommunicationService.json
+```
+
+```yaml $(tag) == 'package-2020-08-20-preview' && $(generate-private)
+input-file:
+  - Microsoft.Communication/preview/2020-08-20-preview/CommunicationService-private.json
 ```
 
 ### Tag: package-2020-08-20-alpha
@@ -45,6 +59,19 @@ input-file:
   - Microsoft.Communication/preview/2020-08-20-alpha/CommunicationService-private.json
 ```
 
+### Tag: package-2020-08-20-beta
+
+These settings apply only when `--tag=package-2020-08-20-beta` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-08-20-beta'
+input-file:
+  - Microsoft.Communication/preview/2020-08-20-beta/CommunicationService.json
+```
+
+```yaml $(tag) == 'package-2020-08-20-beta' && $(generate-private)
+input-file:
+  - Microsoft.Communication/preview/2020-08-20-beta/CommunicationService-private.json
+```
 ---
 
 # Code Generation

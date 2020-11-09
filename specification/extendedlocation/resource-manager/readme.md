@@ -27,16 +27,16 @@ These are the global settings for the extendedLocation.
 ```yaml
 openapi-type: arm
 openapi-subtype: rpaas
-tag: package-2020-10-01-privatepreview
+tag: package-2019-10-01-privatepreview
 ```
 
-### Tag: package-2020-10-01-privatepreview
+### Tag: package-2019-10-01-privatepreview
 
-These settings apply only when `--tag=package-2020-10-01-privatepreview` is specified on the command line.
+These settings apply only when `--tag=package-2019-10-01-privatepreview` is specified on the command line.
 
-```yaml $(tag) == 'package-2020-10-01-privatepreview'
+```yaml $(tag) == 'package-2019-10-01-privatepreview'
 input-file:
-  - Microsoft.ExtendedLocation/preview/2020-10-01-privatepreview/iotlocations.json
+  - Microsoft.ExtendedLocation/preview/2019-10-01-privatepreview/iotlocations.json
 ```
 
 ---

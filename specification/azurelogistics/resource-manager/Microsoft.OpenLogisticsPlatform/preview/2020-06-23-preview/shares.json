@@ -386,6 +386,10 @@
 							"type": "string",
 							"readOnly": false
 						},
+            "shareState":{
+              "type":"string",
+              "readOnly":true
+            },
              "shareId": {
 							"type": "string",
 							"readOnly": true
@@ -394,12 +398,65 @@
 							"description": "The provisioning state of the resource.",
 							"readOnly": true,
 							"$ref": "#/definitions/ProvisioningState"
-						}
+						},
+            "accessAssignments": {
+          "type": "array",
+          "description": "Gets or sets the accessAssignments",
+          "items": {
+            "$ref": "#/definitions/AccessAssignment"
+          }
+        }
 
 					}
 				}
 			}
 		},
+        "AccessAssignment": {
+      "type": "object",
+      "properties": {
+        "actionId": {
+          "type": "string"
+        },
+        "attributeConditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AttributeCondition"
+          }
+        }
+      }
+    },
+    "AttributeCondition": {
+      "type": "object",
+      "required": [
+        "attributeMatchingScheme"
+      ],
+      "properties": {
+        "attributeName": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attributeMatchingScheme": {
+          "$ref": "#/definitions/AttributeMatchingScheme"
+        }
+      }
+    },
+    "AttributeMatchingScheme": {
+      "type": "integer",
+      "description": "",
+      "x-enumNames": [
+        "ANYOFANY",
+        "ALLOFANY"
+      ],
+      "enum": [
+        0,
+        1
+      ]
+    },
 
 		"ShareList": {
 			"description": "The list of workspace resources.",
