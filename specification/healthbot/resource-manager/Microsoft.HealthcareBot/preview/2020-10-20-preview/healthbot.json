@@ -79,54 +79,6 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationValidate": {
-      "post": {
-        "operationId": "resource_creationValidate",
-        "x-ms-examples": {
-          "BatchAccountDelete": {
-            "$ref": "./examples/ResourceCreationValidatePost.json"
-          }
-        },
-        "description": "Validates a name of a new Healthcare Bot. Name must not collide with names of bot registrations.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/resourceNameParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Bot"
-            },
-            "description": "The parameters to provide for the created bot."
-          },
-          {
-            "$ref": "#/parameters/apiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "If resource name passes or fails the validation, the service should return 200.",
-            "schema": {
-              "$ref": "#/definitions/ValidationResult"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
-      }
-    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}": {
       "put": {
         "operationId": "create_bot",
@@ -381,54 +333,6 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareBot/healthcareBots/{resourceName}/ResourceCreationCompleted": {
-      "post": {
-        "operationId": "resource_creationCompleted",
-        "x-ms-examples": {
-          "BatchAccountDelete": {
-            "$ref": "./examples/ResourceCreationCompletedPost.json"
-          }
-        },
-        "description": "Complete Healthcare bot creation",
-        "parameters": [
-          {
-            "$ref": "#/parameters/subscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/resourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/resourceNameParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Bot"
-            },
-            "description": "The parameters to provide for the created bot."
-          },
-          {
-            "$ref": "#/parameters/apiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "If resource creation was successful, the service should return 200.",
-            "schema": {
-              "$ref": "#/definitions/ValidationResult"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed",
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
-      }
-    },
     "/providers/Microsoft.HealthcareBot/operations": {
       "get": {
         "tags": [
@@ -486,9 +390,13 @@
       "description": "The response body returned for a request to check availability of a bot name.",
       "type": "object",
       "properties": {
-        "valid": {
-          "description": "indicates if the bot name is valid.",
+        "nameAvailable": {
+          "description": "indicates if the bot name is valid and available.",
           "type": "boolean"
+        },
+        "reason": {
+          "description": "Reason for the result",
+          "type": "string"
         },
         "message": {
           "description": "additional message from server",
