@@ -357,7 +357,7 @@
           "200": {
             "description": "OK.",
             "schema": {
-              "$ref": "#/definitions/OperationEntityListResult"
+              "$ref": "#/definitions/AvailableOperations"
             }
           },
           "default": {
@@ -367,7 +367,6 @@
             }
           }
         },
-        "deprecated": false,
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
