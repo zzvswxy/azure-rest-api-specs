@@ -511,7 +511,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get the list of device classes under management.",
+        "description": "Gets a list of all device classes (unique combinations of device manufacturer and model) for all ADU-enabled devices connected to ADU.",
         "operationId": "Devices_GetAllDeviceClasses",
         "x-ms-examples": {
           "Devices_GetAllDeviceClasses": {
@@ -525,7 +525,7 @@
         ],
         "responses": {
           "200": {
-            "description": "All managed device classes.",
+            "description": "All device classes.",
             "schema": {
               "$ref": "#/definitions/PageableListOfDeviceClasses"
             }
@@ -541,7 +541,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get device class details.",
+        "description": "Gets the properties of a device class.",
         "operationId": "Devices_GetDeviceClass",
         "x-ms-examples": {
           "Devices_GetDeviceClass": {
@@ -558,7 +558,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Device class details.",
+            "description": "The device class properties.",
             "schema": {
               "$ref": "#/definitions/DeviceClass"
             }
@@ -575,7 +575,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get the list of devices in a device class.",
+        "description": "Gets a list of device identifiers in a device class.",
         "operationId": "Devices_GetDeviceClassDeviceIds",
         "x-ms-examples": {
           "Devices_GetDeviceClassDeviceIds": {
@@ -592,7 +592,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of device identifiers in the given device class.",
+            "description": "All device identifiers in the specified device class.",
             "schema": {
               "$ref": "#/definitions/PageableListOfStrings"
             }
@@ -612,7 +612,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get installable updates for a device class.",
+        "description": "Gets a list of installable updates for a device class.",
         "operationId": "Devices_GetDeviceClassInstallableUpdates",
         "x-ms-examples": {
           "Devices_GetDeviceClassInstallableUpdates": {
@@ -629,7 +629,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of update identifiers.  Returns empty list in case of no installable updates",
+            "description": "The installable update identifiers.  Returns empty list in case of no installable updates",
             "schema": {
               "$ref": "#/definitions/PageableListOfUpdateIds"
             }
@@ -649,7 +649,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get list of devices under management.",
+        "description": "Gets a list of ADU-enabled devices connected to ADU.",
         "operationId": "Devices_GetAllDevices",
         "x-ms-examples": {
           "Devices_GetAllDevices": {
@@ -670,7 +670,7 @@
         ],
         "responses": {
           "200": {
-            "description": "All managed devices.",
+            "description": "All ADU-enabled devices connected to ADU.",
             "schema": {
               "$ref": "#/definitions/PageableListOfDevices"
             }
@@ -687,7 +687,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get device details.",
+        "description": "Gets the device properties and latest deployment status for an ADU device.",
         "operationId": "Devices_GetDevice",
         "x-ms-examples": {
           "Devices_GetDevice": {
@@ -704,7 +704,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Device class details.",
+            "description": "The device properties and latest deployment status.",
             "schema": {
               "$ref": "#/definitions/Device"
             }
@@ -721,7 +721,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get update compliance information.",
+        "description": "Gets the breakdown of how many devices are on their latest update, have new updates available, or are in progress receiving new updates.",
         "operationId": "Devices_GetUpdateCompliance",
         "x-ms-examples": {
           "Devices_GetUpdateCompliance": {
@@ -735,7 +735,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Update compliance information.",
+            "description": "The count of devices that have the latest update, have updates available, or are in progress receiving new updates.",
             "schema": {
               "$ref": "#/definitions/UpdateCompliance"
             }
@@ -748,7 +748,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get list of all device tags.",
+        "description": "Gets a list of available ADU group device tags for all ADU-enabled devices connected to ADU.",
         "operationId": "Devices_GetAllDeviceTags",
         "x-ms-examples": {
           "Devices_GetAllDeviceTags": {
@@ -762,7 +762,7 @@
         ],
         "responses": {
           "200": {
-            "description": "All device tags.",
+            "description": "Available ADU group device tags for all ADU-enabled devices connected to ADU.",
             "schema": {
               "$ref": "#/definitions/PageableListOfDeviceTags"
             }
@@ -778,7 +778,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get device tag details.",
+        "description": "Gets a count of how many devices have a device tag.",
         "operationId": "Devices_GetDeviceTag",
         "x-ms-examples": {
           "Devices_GetDeviceTag": {
@@ -795,7 +795,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Device tag details.",
+            "description": "The count of devices with this device tag.",
             "schema": {
               "$ref": "#/definitions/DeviceTag"
             }
@@ -812,7 +812,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get list of groups under management.",
+        "description": "Gets a list of all device groups.",
         "operationId": "Devices_GetAllGroups",
         "x-ms-examples": {
           "Devices_GetAllGroups": {
@@ -826,7 +826,7 @@
         ],
         "responses": {
           "200": {
-            "description": "All managed groups.",
+            "description": "The device groups.",
             "schema": {
               "$ref": "#/definitions/PageableListOfGroups"
             }
@@ -842,7 +842,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get group details.",
+        "description": "Gets the properties of a group.",
         "operationId": "Devices_GetGroup",
         "x-ms-examples": {
           "Devices_GetGroup": {
@@ -859,7 +859,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Group details.",
+            "description": "The group properties.",
             "schema": {
               "$ref": "#/definitions/Group"
             }
@@ -874,7 +874,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Create or update group.",
+        "description": "Create or update a device group.",
         "operationId": "Devices_CreateOrUpdateGroup",
         "x-ms-examples": {
           "Devices_CreateOrUpdateGroup": {
@@ -895,12 +895,12 @@
             "schema": {
               "$ref": "#/definitions/Group"
             },
-            "description": "The group metadata."
+            "description": "The group properties."
           }
         ],
         "responses": {
           "200": {
-            "description": "Group details.",
+            "description": "The group properties.",
             "schema": {
               "$ref": "#/definitions/Group"
             }
@@ -919,7 +919,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Remove group.",
+        "description": "Deletes a device group.",
         "operationId": "Devices_DeleteGroup",
         "x-ms-examples": {
           "Devices_DeleteGroup": {
@@ -949,7 +949,7 @@
         "tags": [
           "Device management"
         ],
-        "description": "Get group update compliance information.",
+        "description": "Get group update compliance information such as how many devices are on their latest update, how many need new updates, and how many are in progress on receiving a new update.",
         "operationId": "Devices_GetGroupUpdateCompliance",
         "x-ms-examples": {
           "Devices_GetGroupUpdateCompliance": {
@@ -966,7 +966,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Group update compliance information.",
+            "description": "The group update compliance information.",
             "schema": {
               "$ref": "#/definitions/UpdateCompliance"
             }
@@ -1028,7 +1028,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Get list of all deployments.",
+        "description": "Gets a list of deployments.",
         "operationId": "Deployments_GetAllDeployments",
         "x-ms-examples": {
           "Deployments_GetAllDeployments": {
@@ -1049,7 +1049,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of deployments.",
+            "description": "The deployments.",
             "schema": {
               "$ref": "#/definitions/PageableListOfDeployments"
             }
@@ -1066,7 +1066,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Get deployment details.",
+        "description": "Gets the properties of a deployment.",
         "operationId": "Deployments_GetDeployment",
         "x-ms-examples": {
           "Deployments_GetDeployment": {
@@ -1083,7 +1083,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Deployment details.",
+            "description": "The deployment properties.",
             "schema": {
               "$ref": "#/definitions/Deployment"
             }
@@ -1098,7 +1098,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Create or update active deployment.",
+        "description": "Creates or updates a deployment.",
         "operationId": "Deployments_CreateOrUpdateDeployment",
         "x-ms-examples": {
           "Deployments_CreateOrUpdateDeployment": {
@@ -1119,12 +1119,12 @@
             "schema": {
               "$ref": "#/definitions/Deployment"
             },
-            "description": "The deployment metadata."
+            "description": "The deployment properties."
           }
         ],
         "responses": {
           "200": {
-            "description": "Deployment details.",
+            "description": "The deployment properties.",
             "schema": {
               "$ref": "#/definitions/Deployment"
             }
@@ -1139,7 +1139,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Remove deployment.",
+        "description": "Deletes a deployment.",
         "operationId": "Deployments_DeleteDeployment",
         "x-ms-examples": {
           "Deployments_DeleteDeployment": {
@@ -1170,7 +1170,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Get deployment status.",
+        "description": "Gets the status of a deployment including a breakdown of how many devices in the deployment are in progress, completed, or failed.",
         "operationId": "Deployments_GetDeploymentStatus",
         "x-ms-examples": {
           "Deployments_GetDeploymentStatus": {
@@ -1187,7 +1187,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Deployment status.",
+            "description": "The status of the deployment.",
             "schema": {
               "$ref": "#/definitions/DeploymentStatus"
             }
@@ -1204,7 +1204,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Get list of deployment device states.",
+        "description": "Gets a list of devices in a deployment along with their state. Useful for getting a list of failed devices.",
         "operationId": "Deployments_GetDeploymentDevices",
         "x-ms-examples": {
           "Deployments_GetDeploymentDevices": {
@@ -1228,7 +1228,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of deployment device states.",
+            "description": "The devices in the deployment along with their states.",
             "schema": {
               "$ref": "#/definitions/PageableListOfDeploymentDeviceStates"
             }
@@ -1251,7 +1251,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Cancel active deployment.",
+        "description": "Cancels a deployment.",
         "operationId": "Deployments_CancelDeployment",
         "x-ms-examples": {
           "Deployments_CancelOrRetryDeployment": {
@@ -1271,7 +1271,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Deployment details.",
+            "description": "The deployment properties.",
             "schema": {
               "$ref": "#/definitions/Deployment"
             }
@@ -1288,7 +1288,7 @@
         "tags": [
           "Deployment management"
         ],
-        "description": "Retry active deployment.",
+        "description": "Retries a deployment with failed devices.",
         "operationId": "Deployments_RetryDeployment",
         "x-ms-examples": {
           "Deployments_CancelOrRetryDeployment": {
@@ -1308,7 +1308,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Deployment details.",
+            "description": "The deployment properties.",
             "schema": {
               "$ref": "#/definitions/Deployment"
             }
@@ -1741,7 +1741,7 @@
       "properties": {
         "deviceClassId": {
           "type": "string",
-          "description": "Device class identity."
+          "description": "The device class identifier."
         },
         "manufacturer": {
           "type": "string",
@@ -1950,7 +1950,7 @@
         "updateId",
         "deviceCount"
       ],
-      "description": "Number of devices updatable by the update."
+      "description": "Update identifier and the number of devices for which the update is applicable."
     },
     "PageableListOfUpdatableDevices": {
       "description": "The list of updatable devices.",
@@ -1985,7 +1985,7 @@
         "tagName",
         "deviceCount"
       ],
-      "description": "Device tag details."
+      "description": "Device tag properties."
     },
     "PageableListOfDeviceTags": {
       "description": "The list of device tags.",
@@ -2146,17 +2146,17 @@
           {
             "value": "Complete",
             "name": "Complete",
-            "description": "A complete deployment including download, install, and apply commands."
+            "description": "A complete deployment including download, install, and apply actions."
           },
           {
             "value": "Download",
             "name": "Download",
-            "description": "A download-only deployment that does not include any install or apply commands."
+            "description": "A download-only deployment that does not include any install or apply actions. Not currently supported."
           },
           {
             "value": "Install",
             "name": "Install",
-            "description": "An install-only rollout that does not include any download commands, only install and complete."
+            "description": "An install-only rollout that does not include any download actions, only install and complete. Not currently supported."
           }
         ]
       },
