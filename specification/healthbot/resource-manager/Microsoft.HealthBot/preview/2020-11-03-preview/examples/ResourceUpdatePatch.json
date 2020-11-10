@@ -17,8 +17,8 @@
       "body": {
         "location": "East US",
         "name": "samplebotname",
-        "type": "Microsoft.HealthcareBot/healthBots",
-        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthcareBot/healthBots/samplebotname",
+        "type": "Microsoft.HealthBot/healthBots",
+        "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
         "properties": {
           "displayName": "My Bot",
           "planId": "free",
