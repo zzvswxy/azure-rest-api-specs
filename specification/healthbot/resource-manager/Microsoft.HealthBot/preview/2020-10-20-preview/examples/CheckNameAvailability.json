@@ -10,8 +10,9 @@
   "responses": {
     "200": {
       "body": {
-        "valid": true,
-        "message": "Name is available"
+        "nameAvailable": true,
+        "reason": "Valid",
+        "message": ""
       }
     }
   }
