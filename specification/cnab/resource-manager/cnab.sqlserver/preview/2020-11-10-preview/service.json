@@ -263,39 +263,6 @@
         }
       }
     },
-    "parameters": {
-      "subscriptionId": {
-        "name": "subscriptionId",
-        "in": "path",
-        "description": "The subscription identifier.",
-        "required": true,
-        "type": "string"
-      },
-      "api-version": {
-        "name": "api-version",
-        "in": "query",
-        "description": "The version of the API.",
-        "required": true,
-        "type": "string"
-      },
-      "resourceGroupName": {
-        "name": "resourceGroupName",
-        "in": "path",
-        "description": "The name of the resource group that contains the service.",
-        "required": true,
-        "type": "string",
-        "x-ms-parameter-location": "method"
-      },
-      "resourceName": {
-        "name": "resourceName",
-        "in": "path",
-        "description": "The ARM resource name of the service.",
-        "required": true,
-        "type": "string",
-        "x-ms-parameter-location": "method",
-        "x-comment": "validation must match #/definitions/Resource"
-      }
-    },
     "CreateorUpdateSQLServeronKubernetesRequest": {
       "title": "CreateorUpdateSQLServeronKubernetesRequest",
       "example": {
@@ -492,5 +459,38 @@
         "description": ""
       }
     ]
+  },
+  "parameters": {
+    "subscriptionId": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "The subscription identifier.",
+      "required": true,
+      "type": "string"
+    },
+    "api-version": {
+      "name": "api-version",
+      "in": "query",
+      "description": "The version of the API.",
+      "required": true,
+      "type": "string"
+    },
+    "resourceGroupName": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group that contains the service.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "resourceName": {
+      "name": "resourceName",
+      "in": "path",
+      "description": "The ARM resource name of the service.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method",
+      "x-comment": "validation must match #/definitions/Resource"
+    }
   }
 }
