@@ -1403,18 +1403,6 @@
         }
       }
     },
-    "ResourceSku": {
-      "required": [
-        "name"
-      ],
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Name of the SKU.",
-          "type": "string"
-        }
-      }
-    },
     "ProvisioningState": {
       "enum": [
         "Accepted",
@@ -1556,6 +1544,9 @@
         "userInfo": {
           "$ref": "#/definitions/UserInfo"
         },
+        "planData": {
+          "$ref": "#/definitions/PlanData"
+        },
         "liftrResourceCategory": {
           "$ref": "#/definitions/LiftrResourceCategories"
         },
@@ -1617,9 +1608,6 @@
           "description": "The type of the monitor resource.",
           "type": "string",
           "readOnly": true
-        },
-        "sku": {
-          "$ref": "#/definitions/PlanData"
         },
         "properties": {
           "$ref": "#/definitions/MonitorProperties"
