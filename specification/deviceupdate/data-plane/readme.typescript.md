@@ -7,7 +7,6 @@ Please also specify `--typescript-sdks-folder=<path to root folder of your azure
 typescript:
   azure-arm: false
   package-name: "@azure/device-update"
-  package-version: 1.0.0-beta.1
   output-folder: "$(typescript-sdks-folder)/sdk/deviceupdate/device-update"
   payload-flattening-threshold: 1
   generate-metadata: true

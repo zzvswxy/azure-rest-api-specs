@@ -6,9 +6,9 @@ Please also specify `--python-sdks-folder=<path to the root directory of your az
 ```yaml
   azure-arm: false
   license-header: MICROSOFT_MIT_SMALL_NO_CODEGEN
-  namespace: azuredeviceupdateclient
+  namespace: azure.deviceupdate
   package-name: azure-deviceupdate
-  package-version: 0.0.0.1
+  package-version: 2020-09-01-preview
   clear-output-folder: true
   add-credentials: true 
   credential-scopes: 6ee392c4-d339-4083-b04d-6b7947c6cf78/.default
