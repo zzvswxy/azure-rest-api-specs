@@ -7,7 +7,7 @@
       "body": {
         "value": [
           {
-            "name": "Microsoft.HealthcareBot/healthbot/botName/read",
+            "name": "Microsoft.HealthBot/healthbot/botName/read",
             "display": {
               "provider": "Microsoft Healthcare Bot",
               "resource": "Microsoft Healthcare Bot name availability",
