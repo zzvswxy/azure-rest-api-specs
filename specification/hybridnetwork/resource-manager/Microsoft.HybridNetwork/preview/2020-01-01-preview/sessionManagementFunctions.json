@@ -364,7 +364,7 @@
             "medium",
             "large"
           ],
-          "description": "Size of SMF (small, medium, large)",
+          "description": "Size of SMF (small, medium, large.)",
           "x-ms-enum": {
             "name": "SMF size",
             "modelAsString": true
