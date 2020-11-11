@@ -441,22 +441,11 @@
           }
         },
         "attributeMatchingScheme": {
-          "$ref": "#/definitions/AttributeMatchingScheme"
+          "type": "string"
         }
       }
     },
-    "AttributeMatchingScheme": {
-      "type": "integer",
-      "description": "",
-      "x-enumNames": [
-        "ANYOFANY",
-        "ALLOFANY"
-      ],
-      "enum": [
-        0,
-        1
-      ]
-    },
+    
 
 		"ShareList": {
 			"description": "The list of workspace resources.",
