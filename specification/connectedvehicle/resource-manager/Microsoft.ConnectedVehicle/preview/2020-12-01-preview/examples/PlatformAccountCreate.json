@@ -10,26 +10,19 @@
         "analytics": {
           "storageAccountResourceId": "sample-storage-account-id"
         },
-        "cosmosDb": {
-          "id": "sample-cosmos-db-id"
-        },
-        "extensions": {
-          "id": "sample-extensions-id"
-        },
+        "extensions": [
+          {
+            "resourceId": "sample-extensions-id"
+          }
+        ],
         "networking": {
-          "domainName": "sample-domain",
           "endpoints": {
             "mqtt": {
               "enabled": true
             },
             "iotHub": {
-              "enabled": true,
-              "rootCertificates": [ "sample-certificate" ]
+              "enabled": true
             }
-          },
-          "sslCertificates": {
-            "primary": "sample-primary-certificate",
-            "secondary": "sample-secondary-certificate"
           }
         },
         "stampLocations": [
@@ -39,8 +32,7 @@
         ]
       },
       "sku": {
-        "name": "D0",
-        "capacity": 1
+        "name": "Dedicated"
       },
       "tags": {
         "sample-key1": "sample-value1",
@@ -58,26 +50,19 @@
           "analytics": {
             "storageAccountResourceId": "sample-storage-account-id"
           },
-          "cosmosDb": {
-            "id": "sample-cosmos-db-id"
-          },
-          "extensions": {
-            "id": "sample-extensions-id"
-          },
+          "extensions": [
+            {
+              "resourceId": "sample-extensions-id"
+            }
+          ],
           "networking": {
-            "domainName": "sample-domain",
             "endpoints": {
               "mqtt": {
                 "enabled": true
               },
               "iotHub": {
-                "enabled": true,
-                "rootCertificates": [ "sample-certificate" ]
+                "enabled": true
               }
-            },
-            "sslCertificates": {
-              "primary": "sample-primary-certificate",
-              "secondary": "sample-secondary-certificate"
             }
           },
           "provisioningState": "Succeeded",
@@ -88,9 +73,7 @@
           ]
         },
         "sku": {
-          "name": "D0",
-          "tier": "Dedicated",
-          "capacity": 1
+          "name": "Dedicated"
         },
         "systemData": {
           "createdBy": "sample-user1",
@@ -116,26 +99,19 @@
           "analytics": {
             "storageAccountResourceId": "sample-storage-account-id"
           },
-          "cosmosDb": {
-            "id": "sample-cosmos-db-id"
-          },
-          "extensions": {
-            "id": "sample-extensions-id"
-          },
+          "extensions": [
+            {
+              "resourceId": "sample-extensions-id"
+            }
+          ],
           "networking": {
-            "domainName": "sample-domain",
             "endpoints": {
               "mqtt": {
                 "enabled": true
               },
               "iotHub": {
-                "enabled": true,
-                "rootCertificates": [ "sample-certificate" ]
+                "enabled": true
               }
-            },
-            "sslCertificates": {
-              "primary": "sample-primary-certificate",
-              "secondary": "sample-secondary-certificate"
             }
           },
           "provisioningState": "Accepted",
@@ -146,9 +122,7 @@
           ]
         },
         "sku": {
-          "name": "D0",
-          "tier": "Dedicated",
-          "capacity": 1
+          "name": "Dedicated"
         },
         "systemData": {
           "createdBy": "sample-user1",
