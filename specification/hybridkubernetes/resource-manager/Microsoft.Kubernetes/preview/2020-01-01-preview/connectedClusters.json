@@ -544,6 +544,10 @@
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
         },
+        "apiServerCertificate": {
+          "type": "string",
+          "description": "Base64 encoded Kubernetes API server certificate authority data"
+        },
         "aadProfile": {
           "$ref": "#/definitions/ConnectedClusterAADProfile"
         },
@@ -554,6 +558,7 @@
         },
         "totalNodeCount": {
           "readOnly": true,
+          "format": "int32",
           "type": "integer",
           "description": "Number of nodes present in the connected cluster resource"
         },
@@ -567,48 +572,41 @@
         },
         "distribution": {
           "type": "string",
-          "description": "The Kuberenetes distribution on which the agents are running",
-          "enum": [
-            "OpenShift",
-            "Rancher_RKE",
-            "Rancher_k3s",
-            "kind",
-            "GKE",
-            "EKS",
-            "AKS",
-            "AKS-HCI",
-            "CAPZ",
-            "AKS-engine",
-            "TKG",
-            "Generic"
-          ],
-          "x-ms-enum": {
-            "name": "Distribution",
-            "modelAsString": false
-          }
+          "description": "The Kuberenetes distribution on which the agents are running"
         },
         "infrastructure": {
           "type": "string",
-          "description": "The Kubernetes infrastructure on which the agents are running",
-          "enum": [
-            "Azure",
-            "AWS",
-            "GCP",
-            "Azure_Stack_HC",
-            "Azure_Stack_Hub",
-            "Azure_Stack_Edge",
-            "vSphere",
-            "Generic"
-          ],
-          "x-ms-enum": {
-            "name": "Infrastructure",
-            "modelAsString": false
-          }
+          "description": "The Kubernetes infrastructure on which the agents are running"
         },
         "offering": {
-          "readOnly": true,
           "type": "string",
+          "readOnly": true,
           "description": "The 1P service name through which Arc onboarding has happened in case of integrated onboarding"
+        },
+        "msiCertificateExpiryTime": {
+          "type":"string",
+          "format": "date-time",
+          "readOnly": true,
+          "description": "Expiry time of the MSI certificate"
+        },
+        "lastConnectivityTime": {
+          "type": "string",
+          "readOnly": true,
+          "description": ""
+        },
+        "connectivityStatus": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "Connecting",
+            "Connected",
+            "Offline",
+            "Expired"
+          ],
+          "x-ms-enum": {
+            "name": "ConnectivityStatus",
+            "modelAsString": true
+          }
         }
       }
     },
@@ -638,6 +636,12 @@
           "format": "byte",
           "readOnly": true,
           "description": "Base64-encoded Kubernetes configuration file."
+        },
+        "expiryTime": {
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true,
+          "description": "Expiry time of the credentials."
         }
       },
       "description": "The credential result response."
