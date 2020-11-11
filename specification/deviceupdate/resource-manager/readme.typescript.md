@@ -6,7 +6,7 @@ Please also specify `--typescript-sdks-folder=<path to root folder of your azure
 ```yaml $(typescript)
 typescript:
   azure-arm: true
-  package-name: ""@azure/arm-deviceupdate"
+  package-name: "@azure/arm-deviceupdate"
   output-folder: "$(typescript-sdks-folder)/sdk/deviceupdate/adm-deviceupdate"
   payload-flattening-threshold: 1
   generate-metadata: true
