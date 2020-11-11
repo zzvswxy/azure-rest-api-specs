@@ -620,7 +620,7 @@
           "description": "The firmware version.",
           "type": "string"
         },
-        "announcementLanguage": {
+        "voiceAnnouncementsLanguage3": {
           "description": "Language that is used for voice announcements. (English, etc...).",
           "type": "string",
           "enum": [
@@ -633,7 +633,7 @@
             "Korean"
           ],
           "x-ms-enum": {
-            "name": "AnnouncementLanguage",
+            "name": "VoiceAnnouncementsLanguage3",
             "modelAsString": true
           }
         },
