@@ -8,9 +8,9 @@ python:
   azure-arm: true
   license-header: MICROSOFT_MIT_NO_VERSION
   payload-flattening-threshold: 2
-  namespace: Microsoft.HealthcareBot
+  namespace: Microsoft.HealthBot
   package-name: healthbot
-  package-version: 2020-06-01-preview
+  package-version: 2020-10-20-preview
   clear-output-folder: true
 ```
 

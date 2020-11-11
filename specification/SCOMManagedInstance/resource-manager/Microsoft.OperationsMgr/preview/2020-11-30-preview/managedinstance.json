@@ -245,6 +245,59 @@
           }
         }
       },
+      "patch": {
+        "operationId": "ManagedInstances_Patch",
+        "description": "Patch SCOM managed instance",
+        "tags": ["ManagedInstances"],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/instanceName"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "ManagedInstance",
+            "description": "SCOM Managed instance properties update",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ManagedInstancePatch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ManagedInstance"
+            }
+          },
+          "201": {
+            "description": "accepted operation",
+            "schema": {
+              "$ref": "#/definitions/ManagedInstance"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "ManagedInstances_Patch": {
+            "$ref": "./examples/ManagedInstance_Update.json"
+          }
+        }
+      },	  
       "delete": {
         "operationId": "ManagedInstances_Delete",
         "description": "Delete a SCOM managed instance",
@@ -455,6 +508,19 @@
           "readOnly": true
         }
       }
+    },
+	"ManagedInstancePatch": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags."
+        }
+      },
+      "description": "Object containing updates for patch operations."
     }
   }
 }

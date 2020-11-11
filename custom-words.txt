@@ -758,6 +758,7 @@ keyvaultproperties
 keyvaulturi
 keyversion
 KHTML
+kibana
 Kiswahili
 Knowledgebase
 knowledgebases

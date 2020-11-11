@@ -398,12 +398,54 @@
 							"description": "The provisioning state of the resource.",
 							"readOnly": true,
 							"$ref": "#/definitions/ProvisioningState"
-						}
+						},
+            "accessAssignments": {
+          "type": "array",
+          "description": "Gets or sets the accessAssignments",
+          "items": {
+            "$ref": "#/definitions/AccessAssignment"
+          }
+        }
 
 					}
 				}
 			}
 		},
+        "AccessAssignment": {
+      "type": "object",
+      "properties": {
+        "actionId": {
+          "type": "string"
+        },
+        "attributeConditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AttributeCondition"
+          }
+        }
+      }
+    },
+    "AttributeCondition": {
+      "type": "object",
+      "required": [
+        "attributeMatchingScheme"
+      ],
+      "properties": {
+        "attributeName": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attributeMatchingScheme": {
+          "type": "string"
+        }
+      }
+    },
+    
 
 		"ShareList": {
 			"description": "The list of workspace resources.",

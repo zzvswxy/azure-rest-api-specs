@@ -6,7 +6,9 @@
     "version": "2020-09-01-preview"
   },
   "host": "management.azure.com",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "azure_auth": {
       "type": "oauth2",
@@ -20,19 +22,25 @@
   },
   "security": [
     {
-      "azure_auth": ["user_impersonation"]
+      "azure_auth": [
+        "user_impersonation"
+      ]
     }
   ],
   "paths": {
     "/providers/Microsoft.LoadTestService/operations": {
       "get": {
-        "tags": ["Operations"],
+        "tags": [
+          "Operations"
+        ],
         "description": "Lists all the available API operations for Load Test Resource.",
         "operationId": "Operations_List",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -45,7 +53,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -59,18 +67,22 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.LoadTestService/loadtests": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.LoadTestService/loadTests": {
       "get": {
-        "tags": ["LoadTests"],
+        "tags": [
+          "LoadTests"
+        ],
         "description": "Lists loadtests resources in a subscription.",
         "operationId": "LoadTests_ListBySubscription",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -83,7 +95,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -99,19 +111,23 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests": {
       "get": {
-        "tags": ["LoadTests"],
+        "tags": [
+          "LoadTests"
+        ],
         "description": "Lists loadtest resources in a resource group.",
         "operationId": "LoadTests_ListByResourceGroup",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -124,7 +140,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -140,19 +156,23 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}": {
       "get": {
-        "tags": ["LoadTests"],
+        "tags": [
+          "LoadTests"
+        ],
         "description": "Get a LoadTest resource.",
         "operationId": "LoadTests_Get",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/LoadTestNameParameter"
@@ -168,7 +188,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -179,20 +199,26 @@
         }
       },
       "put": {
-        "tags": ["LoadTests"],
+        "tags": [
+          "LoadTests"
+        ],
         "description": "Create or update LoadTest resource.",
         "operationId": "LoadTests_CreateOrUpdate",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/LoadTestNameParameter"
@@ -217,7 +243,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -228,20 +254,26 @@
         }
       },
       "patch": {
-        "tags": ["LoadTests"],
+        "tags": [
+          "LoadTests"
+        ],
         "description": "Update a loadtest resource.",
         "operationId": "LoadTests_Update",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/LoadTestNameParameter"
@@ -266,7 +298,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -277,18 +309,20 @@
         }
       },
       "delete": {
-        "tags": ["LoadTests"],
+        "tags": [
+          "LoadTests"
+        ],
         "description": "Delete a LoadTest resource.",
         "operationId": "LoadTests_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/LoadTestNameParameter"
@@ -304,7 +338,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -405,7 +439,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/TrackedResource"
         }
       ]
     },
@@ -415,10 +449,7 @@
       "properties": {
         "tags": {
           "description": "Resource tags.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
+          "type": "object"
         }
       }
     },
@@ -437,68 +468,15 @@
           "readOnly": true
         }
       }
-    },
-    "Resource": {
-      "description": "An Azure resource.",
-      "properties": {
-        "id": {
-          "description": "Azure resource Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "name": {
-          "description": "Azure resource name.",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Azure resource type.",
-          "type": "string",
-          "readOnly": true
-        },
-        "location": {
-          "description": "Location of the resource.",
-          "type": "string",
-          "readOnly": false
-        },
-        "tags": {
-          "description": "resource tags.",
-          "type": "object",
-          "readOnly": false,
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      },
-      "x-ms-azure-resource": true
-    },
-    "ErrorResponse": {
-      "description": "Api error response on failure.",
-      "type": "object",
-      "properties": {
-        "error": {
-          "description": "Error details",
-          "$ref": "#/definitions/ErrorDetails"
-        }
-      }
-    },
-    "ErrorDetails": {
-      "description": "Error details.",
-      "type": "object",
-      "properties": {
-        "code": {
-          "description": "Error code.",
-          "type": "string"
-        },
-        "message": {
-          "description": "Error message.",
-          "type": "string"
-        }
-      }
-    },
+    },        
     "ResourceState": {
       "description": "Load Test resources provisioning states.",
-      "enum": ["Succeeded", "Failed", "Canceled", "Deleted"],
+      "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled",
+        "Deleted"
+      ],
       "type": "string",
       "x-ms-enum": {
         "name": "ResourceState",
@@ -506,29 +484,7 @@
       }
     }
   },
-  "parameters": {
-    "SubscriptionIdParameter": {
-      "name": "subscriptionId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The Azure subscription ID."
-    },
-    "ApiVersionParameter": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "ResourceGroupNameParameter": {
-      "name": "resourceGroupName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The name of the resource group.",
-      "x-ms-parameter-location": "method"
-    },
+  "parameters": {   
     "LoadTestNameParameter": {
       "in": "path",
       "name": "loadTestName",

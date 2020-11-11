@@ -1,0 +1,270 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "MobileNetworkManagementClient",
+      "description": "The resources in this swagger specification will be used for mobile core vendor sim profiles",
+      "version": "2020-06-01-preview"
+    },
+    "host": "management.azure.com",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "security": [
+      {
+        "azure_auth": [
+          "user_impersonation"
+        ]
+      }
+    ],
+    "securityDefinitions": {
+      "azure_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "flow": "implicit",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        }
+      }
+    },
+    "paths": {
+      "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/vendors/{vendorName}/mobileNetworks/{serviceKey}/listSites": {
+        "post": {
+          "tags": [
+            "Sites"
+          ],
+          "operationId": "Sites_listsites",
+          "description": "Lists all the sites in the mobile network",
+          "parameters": [
+            {
+              "name": "vendorName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the vendor."
+            },
+            {
+              "name": "serviceKey",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The identifier for mobile network."
+            },
+            {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Request is successful. The operation returns a list of site resources.",
+              "schema": {
+                "$ref": "#/definitions/SitesListResult"
+              }              
+            },
+            "default": {
+              "description": "Error response describing why the operation failed.",
+              "schema": {
+                "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+              }
+            }
+          },
+            "x-ms-examples": {
+              "Get site sub resource.": {
+                "$ref": "./examples/SiteListByVendor.json"
+              }
+            }
+        }
+      },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/vendors/{vendorName}/mobileNetworks/{serviceKey}/listSimProfiles": {        
+        "post": {
+          "tags": [
+            "SimProfiles"
+          ],
+          "operationId": "SimProfiles_listsimprofiles",
+          "description": "List the sim profiles on the specified service key with optional filtering on internationalMobileSubscriberIdentity, integratedCircuitCardIdentifier, or simActivationState",
+          "parameters": [      
+            {
+              "name": "vendorName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the vendor."
+            },
+            {
+              "name": "serviceKey",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The mobile network identifier."
+            },
+            {
+              "name": "$filter",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "description": "The filter to apply on the operation. The properties you can use for eq (equals) are: internationalMobileSubscriberIdentity, integratedCircuitCardIdentifier and simActivationState."
+            },
+            {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Request is successful. The operation returns a list of sim profile resources.",
+              "schema": {
+                "$ref": "#/definitions/VendorSimProfileListResult"
+              }
+            },
+            "default": {
+              "description": "Error response describing why the operation failed.",
+              "schema": {
+                "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "Get SimProfile list for Vendor": {
+              "$ref": "./examples/SimProfileListByVendor.json"
+            }
+          }
+        }
+      }         
+    },
+    "definitions": {
+      "VendorSimProfileListResult": {
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/VendorSimProfile"
+            },
+            "description": "A list of simprofiles."
+          },
+          "nextLink": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The URL to get the next set of results."
+          }
+        },
+        "description": "Response for mobile network vendorSimProfiles API service call."
+      },           
+      "VendorSimProfile": {
+        "properties": {
+          "properties": {
+            "x-ms-client-flatten": true,
+            "$ref": "#/definitions/VendorSimProfilePropertiesFormat",
+            "description": "SimProfile details."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
+          }
+        ],
+        "description": "Vendor SimProfile sub resource."
+      },
+      "VendorSimProfilePropertiesFormat": {
+        "description": "Vendor SimProfile properties.",
+        "properties": {
+          "activationState": {            
+            "$ref": "./common.json#/definitions/ActivationState",
+            "description": "The activation state of the sim resource on the network"
+          },
+          "integratedCircuitCardIdentifier": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The Integrated Circuit Card ID (ICC Id) for the sim"
+          },
+          "internationalMobileSubscriberIdentity": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The International Mobile Subscriber Identity (IMSI) for the sim"
+          },
+          "authenticationKey": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The ki value for the sim"
+          },      
+          "operatorKeyCode": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The Opc value for the sim"
+          },         
+          "simType": {
+            "readOnly": true,
+            "$ref": "./common.json#/definitions/SimType",
+            "description": "The type of the sim."
+          }
+        }
+      },             
+    "Site": {
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/SitePropertiesFormat",
+          "description": "Site properties."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/Resource"
+        }
+      ],
+      "description": "Site resource."
+    },
+    "SitePropertiesFormat": {
+      "description": "Site properties.",
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "$ref": "./common.json#/definitions/ProvisioningState",
+          "description": "The provisioning state of the site resource. **TODO**: Confirm if this is needed"
+        },
+        "region": {
+          "type": "string",
+          "description": "Azure region where the mobile network site is paired. **TODO**: Confirm type and property"
+        },
+        "customLocation": {
+          "type": "string",
+          "description": "Azure arc custom location where the mobile network site is paired. **TODO**: Confirm type and property"
+        },
+        "networkFunctions": {
+          "type": "array",
+          "items": {
+            "$ref": "./common.json#/definitions/SubResource"
+          },
+          "description": "An array of ids of the network functions deployed on the sites."
+        }        
+      }
+    },
+    "SitesListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Site"
+          },
+          "description": "A list of sites in a mobile network."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for mobile network sites API service call."
+    }    
+  }
+}

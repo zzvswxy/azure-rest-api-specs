@@ -4,7 +4,7 @@ These settings apply only when `--go` is specified on the command line.
 
 ```yaml $(go)
 go:
-  license-header: MICROSOFT_APACHE_NO_VERSION
+  license-header: MICROSOFT_MIT_NO_VERSION
   clear-output-folder: true
 ```
 
@@ -14,6 +14,6 @@ These settings apply only when `--tag=package-2020-03-01-preview --go` is specif
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
 ```yaml $(tag) == 'package-2020-03-01-preview' && $(go)
-namespace: Microsoft.DeviceUpdate
-output-folder: $(go-sdks-folder)/deviceupdate/Generated
+namespace: deviceupdate
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-03-01-preview/$(namespace)
 ```

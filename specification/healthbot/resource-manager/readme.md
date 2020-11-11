@@ -27,16 +27,28 @@ These are the global settings for the healthbot.
 ```yaml
 openapi-type: arm
 openapi-subtype: rpaas
-tag: package-2020-06-01-preview
+tag: package-2020-10-20-preview
 ```
 
-### Tag: package-2020-06-01-preview
 
-These settings apply only when `--tag=package-2020-06-01-preview` is specified on the command line.
+### Tag: package-2020-10-20-preview
 
-```yaml $(tag) == 'package-2020-06-01-preview'
+These settings apply only when `--tag=package-2020-10-20-preview` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-10-20-preview'
 input-file:
-  - Microsoft.HealthcareBot/preview/2020-06-01-preview/healthbot.json
+  - Microsoft.HealthBot/preview/2020-10-20-preview/healthbot.json
+```
+
+---
+
+### Tag2: package-2020-11-03-preview
+
+These settings apply only when `--tag=package-2020-11-03-preview` is specified on the command line.
+
+```yaml $(tag) == 'package-2020-11-03-preview'
+input-file:
+  - Microsoft.HealthBot/preview/2020-11-03-preview/healthbot.json
 ```
 
 ---
