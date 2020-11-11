@@ -738,6 +738,10 @@
         "agentPublicKeyCertificate": {
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
+        },
+        "apiServerCertificate": {
+          "type": "string",
+          "description":"Base64 encoded Kubernetes API server certificate authority data"
         }
       }
     },
