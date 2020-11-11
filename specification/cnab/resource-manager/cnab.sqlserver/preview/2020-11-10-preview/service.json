@@ -98,6 +98,59 @@
         },
         "security": []
       },
+      "patch": {
+        "summary": "Create or Update SQL Server on Kubernetes",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "PatchSQLServeronKubernetes",
+        "x-ms-examples": {},
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupName"
+          },
+          {
+            "$ref": "#/parameters/resourceName"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PatchSQLServeronKubernetesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned from a PATCH request",
+            "schema": {
+              "$ref": "#/definitions/Service"
+            }
+          },
+          "201": {
+            "description": "Returned from a PATCH request",
+            "schema": {
+              "$ref": "#/definitions/Service"
+            }
+          }
+        },
+        "security": []
+      },
       "get": {
         "summary": "Get SQL Server Service Instance",
         "tags": [
@@ -289,6 +342,22 @@
       "required": [
         "properties"
       ]
+    },
+    "PatchSQLServeronKubernetesRequest": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags"
+        },
+        "properties": {
+          "$ref": "#/definitions/Properties"
+        }
+      },
+      "description": "The resource patch definition."
     },
     "ServiceProperties": {
       "description": "The properties of a SQL Server Service application.",
