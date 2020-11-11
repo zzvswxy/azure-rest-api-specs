@@ -23,7 +23,7 @@
     "minWordLength": 4,
     "dictionaries": [
         "companies",
-        "csharp",
+        "csharpx",
         "custom-words",
         "go",
         "html",
