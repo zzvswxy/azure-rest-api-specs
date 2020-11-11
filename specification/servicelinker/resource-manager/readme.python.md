@@ -10,7 +10,7 @@ python:
   payload-flattening-threshold: 2
   namespace: Microsoft.ServiceLinker
   package-name: servicelinker
-  package-version: 2020-01-01-privatepreview
+  package-version: 2021-01-01-privatepreview
   clear-output-folder: true
 ```
 

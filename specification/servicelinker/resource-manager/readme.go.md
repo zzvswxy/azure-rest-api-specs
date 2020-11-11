@@ -8,12 +8,12 @@ go:
   clear-output-folder: true
 ```
 
-### Tag: package-2020-01-01-privatepreview and go
+### Tag: package-2021-01-01-privatepreview and go
 
-These settings apply only when `--tag=package-2020-01-01-privatepreview --go` is specified on the command line.
+These settings apply only when `--tag=package-2021-01-01-privatepreview --go` is specified on the command line.
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
-```yaml $(tag) == 'package-2020-01-01-privatepreview' && $(go)
+```yaml $(tag) == 'package-2021-01-01-privatepreview' && $(go)
 namespace: Microsoft.ServiceLinker
 output-folder: $(go-sdks-folder)/servicelinker/Generated
 ```
