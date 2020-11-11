@@ -283,6 +283,43 @@
         },
         "security": []
       }
+    },
+    "/subscriptions/{subscriptionId}/providers/cnab.sqlserver/service": {
+      "get": {
+        "summary": "List SQL Server Service Instances in Subscription",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ListSQLServerServiceInstancesInSub",
+        "x-ms-examples": {},
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This is returned as a response to the status polling request for the create or update operation. The body contains the resource representation that indicates a transitional provisioning state.",
+            "schema": {
+              "$ref": "#/definitions/ListResult"
+            }
+          },
+          "default": {
+            "description": "DefaultErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "security": []
+      }
     }
   },
   "definitions": {
