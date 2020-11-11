@@ -69,7 +69,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CreateorUpdateSQLServeronKubernetesRequest"
+              "$ref": "#/definitions/Service"
             }
           }
         ],
@@ -357,29 +357,6 @@
         }
       }
     },
-    "CreateorUpdateSQLServeronKubernetesRequest": {
-      "title": "CreateorUpdateSQLServeronKubernetesRequest",
-      "example": {
-        "properties": {
-          "credentials": {
-            "sql_masterkeypassword": "Passw0rd!",
-            "sql_sapassword": "Passw0rd!"
-          },
-          "parameters": {
-            "namespace": "test12namespace"
-          }
-        }
-      },
-      "type": "object",
-      "properties": {
-        "properties": {
-          "$ref": "#/definitions/Properties"
-        }
-      },
-      "required": [
-        "properties"
-      ]
-    },
     "PatchSQLServeronKubernetesRequest": {
       "type": "object",
       "properties": {
@@ -423,6 +400,12 @@
           "description": "The IP address of the service listener.",
           "type": "string",
           "readOnly": true
+        },
+        "credentials": {
+          "$ref": "#/definitions/Credentials"
+        },
+        "parameters": {
+          "$ref": "#/definitions/Params"
         }
       }
     },
@@ -502,9 +485,7 @@
       },
       "x-ms-azure-resource": true,
         "required": [
-          "id",
-          "name",
-          "type"
+         "location"
         ]
     },
     "Credentials": {
@@ -516,10 +497,12 @@
       "type": "object",
       "properties": {
         "sql_masterkeypassword": {
-          "type": "string"
+          "type": "string",
+          "x-ms-secret":true
         },
         "sql_sapassword": {
-          "type": "string"
+          "type": "string",
+          "x-ms-secret":true
         }
       },
       "required": [
