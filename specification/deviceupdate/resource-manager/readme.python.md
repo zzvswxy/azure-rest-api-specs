@@ -7,7 +7,7 @@ Please also specify `--python-sdks-folder=<path to the root directory of your az
   azure-arm: true
   license-header: MICROSOFT_MIT_NO_VERSION
   payload-flattening-threshold: 2
-  namespace: azure.mgmt.appconfiguration
+  namespace: azure.mgmt.deviceupdate
   package-name: azure_mgmt_deviceupdate
   package-version: 2020-03-01-preview
   clear-output-folder: true
