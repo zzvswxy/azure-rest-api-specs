@@ -340,7 +340,7 @@
           }
         },
         "x-ms-examples": {
-          "Creates or updates Account": {
+          "Updates Account": {
             "$ref": "./examples/Accounts/Accounts_Update.json"
           }
         }
@@ -477,7 +477,7 @@
           }
         },
         "x-ms-examples": {
-          "Creates or Updates Instance": {
+          "Creates or updates Instance": {
             "$ref": "./examples/Instances/Instances_Create.json"
           }
         }
@@ -570,7 +570,7 @@
           }
         },
         "x-ms-examples": {
-          "Gets list of Accounts": {
+          "Updates Instance: {
             "$ref": "./examples/Instances/Instances_Update.json"
           }
         }
@@ -806,7 +806,6 @@
             "instanceId": {
               "description": "Device Update Instance resource ID which IoT Hub was linked with..",
               "type": "string",
-              "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.DeviceUpdate\\/instances\\/.+$",
               "minLength": 115,
               "maxLength": 247
             }
@@ -827,7 +826,6 @@
         "resourceId": {
           "description": "IoTHub resource ID",
           "type": "string",
-          "pattern": "^\\/subscriptions\\/.{36}\\/resourceGroups\\/.+\\/providers\\/Microsoft\\.Devices\\/IotHubs\\/.+$",
           "minLength": 108,
           "maxLength": 244
         },
