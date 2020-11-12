@@ -39,11 +39,6 @@
           }
         ],
         "operationId": "Organizations_List",
-        "x-ms-examples": {
-          "Organizations_Get": {
-            "$ref": "./examples/Organizations_List.json"
-          }
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -56,6 +51,11 @@
             "schema": {
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Organizations_Get": {
+            "$ref": "./examples/Organizations_List.json"
           }
         }
       }
@@ -73,11 +73,6 @@
           }
         ],
         "operationId": "Organizations_Get",
-        "x-ms-examples": {
-          "Organization_Get": {
-            "$ref": "./examples/Organizations_Get.json"
-          }
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -90,6 +85,11 @@
             "schema": {
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Organizations_Get": {
+            "$ref": "./examples/Organizations_Get.json"
           }
         }
       },
@@ -115,20 +115,18 @@
         ],
         "operationId": "Organizations_CreateOrUpdate",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {
-          "Organizations_CreateOrUpdate": {
-            "$ref": "./examples/Organizations_Put.json"
-          }
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
         },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Accepted. Operation will complete asynchronously.",
             "schema": {
               "$ref": "#/definitions/Organization"
             }
           },
-          "202": {
-            "description": "Accepted",
+          "200": {
+            "description": "Succeeded",
             "schema": {
               "$ref": "#/definitions/Organization"
             }
@@ -138,6 +136,11 @@
             "schema": {
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Organizations_CreateOrUpdate": {
+            "$ref": "./examples/Organizations_Put.json"
           }
         }
       },
@@ -163,16 +166,18 @@
         ],
         "operationId": "Organizations_Update",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Accepted. Operation will complete asynchronously.",
             "schema": {
               "$ref": "#/definitions/Organization"
             }
           },
-          "202": {
-            "description": "Accepted",
+          "200": {
+            "description": "Succeeded",
             "schema": {
               "$ref": "#/definitions/Organization"
             }
@@ -183,7 +188,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "delete": {
         "tags": ["Organization"],
@@ -198,13 +204,18 @@
         ],
         "operationId": "Organizations_Delete",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK. Resource has been deleted"
           },
           "202": {
-            "description": "Accepted"
+            "description": "Accepted. Operation will complete asynchronously."
+          },
+          "204": {
+            "description": "Resource does not exist."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -212,7 +223,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects": {
@@ -228,7 +240,6 @@
           }
         ],
         "operationId": "Projects_List",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -242,7 +253,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}": {
@@ -261,7 +273,6 @@
           }
         ],
         "operationId": "Projects_Get",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -275,7 +286,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "put": {
         "tags": ["Project"],
@@ -302,13 +314,21 @@
         ],
         "operationId": "Projects_CreateOrUpdate",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Accepted. Operation will complete asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
           },
-          "202": {
-            "description": "Accepted"
+          "200": {
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -316,7 +336,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "patch": {
         "tags": ["Project"],
@@ -343,13 +364,21 @@
         ],
         "operationId": "Projects_Update",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Accepted. Operation will complete asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
           },
-          "202": {
-            "description": "Accepted"
+          "200": {
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -357,7 +386,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "delete": {
         "tags": ["Project"],
@@ -375,13 +405,18 @@
         ],
         "operationId": "Projects_Delete",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK. Resource has been deleted"
           },
           "202": {
-            "description": "Accepted"
+            "description": "Accepted. Operation will complete asynchronously."
+          },
+          "204": {
+            "description": "Resource does not exist."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -389,7 +424,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments": {
@@ -408,7 +444,6 @@
           }
         ],
         "operationId": "Environments_List",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -422,7 +457,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}": {
@@ -444,7 +480,6 @@
           }
         ],
         "operationId": "Environments_Get",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -458,7 +493,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "put": {
         "tags": ["Environment"],
@@ -488,13 +524,21 @@
         ],
         "operationId": "Environments_CreateOrUpdate",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Accepted. Operation will complete asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
           },
-          "202": {
-            "description": "Accepted"
+          "200": {
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -502,7 +546,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "patch": {
         "tags": ["Environment"],
@@ -532,13 +577,21 @@
         ],
         "operationId": "Environments_Update",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Accepted. Operation will complete asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
           },
-          "202": {
-            "description": "Accepted"
+          "200": {
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -546,7 +599,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "delete": {
         "tags": ["Environment"],
@@ -567,13 +621,18 @@
         ],
         "operationId": "Environments_Delete",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK. Resource has been deleted"
           },
           "202": {
-            "description": "Accepted"
+            "description": "Accepted. Operation will complete asynchronously."
+          },
+          "204": {
+            "description": "Resource does not exist."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -581,7 +640,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/deploy": {
@@ -613,10 +673,21 @@
         ],
         "operationId": "Environments_Deploy",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
+          "201": {
+            "description": "Created. Operation will complete asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
+          },
           "200": {
-            "description": "OK"
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -624,7 +695,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/reset": {
@@ -647,10 +719,21 @@
         ],
         "operationId": "Environments_Reset",
         "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "responses": {
+          "201": {
+            "description": "Created. Operation will complete asynchronously.",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
+          },
           "200": {
-            "description": "OK"
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Environment"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -658,7 +741,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/repositories": {
@@ -674,7 +758,6 @@
           }
         ],
         "operationId": "Repositories_List",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -688,13 +771,14 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/repositories/{repository}": {
       "get": {
         "tags": ["Repository"],
-        "description": "",
+        "description": "Gets a repository resource",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -707,7 +791,6 @@
           }
         ],
         "operationId": "Repositories_Get",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -721,11 +804,12 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "put": {
         "tags": ["Repository"],
-        "description": "",
+        "description": "Creates or updates a repository resource.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -747,11 +831,12 @@
           }
         ],
         "operationId": "Repositories_CreateOrUpdate",
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/Repository"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -759,11 +844,12 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "patch": {
         "tags": ["Repository"],
-        "description": "",
+        "description": "Updates a repository resource",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -785,11 +871,12 @@
           }
         ],
         "operationId": "Repositories_Update",
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The resource was updated.",
+            "schema": {
+              "$ref": "#/definitions/Repository"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -797,11 +884,12 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "delete": {
         "tags": ["Repository"],
-        "description": "",
+        "description": "Deletes a repository resource.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -814,11 +902,12 @@
           }
         ],
         "operationId": "Repositories_Delete",
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "204": {
+            "description": "Resource does not exist."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -826,7 +915,8 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/subscriptions": {
@@ -845,7 +935,6 @@
           }
         ],
         "operationId": "Subscriptions_List",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -859,13 +948,14 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/subscriptions/{subscriptionId}": {
       "get": {
         "tags": ["Subscription Mapping"],
-        "description": "",
+        "description": "Gets an azure mapping resource.860",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -881,7 +971,6 @@
           }
         ],
         "operationId": "Subscriptions_Get",
-        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "OK",
@@ -895,11 +984,12 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "put": {
         "tags": ["Subscription Mapping"],
-        "description": "",
+        "description": "Creates or updates a subscription mapping",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -924,10 +1014,12 @@
           }
         ],
         "operationId": "Subscriptions_CreateOrUpdate",
-        "x-ms-examples": {},
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK.",
+            "schema": {
+              "$ref": "#/definitions/AzureMapping"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -935,11 +1027,12 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       },
       "delete": {
         "tags": ["Subscription Mapping"],
-        "description": "",
+        "description": "Deletes a subscription mapping",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -955,10 +1048,12 @@
           }
         ],
         "operationId": "Subscriptions_Delete",
-        "x-ms-examples": {},
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "The lab was deleted successfully."
+          },
+          "204": {
+            "description": "Resource does not exist."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -966,29 +1061,25 @@
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-examples": {}
       }
     },
     "/providers/Microsoft.DevTestCenter/operations": {
       "get": {
         "tags": ["Operations"],
         "description": "Lists all of the available RP operations.",
-        "operationId": "ListOperations",
+        "operationId": "Operations_List",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           }
         ],
-        "x-ms-examples": {
-          "Operations_Get": {
-            "$ref": "./examples/Operations_Get.json"
-          }
-        },
         "responses": {
           "200": {
             "description": "OK. The request has succeeded.",
             "schema": {
-              "$ref": "#/definitions/OperationListResult"
+              "$ref": "#/definitions/AvailableOperations"
             }
           },
           "default": {
@@ -998,15 +1089,16 @@
             }
           }
         },
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
+        "x-ms-examples": {
+          "Operations_Get": {
+            "$ref": "./examples/Operations_Get.json"
+          }
         }
       }
     }
   },
   "definitions": {
     "Organization": {
-      "title": "Organization",
       "type": "object",
       "description": "Represents an organization resource.",
       "allOf": [
@@ -1016,33 +1108,36 @@
       ],
       "properties": {
         "properties": {
+          "description": "Organization properties",
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/OrganizationProperties",
-          "description": "TODO"
+          "$ref": "#/definitions/OrganizationProperties"
         },
         "identity": {
+          "description": "Managed identity properties",
           "$ref": "#/definitions/IdentityProperties"
         },
         "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
           "readOnly": true
         }
       }
     },
     "OrganizationProperties": {
-      "title": "OrganizationProperties",
       "description": "Properties of the organization.",
       "type": "object",
       "properties": {
         "displayName": {
+          "description": "Display name for the organization.",
           "type": "string"
         },
         "description": {
+          "description": "Organization description.",
           "type": "string"
         },
         "provisioningState": {
-          "description": "The provisioning status of the resource.",
-          "type": "string",
+          "description": "The provisioning state of the Resource.",
+          "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
         },
         "permissions": {
@@ -1056,7 +1151,6 @@
       }
     },
     "OrganizationUpdate": {
-      "title": "OrganizationUpdate",
       "description": "The organization resource for updates. TODO: Add other updatable properties (tags is required)",
       "type": "object",
       "properties": {
@@ -1071,11 +1165,11 @@
       }
     },
     "OrganizationListResult": {
-      "title": "OrganizationListResult",
       "description": "Result of list organizations operation",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Current page of results.",
           "readOnly": true,
           "type": "array",
           "items": {
@@ -1084,44 +1178,47 @@
         },
         "nextLink": {
           "description": "URL to get the next set of results if there are any.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
       }
     },
     "OrganizationPermissions": {
-      "title": "OrganizationPermissions",
       "description": "Permission that are applied to projects within this organization.",
       "type": "object",
       "properties": {
         "allowProjectPublicRepositories": {
+          "description": "Enables/disables public repositories in the organization's projects",
           "type": "boolean",
           "default": false
         },
         "allowProjectCustomizedScheduleSettings": {
+          "description": "Enables/disables customized schedule settings in the organization's projects",
           "type": "boolean",
           "default": false
         },
         "allowProjectCustomizedDeletionSettings": {
+          "description": "Enables/disables customized deletion settings in the organization's projects",
           "type": "boolean",
           "default": false
         },
         "allowProjectCustomizedAzureMappings": {
+          "description": "Enables/disables customized azure mapping in the organization's projects",
           "type": "boolean",
           "default": false
         },
         "allowProjectCustomizedTags": {
+          "description": "Enables/disables customized tags in the organization's projects",
           "type": "boolean",
           "default": false
         },
         "allowProjectCustomizedRepositories": {
+          "description": "Enables/disables customized repositories in the organization's projects",
           "type": "boolean",
           "default": false
         }
       }
     },
     "Project": {
-      "title": "Project",
       "description": "Represent a project resource.",
       "type": "object",
       "allOf": [
@@ -1136,6 +1233,7 @@
           "description": "TODO"
         },
         "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
           "readOnly": true
         },
@@ -1150,13 +1248,25 @@
       }
     },
     "ProjectProperties": {
-      "title": "ProjectProperties",
       "description": "Properties of a project.",
       "type": "object",
-      "properties": {}
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Project display name."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the project."
+        },
+        "provisioningState": {
+          "description": "The provisioning state of the Resource.",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        }
+      }
     },
     "ProjectUpdate": {
-      "title": "ProjectUpdate",
       "description": "The project properties for update. TODO: Add other updatable properties (tags is required)",
       "type": "object",
       "properties": {
@@ -1171,11 +1281,11 @@
       }
     },
     "ProjectListResult": {
-      "title": "ProjectListResult",
       "description": "Results of the project list operaiton",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Current page of results.",
           "readOnly": true,
           "type": "array",
           "items": {
@@ -1190,7 +1300,6 @@
       }
     },
     "Environment": {
-      "title": "Environment",
       "description": "Represents an environment resource.",
       "type": "object",
       "allOf": [
@@ -1205,13 +1314,13 @@
           "description": "TODO"
         },
         "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
           "readOnly": true
         }
       }
     },
     "EnvironmentProperties": {
-      "title": "EnvironmentProperties",
       "description": "Properties of an environment.",
       "type": "object",
       "properties": {
@@ -1236,7 +1345,18 @@
           "description": "Deployment properties applied to template used for all deployments to this environment."
         },
         "provisioningState": {
+          "description": "The provisioning state of the Resource.",
           "$ref": "#/definitions/ProvisioningState"
+        },
+        "environmentState": {
+          "enum": ["Active", "CostSaving", "Deallocated"],
+          "description": "Environment's resource state",
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "name": "EnvironmentState",
+            "modelAsString": true
+          }
         },
         "resources": {
           "type": "array",
@@ -1249,42 +1369,46 @@
       }
     },
     "EnvironmentResource": {
-      "title": "EnvironmentResource",
       "description": "Represents a resource deployed to an environment.",
       "type": "object",
       "properties": {
         "resourceName": {
-          "type": "string"
+          "description": "Name of the resource",
+          "type": "string",
+          "readOnly": true
         },
         "resourceEndpoint": {
-          "type": "string"
+          "description": "Resource specific endpoint.",
+          "type": "string",
+          "readOnly": true
         },
         "resourceType": {
-          "type": "string"
+          "description": "The resource type",
+          "type": "string",
+          "readOnly": true
         }
       }
     },
     "EnvironmentUpdate": {
-      "title": "EnvironmentUpdate",
       "description": "The environment properties for update. TODO: Add other updatable properties (tags is required)",
       "type": "object",
       "properties": {
         "tags": {
+          "description": "Resource tags.",
           "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "x-ms-mutability": ["read", "create", "update"],
-          "description": "Resource tags."
+          "x-ms-mutability": ["read", "create", "update"]
         }
       }
     },
     "EnvironmentListResult": {
-      "title": "EnvironmentListResult",
       "description": "Results from an list environments operation.",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Current page of results.",
           "readOnly": true,
           "type": "array",
           "items": {
@@ -1299,18 +1423,16 @@
       }
     },
     "DeploymentProperties": {
-      "title": "DeploymentProperties",
       "description": "Properties of an environment deployment",
       "type": "object",
       "properties": {
         "parameters": {
-          "type": "object",
-          "description": "Deployment parameters."
+          "description": "Deployment parameters passed to template.",
+          "type": "object"
         }
       }
     },
     "EnvironmentDeployment": {
-      "title": "EnvironmentDeployment",
       "description": "An environment deployment",
       "type": "object",
       "allOf": [
@@ -1320,7 +1442,6 @@
       ]
     },
     "Repository": {
-      "title": "Repository",
       "description": "Represents a repository resource containing templates.",
       "type": "object",
       "allOf": [
@@ -1333,11 +1454,23 @@
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/RepositoryProperties",
           "description": "TODO"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "readOnly": true
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": ["read", "create", "update"],
+          "description": "Resource tags."
         }
       }
     },
     "RepositoryProperties": {
-      "title": "RepositoryProperties",
       "description": "Repository properties.",
       "type": "object",
       "properties": {
@@ -1354,17 +1487,30 @@
           "type": "string"
         },
         "securityTokenId": {
-          "description": "A Key Vault reference to the security token to authenticate to the repository.",
+          "description": "A Key Vault reference to the security token to authenticate to the non-public repository.",
           "type": "string"
         },
         "templatePath": {
           "description": "Template folder path",
           "type": "string"
+        },
+        "status": {
+          "description": "Indicates if the repository is enabled (values: Enabled, Disabled).",
+          "enum": ["Enabled", "Disabled"],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "EnableStatus",
+            "modelAsString": true
+          }
+        },
+        "provisioningState": {
+          "description": "The provisioning state of the resource.",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
         }
       }
     },
     "RepositoryUpdate": {
-      "title": "RepositoryUpdate",
       "description": "The repository properties for update. TODO: Add other updatable properties (tags is required)",
       "type": "object",
       "properties": {
@@ -1379,11 +1525,11 @@
       }
     },
     "RepositoryListResult": {
-      "title": "RepositoryListResult",
       "description": "Results of a list repository operation.",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Current page of results.",
           "readOnly": true,
           "type": "array",
           "items": {
@@ -1398,7 +1544,6 @@
       }
     },
     "AzureMapping": {
-      "title": "AzureMapping",
       "description": "Represents a mapping between a subscription/management group and an environment type.",
       "type": "object",
       "allOf": [
@@ -1411,16 +1556,29 @@
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/AzureMappingProperties",
           "description": "TODO"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "readOnly": true
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": ["read", "create", "update"],
+          "description": "Resource tags."
         }
       }
     },
     "AzureMappingProperties": {
-      "title": "AzureMappingProperties",
       "description": "Properties of an Azure mapping.",
       "type": "object",
       "properties": {
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "Description of the azure mapping."
         },
         "subscriptionId": {
           "type": "string",
@@ -1431,11 +1589,15 @@
           "type": "string",
           "description": "Environment type (e.g. Dev/Test)",
           "x-ms-mutability": ["read", "create"]
+        },
+        "provisioningState": {
+          "description": "The provisioning state of the Resource.",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
         }
       }
     },
     "AzureMappingUpdate": {
-      "title": "AzureMappingUpdate",
       "description": "The Azure mapping properties for update. TODO: Add other updatable properties (tags is required)",
       "type": "object",
       "properties": {
@@ -1450,12 +1612,11 @@
       }
     },
     "AzureMappingListResult": {
-      "title": "AzureMappingListResult",
       "description": "Result of an AzureMapping list operation.",
       "type": "object",
       "properties": {
         "value": {
-          "title": "",
+          "description": "Current page of results.",
           "readOnly": true,
           "type": "array",
           "items": {
@@ -1506,52 +1667,116 @@
     },
     "ProvisioningState": {
       "type": "string",
-      "description": "Provisioning state of the resource. (TODO: Should this be an enum?)",
-      "readOnly": true
-    },
-    "OperationEntity": {
-      "description": "REST API operation",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Operation name: {provider}/{resource}/{operation}",
-          "type": "string"
-        },
-        "display": {
-          "type": "object",
-          "description": "Display information",
-          "properties": {
-            "provider": {
-              "description": "Service provider: Microsoft.ResourceProvider",
-              "type": "string"
-            },
-            "resource": {
-              "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
-              "type": "string"
-            },
-            "operation": {
-              "description": "Operation type: Read, write, delete, etc.",
-              "type": "string"
-            }
+      "description": "Provisioning state of the resource.",
+      "enum": [
+        "Creating",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Cancelled"
+      ],
+      "readOnly": true,
+      "x-ms-enum": {
+        "name": "ProvisioningState",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "Creating",
+            "description": "Resource is in the process of being created."
+          },
+          {
+            "value": "Updating",
+            "description": "New property values are being applied to the resource."
+          },
+          {
+            "value": "Deleting",
+            "description": "Resource is in the process of being deleted."
+          },
+          {
+            "value": "Succeeded",
+            "description": "Resource is in healthy state after creation or update operation."
+          },
+          {
+            "value": "Failed",
+            "description": "Previous operation on the resource has failed leaving resource in unhealthy state."
+          },
+          {
+            "value": "Cancelled",
+            "description": "Previous operation was cancelled by caller."
           }
-        }
+        ]
       }
     },
-    "OperationListResult": {
-      "description": "Result of the request to list Resource Provider operations. It contains a list of operations and a URL link to get the next set of results.",
+    "AvailableOperations": {
+      "description": "Available operations of the service",
       "type": "object",
       "properties": {
         "value": {
-          "description": "List of Resource Provider operations supported by the Resource Provider resource provider.",
+          "description": "Collection of available operation details",
+          "uniqueItems": false,
           "type": "array",
           "items": {
-            "$ref": "#/definitions/OperationEntity"
+            "$ref": "#/definitions/OperationDetail"
           }
         },
         "nextLink": {
-          "type": "string",
-          "description": "URL to get the next set of operation list results if there are any."
+          "description": "URL client should use to fetch the next page (per server side paging).",
+          "type": "string"
         }
+      }
+    },
+    "OperationDetail": {
+      "description": "Operation detail payload",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the operation",
+          "type": "string"
+        },
+        "isDataAction": {
+          "description": "Indicates whether the operation is a data action",
+          "type": "boolean"
+        },
+        "display": {
+          "$ref": "#/definitions/OperationDisplay",
+          "description": "Display of the operation"
+        },
+        "origin": {
+          "description": "Origin of the operation",
+          "type": "string"
+        }
+      }
+    },
+    "OperationDisplay": {
+      "description": "Operation display payload",
+      "type": "object",
+      "properties": {
+        "provider": {
+          "description": "Resource provider of the operation",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Resource of the operation",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Localized friendly name for the operation",
+          "type": "string"
+        },
+        "description": {
+          "description": "Localized friendly description for the operation",
+          "type": "string"
+        }
+      }
+    },
+    "EnableStatus": {
+      "description": "Enabled/Disable status.",
+      "enum": ["Enabled", "Disabled"],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "EnableStatus",
+        "modelAsString": true
       }
     }
   },
