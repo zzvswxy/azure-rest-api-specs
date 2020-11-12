@@ -13,7 +13,12 @@
         "properties": {
           "provisioningState": "Succeeded",
           "downloadLocation": "https://downloadlocation.com",
-          "deploymentType": "DEB"
+          "deploymentType": "DEB",
+          "installParameters": {
+            "user": "hdfs",
+            "logDir": "/var/log",
+            "installDir": "/opt/wandisco"
+          }
         },
         "location": "East US",
         "type": "Wandisco.Fusion/migrator",
