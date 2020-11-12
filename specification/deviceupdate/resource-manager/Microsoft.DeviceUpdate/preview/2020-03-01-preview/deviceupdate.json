@@ -570,11 +570,11 @@
           }
         },
         "x-ms-examples": {
-          "Updates Instance: {
+          "Updates Instance": {
             "$ref": "./examples/Instances/Instances_Update.json"
           }
         }
-      }
+      },
     },
     "/providers/Microsoft.DeviceUpdate/operations": {
       "get": {
