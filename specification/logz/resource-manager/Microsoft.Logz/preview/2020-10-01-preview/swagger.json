@@ -1558,8 +1558,12 @@
         "planData": {
           "$ref": "#/definitions/PlanData"
         },
-        "accountType":{
+        "accountType": {
           "$ref": "#/definitions/AccountType"
+        },
+        "parentResourceId": {
+          "description": "The parent account under which the sub account will be created.",
+          "type": "string"
         },
         "liftrResourceCategory": {
           "$ref": "#/definitions/LiftrResourceCategories"
