@@ -40,10 +40,10 @@
         "operationId": "accounts_ListBySubscription",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/subscriptionIdParameter"
           }
         ],
         "responses": {
@@ -52,11 +52,22 @@
             "schema": {
               "$ref": "#/definitions/accountsResourceList"
             }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound (Account does not exist).",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseAccountErrorResponse"
+            }
           }
         },
         "deprecated": false,
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "accounts_ListBySubscription": {
+            "$ref": "./examples/accounts_ListBySubscription_example.json"
+          }
         }
       }
     },
@@ -66,13 +77,13 @@
         "operationId": "accounts_ListByResourceGroup",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/subscriptionIdParameter"
           }
         ],
         "responses": {
@@ -81,30 +92,41 @@
             "schema": {
               "$ref": "#/definitions/accountsResourceList"
             }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound (Account does not exist).",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseAccountErrorResponse"
+            }
           }
         },
         "deprecated": false,
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "accounts_ListByResourceGroup": {
+            "$ref": "./examples/accounts_ListByResourceGroup_example.json"
+          }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/GitHub.Enterprise/accounts/{accountsName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/GitHub.Enterprise/accounts/{accountName}": {
       "get": {
         "description": "Returns the GitHub account resource for a given name.",
         "operationId": "accounts_Get",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/accountsNameParameter"
+            "$ref": "#/parameters/accountNameParameter"
           }
         ],
         "responses": {
@@ -113,6 +135,17 @@
             "schema": {
               "$ref": "#/definitions/accountsResource"
             }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound (Account does not exist).",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseAccountErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "accounts_Get": {
+            "$ref": "./examples/accounts_Get_example.json"
           }
         }
       },
@@ -121,19 +154,19 @@
         "operationId": "accounts_CreateAndUpdate",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/accountsNameParameter"
+            "$ref": "#/parameters/accountNameParameter"
           },
           {
-            "name": "accountsResource",
+            "name": "account",
             "description": "GitHub account details.",
             "in": "body",
             "required": true,
@@ -149,8 +182,16 @@
               "$ref": "#/definitions/accountsResource"
             }
           },
-          "201": {
-            "description": "Long running operation."
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound (Account could not be created/updated).",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseAccountErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "accounts_CreateAndUpdate": {
+            "$ref": "./examples/accounts_CreateAndUpdate_example.json"
           }
         }
       },
@@ -159,19 +200,19 @@
         "operationId": "accounts_Update",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/accountsNameParameter"
+            "$ref": "#/parameters/accountNameParameter"
           },
           {
-            "name": "accountsPatchResource",
+            "name": "account",
             "description": "GitHub account patch details.",
             "in": "body",
             "required": true,
@@ -186,6 +227,17 @@
             "schema": {
               "$ref": "#/definitions/accountsResource"
             }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 404 - NotFound (Account does not exist).",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseAccountErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "accounts_Update": {
+            "$ref": "./examples/accounts_Update_example.json"
           }
         }
       },
@@ -194,21 +246,35 @@
         "operationId": "accounts_Delete",
         "parameters": [
           {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           },
           {
-            "$ref": "#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/subscriptionIdParameter"
           },
           {
-            "$ref": "#/parameters/accountsNameParameter"
+            "$ref": "#/parameters/accountNameParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful."
+            "description": "Successful; Account was deleted."
+          },
+          "204": {
+            "description": "Successful; Account does not exist."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure. 409 - Conflict (Account is in a non-terminal state due to an ongoing operation).",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseAccountErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "accounts_Delete": {
+            "$ref": "./examples/accounts_Delete_example.json"
           }
         }
       }
@@ -216,10 +282,10 @@
     "/providers/GitHub.Enterprise/operations": {
       "get": {
         "description": "Returns list of operations.",
-        "operationId": "Operation_List",
+        "operationId": "operations_List",
         "parameters": [
           {
-            "$ref": "#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/apiVersionParameter"
           }
         ],
         "responses": {
@@ -228,16 +294,67 @@
             "schema": {
               "$ref": "#/definitions/operationsList"
             }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/GitHubEnterpriseOperationsErrorResponse"
+            }
           }
         },
-        "deprecated": false,
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "operation_List": {
+            "$ref": "./examples/operation_List_example.json"
+          }
         }
       }
     }
   },
   "definitions": {
+    "ErrorDefinition": {
+      "description": "Error definition.",
+      "properties": {
+        "code": {
+          "description": "Service specific error code which serves as the sub status for the HTTP error code.",
+          "type": "string",
+          "readOnly": true
+        },
+        "message": {
+          "description": "Description of the error.",
+          "type": "string",
+          "readOnly": true
+        },
+        "details": {
+          "description": "Internal error details.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorDefinition"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "GitHubEnterpriseOperationsErrorResponse": {
+      "description": "Error response indicates that the service is not able to process the incoming request.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDefinition",
+          "description": "The error details."
+        }
+      }
+    },
+    "GitHubEnterpriseAccountErrorResponse": {
+      "description": "Error response indicates that the service is not able to process the incoming request.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDefinition",
+          "description": "The error details."
+        }
+      }
+    },
     "Resource": {
       "description": "An Azure resource.",
       "properties": {
@@ -319,6 +436,10 @@
           "type": "string",
           "description": "Name of the operation"
         },
+        "isDataAction": {
+          "description": "Indicates whether the operation is a data action",
+          "type": "boolean"
+        },
         "display": {
           "type": "object",
           "description": "Properties of the operation",
@@ -340,6 +461,10 @@
               "description": "Description of the operation"
             }
           }
+        },
+        "origin": {
+          "description": "Origin of the operation",
+          "type": "string"
         }
       }
     },
@@ -364,21 +489,21 @@
     }
   },
   "parameters": {
-    "SubscriptionIdParameter": {
+    "subscriptionIdParameter": {
       "name": "subscriptionId",
       "in": "path",
       "required": true,
       "type": "string",
       "description": "The Azure subscription ID."
     },
-    "ApiVersionParameter": {
+    "apiVersionParameter": {
       "name": "api-version",
       "in": "query",
       "required": true,
       "type": "string",
       "description": "Client Api Version."
     },
-    "ResourceGroupNameParameter": {
+    "resourceGroupNameParameter": {
       "name": "resourceGroupName",
       "in": "path",
       "required": true,
@@ -386,8 +511,8 @@
       "description": "The name of the resource group.",
       "x-ms-parameter-location": "method"
     },
-    "accountsNameParameter": {
-      "name": "accountsName",
+    "accountNameParameter": {
+      "name": "accountName",
       "in": "path",
       "required": true,
       "type": "string",

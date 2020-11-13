@@ -1421,6 +1421,17 @@
         "name": "ProvisioningState"
       }
     },
+    "AccountType": {
+      "enum": [
+        "Main_Account",
+        "Sub_Account"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": true,
+        "name": "AccountType"
+      }
+    },
     "MonitoringStatus": {
       "description": "Flag specifying if the resource monitoring is enabled or disabled.",
       "enum": [
@@ -1546,6 +1557,13 @@
         },
         "planData": {
           "$ref": "#/definitions/PlanData"
+        },
+        "accountType": {
+          "$ref": "#/definitions/AccountType"
+        },
+        "parentResourceId": {
+          "description": "The parent account under which the sub account will be created.",
+          "type": "string"
         },
         "liftrResourceCategory": {
           "$ref": "#/definitions/LiftrResourceCategories"
@@ -1779,7 +1797,7 @@
         "Initial",
         "Enable",
         "Disable",
-        "Exisiting"
+        "Existing"
       ],
       "type": "string",
       "x-ms-enum": {

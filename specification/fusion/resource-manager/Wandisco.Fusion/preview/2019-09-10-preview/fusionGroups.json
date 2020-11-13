@@ -3842,6 +3842,26 @@
         "migratorStatus": {
           "description": "Status of the Migrator server",
           "$ref": "#/definitions/MigratorDetails"
+        },
+        "installParameters": {
+          "description": "Installation configuration for the Migrator server",
+          "properties": {
+            "user": {
+              "description": "The system user to run the process as",
+              "type": "string",
+              "default": "hdfs"
+            },
+            "installDir": {
+              "description": "The directory under which to install",
+              "type": "string",
+              "default": "/opt/wandisco"
+            },
+            "logDir": {
+              "description": "The directory where logs will be written",
+              "type": "string",
+              "default": "/var/log"
+            }
+          }
         }
       }
     },
