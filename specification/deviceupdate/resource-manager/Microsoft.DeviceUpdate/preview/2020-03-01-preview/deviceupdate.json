@@ -34,102 +34,6 @@
     }
   },
   "paths": {
-    "/providers/Microsoft.DeviceUpdate/iothublinks/{iotHubName}": {
-      "get": {
-        "description": "Return Details Of Iot Hub Link",
-        "operationId": "IotHubLinks_Get",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/IotHubName"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Iot Hub Link details",
-            "schema": {
-              "$ref": "#/definitions/IotHubLink"
-            }
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "deprecated": false,
-        "x-ms-examples": {
-          "Gets IoTHub Link details": {
-            "$ref": "./examples/IotHubLinks/IotHubLinks_Get.json"
-          }
-        }
-      },
-      "put": {
-        "description": "Creates or updates Iot Hub Link.",
-        "operationId": "IotHubLinks_Create",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/IotHubName"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "IotHub Link Details",
-            "schema": {
-              "$ref": "#/definitions/IotHubLink"
-            }
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Creates IotHub Link": {
-            "$ref": "./examples/IotHubLinks/IotHubLinks_Create.json"
-          }
-        }
-      },
-      "delete": {
-        "description": "Deletes Iot Hub Link.",
-        "operationId": "IotHubLinks_Delete",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/IotHubName"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "IoTHubLink was deleted."
-          },
-          "204": {
-            "description": "IoTHubLink has been already deleted."
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Deletes IoTHub Link": {
-            "$ref": "./examples/IotHubLinks/IotHubLinks_Delete.json"
-          }
-        }
-      }
-    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts": {
       "get": {
         "description": "Returns list of Accounts.",
@@ -772,47 +676,6 @@
         }
       }
     },
-    "IotHubLink": {
-      "description": "Device Update IotHubLink details.",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ],
-      "properties": {
-        "properties": {
-          "description": "Device Update IotHubLink properties.",
-          "x-ms-client-flatten": true,
-          "type": "object",
-          "properties": {
-            "provisioningState": {
-              "description": "Provisioning state.",
-              "type": "string",
-              "enum": [
-                "Succeeded",
-                "Deleted",
-                "Failed",
-                "Canceled",
-                "Accepted",
-                "Creating"
-              ],
-              "readOnly": true,
-              "x-ms-enum": {
-                "name": "ProvisioningState",
-                "modelAsString": true
-              }
-            },
-            "instanceId": {
-              "description": "Device Update Instance resource ID which IoT Hub was linked with..",
-              "type": "string",
-              "minLength": 115,
-              "maxLength": 247
-            }
-          }
-        }
-      }
-    },
     "IotHubSettings": {
       "type": "object",
       "description": "Device Update account integration with IoT Hub settings.",
@@ -990,14 +853,6 @@
       "pattern": "^[A-Za-z][A-Za-z0-9]+$",
       "minLength": 3,
       "maxLength": 36
-    },
-    "IotHubName": {
-      "name": "iotHubName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The Iot Hub Name",
-      "x-ms-parameter-location": "method"
     }
   }
 }
