@@ -318,13 +318,7 @@
           "200": {
             "description": "OK. The request has succeeded.",
             "schema": {
-              "sourceConfigurations": {
-                "description": "The configuration properties for source resource.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/SourceConfiguration"
-                }
-              }
+              "$ref": "#/definitions/SourceConfigurationResult"
             }
           },
           "default": {
@@ -494,6 +488,19 @@
             "type": "object"
           }
         }
+    },
+    "SourceConfigurationResult": {
+      "description": "Configurations for source resource",
+      "type": "object",
+      "properties": {
+        "sourceConfigurations": {
+          "description": "The configuration properties for source resource.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SourceConfiguration"
+          }
+        }
+      }
     },
     "ErrorDefinition": {
       "description": "Error definition.",
