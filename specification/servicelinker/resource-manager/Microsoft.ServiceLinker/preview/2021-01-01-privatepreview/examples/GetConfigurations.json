@@ -9,7 +9,7 @@
       "body": {
         "sourceConfigurations": [
           {
-            "type": "AppSettings",
+            "type": "appSettings",
             "linkConfig": {
               "ASL_DocumentDb_ConnectionString": "ConnectionString"
             }
