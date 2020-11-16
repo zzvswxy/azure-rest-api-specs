@@ -5,6 +5,17 @@
     "linkerName": "linkName"
   },
   "responses": {
-    "200": {}
+    "200": {
+      "body": {
+        "sourceConfigurations": [
+          {
+            "type": "AppSettings",
+            "linkConfig": {
+              "ASL_DocumentDb_ConnectionString": "ConnectionString"
+            }
+          }
+        ]
+      }
+    }
   }
 }

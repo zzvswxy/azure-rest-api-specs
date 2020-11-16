@@ -162,7 +162,6 @@
             "$ref": "./examples/DeleteLink.json"
           }
         },
-        "x-ms-long-running-operation": true,
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -178,12 +177,6 @@
           "200": {
             "description": "OK. The link is deleted."
           },
-          "202": {
-            "description": "Accepted. The response indicates the delete operation is performed in the background."
-          },
-          "204": {
-            "description": "Success. The response indicates the link is already deleted."
-          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -191,15 +184,75 @@
             }
           }
         }
+      },
+      "patch": {	
+        "tags": [	
+          "Links"	
+        ],	
+        "operationId": "Links_Update",	
+        "description": "Operation to update an existing link.",	
+        "x-ms-long-running-operation":true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-examples": {
+          "PutLink": {
+            "$ref": "./examples/PatchLink.json"
+          }
+        },
+        "parameters": [	
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceUriParameter"
+          },
+          {
+            "$ref": "#/parameters/LinkerNameParameter"
+          },
+          {
+            "name": "parameters",
+            "description": "Linker details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LinkerResource"
+            }
+          }
+        ],	
+        "responses": {	
+          "200": {	
+            "description": "Success. The response describes a link.",	
+            "schema": {	
+              "$ref": "#/definitions/LinkerResource"	
+            }	
+          },	
+          "201": {
+            "description": "Long running operation.",
+            "schema": {
+              "$ref": "#/definitions/LinkerResource"
+            }
+          },	
+          "default": {	
+            "description": "Error response describing why the operation failed.",	
+            "schema": {	
+              "$ref": "#/definitions/ErrorResponse"	
+            }	
+          }	
+        }
       }
     },
-    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/validate": {
+    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/validateHealth": {
       "post": {
         "tags": [
           "Links"
         ],
         "operationId": "Links_Validate",
         "description": "Validate a link.",
+        "x-ms-long-running-operation":true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
           "ValidateLinkSuccess": {
             "$ref": "./examples/ValidateLinkSuccess.json"
@@ -224,6 +277,54 @@
             "description": "OK. The request has succeeded.",
             "schema": {
               "$ref": "#/definitions/ValidateResult"
+            }
+          },
+          "202": {
+            "description": "Operation Accepted"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/configurations": {
+      "get": {
+        "tags": [
+          "Links"
+        ],
+        "operationId": "get_operations",
+        "description": "get configurations of a link.",
+        "x-ms-examples": {
+          "GetConfiguration": {
+            "$ref": "./examples/GetConfigurations.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/LinkerNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceUriParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "sourceConfigurations": {
+                "description": "The configuration properties for source resource.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/SourceConfiguration"
+                }
+              }
             }
           },
           "default": {
@@ -268,39 +369,41 @@
     }
   },
   "definitions": {
-    "AdditionalInfo": {
-      "description": "The additional information required for creating a linker.",
+    "SecretAuthInfo": {
+      "description": "The authentication info when authType is secret",
       "type": "object",
       "properties": {
-        "bindingType": {
-          "type": "string",
-          "description": "The binding type."
-        }
-      }
-    },
-    "AuthInfo": {
-      "description": "The authentication info.",
-      "type": "object",
-      "properties": {
-        "authType": {
-          "description": "The authentication type.",
-          "$ref": "#/definitions/AuthType"
-        },
-        "identity": {
-          "description": "The identity info for the linker.",
+        "name": {
+          "description": "Username or account name for secret auth.",
           "type": "string"
         },
         "secret": {
-          "description": "The secret info for the linker.",
+          "description": "Password or account key for secret auth.",
+          "type": "string"
+        }
+      }
+    },
+    "IdentityAuthInfo": {
+      "description": "The authentication info when authType is userAssignedIdentity",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Client Id for userAssignedIdentity.",
+          "type": "string"
+        }
+      }
+    },
+    "ServicePrincipalAuthInfo": {
+      "description": "The authentication info when authType is servicePrincipal",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "ServicePrincipal Id for servicePrincipal auth.",
           "type": "string"
         },
-        "permissions": {
-          "description": "The permissions info for the linker.",
-          "type": "array",
-          "items": {
-            "description": "A single permission info.",
-            "type": "string"
-          }
+        "name": {
+          "description": "ServicePrincipal Name for servicePrincipal auth.",
+          "type": "string"
         }
       }
     },
@@ -311,8 +414,7 @@
         "systemAssignedIdentity",
         "userAssignedIdentity",
         "servicePrincipal",
-        "secret",
-        "certificate"
+        "secret"
       ]
     },
     "LinkerResource": {
@@ -356,36 +458,42 @@
           "description": "The resource Id of target service.",
           "type": "string"
         },
-        "authInfo": {
+        "authType": {
           "description": "The authentication information.",
-          "$ref": "#/definitions/AuthInfo"
+          "$ref": "#/definitions/AuthType"
         },
-        "additionalInfo": {
-          "description": "The additional info for the linker.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AdditionalInfo"
-          }
+        "secretAuthInfo": {
+          "description": "The authentication information.",
+          "$ref": "#/definitions/SecretAuthInfo"
         },
-        "sourceConfigurations": {
-          "description": "The configuration properties for source resource.",
-          "type": "array",
-          "items": {
-            "description": "A setting.",
-            "type": "object",
-            "properties": {
-              "type": {
-                "description": "The type of setting.",
-                "type": "string"
-              },
-              "linkConfig": {
-                "description": "The configuration of the linker.",
-                "type": "object"
-              }
-            }
-          }
+        "identityAuthInfo": {
+          "description": "The authentication information.",
+          "$ref": "#/definitions/IdentityAuthInfo"
+        },
+        "servicePrincipalAuthInfo": {
+          "description": "The authentication information.",
+          "$ref": "#/definitions/ServicePrincipalAuthInfo"
         }
       }
+    },
+    "SourceConfiguration" :{
+      "description": "A configuration item for source resource",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "The type of setting. One of appSettings, connectionStrings, serviceBindings",
+            "type": "string",
+            "enum": [
+              "appSettings",
+              "connectionStrings",
+              "serviceBindings"
+            ]
+          },
+          "linkConfig": {
+            "description": "The configuration of the linker for appSettings or connectionStrings or serviceBindings",
+            "type": "object"
+          }
+        }
     },
     "ErrorDefinition": {
       "description": "Error definition.",
