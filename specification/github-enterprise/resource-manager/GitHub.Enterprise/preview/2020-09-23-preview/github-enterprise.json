@@ -396,7 +396,29 @@
         {
           "$ref": "#/definitions/Resource"
         }
-      ]
+      ],
+      "properties": {
+        "properties": {
+          "type": "object",
+          "title": "Account properties",
+          "description": "Additional GitHub.Enterprise/account properties",
+          "required": [
+            "firstAdminEmail",
+            "firstAdminUsername"
+          ],
+          "properties": {
+            "firstAdminEmail": {
+              "description": "First admin user email address.",
+              "type": "string",
+              "pattern": "\\S+@\\S+\\.\\S+"
+            },
+            "firstAdminUsername": {
+              "description": "First admin username.",
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "accountsPatchResource": {
       "type": "object",

@@ -16,6 +16,10 @@
             "tags": {
               "key1": "value1",
               "key2": "value2"
+            },
+            "properties": {
+              "firstAdminEmail": "admin@contoso.com",
+              "firstAdminUsername": "Admin"
             }
           }
         ]
