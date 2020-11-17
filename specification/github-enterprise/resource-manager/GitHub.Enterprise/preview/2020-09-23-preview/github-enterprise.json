@@ -182,6 +182,12 @@
               "$ref": "#/definitions/accountsResource"
             }
           },
+          "201": {
+            "description": "Created.",
+            "schema": {
+              "$ref": "#/definitions/accountsResource"
+            }
+          },
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Account could not be created/updated).",
             "schema": {
@@ -193,6 +199,10 @@
           "accounts_CreateAndUpdate": {
             "$ref": "./examples/accounts_CreateAndUpdate_example.json"
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
         }
       },
       "patch": {
@@ -228,6 +238,12 @@
               "$ref": "#/definitions/accountsResource"
             }
           },
+          "201": {
+            "description": "Created.",
+            "schema": {
+              "$ref": "#/definitions/accountsResource"
+            }
+          },
           "default": {
             "description": "Error response describing the reason for operation failure. 404 - NotFound (Account does not exist).",
             "schema": {
@@ -239,6 +255,10 @@
           "accounts_Update": {
             "$ref": "./examples/accounts_Update_example.json"
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
         }
       },
       "delete": {
@@ -262,6 +282,9 @@
           "200": {
             "description": "Successful; Account was deleted."
           },
+          "202": {
+            "description": "Accepted."
+          },
           "204": {
             "description": "Successful; Account does not exist."
           },
@@ -276,6 +299,10 @@
           "accounts_Delete": {
             "$ref": "./examples/accounts_Delete_example.json"
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
         }
       }
     },

@@ -24,6 +24,18 @@
           "firstAdminUsername": "Admin"
         }
       }
+    },
+    "201": {
+      "body": {
+        "id": "/subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/GitHub.Enterprise/accounts/myGHAEAccount",
+        "name": "myGHAEAccount",
+        "type": "GitHub.Enterprise/accounts",
+        "location": "East US",
+        "properties": {
+          "firstAdminEmail": "admin@contoso.com",
+          "firstAdminUsername": "Admin"
+        }
+      }
     }
   }
 }
