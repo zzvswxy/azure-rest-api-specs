@@ -30,7 +30,7 @@
       "get": {
         "deprecated": false,
         "description": "Returns list of Linkers.",
-        "operationId": "linker_List",
+        "operationId": "Linker_List",
         "x-ms-examples": {
           "LinkList": {
             "$ref": "./examples/LinkList.json"
@@ -155,7 +155,7 @@
         "tags": [
           "Links"
         ],
-        "operationId": "Links_Delete",
+        "operationId": "Linker_Delete",
         "description": "Delete a link.",
         "x-ms-examples": {
           "DeleteLink": {
@@ -177,6 +177,9 @@
           "200": {
             "description": "OK. The link is deleted."
           },
+          "204": {
+            "description": "Deleted. The link is not found."
+          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -189,7 +192,7 @@
         "tags": [	
           "Links"	
         ],	
-        "operationId": "Links_Update",	
+        "operationId": "Linker_Update",	
         "description": "Operation to update an existing link.",	
         "x-ms-long-running-operation":true,
         "x-ms-long-running-operation-options": {
@@ -216,7 +219,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LinkerResource"
+              "$ref": "#/definitions/LinkerPatch"
             }
           }
         ],	
@@ -247,7 +250,7 @@
         "tags": [
           "Links"
         ],
-        "operationId": "Links_Validate",
+        "operationId": "Linker_ValidateHealth",
         "description": "Validate a link.",
         "x-ms-long-running-operation":true,
         "x-ms-long-running-operation-options": {
@@ -296,7 +299,7 @@
         "tags": [
           "Links"
         ],
-        "operationId": "get_operations",
+        "operationId": "Configurations_List",
         "description": "get configurations of a link.",
         "x-ms-examples": {
           "GetConfiguration": {
@@ -425,8 +428,30 @@
           "description": "The properties of the linker.",
           "$ref": "#/definitions/LinkerProperties",
           "x-ms-client-flatten": true
-        }      
+        },
+        "systemData": {
+          "readOnly": true,
+          "description": "The system meta data relating to this resource.",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
+        }
       }
+    },
+    "LinkerPatch": {
+      "description": "A linker to be updated.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "description": "Linker properties",
+          "type": "object",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/LinkerProperties"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Tags"
+        }
+      ]
     },
     "LinkerList": {
       "description": "The list of Linker.",
@@ -481,7 +506,11 @@
               "appSettings",
               "connectionStrings",
               "serviceBindings"
-            ]
+            ],
+            "x-ms-enum": {
+              "name": "type",
+              "modelAsString": true
+            }
           },
           "linkConfig": {
             "description": "The configuration of the linker for appSettings or connectionStrings or serviceBindings",
@@ -605,7 +634,8 @@
         },
         "isDataAction": {
           "description": "Indicates whether the operation is a data action",
-          "type": "boolean"
+          "type": "boolean",
+          "readOnly": true
         },
         "display": {
           "type": "object",
@@ -629,6 +659,11 @@
             }
           }
         }
+      },
+      "systemData": {
+        "readOnly": true,
+        "description": "The system meta data relating to this resource.",
+        "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
       }
     },
     "OperationListResult": {
