@@ -446,12 +446,7 @@
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/LinkerProperties"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/Tags"
-        }
-      ]
+      }
     },
     "LinkerList": {
       "description": "The list of Linker.",
