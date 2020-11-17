@@ -29,7 +29,7 @@
     "/{resourceUri}/providers/Microsoft.ServiceLinker/linkers": {
       "get": {
         "deprecated": false,
-        "description": "Returns list of Linkers.",
+        "description": "Returns list of Linkers which connects to the resource.",
         "operationId": "Linker_List",
         "x-ms-examples": {
           "LinkList": {
@@ -294,13 +294,13 @@
         }
       }
     },
-    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/configurations": {
-      "get": {
+    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/listConfigurations": {
+      "post": {
         "tags": [
           "Links"
         ],
-        "operationId": "Configurations_List",
-        "description": "get configurations of a link.",
+        "operationId": "ListConfigurations",
+        "description": "list source configurations for a linker.",
         "x-ms-examples": {
           "GetConfiguration": {
             "$ref": "./examples/GetConfigurations.json"
@@ -514,7 +514,7 @@
         }
     },
     "SourceConfigurationResult": {
-      "description": "Configurations for source resource",
+      "description": "Configurations for source resource, include appSettings, connectionString and serviceBindings",
       "type": "object",
       "properties": {
         "sourceConfigurations": {
@@ -697,7 +697,7 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The fully qualified Azure Resource manager identifier of the resource, or scope, whose status to retrieve.",
+      "description": "The fully qualified Azure Resource manager identifier of the resource, which the linker work.",
       "x-ms-skip-url-encoding": true,
       "x-ms-parameter-location": "method"
     }
