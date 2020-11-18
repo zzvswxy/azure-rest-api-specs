@@ -3,7 +3,8 @@
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
     "vendorName": "testVendor",
-    "serviceKey": "testKey"
+    "serviceKey": "testKey",
+    "location": "testLocation"
   },
   "responses": {
     "200": {
@@ -13,10 +14,7 @@
             "properties": {
               "activationState": "Activated",
               "integratedCircuitCardIdentifier": "TestIccId",
-              "internationalMobileSubscriberIdentity": "TestImsi",
-              "authenticationKey": "TestAuthenticationKey",
-              "operatorKeyCode": "TestOperatorKeyCode",
-              "simType": "Physical"
+              "internationalMobileSubscriberIdentity": "TestImsi"
             }
           }
         ],

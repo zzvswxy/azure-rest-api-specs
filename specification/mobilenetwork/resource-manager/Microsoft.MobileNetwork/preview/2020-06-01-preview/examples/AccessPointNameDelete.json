@@ -2,8 +2,9 @@
   "parameters": {
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
-    "resourceGroupName": "testResourceGroupName",
-    "simName": "testSim"
+    "resourceGroupName": "rg1",
+    "mobileNetworkName": "testMobielNetwork",
+    "accessPointName": "testAccessPoint"
   },
   "responses": {
     "200": {},

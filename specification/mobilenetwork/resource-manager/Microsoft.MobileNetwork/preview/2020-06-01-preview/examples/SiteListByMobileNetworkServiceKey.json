@@ -2,16 +2,21 @@
   "parameters": {
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
-    "vendorName": "testVendor",
-    "serviceKey": "testKey"
+    "vendorName": "testVendorName",
+    "serviceKey": "testServiceKey",
+    "location": "testLocation"
   },
   "responses": {
     "200": {
       "body": {
         "value": [
           {
+            "name": "testSite",
+            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobieNetwork/sites/testSite",
+            "type": "Microsoft.MobileNetwork/mobileNetworks/sites",
+            "location": "testLocation",
             "properties": {
-              "provisioningState": "Accepted",
+              "provisioningState": "Succeeded",
               "region": "testRegion",
               "customLocation": "testCustomLocation",
               "trackingAreaCode": "testTrackingAreaCode",
@@ -22,8 +27,7 @@
               ]
             }
           }
-        ],
-        "nextLink": "nextLink"
+        ]
       }
     }
   }
