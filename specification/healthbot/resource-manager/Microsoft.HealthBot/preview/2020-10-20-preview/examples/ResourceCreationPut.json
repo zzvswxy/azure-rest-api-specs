@@ -5,6 +5,7 @@
     "subscriptionId": "subid",
     "resourceName": "MyBot",
     "parameters": {
+      "location": "East US",
       "properties": {
         "displayName": "My Bot",
         "planId": "free"
