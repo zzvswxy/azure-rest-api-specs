@@ -499,19 +499,27 @@
         }
       }
     },
+    "HealthBotUpdateProperties": {
+      "title": "HealthBotUpdateProperties",
+      "description": "The properties provided for bot update.",
+      "properties": {
+        "planId": {
+          "type": "string",
+          "description": "The identifier of the plan (tier) the bot has.",
+          "enum": [
+            "free",
+            "standard"
+          ]
+        }
+      }
+    },
     "HealthBotUpdate": {
       "description": "An update to a HealthBot.",
       "type": "object",
       "properties": {
         "properties": {
-          "planId": {
-            "type": "string",
-            "description": "The identifier of the plan (tier) the bot has.",
-            "enum": [
-              "free",
-              "standard"
-            ]
-          }
+          "$ref": "#/definitions/HealthBotUpdateProperties",
+          "description": "The set of properties specific to healthcare bot resource."
         }
       }
     },
