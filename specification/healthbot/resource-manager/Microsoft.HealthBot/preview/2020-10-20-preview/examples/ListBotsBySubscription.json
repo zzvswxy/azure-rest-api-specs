@@ -8,17 +8,23 @@
     "200": {
       "body": {
         "value": [
-            {
-              "location": "East US",
-              "name": "samplebotname",
-              "type": "Microsoft.HealthBot/healthBots",
-              "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
-              "properties": {
-                "displayName": "My Bot",
-                "planId": "free",
-                "offerId": "microsofthealthcarebot"
-              }
+          {
+            "location": "East US",
+            "name": "samplebotname",
+            "type": "Microsoft.HealthBot/healthBots",
+            "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
+            "properties": {
+              "planId": "free"
+            },
+            "systemData": {
+              "createdBy": "jack@outlook.com",
+              "createdByType": "user",
+              "createdAt": "2020-05-05T17:18:19.1234567Z",
+              "lastModifiedBy": "ryan@outlook.com",
+              "lastModifiedByType": "user",
+              "lastModifiedAt": "2020-05-06T17:18:19.1234567Z"
             }
+          }
         ]
       }
     }
