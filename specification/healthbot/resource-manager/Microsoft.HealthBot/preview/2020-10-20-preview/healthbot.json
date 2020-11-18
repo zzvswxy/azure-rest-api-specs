@@ -484,10 +484,6 @@
       "title": "HealthBotProperties",
       "description": "The properties provided for bot creation. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.",
       "properties": {
-        "displayName": {
-          "type": "string",
-          "description": "The display name of the bot."
-        },
         "planId": {
           "type": "string",
           "description": "The identifier of the plan (tier) the bot has.",

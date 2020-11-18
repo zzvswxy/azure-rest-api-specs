@@ -14,7 +14,6 @@
             "type": "Microsoft.HealthBot/healthBots",
             "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
             "properties": {
-              "displayName": "My Bot",
               "planId": "free"
             },
             "systemData": {

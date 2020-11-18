@@ -7,7 +7,6 @@
     "parameters": {
       "location": "East US",
       "properties": {
-        "displayName": "My Bot",
         "planId": "free"
       }
     }
@@ -20,7 +19,6 @@
         "type": "Microsoft.HealthBot/healthBots",
         "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
         "properties": {
-          "displayName": "My Bot",
           "planId": "free"
         },
         "systemData": {
@@ -40,7 +38,6 @@
         "type": "Microsoft.HealthBot/healthBots",
         "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
         "properties": {
-          "displayName": "My Bot",
           "planId": "free",
           "provisioningState": "Provisioning"
         },
