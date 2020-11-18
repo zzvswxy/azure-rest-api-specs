@@ -376,13 +376,13 @@
       "properties": {
         "name": {
           "description": "the name of the bot for which availability needs to be checked.",
-          "required": true,
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         "type": {
           "description": "the type of the bot for which availability needs to be checked",
-          "required": true,
-          "type": "string"
+          "type": "string",
+          "required": true
         }
       }
     },
