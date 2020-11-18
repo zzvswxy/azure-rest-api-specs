@@ -475,6 +475,11 @@
               "description": "The name of your Azure Supply Chain Service's workspace.",
               "readOnly": false
             },
+            "workspaceUrl": {
+              "type": "string",
+              "description": "The workspace's Url",
+              "readOnly": true
+            },
             "provisioningState": {
               "description": "The provisioning state of the resource.",
               "readOnly": true,
