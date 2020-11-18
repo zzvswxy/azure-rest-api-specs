@@ -376,7 +376,7 @@
       "properties": {
         "name": {
           "description": "the name of the bot for which availability needs to be checked.",
-          "type": "string",
+          "type": "string"
         },
         "type": {
           "description": "the type of the bot for which availability needs to be checked",
