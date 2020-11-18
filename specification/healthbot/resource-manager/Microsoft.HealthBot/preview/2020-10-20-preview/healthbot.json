@@ -196,7 +196,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Bot"
+              "$ref": "#/definitions/HealthBotUpdate"
             },
             "description": "The parameters to provide for the required bot."
           },
@@ -500,6 +500,20 @@
           "type": "string",
           "description": "Gets the provisioning state of the Healthcare bot resource.",
           "readOnly": true
+        }
+      }
+    },
+    "HealthBotUpdate": {
+      "description": "An update to a HealthBot.",
+      "type": "object",
+      "properties": {
+        "planId": {
+          "type": "string",
+          "description": "The identifier of the plan (tier) the bot has.",
+          "enum": [
+            "free",
+            "standard"
+          ]
         }
       }
     },
