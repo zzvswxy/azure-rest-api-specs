@@ -94,6 +94,10 @@
           "Create vendor sim profile": {
             "$ref": "./examples/VendorSimProfileCreate.json"
           }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
         }
       },
       "get": {
