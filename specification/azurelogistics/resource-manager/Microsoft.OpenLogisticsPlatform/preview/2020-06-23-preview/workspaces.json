@@ -408,28 +408,8 @@
           "type": "string",
           "readOnly": true
         },
-        "sku": {
-          "description": "Sku of resource definition",
-          "type": "string",
-          "readOnly": false
-        },
-        "managedBy": {
-          "description": "Who manages the resource",
-          "type": "string",
-          "readOnly": false
-        },
         "location": {
           "description": "Location of the resource.",
-          "type": "string",
-          "readOnly": false
-        },
-        "zones": {
-          "description": "Availability zone of the resource.",
-          "type": "string",
-          "readOnly": false
-        },
-        "plan": {
-          "description": "The resource plan",
           "type": "string",
           "readOnly": false
         },
@@ -445,11 +425,6 @@
           "additionalProperties": {
             "type": "string"
           }
-        },
-        "identity": {
-          "description": "The resource identity",
-          "type": "string",
-          "readOnly": false
         }
       },
       "x-ms-azure-resource": true
@@ -469,11 +444,6 @@
               "type": "string",
               "description": "The workspace's Id",
               "readOnly": true
-            },
-            "workspaceName": {
-              "type": "string",
-              "description": "The name of your Azure Supply Chain Service's workspace.",
-              "readOnly": false
             },
             "workspaceUrl": {
               "type": "string",
