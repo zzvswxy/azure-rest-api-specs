@@ -507,13 +507,15 @@
       "description": "An update to a HealthBot.",
       "type": "object",
       "properties": {
-        "planId": {
-          "type": "string",
-          "description": "The identifier of the plan (tier) the bot has.",
-          "enum": [
-            "free",
-            "standard"
-          ]
+        "properties": {
+          "planId": {
+            "type": "string",
+            "description": "The identifier of the plan (tier) the bot has.",
+            "enum": [
+              "free",
+              "standard"
+            ]
+          }
         }
       }
     },
