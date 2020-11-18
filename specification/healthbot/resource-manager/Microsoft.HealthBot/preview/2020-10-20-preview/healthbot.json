@@ -380,7 +380,7 @@
         },
         "type": {
           "description": "the type of the bot for which availability needs to be checked",
-          "type": "string",
+          "type": "string"
         }
       },
       "required": [
