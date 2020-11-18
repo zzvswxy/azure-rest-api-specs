@@ -377,14 +377,16 @@
         "name": {
           "description": "the name of the bot for which availability needs to be checked.",
           "type": "string",
-          "required": true
         },
         "type": {
           "description": "the type of the bot for which availability needs to be checked",
           "type": "string",
-          "required": true
         }
-      }
+      },
+      "required": [
+        "name",
+        "type"
+      ]
     },
     "CheckNameAvailabilityResponseBody": {
       "description": "The response body returned for a request to check availability of a bot name.",
