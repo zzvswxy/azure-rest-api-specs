@@ -583,7 +583,7 @@
               "readOnly": true,
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ErrorResponse"
+                "$ref": "#/definitions/Error"
               },
               "description": "The error details."
             },
