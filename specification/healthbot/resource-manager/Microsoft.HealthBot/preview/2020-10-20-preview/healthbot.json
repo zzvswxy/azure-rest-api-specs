@@ -375,7 +375,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "The name of the HealthBot SKU",
+          "description": "The name of the HealthBot SKU"
         },
         "tier": {
           "type": "string",
