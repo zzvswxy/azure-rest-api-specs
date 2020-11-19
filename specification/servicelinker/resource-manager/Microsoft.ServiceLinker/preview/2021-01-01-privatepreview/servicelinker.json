@@ -387,6 +387,7 @@
         "authType":{
           "description": "The authentication type.",
           "$ref":  "#/definitions/AuthType"
+        }
       }
     },
     "SecretAuthInfo": {
