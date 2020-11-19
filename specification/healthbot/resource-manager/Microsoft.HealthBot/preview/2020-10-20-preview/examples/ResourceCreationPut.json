@@ -6,8 +6,8 @@
     "resourceName": "MyBot",
     "parameters": {
       "location": "East US",
-      "properties": {
-        "planId": "free"
+      "sku":  {
+        "name": "F0"
       }
     }
   },
@@ -18,8 +18,11 @@
         "name": "samplebotname",
         "type": "Microsoft.HealthBot/healthBots",
         "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
+        "sku":  {
+          "name": "F0"
+        },
         "properties": {
-          "planId": "free"
+          "botManagementPortalLink": "https://us.healthbot.microsoft.com/account/contoso/scenarios/manage"
         },
         "systemData": {
           "createdBy": "jack@outlook.com",
@@ -37,8 +40,11 @@
         "name": "samplebotname",
         "type": "Microsoft.HealthBot/healthBots",
         "id": "/subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname",
+        "sku":  {
+          "name": "F0"
+        },
         "properties": {
-          "planId": "free",
+          "botManagementPortalLink": "https://us.healthbot.microsoft.com/account/contoso/scenarios/manage",
           "provisioningState": "Provisioning"
         },
         "systemData": {
