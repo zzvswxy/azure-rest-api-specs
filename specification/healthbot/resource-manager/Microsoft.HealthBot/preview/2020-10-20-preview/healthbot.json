@@ -546,7 +546,12 @@
           "description": "Tags for a HealthBot.",
           "additionalProperties": {
             "type": "string"
-          }
+          },
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ]
         },
         "sku": {
           "$ref": "#/definitions/Sku",
