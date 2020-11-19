@@ -5,7 +5,6 @@
     "subscriptionId": "subid",
     "resourceName": "MyBot",
     "parameters": {
-      "location": "East US",
       "sku":  {
         "name": "F0"
       }
