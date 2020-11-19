@@ -375,11 +375,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "The name of the SKU",
-          "enum": [
-            "F0",
-            "S1"
-          ]
+          "description": "The name of the HealthBot SKU",
         },
         "tier": {
           "type": "string",
