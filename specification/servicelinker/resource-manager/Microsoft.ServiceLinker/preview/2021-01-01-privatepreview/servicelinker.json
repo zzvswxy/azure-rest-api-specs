@@ -418,7 +418,7 @@
         }
       ]
     },
-    "IdentityAuthInfo": {
+    "UserAssignedIdentityAuthInfo": {
       "x-ms-discriminator-value": "userAssignedIdentity",
       "description": "The authentication info when authType is userAssignedIdentity",
       "allOf": [
@@ -436,6 +436,15 @@
           "required": [
             "id"
           ]
+        }
+      ]
+    },
+    "SystemAssignedIdentityAuthInfo": {
+      "x-ms-discriminator-value": "systemAssignedIdentity",
+      "description": "The authentication info when authType is systemAssignedIdentity",
+      "allOf": [
+        {
+          "$ref": "#/definitions/AuthInfoBase"
         }
       ]
     },
