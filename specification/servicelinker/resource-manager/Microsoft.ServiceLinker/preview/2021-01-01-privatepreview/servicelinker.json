@@ -63,7 +63,7 @@
         }
       }
     },
-    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}": {
+    "/{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName}": {
       "get": {
         "description": "Returns Linker resource for a given name.",
         "operationId": "linker_Get",
@@ -245,7 +245,7 @@
         }
       }
     },
-    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/validateHealth": {
+    "/{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName}/validateHealth": {
       "post": {
         "tags": [
           "Links"
@@ -294,7 +294,7 @@
         }
       }
     },
-    "/{resourceUri}/providers/Microsoft.ServiceLinker/linker/{linkerName}/listConfigurations": {
+    "/{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName}/listConfigurations": {
       "post": {
         "tags": [
           "Links"
