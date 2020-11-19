@@ -542,6 +542,7 @@
       "description": "Parameters for updating a HealthBot.",
       "properties": {
         "tags": {
+          "type": "object",
           "description": "Tags for a HealthBot.",
           "additionalProperties": {
             "type": "string"
