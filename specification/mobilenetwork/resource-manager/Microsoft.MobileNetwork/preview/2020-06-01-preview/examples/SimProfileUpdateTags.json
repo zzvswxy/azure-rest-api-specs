@@ -4,19 +4,29 @@
     "subscriptionId": "subid",
     "resourceGroupName": "rg1",
     "simName": "testSim",
-    "simProfileName": "TestSimProfile"
+    "simProfileName": "testSimProfile",
+    "parameters": {
+      "tags": {
+        "tag1": "value1",
+        "tag2": "value2"
+      }
+    }
   },
   "responses": {
     "200": {
       "body": {
-        "name": "TestSimProfile",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/simName/simProfiles/TestSimProfile",
+        "name": "testSimProfile",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/sims/testSim/simProfiles/testSimProfile",
         "type": "Microsoft.MobileNetwork/sims/simProfiles",
-        "location": "testLocation",
+        "location": "eastus",
+        "tags": {
+          "tag1": "value1",
+          "tag2": "value2"
+        },
         "properties": {
           "provisioningState": "Accepted",
           "activationState": "Activated",
-          "internationalMobileSubscriberIdentity": "TestImsi",
+          "internationalMobileSubscriberIdentity": "testImsi",
           "integratedCircuitCardIdentifier": "testIccid",
           "mobileNetworks": [
             {
