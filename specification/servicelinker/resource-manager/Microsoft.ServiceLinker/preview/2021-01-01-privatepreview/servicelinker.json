@@ -366,44 +366,6 @@
     }
   },
   "definitions": {
-    "SecretAuthInfo": {
-      "description": "The authentication info when authType is secret",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Username or account name for secret auth.",
-          "type": "string"
-        },
-        "secret": {
-          "description": "Password or account key for secret auth.",
-          "type": "string"
-        }
-      }
-    },
-    "IdentityAuthInfo": {
-      "description": "The authentication info when authType is userAssignedIdentity",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Client Id for userAssignedIdentity.",
-          "type": "string"
-        }
-      }
-    },
-    "ServicePrincipalAuthInfo": {
-      "description": "The authentication info when authType is servicePrincipal",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "ServicePrincipal Id for servicePrincipal auth.",
-          "type": "string"
-        },
-        "name": {
-          "description": "ServicePrincipal Name for servicePrincipal auth.",
-          "type": "string"
-        }
-      }
-    },
     "AuthType": {
       "description": "The authentication type.",
       "type": "string",
@@ -412,6 +374,92 @@
         "userAssignedIdentity",
         "servicePrincipal",
         "secret"
+      ],
+      "x-ms-enum": {
+        "name": "AuthType",
+        "modelAsString": true
+      }
+    },
+    "AuthInfoBase": {
+      "description": "The authentication info",
+      "discriminator": "authType",
+      "properties":{
+        "authType":{
+          "description": "The authentication type.",
+          "$ref":  "#/definitions/AuthType"
+      }
+    },
+    "SecretAuthInfo": {
+      "x-ms-discriminator-value": "secret",
+      "description": "The authentication info when authType is secret",
+      "allOf": [
+        {
+          "$ref": "#/definitions/AuthInfoBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Username or account name for secret auth.",
+              "type": "string"
+            },
+            "secret": {
+              "description": "Password or account key for secret auth.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "secret"
+          ]
+        }
+      ]
+    },
+    "IdentityAuthInfo": {
+      "x-ms-discriminator-value": "userAssignedIdentity",
+      "description": "The authentication info when authType is userAssignedIdentity",
+      "allOf": [
+        {
+          "$ref": "#/definitions/AuthInfoBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Client Id for userAssignedIdentity.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "ServicePrincipalAuthInfo": {
+      "x-ms-discriminator-value": "servicePrincipal",
+      "description": "The authentication info when authType is servicePrincipal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/AuthInfoBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "ServicePrincipal Id for servicePrincipal auth.",
+              "type": "string"
+            },
+            "name": {
+              "description": "ServicePrincipal Name for servicePrincipal auth.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ]
+        }
       ]
     },
     "LinkerResource": {
@@ -472,21 +520,9 @@
           "description": "The resource Id of target service.",
           "type": "string"
         },
-        "authType": {
-          "description": "The authentication information.",
-          "$ref": "#/definitions/AuthType"
-        },
-        "secretAuthInfo": {
-          "description": "The authentication information.",
-          "$ref": "#/definitions/SecretAuthInfo"
-        },
-        "identityAuthInfo": {
-          "description": "The authentication information.",
-          "$ref": "#/definitions/IdentityAuthInfo"
-        },
-        "servicePrincipalAuthInfo": {
-          "description": "The authentication information.",
-          "$ref": "#/definitions/ServicePrincipalAuthInfo"
+        "authInfo": {
+          "description": "The authentication type.",
+          "$ref": "#/definitions/AuthInfoBase"
         }
       }
     },
