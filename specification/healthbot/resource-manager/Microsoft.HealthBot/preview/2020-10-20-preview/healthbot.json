@@ -379,6 +379,9 @@
         },
         "tier": {
           "type": "string",
+          "enum": [
+            "Standard"
+          ],
           "x-ms-enum": {
             "name": "SkuTier",
             "modelAsString": false
