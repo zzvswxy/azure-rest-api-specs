@@ -34,7 +34,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/location/{location}/vendors/{vendorName}/simProfiles/{imsi}": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/locations/{location}/vendors/{vendorName}/simProfiles/{imsi}": {
       "put": {
         "tags": [
           "VendorSimProfiles"
@@ -156,7 +156,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/location/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/listSites": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/locations/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/listSites": {
       "post": {
         "tags": [
           "Sites"
@@ -213,7 +213,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/location/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/simProfiles": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/locations/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/simProfiles": {
       "get": {
         "tags": [
           "VendorSimProfiles"
@@ -280,7 +280,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/location/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/simProfiles/{imsi}/listKeys": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/locations/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/simProfiles/{imsi}/listKeys": {
       "post": {
         "tags": [
           "VendorSimProfiles"
