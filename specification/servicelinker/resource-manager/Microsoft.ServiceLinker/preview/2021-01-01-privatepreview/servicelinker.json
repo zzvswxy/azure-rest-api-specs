@@ -387,11 +387,11 @@
         "authType":{
           "description": "The authentication type.",
           "$ref":  "#/definitions/AuthType"
-        },
-        "required": [
-          "authType"
-        ]
-      }
+        }
+      },
+      "required": [
+        "authType"
+      ]
     },
     "SecretAuthInfo": {
       "x-ms-discriminator-value": "secret",
