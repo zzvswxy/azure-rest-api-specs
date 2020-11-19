@@ -196,7 +196,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/HealthBotUpdate"
+              "$ref": "#/definitions/HealthBotUpdateParameters"
             },
             "description": "The parameters to provide for the required bot."
           },
@@ -557,14 +557,6 @@
           "$ref": "#/definitions/Sku",
           "description": "SKU of the HealthBot."
         }
-      }
-    },
-    "HealthBotUpdate": {
-      "description": "An update to a HealthBot.",
-      "type": "object",
-      "properties": {
-        "$ref": "#/definitions/HealthBotUpdateParameters",
-        "description": "The set of parameters for updating a HealthBot."
       }
     },
     "SystemData": {
