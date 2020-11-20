@@ -343,6 +343,11 @@
           "type": "string",
           "readOnly": true
         },
+        "location": {
+          "description": "Location of the resource.",
+          "type": "string",
+          "readOnly": false
+        },
         "properties": {
           "description": "the subscription definition properties",
           "x-ms-client-flatten": true,
