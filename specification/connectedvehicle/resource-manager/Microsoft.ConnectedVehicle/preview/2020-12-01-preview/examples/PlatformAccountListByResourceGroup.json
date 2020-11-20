@@ -16,26 +16,19 @@
               "analytics": {
                 "storageAccountResourceId": "sample-storage-account-id-1"
               },
-              "cosmosDb": {
-                "id": "sample-cosmos-db-id-1"
-              },
-              "extensions": {
-                "id": "sample-extensions-id-1"
-              },
+              "extensions": [
+                {
+                  "resourceId": "sample-extensions-id"
+                }
+              ],
               "networking": {
-                "domainName": "sample-domain",
                 "endpoints": {
                   "mqtt": {
                     "enabled": true
                   },
                   "iotHub": {
-                    "enabled": true,
-                    "rootCertificates": [ "sample-certificate" ]
+                    "enabled": true
                   }
-                },
-                "sslCertificates": {
-                  "primary": "sample-primary-certificate",
-                  "secondary": "sample-secondary-certificate"
                 }
               },
               "provisioningState": "Succeeded",
@@ -46,9 +39,7 @@
               ]
             },
             "sku": {
-              "name": "D0",
-              "tier": "Dedicated",
-              "capacity": 1
+              "name": "Dedicated"
             },
             "systemData": {
               "createdBy": "sample-user1",
@@ -72,26 +63,19 @@
               "analytics": {
                 "storageAccountResourceId": "sample-storage-account-id-2"
               },
-              "cosmosDb": {
-                "id": "sample-cosmos-db-id-2"
-              },
-              "extensions": {
-                "id": "sample-extensions-id-2"
-              },
+              "extensions": [
+                {
+                  "resourceId": "sample-extensions-id"
+                }
+              ],
               "networking": {
-                "domainName": "sample-domain",
                 "endpoints": {
                   "mqtt": {
                     "enabled": true
                   },
                   "iotHub": {
-                    "enabled": true,
-                    "rootCertificates": [ "sample-certificate" ]
+                    "enabled": true
                   }
-                },
-                "sslCertificates": {
-                  "primary": "sample-primary-certificate",
-                  "secondary": "sample-secondary-certificate"
                 }
               },
               "provisioningState": "Succeeded",
@@ -102,9 +86,7 @@
               ]
             },
             "sku": {
-              "name": "D0",
-              "tier": "Dedicated",
-              "capacity": 1
+              "name": "Dedicated"
             },
             "systemData": {
               "createdBy": "sample-user1",

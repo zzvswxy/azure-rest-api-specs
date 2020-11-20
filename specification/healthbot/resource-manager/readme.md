@@ -37,7 +37,7 @@ These settings apply only when `--tag=package-2020-10-20-preview` is specified o
 
 ```yaml $(tag) == 'package-2020-10-20-preview'
 input-file:
-  - Microsoft.HealthcareBot/preview/2020-10-20-preview/healthbot.json
+  - Microsoft.HealthBot/preview/2020-10-20-preview/healthbot.json
 ```
 
 ---
@@ -48,7 +48,7 @@ These settings apply only when `--tag=package-2020-11-03-preview` is specified o
 
 ```yaml $(tag) == 'package-2020-11-03-preview'
 input-file:
-  - Microsoft.HealthcareBot/preview/2020-11-03-preview/healthbot.json
+  - Microsoft.HealthBot/preview/2020-11-03-preview/healthbot.json
 ```
 
 ---
