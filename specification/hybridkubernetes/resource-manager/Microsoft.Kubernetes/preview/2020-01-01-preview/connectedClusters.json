@@ -546,7 +546,7 @@
         },
         "apiServerCertificate": {
           "type": "string",
-          "description": "Base64 encoded Kubernetes API server certificate authority data"
+          "description": "Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
         },
         "aadProfile": {
           "$ref": "#/definitions/ConnectedClusterAADProfile"
@@ -572,31 +572,32 @@
         },
         "distribution": {
           "type": "string",
-          "description": "The Kuberenetes distribution on which the agents are running"
+          "description": "The Kubernetes distribution running on this connected cluster."
         },
         "infrastructure": {
           "type": "string",
-          "description": "The Kubernetes infrastructure on which the agents are running"
+          "description": "The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on."
         },
         "offering": {
           "type": "string",
           "readOnly": true,
-          "description": "The 1P service name through which Arc onboarding has happened in case of integrated onboarding"
+          "description": "Connected cluster offering"
         },
-        "msiCertificateExpiryTime": {
+        "managedIdentityCertificateExpiryTime": {
           "type":"string",
           "format": "date-time",
           "readOnly": true,
-          "description": "Expiry time of the MSI certificate"
+          "description": "Expiry time of the  managed identity certificate"
         },
         "lastConnectivityTime": {
           "type": "string",
           "readOnly": true,
-          "description": ""
+          "format": "date-time",
+          "description": "Time representing the last instance when heart beat was received from the cluster"
         },
         "connectivityStatus": {
           "type": "string",
-          "description": "",
+          "description": "Represents the connectivity status of the connected cluster.",
           "enum": [
             "Connecting",
             "Connected",
@@ -641,7 +642,7 @@
           "type": "string",
           "format": "date-time",
           "readOnly": true,
-          "description": "Expiry time of the credentials."
+          "description": "Expiry time of the endpoint."
         }
       },
       "description": "The credential result response."
@@ -741,7 +742,7 @@
         },
         "apiServerCertificate": {
           "type": "string",
-          "description":"Base64 encoded Kubernetes API server certificate authority data"
+          "description":"Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
         }
       }
     },
