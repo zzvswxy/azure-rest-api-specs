@@ -15,7 +15,9 @@
             "tags": {},
             "properties": {
               "provisioningState": "Succeeded",
-              "publicLandMobileNetworkIdentifier": "testPublicLandMobileNetworkIdentifier",
+              "mobileCountryCode": "testMobileCountryCode",
+              "mobileNetworkCode": "testMobileNetworkCode",
+              "serviceKey": "testServiceKey",
               "networkType": "Public",
               "spectrumAccessProvider": "testSpectrumAccessProvider",
               "sites": [
