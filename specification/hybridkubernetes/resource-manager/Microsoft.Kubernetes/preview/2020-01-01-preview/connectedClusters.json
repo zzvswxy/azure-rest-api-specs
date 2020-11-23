@@ -265,6 +265,9 @@
             "$ref": "#/parameters/ClusterNamePathParam"
           },
           {
+            "$ref": "#/parameters/ClientProxy"
+          },
+          {
             "in": "body",
             "required": false,
             "name": "ClientAuthenticationDetails",
@@ -537,7 +540,8 @@
       "type": "object",
       "required": [
         "agentPublicKeyCertificate",
-        "aadProfile"
+        "aadProfile",
+        "apiServerCertificate"
       ],
       "properties": {
         "agentPublicKeyCertificate": {
@@ -546,6 +550,7 @@
         },
         "apiServerCertificate": {
           "type": "string",
+          "format": "byte",
           "description": "Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
         },
         "aadProfile": {
@@ -561,6 +566,12 @@
           "format": "int32",
           "type": "integer",
           "description": "Number of nodes present in the connected cluster resource"
+        },
+        "totalCoreCount": {
+          "readOnly": true,
+          "format": "int32",
+          "type": "integer",
+          "description": "Number of CPU cores present in the connected cluster resource"
         },
         "agentVersion": {
           "readOnly": true,
@@ -587,7 +598,7 @@
           "type":"string",
           "format": "date-time",
           "readOnly": true,
-          "description": "Expiry time of the  managed identity certificate"
+          "description": "Expiry time of the managed identity certificate"
         },
         "lastConnectivityTime": {
           "type": "string",
@@ -613,6 +624,11 @@
     },
     "CredentialResults": {
       "properties": {
+        "hybridConnectionConfig": {
+          "$ref": "#/definitions/HybridConnectionConfig",
+          "description": "Contains the REP (rendezvous endpoint) and “Sender” access token from notification service (NS).",
+          "readOnly": true
+        },
         "kubeconfigs": {
           "type": "array",
           "readOnly": true,
@@ -770,6 +786,32 @@
           "readOnly": true
         }
       }
+    },
+    "HybridConnectionConfig": {
+      "description": "Contains the REP (rendezvous endpoint) and “Sender” access token from notification service (NS).",
+      "properties": {
+        "expirationTime": {
+          "description": "Timestamp when this token will be expired.",
+          "type": "integer",
+          "readOnly": true,
+          "format": "int64"
+        },
+        "hybridConnectionName": {
+          "description": "Name of the connection",
+          "type": "string",
+          "readOnly": true
+        },
+        "relay": {
+          "description": "Name of the notification service.",
+          "type": "string",
+          "readOnly": true
+        },
+        "token": {
+          "description": "Sender access token",
+          "type": "string",
+          "readOnly": true
+        }
+      }
     }
   },
   "parameters": {
@@ -780,6 +822,14 @@
       "type": "string",
       "description": "The name of the Kubernetes cluster on which get is called.",
       "x-ms-parameter-location": "method"
+    },
+    "ClientProxy": {
+      "name": "ClientProxy",
+      "in": "query",
+      "required": false,
+      "type": "boolean",
+      "x-ms-parameter-location": "method",
+      "description": ""
     }
   }
 }
