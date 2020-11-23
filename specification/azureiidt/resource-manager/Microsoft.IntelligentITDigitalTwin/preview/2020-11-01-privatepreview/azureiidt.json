@@ -1290,19 +1290,6 @@
     },
     "AssetProperties": {
       "properties": {
-        "provisioningState": {
-          "description": "The provisioning state.",
-          "enum": [
-            "Succeeded",
-            "Failed"
-          ],
-          "type": "string",
-          "readOnly": true,
-          "x-ms-enum": {
-            "name": "provisioningState",
-            "modelAsString": true
-          }
-        },
         "assetId": {
           "type": "string",
           "description": "ResourceId for the virtual machines."
