@@ -939,7 +939,7 @@
         },
         "x-ms-examples": {
           "List all Assets": {
-            "$ref": "./examples/ListAllITDigitalTwinAssets.json"
+            "$ref": "./examples/ListAllAssets.json"
           }
         }
       }
@@ -1253,7 +1253,6 @@
             "modelAsString": true
           }
         }
-
       },
       "description": "Meta data for the test result."
     },
@@ -1296,20 +1295,31 @@
       },
       "description": "Admin credentials for accessing enterprise"
     },
-    "Asset": {
+    "AssetProperties": {
       "properties": {
-        "id": {
-          "description": "Resource ID of the asset",
+        "provisioningState": {
+          "description": "The provisioning state.",
+          "enum": [
+            "Succeeded",
+            "Failed"
+          ],
           "type": "string",
-          "x-nullable": true
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "provisioningState",
+            "modelAsString": true
+          }
         },
-        "name": {
-          "description": "Name of the asset",
+        "assetId": {
           "type": "string",
-          "x-nullable": true
+          "description": "ResourceId for the virtual machines."
         },
-        "role": {
-          "description": "Role of a asset, including VMs on Azure and local test machine on-prem",
+        "assetName": {
+          "type": "string",
+          "description": "Asset name."
+        },
+        "assetRole": {
+          "description": "Role of an asset, including VMs on Azure and local test machine on-prem",
           "enum": [
             "SCCM",
             "AD",
@@ -1323,8 +1333,23 @@
             "modelAsString": true
           }
         }
-
       },
+      "description": "Describes the properties of a IT Digital Twin Asset."
+    },
+    "Asset": {
+      "properties": {
+        "properties": {
+          "title": "Asset properties",
+          "description": "List the properties of IT Digital Twin Asset",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/AssetProperties"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
       "description": "Asset including virtual machines and the on-prem test devices."
     },
     "Assets": {
