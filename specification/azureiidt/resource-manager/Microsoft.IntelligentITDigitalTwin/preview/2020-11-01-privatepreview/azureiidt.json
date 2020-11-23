@@ -769,7 +769,7 @@
         },
         "x-ms-examples": {
           "Update asset of an it digital twin": {
-            "$ref": "./examples/UpdateAITDigitalTwin.json"
+            "$ref": "./examples/UpdateAITDigitalTwinAsset.json"
           }
         }
       },
@@ -905,13 +905,6 @@
             "required": true,
             "type": "string",
             "description": "The name of the it digital twin."
-          },
-          {
-            "name": "assetName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the it digital twin asset."
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
