@@ -563,7 +563,6 @@
         },
         "totalNodeCount": {
           "readOnly": true,
-          "format": "int32",
           "type": "integer",
           "description": "Number of nodes present in the connected cluster resource"
         },
