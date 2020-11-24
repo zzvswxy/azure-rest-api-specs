@@ -1809,6 +1809,52 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/generateUpgrade": {
+      "post": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Generate the updated version of a Migrator.",
+        "operationId": "Migrators_GenerateUpgrade",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "x-ms-examples": {
+          "Generated updated Migrator": {
+            "$ref": "./examples/LiveDataMigrator/MigratorGenerateUpgrade.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generate upgraded migrator request completed."
+          },
+          "202": {
+            "description": "Generate upgraded migrator request accepted."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/updateDownloadLocation": {
       "post": {
         "tags": [
@@ -3825,6 +3871,16 @@
         },
         "downloadLocation": {
           "description": "The location for downloading deployment files",
+          "type": "string",
+          "readOnly": true
+        },
+        "version": {
+          "description": "The version of this migrator service",
+          "type": "string",
+          "readOnly": true
+        },
+        "latestAvailableVersion": {
+          "description": "The latest available version of the migrator service",
           "type": "string",
           "readOnly": true
         },
