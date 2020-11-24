@@ -625,7 +625,7 @@
       "properties": {
         "hybridConnectionConfig": {
           "$ref": "#/definitions/HybridConnectionConfig",
-          "description": "Contains the REP (rendezvous endpoint) and “Sender” access token from notification service (NS).",
+          "description": "Contains the REP (rendezvous endpoint) and “Sender” access token.",
           "readOnly": true
         },
         "kubeconfigs": {
@@ -781,7 +781,7 @@
       }
     },
     "HybridConnectionConfig": {
-      "description": "Contains the REP (rendezvous endpoint) and “Sender” access token from notification service (NS).",
+      "description": "Contains the REP (rendezvous endpoint) and “Sender” access token.",
       "properties": {
         "expirationTime": {
           "description": "Timestamp when this token will be expired.",
