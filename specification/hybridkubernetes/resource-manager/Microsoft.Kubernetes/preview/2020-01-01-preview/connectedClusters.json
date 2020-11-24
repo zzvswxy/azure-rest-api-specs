@@ -702,6 +702,10 @@
         "agentPublicKeyCertificate": {
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
+        },
+        "offering": {
+          "type": "string",
+          "description": "The 1P service name through which Arc onboarding has happened in case of integrated onboarding"
         }
       }
     },
