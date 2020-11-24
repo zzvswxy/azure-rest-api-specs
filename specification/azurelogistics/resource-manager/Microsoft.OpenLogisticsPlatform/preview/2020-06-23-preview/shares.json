@@ -414,8 +414,11 @@
         "AccessAssignment": {
       "type": "object",
       "properties": {
-        "actionId": {
-          "type": "string"
+         "actionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "attributeConditions": {
           "type": "array",
