@@ -541,14 +541,14 @@
       "required": [
         "agentPublicKeyCertificate",
         "aadProfile",
-        "apiServerCertificate"
+        "clusterEndPointCertificate"
       ],
       "properties": {
         "agentPublicKeyCertificate": {
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
         },
-        "apiServerCertificate": {
+        "clusterEndPointCertificate": {
           "type": "string",
           "format": "byte",
           "description": "Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
@@ -593,11 +593,11 @@
           "readOnly": true,
           "description": "Connected cluster offering"
         },
-        "managedIdentityCertificateExpiryTime": {
+        "managedIdentityCertificateExpirationTime": {
           "type":"string",
           "format": "date-time",
           "readOnly": true,
-          "description": "Expiry time of the managed identity certificate"
+          "description": "Expiration time of the managed identity certificate"
         },
         "lastConnectivityTime": {
           "type": "string",
@@ -652,12 +652,6 @@
           "format": "byte",
           "readOnly": true,
           "description": "Base64-encoded Kubernetes configuration file."
-        },
-        "expiryTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "Expiry time of the endpoint."
         }
       },
       "description": "The credential result response."
@@ -755,7 +749,7 @@
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
         },
-        "apiServerCertificate": {
+        "clusterEndpointCertificate": {
           "type": "string",
           "description":"Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
         }
@@ -801,7 +795,7 @@
           "readOnly": true
         },
         "relay": {
-          "description": "Name of the notification service.",
+          "description": "Name of the relay.",
           "type": "string",
           "readOnly": true
         },
@@ -827,7 +821,7 @@
       "in": "query",
       "required": false,
       "type": "boolean",
-      "description": "",
+      "description": "Parameter to indicate whether the request is for client side proxy or not",
       "x-ms-parameter-location": "method"
     }
   }
