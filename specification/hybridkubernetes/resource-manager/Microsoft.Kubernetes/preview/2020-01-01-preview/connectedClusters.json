@@ -540,18 +540,12 @@
       "type": "object",
       "required": [
         "agentPublicKeyCertificate",
-        "aadProfile",
-        "clusterEndPointCertificate"
+        "aadProfile"
       ],
       "properties": {
         "agentPublicKeyCertificate": {
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
-        },
-        "clusterEndPointCertificate": {
-          "type": "string",
-          "format": "byte",
-          "description": "Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
         },
         "aadProfile": {
           "$ref": "#/definitions/ConnectedClusterAADProfile"
@@ -748,10 +742,6 @@
         "agentPublicKeyCertificate": {
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
-        },
-        "clusterEndpointCertificate": {
-          "type": "string",
-          "description":"Base64 encoded certificate authority data of the endpoint hosted on the cluster to receive traffic from Azure."
         }
       }
     },
