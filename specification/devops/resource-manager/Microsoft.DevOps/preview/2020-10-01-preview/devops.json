@@ -414,27 +414,17 @@
           "description": "Target resource properties",
           "$ref": "#/definitions/TargetResource"
         },
-        "deployer": {
+        "workflowRun": {
           "type": "object",
-          "description": "Deployer properties",
-          "$ref": "#/definitions/Deployer"
+          "description": "Workflow run properties",
+          "$ref": "#/definitions/WorkflowRun"
         },
-        "resourceChanges": {
-          "type": "object",
-          "description": "Resource change properties",
-          "$ref": "#/definitions/ResourceChanges"
-        },
-        "status": {
-          "type": "string",
-          "description": "Status of the resource"
-        },
-        "startedAt": {
-          "type": "string",
-          "description": "Time when deployment started"
-        },
-        "finishedAt": {
-          "type": "string",
-          "description": "Time when deployment finished"
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Artifact"
+          },
+          "description": "List of artifacts"
         }
       }
     },
@@ -442,6 +432,14 @@
       "type": "object",
       "description": "Target resource properties.",
       "properties": {
+        "name": {
+          "type": "string",
+          "description": "Target resource name"
+        },
+        "location": {
+          "type": "string",
+          "description": "Target resource location"
+        },
         "id": {
           "type": "string",
           "description": "Target resource identifier"
@@ -450,98 +448,128 @@
           "type": "string",
           "description": "Target resource type"
         },
-        "dataProperties": {
+        "properties": {
           "type": "object",
-          "description": "Target resource data properties",
+          "description": "Target resource properties",
           "properties": {
-            "namespaces": {
+            "namespace": {
+              "type": "string",
+              "description": "Target resource namespace"
+            },
+            "kubernetesObjects": {
               "type": "array",
               "items": {
-                "type": "string"
+                "$ref": "#/definitions/KubernetesObject"
               },
-              "description": "List of namespaces."
+              "description": "List of deployed Kubernetes objects"
             }
           }
         }
       }
     },
-    "Deployer": {
+    "KubernetesObject": {
       "type": "object",
-      "description": "Deployer properties.",
+      "description": "Kubernetes object properties.",
       "properties": {
-        "type": {
+        "kind": {
           "type": "string",
-          "description": "Deployer type"
+          "description": "Kubernetes object kind"
+        },
+        "url": {
+          "type": "string",
+          "description": "Kubernetes object url"
+        }
+      }
+    },
+    "WorkflowRun": {
+      "type": "object",
+      "description": "Workflow run properties.",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "description": "Workflow run provider"
         },
         "properties": {
           "type": "object",
-          "description": "Deployer properties",
+          "description": "Workflow run properties",
           "properties": {
-            "provider": {
-              "type": "string",
-              "description": "The provider"
-            },
             "repository": {
               "type": "string",
               "description": "The workflow repository"
             },
-            "workflowId": {
+            "workflow": {
               "type": "string",
-              "readOnly": true,
-              "description": "The workflow Id"
+              "description": "The workflow path"
             },
-            "workflowRunId": {
+            "run": {
               "type": "string",
-              "description": "The workflow run id"
+              "description": "The workflow run number"
             },
-            "workflowRunproperties": {
-              "type": "object",
-              "description": "The workflow run properties"
+            "runUri": {
+              "type": "string",
+              "description": "The workflow run uri"
+            },
+            "createdBy": {
+              "type": "string",
+              "description": "The workflow created by"
+            },
+            "branch": {
+              "type": "string",
+              "description": "The workflow branch"
+            },
+            "jobName": {
+              "type": "string",
+              "description": "The job that triggered the deployment"
+            },
+            "creationTimestamp": {
+              "type": "string",
+              "description": "The deployment creation timestamp"
+            },
+            "modifiedTimestamp": {
+              "type": "string",
+              "description": "The deployment modification timestamp"
+            },
+            "status": {
+              "type": "string",
+              "description": "The deployment status"
+            },
+            "commit": {
+              "type": "string",
+              "description": "The commit on which workflow ran"
             }
           }
         }
       }
     },
-    "ResourceChanges": {
+    "Artifact": {
       "type": "object",
-      "description": "Resource changes properties.",
+      "description": "Deployment artifact properties.",
       "properties": {
         "type": {
           "type": "string",
-          "description": "Resource changes type"
+          "description": "Artifact type"
         },
-        "armDeploymentId": {
-          "type": "string",
-          "description": "The arm deployment id"
-        },
-        "armPropertyChanges": {
-          "type": "string",
-          "description": "The arm property changes"
-        },
-        "dataPropertyChanges": {
+        "properties": {
           "type": "object",
-          "description": "Data property changes",
+          "description": "Artifact properties",
           "properties": {
-            "namespace": {
+            "image": {
               "type": "string",
-              "description": "The changed namespace"
+              "description": "The deployed image"
             },
             "dockerFile": {
               "type": "string",
               "description": "The Dockerfile used in deployment"
             },
+            "helm": {
+              "type": "string",
+              "description": "The deployed helm chart"
+            },
             "manifests": {
-              "type": "object",
+              "type": "array",
               "description": "The deployed manifests",
-              "properties": {
-                "deployment": {
-                  "type": "string",
-                  "description": "Deployment manifest"
-                },
-                "service": {
-                  "type": "string",
-                  "description": "Service manifest"
-                }
+              "items": {
+                "type": "string"
               }
             }
           }

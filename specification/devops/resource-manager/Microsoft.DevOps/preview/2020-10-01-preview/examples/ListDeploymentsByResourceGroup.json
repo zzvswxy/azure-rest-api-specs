@@ -1,60 +1,72 @@
 {
-    "parameters": {
-        "subscriptionId": "{subscriptionId}",
-        "resourceGroupName": "myDeploymentResource-rg",
-        "api-version": "2020-06-01-preview"
-      },
-    "responses": {
-      "200": {
-        "description": "The Deployment resources has been fetched successfully.",
-        "body": {
-          "value": [
-            {
-                "id": "/subscriptions/{subscriptionId}/resourceGroups/myDeploymentResource-rg/providers/Microsoft.DeploymentCenterV2/deploymentv2/myDeployment",
-                "name": "myDeployment",
-                "type": "Microsoft.DeploymentCenterV2/deploymentv2",
-                "location": "South India",
+  "parameters": {
+    "subscriptionId": "{subscriptionId}",
+    "resourceGroupName": "myDeploymentResource-rg",
+    "api-version": "2020-06-01-preview"
+  },
+  "responses": {
+    "200": {
+      "description": "The Deployment resources has been fetched successfully.",
+      "body": {
+        "value": [
+          {
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/myDeploymentResource-rg/providers/Microsoft.Devops/deploymentv2/myDeployment",
+            "name": "myDeployment",
+            "type": "Microsoft.Devops/deploymentv2",
+            "location": "South India",
+            "properties": {
+              "targetResource": {
+                "name": "contoso-k8s-cluster",
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/k8s-rg/providers/Microsoft.ContainerService/managedClusters/contoso-k8s-cluster",
+                "location": "westus",
+                "type": "Microsoft.ContainerService/ManagedClusters",
                 "properties": {
-                  "targetResource": {
-                    "id": "dummy",
-                    "type": "dummy",
-                    "dataProperties": {
-                      "namespaces": [
-                        "dummy"
-                      ]
+                  "namespace": "prod-wcus",
+                  "kubernetesObjects": [
+                    {
+                      "kind": "service",
+                      "url": "/api/v1/namespaces/prod-wcus/services/contoso-service"
+                    },
+                    {
+                      "kind": "deployment",
+                      "url": "/apis/apps/v1/namespaces/prod-wcus/deployments/contoso-deployment"
                     }
-                  },
-                  "deployer": {
-                    "type": "dummy",
-                    "properties": {
-                      "provider": "dummy",
-                      "repository": "dummy",
-                      "workflowId": "dummy",
-                      "workflowRunId": "dummy",
-                      "workflowRunproperties": {}
-                    }
-                  },
-                  "resourceChanges": {
-                    "type": "dummy",
-                    "armDeploymentId": "dummy",
-                    "armPropertyChanges": "dummy",
-                    "dataPropertyChanges": {
-                      "namespace": "dummy",
-                      "dockerFile": "dummy",
-                      "manifests": {
-                        "deployment": "dummy",
-                        "service": "dummy"
-                      }
-                    }
-                  },
-                  "status": "Succeeded",
-                  "startedAt": "2020-10-29T09:42:52.858948",
-                  "finishedAt": "2020-10-29T09:42:52.858948"
+                  ]
                 }
+              },
+              "workflowRun": {
+                "provider": "GitHub",
+                "properties": {
+                  "repository": "contoso/contoso-app",
+                  "workflow": "./github/workflow/cd.yml",
+                  "run": "123",
+                  "runUri": "https://github.com/contoso/contoso-app/actions/runs/123",
+                  "createdBy": "contosoUser",
+                  "branch": "release",
+                  "jobName": "build-and-deploy",
+                  "creationTimestamp": "2020-06-04T07:59:40Z",
+                  "modifiedTimestamp": "2020-06-04T08:59:40Z",
+                  "status": "success",
+                  "commit": "870d8ae5d7558661d59c1d805d41fd53e43a9a6c"
+                }
+              },
+              "artifacts": [
+                {
+                  "type": "container",
+                  "properties": {
+                    "image": "contosoImage",
+                    "dockerFile": "build/dockerfile",
+                    "helm": "charts/charts.yaml",
+                    "manifests": [
+                      "manifest/manifest.yml"
+                    ]
+                  }
+                }
+              ]
             }
-          ]
-        }
+          }
+        ]
       }
     }
   }
-  
+}
