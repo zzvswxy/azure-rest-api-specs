@@ -748,6 +748,10 @@
         "agentPublicKeyCertificate": {
           "type": "string",
           "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure."
+        },
+        "offering": {
+          "type": "string",
+          "description": "Connected cluster offering"
         }
       },
       "description": "Properties which can be patched on the connected cluster resource."
