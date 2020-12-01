@@ -65,7 +65,7 @@
         "tags": [
           "AddonDetails"
         ],
-        "operationId": "SupportPlanTypes_Get",
+        "operationId": "SupportPlanTypes_GetXX",
         "description": "Returns whether or not the canonical support plan of type {type} is enabled for the subscription.",
         "x-ms-examples": {
           "SupportPlanTypes_Get": {
@@ -153,48 +153,6 @@
             }
           }
         }
-      },
-      "delete": {
-        "operationId": "SupportPlanTypes_Delete",
-        "description": "Cancels the Canonical support plan of type {type} for the subscription.",
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {
-          "SupportPlanTypes_Delete": {
-            "$ref": "./examples/SupportPlanTypes_Delete.json"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/SupportProviderName"
-          },
-          {
-            "$ref": "#/parameters/CanonicalSupportPlanType"
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "Accepted",
-            "headers": {},
-            "schema": {
-              "$ref": "#/definitions/CanonicalSupportPlanResponseEnvelope"
-            }
-          },
-          "204": {
-            "description": "No Content"
-          },
-          "default": {
-            "description": "BadRequest",
-            "schema": {
-              "$ref": "#/definitions/ErrorDefinition"
-            }
-          }
-        }
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/canonical/listSupportPlanInfo": {
@@ -252,7 +210,8 @@
             "Purchasing",
             "Downgrading",
             "Cancelling",
-            "Upgrading"
+            "Upgrading",
+            "Testing"
           ],
           "x-ms-enum": {
             "name": "ProvisioningState",
