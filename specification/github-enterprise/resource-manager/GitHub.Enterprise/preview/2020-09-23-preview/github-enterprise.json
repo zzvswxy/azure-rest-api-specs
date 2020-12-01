@@ -434,6 +434,11 @@
             "firstAdminUsername"
           ],
           "properties": {
+            "provisioningState": {
+              "description": "The provisioning state of the account.",
+              "type": "string",
+              "readOnly": true
+            },
             "firstAdminEmail": {
               "description": "First admin user email address.",
               "type": "string",
