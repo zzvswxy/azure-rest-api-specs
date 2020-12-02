@@ -161,7 +161,7 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "Approve or reject a private endpoint connection with a given name.": {
+          "Gets private endpoint connection.": {
             "$ref": "./examples/CosmosDBPrivateEndpointConnectionUpdate.json"
           }
         }
