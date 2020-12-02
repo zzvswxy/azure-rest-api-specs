@@ -340,6 +340,282 @@
         }
       }
     },
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryresources/{invname}": {
+      "get": {
+        "tags": [
+          "VmmServers"
+        ],
+        "operationId": "VmmServers_Get",
+        "summary": "Gets a VMMServer.",
+        "description": "Implements VMMServer GET method.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "in": "path",
+            "name": "vmmServerName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+		  {
+            "in": "path",
+            "name": "invname",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieves the VmmServers resource.",
+            "schema": {
+              "$ref": "#/definitions/VMMServer"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "VmmServers"
+        ],
+        "operationId": "VmmServers_CreateOrUpdate",
+        "description": "Create Or Update VmmServers.",
+        "summary": "Implements VmmServers PUT method.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "in": "path",
+            "name": "vmmServerName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+		  {
+            "in": "path",
+            "name": "invname",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "body",
+            "description": "Request payload.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VMMServer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates the VmmServers resource.",
+            "schema": {
+              "$ref": "#/definitions/VMMServer"
+            }
+          },
+          "201": {
+            "description": "Creates the VmmServers resource.",
+            "schema": {
+              "$ref": "#/definitions/VMMServer"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      },
+      "delete": {
+        "tags": [
+          "VmmServers"
+        ],
+        "operationId": "VmmServers_Delete",
+        "summary": "Deletes a VMMServer.",
+        "description": "Implements VMMServer DELETE method.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "in": "path",
+            "name": "vmmServerName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+		  {
+            "in": "path",
+            "name": "invname",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes the VmmServers resource."
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Tracking URL for long running operation.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true
+      },
+      "patch": {
+        "tags": [
+          "VmmServers"
+        ],
+        "operationId": "VmmServers_Update",
+        "summary": "Updates the resource.",
+        "description": "Implements PATCH method.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "in": "path",
+            "name": "vmmServerName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+		  {
+            "in": "path",
+            "name": "invname",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+          {
+            "name": "body",
+            "description": "VmmServers patch details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ResourcePatch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful.",
+            "schema": {
+              "$ref": "#/definitions/VMMServer"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryresources/{invname}": {
+      "get": {
+        "tags": [
+          "VmmServers"
+        ],
+        "operationId": "VmmServers_ListByResourceGroup",
+        "summary": "Implements GET VmmServers in a resource group.",
+        "description": "List of VmmServers in a resource group.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+		  {
+            "in": "path",
+            "name": "vmmServerName",
+            "required": true,
+            "type": "string",
+            "description": "Name of the VMMServer."
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Lists all VmmServers under the resouce group.",
+            "schema": {
+              "$ref": "#/definitions/VMMServerListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
     "/providers/Microsoft.ScVmm/operations": {
       "get": {
         "tags": [
