@@ -2068,9 +2068,6 @@
   "definitions": {
     "VMMServerProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "fqdn"
-      ],
       "type": "object",
       "properties": {
         "credentials": {
@@ -2193,11 +2190,6 @@
           "description": "The extended location."
         }
       },
-      "required": [
-        "location",
-        "properties",
-        "extendedLocation"
-      ],
       "description": "The VmmServers resource definition."
     },
     "VMMServerListResult": {
@@ -2236,9 +2228,6 @@
     },
     "CloudProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "uuid"
-      ],
       "type": "object",
       "properties": {
         "uuid": {
@@ -2323,11 +2312,6 @@
           "description": "The extended location."
         }
       },
-      "required": [
-        "location",
-        "properties",
-        "extendedLocation"
-      ],
       "description": "The Clouds resource definition."
     },
     "CloudListResult": {
@@ -2349,9 +2333,6 @@
     },
     "VirtualNetworkProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "uuid"
-      ],
       "type": "object",
       "properties": {
         "uuid": {
@@ -2423,11 +2404,6 @@
           "description": "The extended location."
         }
       },
-      "required": [
-        "location",
-        "properties",
-        "extendedLocation"
-      ],
       "description": "The VirtualNetworks resource definition."
     },
     "VirtualNetworkListResult": {
@@ -2862,11 +2838,6 @@
           "description": "The extended location."
         }
       },
-      "required": [
-        "location",
-        "properties",
-        "extendedLocation"
-      ],
       "description": "The VirtualMachines resource definition."
     },
     "VirtualMachineListResult": {
@@ -2888,9 +2859,6 @@
     },
     "VirtualMachineTemplateProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "uuid"
-      ],
       "type": "object",
       "properties": {
         "uuid": {
@@ -3031,11 +2999,6 @@
           "description": "The extended location."
         }
       },
-      "required": [
-        "location",
-        "properties",
-        "extendedLocation"
-      ],
       "description": "The VirtualMachineTemplates resource definition."
     },
     "VirtualMachineTemplateListResult": {
