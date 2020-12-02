@@ -348,7 +348,7 @@
         "tags": [
           "VmmServers"
         ],
-        "operationId": "VmmServers_Get",
+        "operationId": "InvVmmServers_Get",
         "summary": "Gets a VMMServer.",
         "description": "Implements VMMServer GET method.",
         "parameters": [
@@ -395,7 +395,7 @@
         "tags": [
           "VmmServers"
         ],
-        "operationId": "VmmServers_CreateOrUpdate",
+        "operationId": "InvVmmServers_CreateOrUpdate",
         "description": "Create Or Update VmmServers.",
         "summary": "Implements VmmServers PUT method.",
         "parameters": [
@@ -464,7 +464,7 @@
         "tags": [
           "VmmServers"
         ],
-        "operationId": "VmmServers_Delete",
+        "operationId": "InvVmmServers_Delete",
         "summary": "Deletes a VMMServer.",
         "description": "Implements VMMServer DELETE method.",
         "parameters": [
@@ -521,7 +521,7 @@
         "tags": [
           "VmmServers"
         ],
-        "operationId": "VmmServers_Update",
+        "operationId": "InvVmmServers_Update",
         "summary": "Updates the resource.",
         "description": "Implements PATCH method.",
         "parameters": [
@@ -574,12 +574,12 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryresources/{invname}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryresources": {
       "get": {
         "tags": [
           "VmmServers"
         ],
-        "operationId": "VmmServers_ListByResourceGroup",
+        "operationId": "InvVmmServers_ListByResourceGroup",
         "summary": "Implements GET VmmServers in a resource group.",
         "description": "List of VmmServers in a resource group.",
         "parameters": [
