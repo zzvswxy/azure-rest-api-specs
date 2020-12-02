@@ -69,7 +69,7 @@
             "required": true,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           }
         ],
@@ -77,13 +77,13 @@
           "200": {
             "description": "This is returned as a response to the status polling request for the create or update operation. The body contains the resource representation that indicates a transitional provisioning state.",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           },
           "201": {
             "description": "This is returned as a response to the status polling request for the create or update operation. The body contains the resource representation that indicates a transitional provisioning state.",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           },
           "202": {
@@ -139,13 +139,13 @@
           "200": {
             "description": "Returned from a PATCH request",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           },
           "201": {
             "description": "Returned from a PATCH request",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           }
         },
@@ -180,7 +180,7 @@
           "200": {
             "description": "This is returned as a response to the status polling request for the create or update operation. The body contains the resource representation that indicates a transitional provisioning state.",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           },
           "default": {
@@ -222,13 +222,13 @@
           "200": {
             "description": "This is returned as a response to the status polling request for the create or update operation. The body contains the resource representation that indicates a transitional provisioning state.",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           },
           "201": {
             "description": "This is returned as a response to the status polling request for the create or update operation. The body contains the resource representation that indicates a transitional provisioning state.",
             "schema": {
-              "$ref": "#/definitions/Service"
+              "$ref": "#/definitions/Resource"
             }
           },
           "204": {
@@ -323,22 +323,6 @@
     }
   },
   "definitions": {
-    "Service": {
-      "description": "SQL Server Service .",
-      "type": "object",
-      "properties": {
-        "properties": {
-          "description": "The common properties of a SQL Server Service.",
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/ServiceProperties"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/Resource"
-        }
-      ]
-    },
     "ListResult": {
       "description": "A list of Sql Server services with a next link.",
       "type": "object",
@@ -368,7 +352,7 @@
           "description": "Resource tags"
         },
         "properties": {
-          "$ref": "#/definitions/Properties"
+          "$ref": "#/definitions/ServiceProperties"
         }
       },
       "description": "The resource patch definition."
@@ -377,12 +361,12 @@
       "description": "The properties of a SQL Server Service application.",
       "type": "object",
       "properties": {
-        "Installation": {
+        "installation": {
           "description": "The Porter installation ID of the service.",
           "type": "string",
           "readOnly": true
         },
-        "ProvisioningState": {
+        "provisioningState": {
           "description": "The provisioning state of the service.",
           "type": "string",
           "readOnly": true
@@ -408,31 +392,6 @@
           "$ref": "#/definitions/Params"
         }
       }
-    },
-    "Properties": {
-      "title": "Properties",
-      "example": {
-        "credentials": {
-          "sql_masterkeypassword": "Passw0rd!",
-          "sql_sapassword": "Passw0rd!"
-        },
-        "parameters": {
-          "availabilitygroupname": "ag12"
-        }
-      },
-      "type": "object",
-      "properties": {
-        "credentials": {
-          "$ref": "#/definitions/Credentials"
-        },
-        "parameters": {
-          "$ref": "#/definitions/Params"
-        }
-      },
-      "required": [
-        "credentials",
-        "parameters"
-      ]
     },
     "Resource": {
       "description": "The common properties of an ARM resource.",
@@ -481,6 +440,9 @@
               "description": "The extended location name."
             }
           }
+        },
+        "properties": {
+            "$ref": "#/definitions/ServiceProperties"
         }
       },
       "x-ms-azure-resource": true,
