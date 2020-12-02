@@ -2107,10 +2107,6 @@
   "definitions": {
     "VMMServerProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "fqdn",
-        "credentials"
-      ],
       "type": "object",
       "properties": {
         "credentials": {
@@ -2266,10 +2262,6 @@
     },
     "CloudProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "uuid",
-        "vmmServerId"
-      ],
       "type": "object",
       "properties": {
         "uuid": {
@@ -2380,10 +2372,6 @@
     },
     "VirtualNetworkProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "uuid",
-        "vmmServerId"
-      ],
       "type": "object",
       "properties": {
         "uuid": {
@@ -2489,10 +2477,6 @@
     },
     "VirtualMachineProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "vmmServerId",
-        "cloudId"
-      ],
       "properties": {
         "vmmServerId": {
           "type": "string",
@@ -2902,10 +2886,6 @@
     },
     "VirtualMachineTemplateProperties": {
       "description": "Defines the resource properties.",
-      "required": [
-        "uuid",
-        "vmmServerId"
-      ],
       "type": "object",
       "properties": {
         "uuid": {
