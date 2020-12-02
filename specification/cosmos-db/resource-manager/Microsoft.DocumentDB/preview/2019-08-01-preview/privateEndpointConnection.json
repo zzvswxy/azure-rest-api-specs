@@ -79,7 +79,7 @@
         "operationId": "PrivateEndpointConnections_Get",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/c"
+            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionId"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
