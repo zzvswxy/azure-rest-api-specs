@@ -1809,6 +1809,110 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/bandwidthPolicy": {
+      "post": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Set the bandwidth policy for a Migrator.",
+        "operationId": "Migrators_SetBandwidthPolicy",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "name": "BandwidthPolicy",
+            "description": "bandwidth policy.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MigratorBandwidthPolicy"
+            }
+          }
+        ],
+        "x-ms-examples": {
+          "Set Migrator Bandwidth Policy": {
+            "$ref": "./examples/LiveDataMigrator/MigratorBandwidthPolicy.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bandwidth Policy for a migrator has been set."
+          },
+          "202": {
+            "description": "Request to update the Bandwidth Policy for a migrator accepted."
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/resetBandwidthPolicy": {
+      "post": {
+        "tags": [
+          "migrator"
+        ],
+        "description": "Resets the Bandwidth Policy set for a given Migrator.",
+        "operationId": "Migrators_ResetBandwidthPolicy",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Bandwidth Policy for Migrator was successfully reset"
+          },
+          "202": {
+            "description": "The request to reset the bandwidth policy on a Migrator was accepted"
+          },
+          "204": {
+            "description": "The Migrator was not found"
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful reset of bandwidth policy": {
+            "$ref": "./examples/LiveDataMigrator/MigratorBandwidthPolicyReset.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/generateUpgrade": {
       "post": {
         "tags": [
@@ -3918,6 +4022,12 @@
               "default": "/var/log"
             }
           }
+        },
+        "bandwidthPolicy": {
+          "title": "BandwidthPolicy",
+          "description": "The overall application bandwidth policy set for a migrator.",
+          "$ref": "#/definitions/MigratorBandwidthPolicy",
+          "readOnly": true
         }
       }
     },
@@ -3949,6 +4059,18 @@
           "format": "int32"
         }
       }
+    },
+    "MigratorBandwidthPolicy": {
+      "properties": {
+        "bandwidthLimit": {
+          "description": "Overall application bandwidth limit to apply.",
+          "type": "string"
+        }
+      },
+      "description": "BandwidthPolicy for a Migrator resource.",
+      "required": [
+        "bandwidthLimit"
+      ]
     },
     "MigratorTarget": {
       "description": "Migrator Target Resource",
@@ -4008,11 +4130,26 @@
           ],
           "description": "Access Key for storage",
           "type": "string"
+        },
+        "oauthClientId": {
+          "description": "Service principal client ID",
+          "type": "string"
+        },
+        "oauthClientSecret": {
+          "description": "Service principal client secret",
+          "type": "string",
+          "x-ms-secret": true,
+          "x-ms-mutability": [
+            "create"
+          ]
+        },
+        "oauthClientEndpoint": {
+          "description": "Service principal endpoint (optional). If not provided it will use the default endpoint for your tenant.",
+          "type": "string"
         }
       },
       "required": [
         "storageAccountId",
-        "storageAccessKey",
         "storageContainer"
       ]
     },
