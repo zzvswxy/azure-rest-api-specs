@@ -3,7 +3,7 @@
   "info": {
     "title": "WANDisco Fusion",
     "description": "WANDisco Fusion",
-    "version": "2019-09-01-preview"
+    "version": "2019-09-04-preview"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -69,7 +69,7 @@
         },
         "x-ms-examples": {
           "Get fusion groups list": {
-            "$ref": "./examples/FusionGroup/FusionGroupsListBySubscription.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupsListBySubscription.json"
           }
         }
       }
@@ -112,7 +112,7 @@
         },
         "x-ms-examples": {
           "Get fusion groups list": {
-            "$ref": "./examples/FusionGroup/FusionGroupsList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupsList.json"
           }
         }
       }
@@ -154,10 +154,10 @@
         },
         "x-ms-examples": {
           "Get fusionGroup details.": {
-            "$ref": "./examples/FusionGroup/FusionGroupGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupGet.json"
           },
           "Get fusionGroup details including HealthStatus": {
-            "$ref": "./examples/FusionGroup/FusionGroupGetWithHealthStatus.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupGetWithHealthStatus.json"
           }
         }
       },
@@ -212,10 +212,10 @@
         },
         "x-ms-examples": {
           "Create simple fusionGroup": {
-            "$ref": "./examples/FusionGroup/FusionGroupCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupCreate.json"
           },
           "Create fusionGroup with label": {
-            "$ref": "./examples/FusionGroup/FusionGroupCreateWithLabel.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupCreateWithLabel.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -259,7 +259,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/FusionGroupDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupDelete.json"
           }
         }
       },
@@ -307,7 +307,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/FusionGroupPatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/FusionGroupPatch.json"
           }
         }
       }
@@ -353,10 +353,10 @@
         },
         "x-ms-examples": {
           "Create Azure Zone": {
-            "$ref": "./examples/FusionGroup/AzureZoneList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneList.json"
           },
           "Get Azure Zone": {
-            "$ref": "./examples/FusionGroup/AzureZoneResourceList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneResourceList.json"
           }
         }
       }
@@ -401,7 +401,7 @@
         },
         "x-ms-examples": {
           "Get Azure Zone by name": {
-            "$ref": "./examples/FusionGroup/AzureZoneGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneGet.json"
           }
         }
       },
@@ -459,13 +459,13 @@
         },
         "x-ms-examples": {
           "Create Azure Zone": {
-            "$ref": "./examples/FusionGroup/AzureZoneCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneCreate.json"
           },
           "Create Azure Zone High Availability": {
-            "$ref": "./examples/FusionGroup/AzureZoneCreateHA.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneCreateHA.json"
           },
           "Create Azure Zone with Managed Identity": {
-            "$ref": "./examples/FusionGroup/AzureZoneCreateManagedIdentity.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneCreateManagedIdentity.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -520,7 +520,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/AzureZonePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZonePatch.json"
           }
         }
       },
@@ -566,7 +566,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/AzureZoneDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/AzureZoneDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -619,7 +619,7 @@
         },
         "x-ms-examples": {
           "Get Plugin": {
-            "$ref": "./examples/FusionGroup/PluginList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginList.json"
           }
         }
       }
@@ -667,7 +667,7 @@
         },
         "x-ms-examples": {
           "Get Plugin": {
-            "$ref": "./examples/FusionGroup/PluginGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginGet.json"
           }
         }
       },
@@ -728,7 +728,7 @@
         },
         "x-ms-examples": {
           "Creating Plugin": {
-            "$ref": "./examples/FusionGroup/PluginCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -786,7 +786,7 @@
         },
         "x-ms-examples": {
           "Plugin Patch": {
-            "$ref": "./examples/FusionGroup/PluginPatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginPatch.json"
           }
         }
       },
@@ -835,7 +835,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/PluginDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/PluginDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -884,7 +884,7 @@
         },
         "x-ms-examples": {
           "Get Replication Rules": {
-            "$ref": "./examples/FusionGroup/ReplicationRulesList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRulesList.json"
           }
         }
       }
@@ -929,7 +929,7 @@
         },
         "x-ms-examples": {
           "Get Replication Rule": {
-            "$ref": "./examples/FusionGroup/ReplicationRuleGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRuleGet.json"
           }
         }
       },
@@ -987,7 +987,7 @@
         },
         "x-ms-examples": {
           "Create Replication Rule": {
-            "$ref": "./examples/FusionGroup/ReplicationRuleCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRuleCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1042,7 +1042,7 @@
         },
         "x-ms-examples": {
           "Patch Replication Rule": {
-            "$ref": "./examples/FusionGroup/ReplicationRulePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRulePatch.json"
           }
         }
       },
@@ -1088,7 +1088,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/ReplicationRuleDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ReplicationRuleDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1142,7 +1142,7 @@
         },
         "x-ms-examples": {
           "Successful start of Consistency Check": {
-            "$ref": "./examples/FusionGroup/ConsistencyCheckStart.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ConsistencyCheckStart.json"
           }
         }
       }
@@ -1173,7 +1173,7 @@
         },
         "x-ms-examples": {
           "List Wandisco.Fusion Operations": {
-            "$ref": "./examples/WandiscoFusionListOperations.json"
+            "$ref": "../2019-09-01-preview/examples/WandiscoFusionListOperations.json"
           }
         }
       }
@@ -1219,7 +1219,7 @@
         },
         "x-ms-examples": {
           "Get On Prem Zone list": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneList.json"
           }
         }
       }
@@ -1264,7 +1264,7 @@
         },
         "x-ms-examples": {
           "Get ManagedOnPrem Zone by name": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneGet.json"
           }
         }
       },
@@ -1302,7 +1302,7 @@
         ],
         "x-ms-examples": {
           "Create Managed OnPrem Zone": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneCreate.json"
           }
         },
         "responses": {
@@ -1377,7 +1377,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZonePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZonePatch.json"
           }
         }
       },
@@ -1423,7 +1423,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1458,7 +1458,7 @@
         ],
         "x-ms-examples": {
           "Induct a Managed OnPrem Zone": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneInduct.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneInduct.json"
           }
         },
         "responses": {
@@ -1507,7 +1507,7 @@
         ],
         "x-ms-examples": {
           "Update DownloadLocation for Managed OnPrem Zone": {
-            "$ref": "./examples/FusionGroup/ManagedOnPremZoneUpdateDownloadLocation.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/ManagedOnPremZoneUpdateDownloadLocation.json"
           }
         },
         "responses": {
@@ -1565,7 +1565,7 @@
         },
         "x-ms-examples": {
           "Get fusion groups list": {
-            "$ref": "./examples/LiveDataMigrator/MigratorsListBySubscription.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorsListBySubscription.json"
           }
         }
       }
@@ -1608,7 +1608,7 @@
         },
         "x-ms-examples": {
           "Get Migrators list": {
-            "$ref": "./examples/LiveDataMigrator/MigratorList.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorList.json"
           }
         }
       }
@@ -1650,7 +1650,7 @@
         },
         "x-ms-examples": {
           "Get Migrator by name": {
-            "$ref": "./examples/LiveDataMigrator/MigratorGet.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorGet.json"
           }
         }
       },
@@ -1685,7 +1685,7 @@
         ],
         "x-ms-examples": {
           "Create Migrator": {
-            "$ref": "./examples/LiveDataMigrator/MigratorCreate.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorCreate.json"
           }
         },
         "responses": {
@@ -1757,7 +1757,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/LiveDataMigrator/MigratorPatch.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorPatch.json"
           }
         }
       },
@@ -1800,7 +1800,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/LiveDataMigrator/MigratorDelete.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1841,7 +1841,7 @@
         ],
         "x-ms-examples": {
           "Set Migrator Bandwidth Policy": {
-            "$ref": "./examples/LiveDataMigrator/MigratorBandwidthPolicy.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorBandwidthPolicy.json"
           }
         },
         "responses": {
@@ -1904,7 +1904,7 @@
         },
         "x-ms-examples": {
           "Successful reset of bandwidth policy": {
-            "$ref": "./examples/LiveDataMigrator/MigratorBandwidthPolicyReset.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorBandwidthPolicyReset.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -1936,7 +1936,7 @@
         ],
         "x-ms-examples": {
           "Generated updated Migrator": {
-            "$ref": "./examples/LiveDataMigrator/MigratorGenerateUpgrade.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorGenerateUpgrade.json"
           }
         },
         "responses": {
@@ -1982,7 +1982,7 @@
         ],
         "x-ms-examples": {
           "Refresh a Migrator": {
-            "$ref": "./examples/LiveDataMigrator/MigratorUpdateDownloadLocation.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorUpdateDownloadLocation.json"
           }
         },
         "responses": {
@@ -2045,7 +2045,7 @@
         },
         "x-ms-examples": {
           "List Migration": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationList.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationList.json"
           }
         }
       }
@@ -2090,7 +2090,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationGet.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationGet.json"
           }
         }
       },
@@ -2152,7 +2152,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationCreate.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationCreate.json"
           }
         }
       },
@@ -2195,7 +2195,7 @@
         },
         "x-ms-examples": {
           "Delete Migration": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationDelete.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationDelete.json"
           }
         }
       },
@@ -2246,7 +2246,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationPatch.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationPatch.json"
           }
         }
       }
@@ -2288,7 +2288,7 @@
         },
         "x-ms-examples": {
           "Start Migration": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationStart.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationStart.json"
           }
         }
       }
@@ -2330,7 +2330,7 @@
         },
         "x-ms-examples": {
           "Stop Migration": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationStop.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/LiveDataMigrationStop.json"
           }
         }
       }
@@ -2376,7 +2376,7 @@
         },
         "x-ms-examples": {
           "Get Migrators list": {
-            "$ref": "./examples/LiveDataMigrator/MigratorTargetList.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorTargetList.json"
           }
         }
       }
@@ -2421,7 +2421,7 @@
         },
         "x-ms-examples": {
           "Get Migrator Target by name": {
-            "$ref": "./examples/LiveDataMigrator/MigratorTargetGet.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorTargetGet.json"
           }
         }
       },
@@ -2459,7 +2459,7 @@
         ],
         "x-ms-examples": {
           "Create Migrator": {
-            "$ref": "./examples/LiveDataMigrator/MigratorTargetCreate.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorTargetCreate.json"
           }
         },
         "responses": {
@@ -2534,7 +2534,7 @@
         },
         "x-ms-examples": {
           "Successful Patch": {
-            "$ref": "./examples/LiveDataMigrator/MigratorTargetPatch.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorTargetPatch.json"
           }
         }
       },
@@ -2580,7 +2580,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/LiveDataMigrator/MigratorTargetDelete.json"
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/MigratorTargetDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -2632,7 +2632,7 @@
         },
         "x-ms-examples": {
           "List Migration": {
-            "$ref": "./examples/FusionGroup/MigrationList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationList.json"
           }
         }
       }
@@ -2680,7 +2680,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/FusionGroup/MigrationGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationGet.json"
           }
         }
       },
@@ -2735,7 +2735,7 @@
         },
         "x-ms-examples": {
           "Create Migration": {
-            "$ref": "./examples/FusionGroup/MigrationCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationCreate.json"
           }
         }
       },
@@ -2781,7 +2781,7 @@
         },
         "x-ms-examples": {
           "Delete Migration": {
-            "$ref": "./examples/FusionGroup/MigrationDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationDelete.json"
           }
         }
       }
@@ -2826,7 +2826,7 @@
         },
         "x-ms-examples": {
           "Pause Migration": {
-            "$ref": "./examples/FusionGroup/MigrationPause.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationPause.json"
           }
         }
       }
@@ -2871,7 +2871,7 @@
         },
         "x-ms-examples": {
           "Pause Migration": {
-            "$ref": "./examples/FusionGroup/MigrationResume.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationResume.json"
           }
         }
       }
@@ -2916,7 +2916,7 @@
         },
         "x-ms-examples": {
           "Pause Migration": {
-            "$ref": "./examples/FusionGroup/MigrationAbort.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/MigrationAbort.json"
           }
         }
       }
@@ -2955,10 +2955,10 @@
         },
         "x-ms-examples": {
           "Successful get": {
-            "$ref": "./examples/FusionGroup/OperationStatusGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/OperationStatusGet.json"
           },
           "Successful get of failed operation": {
-            "$ref": "./examples/FusionGroup/OperationStatusGetError.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/OperationStatusGetError.json"
           }
         }
       },
@@ -3004,7 +3004,7 @@
         },
         "x-ms-examples": {
           "Successful update": {
-            "$ref": "./examples/FusionGroup/OperationStatusPatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/OperationStatusPatch.json"
           }
         }
       }
@@ -3049,7 +3049,7 @@
         },
         "x-ms-examples": {
           "Get Hive Replication Rules": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRulesList.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRulesList.json"
           }
         }
       }
@@ -3094,7 +3094,7 @@
         },
         "x-ms-examples": {
           "Get Hive Replication Rule": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRuleGet.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRuleGet.json"
           }
         }
       },
@@ -3152,7 +3152,7 @@
         },
         "x-ms-examples": {
           "Create Hive Replication Rule": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRuleCreate.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRuleCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -3207,7 +3207,7 @@
         },
         "x-ms-examples": {
           "Patch Hive Replication Rule": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRulePatch.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRulePatch.json"
           }
         }
       },
@@ -3253,7 +3253,7 @@
         },
         "x-ms-examples": {
           "Successful delete": {
-            "$ref": "./examples/FusionGroup/HiveReplicationRuleDelete.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveReplicationRuleDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -3302,7 +3302,7 @@
         },
         "x-ms-examples": {
           "Successful start of Consistency Check": {
-            "$ref": "./examples/FusionGroup/HiveConsistencyCheckStart.json"
+            "$ref": "../2019-09-01-preview/examples/FusionGroup/HiveConsistencyCheckStart.json"
           }
         }
       }
