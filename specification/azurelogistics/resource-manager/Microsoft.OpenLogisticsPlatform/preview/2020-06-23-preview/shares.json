@@ -373,11 +373,6 @@
 				"properties": {
 					"type": "object",
 					"properties": {
-						"shareName": {
-							"type": "string",
-							"description": "The workspace's Id",
-							"readOnly": true
-						},
 						"targetTenantId": {
 							"type": "string",
 							"readOnly": false
