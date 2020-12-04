@@ -1,15 +1,14 @@
 {
   "parameters": {
     "subscriptionId": "00000000-1111-2222-3333-444444444444",
-    "resourceGroupName": "migratorTestRG",
+    "resourceGroupName": "exclusionTestRG",
+    "migratorName": "exclusionTestMigrator",
     "api-version": "2019-09-01-preview",
-    "migratorName": "migratorName",
-    "BandwidthPolicy": {
-      "bandwidthLimit": "2GB"
-    }
+    "exclusionName": "exclusionName"
   },
   "responses": {
     "200": {},
-    "202": {}
+    "202": {},
+    "204": {}
   }
 }

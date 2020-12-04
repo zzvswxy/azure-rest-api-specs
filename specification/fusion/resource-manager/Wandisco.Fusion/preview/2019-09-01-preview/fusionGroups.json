@@ -844,6 +844,209 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/exclusions": {
+      "get": {
+        "tags": [
+          "Exclusions"
+        ],
+        "description": "Returns a list of Exclusions",
+        "operationId": "Exclusions_ListByFusionGroup",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Exclusion Details",
+            "schema": {
+              "$ref": "#/definitions/ExclusionList"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "Get Exclusions": {
+            "$ref": "./examples/LiveDataMigrator/ExclusionList.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/exclusions/{exclusionName}": {
+      "get": {
+        "tags": [
+          "Exclusions"
+        ],
+        "description": "Returns an Exclusion",
+        "operationId": "Exclusions_Get",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExclusionsNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ExclusionDetails",
+            "schema": {
+              "$ref": "#/definitions/Exclusion"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get Exclusion": {
+            "$ref": "./examples/LiveDataMigrator/ExclusionGet.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Exclusions"
+        ],
+        "description": "Creates an Exclusion",
+        "operationId": "Exclusions_CreateOrUpdate",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExclusionsNameParameter"
+          },
+          {
+            "name": "exclusion",
+            "description": "Exclusion details.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Exclusion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created Exclusion.",
+            "schema": {
+              "$ref": "#/definitions/Exclusion"
+            }
+          },
+          "201": {
+            "description": "Creating Exclusion.",
+            "schema": {
+              "$ref": "#/definitions/Exclusion"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Creating Exclusion": {
+            "$ref": "./examples/LiveDataMigrator/ExclusionCreate.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        }
+      },
+      "delete": {
+        "tags": [
+          "Exclusions"
+        ],
+        "description": "Deletes a given Exclusion.",
+        "operationId": "Exclusions_Delete",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExclusionsNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Exclusion was successfully deleted"
+          },
+          "202": {
+            "description": "The Exclusion was accepted for deletion"
+          },
+          "204": {
+            "description": "The Exclusion was not found"
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Successful delete": {
+            "$ref": "./examples/LiveDataMigrator/ExclusionDelete.json"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/fusionGroups/{fusionGroupName}/replicationRules": {
       "get": {
         "tags": [
@@ -1809,110 +2012,6 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/bandwidthPolicy": {
-      "post": {
-        "tags": [
-          "migrator"
-        ],
-        "description": "Set the bandwidth policy for a Migrator.",
-        "operationId": "Migrators_SetBandwidthPolicy",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/MigratorNameParameter"
-          },
-          {
-            "name": "BandwidthPolicy",
-            "description": "bandwidth policy.",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MigratorBandwidthPolicy"
-            }
-          }
-        ],
-        "x-ms-examples": {
-          "Set Migrator Bandwidth Policy": {
-            "$ref": "./examples/LiveDataMigrator/MigratorBandwidthPolicy.json"
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Bandwidth Policy for a migrator has been set."
-          },
-          "202": {
-            "description": "Request to update the Bandwidth Policy for a migrator accepted."
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/resetBandwidthPolicy": {
-      "post": {
-        "tags": [
-          "migrator"
-        ],
-        "description": "Resets the Bandwidth Policy set for a given Migrator.",
-        "operationId": "Migrators_ResetBandwidthPolicy",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/MigratorNameParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The Bandwidth Policy for Migrator was successfully reset"
-          },
-          "202": {
-            "description": "The request to reset the bandwidth policy on a Migrator was accepted"
-          },
-          "204": {
-            "description": "The Migrator was not found"
-          },
-          "default": {
-            "description": "Error response describing the reason for operation failure.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Successful reset of bandwidth policy": {
-            "$ref": "./examples/LiveDataMigrator/MigratorBandwidthPolicyReset.json"
-          }
-        },
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
-        }
-      }
-    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Wandisco.Fusion/migrators/{migratorName}/generateUpgrade": {
       "post": {
         "tags": [
@@ -2098,7 +2197,7 @@
         "tags": [
           "LiveDataMigrations"
         ],
-        "description": "Start a Migrator migration",
+        "description": "Create a Migrator migration",
         "operationId": "LiveDataMigrations_CreateOrUpdate",
         "parameters": [
           {
@@ -2226,12 +2325,18 @@
             "description": "LiveDataMigration update properties.",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/TagsUpdate"
+              "$ref": "#/definitions/TagsAndExclusionUpdate"
             }
           }
         ],
         "responses": {
           "200": {
+            "description": "Updating LiveDataMigration",
+            "schema": {
+              "$ref": "#/definitions/LiveDataMigration"
+            }
+          },
+          "201": {
             "description": "Updating LiveDataMigration",
             "schema": {
               "$ref": "#/definitions/LiveDataMigration"
@@ -2244,9 +2349,16 @@
             }
           }
         },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
-          "Successful Patch": {
-            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationPatch.json"
+          "Successful Tags Patch": {
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationTagsPatch.json"
+          },
+          "Successful Exclusions Patch": {
+            "$ref": "./examples/LiveDataMigrator/LiveDataMigrationExclusionsPatch.json"
           }
         }
       }
@@ -3323,6 +3435,27 @@
         }
       }
     },
+    "TagsAndExclusionUpdate": {
+      "description": "Fields patchable on LiveDataMigration",
+      "type": "object",
+      "properties": {
+        "tags": {
+          "description": "resource tags.",
+          "type": "object",
+          "readOnly": false,
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "exclusionIds": {
+          "type": "array",
+          "description": "List of ids referring to exclusions to be applied to the migration",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "Resource": {
       "description": "An Azure resource.",
       "properties": {
@@ -3776,6 +3909,206 @@
         }
       }
     },
+    "Exclusion": {
+      "description": "Exclusion Resource",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "Exclusion Representation",
+          "x-ms-client-flatten": false,
+          "$ref": "#/definitions/ExclusionRepresentation"
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "x-ms-azure-resource": true
+    },
+    "ExclusionList": {
+      "description": "The list of Exclusions.",
+      "type": "object",
+      "properties": {
+        "nextLink": {
+          "description": "The link used to get the next page of Exclusions list.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of Exclusions.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Exclusion"
+          }
+        }
+      }
+    },
+    "ExclusionRepresentation": {
+      "description": "Exclusion Representation",
+      "discriminator": "exclusionKind",
+      "properties": {
+        "exclusionKind": {
+          "$ref": "#/definitions/ExclusionKind",
+          "description": "The kind of Exclusion."
+        },
+        "provisioningState": {
+          "title": "ProvisioningState",
+          "description": "Provisioning State of resource",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "description": "Explains what this exclusion does"
+        }
+      },
+      "required": [
+        "exclusionKind"
+      ]
+    },
+    "ExclusionKind": {
+      "type": "string",
+      "description": "The kind of Exclusion.",
+      "enum": [
+        "DateExclusion",
+        "FileSizeExclusion",
+        "RegexExclusion"
+      ],
+      "x-ms-enum": {
+        "name": "ExclusionKind",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "DateExclusion"
+          },
+          {
+            "value": "FileSizeExclusion"
+          },
+          {
+            "value": "RegexExclusion"
+          }
+        ]
+      }
+    },
+    "DateExclusion": {
+      "description": "Migration Exclusion based on Date",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExclusionRepresentation"
+        }
+      ],
+      "properties": {
+        "dateForExclusion": {
+          "description": "Any file with a date earlier than dateForExclusion will be excluded",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "dateForExclusion"
+      ],
+      "x-ms-discriminator-value": "DateExclusion"
+    },
+    "FileSizeExclusion": {
+      "description": "Exclusion based on File Size",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExclusionRepresentation"
+        }
+      ],
+      "properties": {
+        "fileSizeForExclusion": {
+          "description": "Any file with a file size greater than fileSizeForExclusion will be excluded",
+          "type": "integer",
+          "format": "int64"
+        },
+        "unitForFileSize": {
+          "description": "Data type for the value passed for fileSizeForExclusion",
+          "type": "string",
+          "enum": [
+            "B",
+            "KB",
+            "MB",
+            "GB",
+            "TB",
+            "PB",
+            "KiB",
+            "MiB",
+            "GiB",
+            "TiB",
+            "PiB"
+          ],
+          "x-ms-enum": {
+            "name": "FileSizeForExclusionType",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "B"
+              },
+              {
+                "value": "KB"
+              },
+              {
+                "value": "MB"
+              },
+              {
+                "value": "GB"
+              },
+              {
+                "value": "TB"
+              },
+              {
+                "value": "PB"
+              },
+              {
+                "value": "KiB"
+              },
+              {
+                "value": "MiB"
+              },
+              {
+                "value": "GiB"
+              },
+              {
+                "value": "TiB"
+              },
+              {
+                "value": "PiB"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "fileSizeForExclusion",
+        "unitForFileSize"
+      ],
+      "x-ms-discriminator-value": "FileSizeExclusion"
+    },
+    "RegexExclusion": {
+      "description": "Migrator Exclusion based on Regex",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExclusionRepresentation"
+        }
+      ],
+      "properties": {
+        "regexForExclusion": {
+          "description": "Any file path matching the regex pattern in regexForExclusion will be excluded",
+          "type": "string"
+        }
+      },
+      "required": [
+        "regexForExclusion"
+      ],
+      "x-ms-discriminator-value": "RegexExclusion"
+    },
     "HealthStatus": {
       "description": "health status object",
       "type": "object",
@@ -4022,12 +4355,6 @@
               "default": "/var/log"
             }
           }
-        },
-        "bandwidthPolicy": {
-          "title": "BandwidthPolicy",
-          "description": "The overall application bandwidth policy set for a migrator.",
-          "$ref": "#/definitions/MigratorBandwidthPolicy",
-          "readOnly": true
         }
       }
     },
@@ -4059,18 +4386,6 @@
           "format": "int32"
         }
       }
-    },
-    "MigratorBandwidthPolicy": {
-      "properties": {
-        "bandwidthLimit": {
-          "description": "Overall application bandwidth limit to apply.",
-          "type": "string"
-        }
-      },
-      "description": "BandwidthPolicy for a Migrator resource.",
-      "required": [
-        "bandwidthLimit"
-      ]
     },
     "MigratorTarget": {
       "description": "Migrator Target Resource",
@@ -4130,26 +4445,11 @@
           ],
           "description": "Access Key for storage",
           "type": "string"
-        },
-        "oauthClientId": {
-          "description": "Service principal client ID",
-          "type": "string"
-        },
-        "oauthClientSecret": {
-          "description": "Service principal client secret",
-          "type": "string",
-          "x-ms-secret": true,
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "oauthClientEndpoint": {
-          "description": "Service principal endpoint (optional). If not provided it will use the default endpoint for your tenant.",
-          "type": "string"
         }
       },
       "required": [
         "storageAccountId",
+        "storageAccessKey",
         "storageContainer"
       ]
     },
@@ -4690,7 +4990,7 @@
           "description": "Flag to start migration immediately",
           "type": "boolean"
         },
-        "exclusions": {
+        "exclusionIds": {
           "type": "array",
           "description": "List of ids referring to exclusions to be applied to the migration",
           "items": {
@@ -5017,6 +5317,14 @@
       "required": true,
       "type": "string",
       "description": "The name of the Plugin",
+      "x-ms-parameter-location": "method"
+    },
+    "ExclusionsNameParameter": {
+      "name": "exclusionName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The name of the Migrator Exclusion",
       "x-ms-parameter-location": "method"
     },
     "MigrationNameParameter": {
