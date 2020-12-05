@@ -283,6 +283,12 @@
           },
           "description": "Resource tags"
         },
+        "extendedLocations": [
+          {
+              "type": "CustomLocation",
+              "supportedPolicy": "NotSpecified"
+          }
+      ],
         "extendedLocation": {
           "type": "object",
           "properties": {
