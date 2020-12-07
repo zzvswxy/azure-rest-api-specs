@@ -996,6 +996,57 @@
           "final-state-via": "azure-async-operation"
         }
       },
+      "patch": {
+        "tags": [
+          "Exclusions"
+        ],
+        "description": "Update an Exclusion",
+        "operationId": "Exclusions_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/MigratorNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ExclusionsNameParameter"
+          },
+          {
+            "name": "exclusion",
+            "description": "exclusion update details",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/TagsUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updating Exclusion.",
+            "schema": {
+              "$ref": "#/definitions/Exclusion"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Patch Exclusion": {
+            "$ref": "../2019-09-01-preview/examples/LiveDataMigrator/ExclusionPatch.json"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Exclusions"
