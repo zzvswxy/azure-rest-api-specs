@@ -549,51 +549,6 @@
     }
   },
   "definitions": {
-    "Resource": {
-      "description": "An Azure resource.",
-      "properties": {
-        "id": {
-          "description": "Azure resource Id.",
-          "type": "string",
-          "readOnly": true
-        },
-        "name": {
-          "description": "Azure resource name.",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Azure resource type.",
-          "type": "string",
-          "readOnly": true
-        },
-        "location": {
-          "description": "Location of the resource.",
-          "type": "string",
-          "readOnly": false
-        },
-        "tags": {
-          "description": "resource tags.",
-          "type": "object",
-          "readOnly": false,
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      },
-      "x-ms-azure-resource": true
-    },
-    "ExtendedLocations": {
-      "description": "An extended location.",
-      "properties": {
-        "extendedLocation": {
-          "description": "The extended locations.",
-          "type": "object",
-          "readOnly": false
-        }
-      },
-      "x-ms-azure-resource": true
-    },
     "JabraEvolve240Firmware": {
       "description": "Jabra Evolve2 40 firmware details.",
       "properties": {
@@ -611,12 +566,21 @@
         }
       }
     },
+    "ExtendedLocations": {
+      "description": "An extended location.",
+      "properties": {
+        "extendedLocation": {
+          "description": "The extended locations.",
+          "type": "object"
+        }
+      }
+    },
     "JabraEvolve240": {
       "type": "object",
       "description": "The JabraEvolve240 resource.",
        "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
         },
         {
           "$ref": "#/definitions/ExtendedLocations"
@@ -656,45 +620,22 @@
           "description": "The firmware version.",
           "type": "string"
         },
-        "announcementLanguage": {
+        "voiceAnnouncementsLanguage3": {
           "description": "Language that is used for voice announcements. (English, etc...).",
-          "type": "string",
-          "enum": [
-            "NotSpecified",
-            "English",
-            "German",
-            "French",
-            "Japanese",
-            "Chinese",
-            "Korean"
-          ],
-          "x-ms-enum": {
-            "name": "AnnouncementLanguage",
-            "modelAsString": true
-          }
+          "type": "object"
         },
         "audioProtection": {
           "description": "Select to automatically adjust the volume level in the headset to limit your daily exposure to excessive audio volume. The headset always provides protection against sound spikes. (basicPeakStop, etc...).",
-          "type": "string",
-          "enum": [
-            "NotSpecified",
-            "basicPeakStop",
-            "intelliTone",
-            "australianG616"
-          ],
-          "x-ms-enum": {
-            "name": "AudioProtection",
-            "modelAsString": true
-          }
+          "type": "object"
         }
       }
     },
     "Thermostat": {
       "type": "object",
       "description": "The thermostat resource.",
-       "allOf": [
+      "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
         },
         {
           "$ref": "#/definitions/ExtendedLocations"
