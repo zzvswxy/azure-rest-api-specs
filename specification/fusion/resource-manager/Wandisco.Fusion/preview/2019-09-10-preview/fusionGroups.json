@@ -3498,15 +3498,25 @@
             "type": "string"
           }
         },
-        "exclusionIds": {
-          "type": "array",
-          "description": "List of ids referring to exclusions to be applied to the migration",
-          "items": {
-            "type": "string"
+        "properties": {
+          "title": "properties",
+          "description": "TagsAndExclusionUpdate properties",
+          "x-ms-client-flatten": true,
+          "type": "object",
+          "properties": {
+            "exclusionIds": {
+              "type": "array",
+              "readOnly": false,
+              "description": "List of ids referring to exclusions to be applied to the migration",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
       }
     },
+
     "Resource": {
       "description": "An Azure resource.",
       "properties": {
