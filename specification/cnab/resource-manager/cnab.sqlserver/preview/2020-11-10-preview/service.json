@@ -244,6 +244,59 @@
         "security": []
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/cnab.sqlserver/service/{resourceName}/testcreatedatabase": {
+      "post": {
+        "summary": "Create or Update SQL Server on Kubernetes",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "TestCreateDatabase",
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {},
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupName"
+          },
+          {
+            "$ref": "#/parameters/resourceName"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted - Post; the operation will complete asynchronously."
+          },
+          "default": {
+            "description": "DefaultErrorResponse",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "security": []
+      }
+      },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/cnab.sqlserver/service": {
       "get": {
         "summary": "List SQL Server Service Instances",
