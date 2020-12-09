@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api-version": "2021-01-01",
+    "api-version": "2021-01-01-alpha",
     "organization": "contoso",
     "body": {
       "tags": {
@@ -11,14 +11,7 @@
       "properties": {
         "displayName": "Contoso Engineering",
         "description": "Engineering organization",
-        "permissions": {
-          "allowProjectPublicRepositories": true,
-          "allowProjectCustomizedScheduleSettings": true,
-          "allowProjectCustomizedDeletionSettings": false,
-          "allowProjectCustomizedAzureMappings": false,
-          "allowProjectCustomizedTags": false,
-          "allowProjectCustomizedRepositories": true
-        }
+        "permissions": {}
       }
     }
   },
@@ -27,7 +20,7 @@
       "body": {
         "id": "/providers/Microsoft.DevTestCenter/organization/contoso",
         "name": "Contoso",
-        "type": "Microsoft.DevTestCenter/organization",
+        "type": "Microsoft.DevTestCenter/organizations",
         "tags": {
           "OrganizationName": "Consoso",
           "CostCode": "12345"
@@ -37,47 +30,7 @@
           "displayName": "Contoso Engineering",
           "description": "Engineering organization",
           "provisioningState": "Succeeded",
-          "permissions": {
-            "allowProjectPublicRepositories": true,
-            "allowProjectCustomizedScheduleSettings": true,
-            "allowProjectCustomizedDeletionSettings": false,
-            "allowProjectCustomizedAzureMappings": false,
-            "allowProjectCustomizedTags": false,
-            "allowProjectCustomizedRepositories": true
-          }
-        },
-        "systemData": {
-          "createdBy": "user1",
-          "createdByType": "User",
-          "createdAt": "2020-11-11T22:00:08.896Z",
-          "lastModifiedBy": "user2",
-          "lastModifiedByType": "User",
-          "lastModifiedAt": "2020-11-11T22:00:10.896Z"
-        }
-      }
-    },
-    "201": {
-      "body": {
-        "id": "/providers/Microsoft.DevTestCenter/organization/contoso",
-        "name": "Contoso",
-        "type": "Microsoft.DevTestCenter/organization",
-        "tags": {
-          "OrganizationName": "Consoso",
-          "CostCode": "12345"
-        },
-        "location": "centralus",
-        "properties": {
-          "displayName": "Contoso Engineering",
-          "description": "Engineering organization",
-          "provisioningState": "Succeeded",
-          "permissions": {
-            "allowProjectPublicRepositories": true,
-            "allowProjectCustomizedScheduleSettings": true,
-            "allowProjectCustomizedDeletionSettings": false,
-            "allowProjectCustomizedAzureMappings": false,
-            "allowProjectCustomizedTags": false,
-            "allowProjectCustomizedRepositories": true
-          }
+          "permissions": {}
         },
         "systemData": {
           "createdBy": "user1",

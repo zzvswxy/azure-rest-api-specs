@@ -1,14 +1,14 @@
 {
   "parameters": {
-    "api-version": "2021-01-01",
-    "organization": "sampleacct"
+    "api-version": "2021-01-01-alpha",
+    "organization": "contoso"
   },
   "responses": {
     "200": {
       "body": {
         "id": "/providers/Microsoft.DevTestCenter/organization/contoso",
         "name": "Contoso",
-        "type": "Microsoft.DevTestCenter/organization",
+        "type": "Microsoft.DevTestCenter/organizations",
         "tags": {
           "OrganizationName": "Consoso",
           "CostCode": "12345"
@@ -18,14 +18,7 @@
           "displayName": "Contoso Engineering",
           "description": "Engineering organization",
           "provisioningState": "Succeeded",
-          "permissions": {
-            "allowProjectPublicRepositories": true,
-            "allowProjectCustomizedScheduleSettings": true,
-            "allowProjectCustomizedDeletionSettings": false,
-            "allowProjectCustomizedAzureMappings": false,
-            "allowProjectCustomizedTags": false,
-            "allowProjectCustomizedRepositories": true
-          }
+          "permissions": {}
         },
         "systemData": {
           "createdBy": "user1",
