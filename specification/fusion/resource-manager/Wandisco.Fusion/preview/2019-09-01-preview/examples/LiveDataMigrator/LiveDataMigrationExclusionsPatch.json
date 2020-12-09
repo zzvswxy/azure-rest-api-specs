@@ -6,10 +6,12 @@
     "migratorName": "migrator",
     "migrationName": "migration",
     "LiveDataMigration": {
-      "exclusionIds": [
-        "exclusion1",
-        "exclusion2"
-      ]
+      "properties": {
+        "exclusionIds": [
+          "exclusion1",
+          "exclusion2"
+        ]
+      }
     }
   },
   "responses": {
