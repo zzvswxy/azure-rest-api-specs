@@ -372,12 +372,12 @@
           },
           "description": "Resource tags"
         },
-        "extendedLocations": [
-          {
-              "type": "CustomLocation",
-              "supportedPolicy": "NotSpecified"
+        "extendedLocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtendedLocationOptions"
           }
-      ],
+        },
         "extendedLocation": {
           "type": "object",
           "properties": {
