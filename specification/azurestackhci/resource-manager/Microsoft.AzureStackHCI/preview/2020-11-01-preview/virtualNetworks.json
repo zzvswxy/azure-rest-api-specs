@@ -220,7 +220,7 @@
     "virtualnetworksProperties": {
       "type": "object",
       "properties": {
-        "type": {
+        "networkType": {
           "type": "string",
           "description": "Type of the network"
         },
