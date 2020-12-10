@@ -56,14 +56,6 @@ input-file:
   - Microsoft.AzureStackHCI/preview/2020-11-01-preview/virtualMachines.json
   - Microsoft.AzureStackHCI/preview/2020-11-01-preview/virtualNetworks.json
 ```
-### Tag: package-2020-10
-
-These settings apply only when `--tag=package-2020-10` is specified on the command line.
-
-``` yaml $(tag) == 'package-2020-10'
-input-file:
-  - Microsoft.AzureStackHCI/stable/2020-10-01/azurestackhci.json
-```
 
 ### Tag: package-2020-03-01-preview
 
@@ -86,15 +78,7 @@ This is not used by Autorest itself.
 ``` yaml $(swagger-to-sdk)
 swagger-to-sdk:
   - repo: azure-sdk-for-python
-  - repo: azure-sdk-for-java
   - repo: azure-sdk-for-go
-  - repo: azure-sdk-for-js
-  - repo: azure-sdk-for-ruby
-    after_scripts:
-      - bundle install && rake arm:regen_all_profiles['azure_mgmt_azurestackhci']
-  - repo: azure-resource-manager-schemas
-    after_scripts:
-      - node sdkauto_afterscript.js azurestackhci/resource-manager
 ```
 
 ## Go
@@ -105,14 +89,3 @@ See configuration in [readme.go.md](./readme.go.md)
 
 See configuration in [readme.python.md](./readme.python.md)
 
-## Ruby
-
-See configuration in [readme.ruby.md](./readme.ruby.md)
-
-## TypeScript
-
-See configuration in [readme.typescript.md](./readme.typescript.md)
-
-## CSharp
-
-See configuration in [readme.csharp.md](./readme.csharp.md)
