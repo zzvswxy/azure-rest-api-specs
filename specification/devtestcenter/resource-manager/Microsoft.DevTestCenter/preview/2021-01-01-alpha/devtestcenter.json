@@ -3,10 +3,7 @@
   "info": {
     "version": "2021-01-01-alpha",
     "title": "DevTestCenter",
-    "description": "DevTestCenter provider",
-    "x-ms-code-generation-settings": {
-      "name": "devtestcenterClient"
-    }
+    "description": "DevTestCenter provider"
   },
   "host": "management.azure.com",
   "schemes": ["https"],
@@ -36,6 +33,15 @@
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
           }
         ],
         "operationId": "Organizations_List",
@@ -54,16 +60,20 @@
           }
         },
         "x-ms-examples": {
-          "Organizations_Get": {
+          "Organizations_List": {
             "$ref": "./examples/Organizations_List.json"
           }
-        }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/OrganizationListResult"
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}": {
       "get": {
         "tags": ["Organization"],
-        "description": "Gets an organization resource",
+        "description": "Gets an organization.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -95,7 +105,7 @@
       },
       "put": {
         "tags": ["Organization"],
-        "description": "Creates/updates an organization resource",
+        "description": "Creates or updates an organization resource",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -114,19 +124,9 @@
           }
         ],
         "operationId": "Organizations_CreateOrUpdate",
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
-        },
         "responses": {
-          "201": {
-            "description": "Accepted. Operation will complete asynchronously.",
-            "schema": {
-              "$ref": "#/definitions/Organization"
-            }
-          },
           "200": {
-            "description": "Succeeded",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/Organization"
             }
@@ -146,7 +146,7 @@
       },
       "patch": {
         "tags": ["Organization"],
-        "description": "Creates/updates an organization resource",
+        "description": "Partially updates an organization.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -165,17 +165,7 @@
           }
         ],
         "operationId": "Organizations_Update",
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
-        },
         "responses": {
-          "201": {
-            "description": "Accepted. Operation will complete asynchronously.",
-            "schema": {
-              "$ref": "#/definitions/Organization"
-            }
-          },
           "200": {
             "description": "Succeeded",
             "schema": {
@@ -189,7 +179,11 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Organizations_Update": {
+            "$ref": "./examples/Organizations_Patch.json"
+          }
+        }
       },
       "delete": {
         "tags": ["Organization"],
@@ -224,19 +218,32 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Organizations_Delete": {
+            "$ref": "./examples/Organizations_Delete.json"
+          }
+        }
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects": {
       "get": {
         "tags": ["Project"],
-        "description": "Lists all projects in the organization that the caller has access to.",
+        "description": "Lists all projects in the organization.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
           }
         ],
         "operationId": "Projects_List",
@@ -254,7 +261,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Projects_List": {
+            "$ref": "./examples/Projects_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ProjectListResult"
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}": {
@@ -287,11 +302,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Projects_Get": {
+            "$ref": "./examples/Projects_Get.json"
+          }
+        }
       },
       "put": {
         "tags": ["Project"],
-        "description": "Creates or Updates a project resource in the organization.",
+        "description": "Creates or updates a project.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -337,11 +356,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Projects_CreateOrUpdate": {
+            "$ref": "./examples/Projects_Put.json"
+          }
+        }
       },
       "patch": {
         "tags": ["Project"],
-        "description": "Updates a project resource in the organization.",
+        "description": "Partially updates a project.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -387,11 +410,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Projects_Update": {
+            "$ref": "./examples/Projects_Patch.json"
+          }
+        }
       },
       "delete": {
         "tags": ["Project"],
-        "description": "Deletes a project resource from the organization.",
+        "description": "Deletes a project resource.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -425,7 +452,11 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Projects_Delete": {
+            "$ref": "./examples/Projects_Delete.json"
+          }
+        }
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments": {
@@ -441,6 +472,15 @@
           },
           {
             "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
           }
         ],
         "operationId": "Environments_List",
@@ -458,7 +498,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_List": {
+            "$ref": "./examples/Environments_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/EnvironmentListResult"
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}": {
@@ -494,11 +542,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_Get": {
+            "$ref": "./examples/Environments_Get.json"
+          }
+        }
       },
       "put": {
         "tags": ["Environment"],
-        "description": "Creates/updates an environment",
+        "description": "Creates or updates an environment.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -515,7 +567,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Represents a project.",
+            "description": "Represents a environment.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Environment"
@@ -547,11 +599,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_CreateOrUpdate": {
+            "$ref": "./examples/Environments_Put.json"
+          }
+        }
       },
       "patch": {
         "tags": ["Environment"],
-        "description": "Creates/updates an environment",
+        "description": "Partially updates an environment",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -568,7 +624,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Updatable environment settings.",
+            "description": "Updatable environment properties.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/EnvironmentUpdate"
@@ -600,7 +656,11 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_Update": {
+            "$ref": "./examples/Environments_Patch.json"
+          }
+        }
       },
       "delete": {
         "tags": ["Environment"],
@@ -626,7 +686,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK. Resource has been deleted"
+            "description": "OK. Environment has been deleted."
           },
           "202": {
             "description": "Accepted. Operation will complete asynchronously."
@@ -641,7 +701,11 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_Delete": {
+            "$ref": "./examples/Environments_Delete.json"
+          }
+        }
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/deploy": {
@@ -667,7 +731,7 @@
             "description": "Deployment properties overriding the environment's default values.",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/EnvironmentDeployment"
+              "$ref": "#/definitions/EnvironmentDeploy"
             }
           }
         ],
@@ -678,16 +742,7 @@
         },
         "responses": {
           "201": {
-            "description": "Created. Operation will complete asynchronously.",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
-          },
-          "200": {
-            "description": "Succeeded",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
+            "description": "Created. Operation will complete asynchronously."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -696,13 +751,58 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_Deploy": {
+            "$ref": "./examples/Environments_Deploy.json"
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/scaleDown": {
+      "post": {
+        "tags": ["Environment"],
+        "description": "Scales the environment into cost saving mode.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/EnvironmentNameParameter"
+          }
+        ],
+        "operationId": "Environments_ScaleDown",
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "responses": {
+          "201": {
+            "description": "Created. Operation will complete asynchronously."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Environments_ScaleDown": {
+            "$ref": "./examples/Environments_ScaleDown.json"
+          }
+        }
       }
     },
     "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/reset": {
       "post": {
         "tags": ["Environment"],
-        "description": "Deploys an environment's resources",
+        "description": "Resets the environment back to it's previously deployed state. This can be used after scaling down to return the environment to a 'normal' state.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -724,16 +824,7 @@
         },
         "responses": {
           "201": {
-            "description": "Created. Operation will complete asynchronously.",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
-          },
-          "200": {
-            "description": "Succeeded",
-            "schema": {
-              "$ref": "#/definitions/Environment"
-            }
+            "description": "Created. Operation will complete asynchronously."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -742,43 +833,17 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Environments_Reset": {
+            "$ref": "./examples/Environments_Reset.json"
+          }
+        }
       }
     },
-    "/providers/Microsoft.DevTestCenter/organizations/{organization}/repositories": {
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/deployments": {
       "get": {
-        "tags": ["Repository"],
-        "description": "Lists repositories for an organization.",
-        "parameters": [
-          {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/OrganizationNameParameter"
-          }
-        ],
-        "operationId": "Repositories_List",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/RepositoryListResult"
-            }
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {}
-      }
-    },
-    "/providers/Microsoft.DevTestCenter/organizations/{organization}/repositories/{repository}": {
-      "get": {
-        "tags": ["Repository"],
-        "description": "Gets a repository resource",
+        "tags": ["Environment"],
+        "description": "Lists the deployments for an environment.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -787,15 +852,27 @@
             "$ref": "#/parameters/OrganizationNameParameter"
           },
           {
-            "$ref": "#/parameters/RepositoryNameParameter"
+            "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/EnvironmentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
           }
         ],
-        "operationId": "Repositories_Get",
+        "operationId": "Deployments_List",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Repository"
+              "$ref": "#/definitions/DeploymentListResult"
             }
           },
           "default": {
@@ -805,11 +882,196 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Deployments_List": {
+            "$ref": "./examples/Deployments_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/DeploymentListResult"
+      }
+    },
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/environments/{environment}/deployments/{deploymentName}": {
+      "get": {
+        "tags": ["Environment"],
+        "description": "Gets details of a deployment.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/EnvironmentNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DeploymentNameParameter"
+          }
+        ],
+        "operationId": "Deployments_Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Deployment"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Deployments_Get": {
+            "$ref": "./examples/Deployments_Get.json"
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/templates": {
+      "get": {
+        "tags": ["Project"],
+        "description": "Lists all templates available for a project.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
+          }
+        ],
+        "operationId": "ProjectTemplates_List",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TemplateListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Projects_ListTemplates": {
+            "$ref": "./examples/Projects_ListTemplates.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/DeploymentListResult"
+      }
+    },
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/templatesources": {
+      "get": {
+        "tags": ["Template Source"],
+        "description": "Lists template sources for an organization.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
+          }
+        ],
+        "operationId": "TemplateSources_List",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TemplateSourceListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "TemplateSources_List": {
+            "$ref": "./examples/TemplateSources_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/TemplateSourceListResult"
+      }
+    },
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/templatesources/{templateSource}": {
+      "get": {
+        "tags": ["Template Source"],
+        "description": "Gets a template source",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/TemplateSourceNameParameter"
+          }
+        ],
+        "operationId": "TemplateSources_Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TemplateSource"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "TemplateSources_Get": {
+            "$ref": "./examples/TemplateSources_Get.json"
+          }
+        }
       },
       "put": {
-        "tags": ["Repository"],
-        "description": "Creates or updates a repository resource.",
+        "tags": ["Template Source"],
+        "description": "Creates or updates a template source.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -818,24 +1080,24 @@
             "$ref": "#/parameters/OrganizationNameParameter"
           },
           {
-            "$ref": "#/parameters/RepositoryNameParameter"
+            "$ref": "#/parameters/TemplateSourceNameParameter"
           },
           {
             "name": "body",
             "in": "body",
-            "description": "Represents a Repository.",
+            "description": "Represents a template source.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Repository"
+              "$ref": "#/definitions/TemplateSource"
             }
           }
         ],
-        "operationId": "Repositories_CreateOrUpdate",
+        "operationId": "TemplateSources_CreateOrUpdate",
         "responses": {
           "200": {
             "description": "Succeeded",
             "schema": {
-              "$ref": "#/definitions/Repository"
+              "$ref": "#/definitions/TemplateSource"
             }
           },
           "default": {
@@ -845,11 +1107,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "TemplateSources_CreateOrUpdate": {
+            "$ref": "./examples/TemplateSources_Put.json"
+          }
+        }
       },
       "patch": {
-        "tags": ["Repository"],
-        "description": "Updates a repository resource",
+        "tags": ["Template Source"],
+        "description": "Partially updates a template source.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -858,24 +1124,24 @@
             "$ref": "#/parameters/OrganizationNameParameter"
           },
           {
-            "$ref": "#/parameters/RepositoryNameParameter"
+            "$ref": "#/parameters/TemplateSourceNameParameter"
           },
           {
             "name": "body",
             "in": "body",
-            "description": "Updatable repository properties.",
+            "description": "Updatable template source properties.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/RepositoryUpdate"
+              "$ref": "#/definitions/TemplateSourceUpdate"
             }
           }
         ],
-        "operationId": "Repositories_Update",
+        "operationId": "TemplateSources_Update",
         "responses": {
           "200": {
             "description": "The resource was updated.",
             "schema": {
-              "$ref": "#/definitions/Repository"
+              "$ref": "#/definitions/TemplateSource"
             }
           },
           "default": {
@@ -885,11 +1151,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "TemplateSources_Update": {
+            "$ref": "./examples/TemplateSources_Patch.json"
+          }
+        }
       },
       "delete": {
-        "tags": ["Repository"],
-        "description": "Deletes a repository resource.",
+        "tags": ["Template Source"],
+        "description": "Deletes a Template Source resource.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -898,10 +1168,10 @@
             "$ref": "#/parameters/OrganizationNameParameter"
           },
           {
-            "$ref": "#/parameters/RepositoryNameParameter"
+            "$ref": "#/parameters/TemplateSourceNameParameter"
           }
         ],
-        "operationId": "Repositories_Delete",
+        "operationId": "TemplateSources_Delete",
         "responses": {
           "200": {
             "description": "OK"
@@ -916,13 +1186,17 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "TemplateSources_Delete": {
+            "$ref": "./examples/TemplateSources_Delete.json"
+          }
+        }
       }
     },
-    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/subscriptions": {
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/templatesources/{templateSource}/templates/{template}": {
       "get": {
-        "tags": ["Subscription Mapping"],
-        "description": "Lists subscription mappings for an organization.",
+        "tags": ["Template Source"],
+        "description": "Gets a Template resource",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -931,15 +1205,18 @@
             "$ref": "#/parameters/OrganizationNameParameter"
           },
           {
-            "$ref": "#/parameters/ProjectNameParameter"
+            "$ref": "#/parameters/TemplateSourceNameParameter"
+          },
+          {
+            "$ref": "#/parameters/TemplateNameParameter"
           }
         ],
-        "operationId": "Subscriptions_List",
+        "operationId": "Templates_Get",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/AzureMappingListResult"
+              "$ref": "#/definitions/Template"
             }
           },
           "default": {
@@ -949,13 +1226,17 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "Templates_Get": {
+            "$ref": "./examples/Templates_Get.json"
+          }
+        }
       }
     },
-    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/subscriptions/{subscriptionId}": {
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/mappings": {
       "get": {
-        "tags": ["Subscription Mapping"],
-        "description": "Gets an azure mapping resource.860",
+        "tags": ["Environment Mapping"],
+        "description": "Lists mappings for a project.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -967,15 +1248,21 @@
             "$ref": "#/parameters/ProjectNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/FilterParameter"
+          },
+          {
+            "$ref": "#/parameters/SkipParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
           }
         ],
-        "operationId": "Subscriptions_Get",
+        "operationId": "EnvironmentMappings_List",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/AzureMapping"
+              "$ref": "#/definitions/EnvironmentMappingListResult"
             }
           },
           "default": {
@@ -985,11 +1272,59 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "EnvironmentMappings_List": {
+            "$ref": "./examples/EnvironmentMappings_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/EnvironmentMappingListResult"
+      }
+    },
+    "/providers/Microsoft.DevTestCenter/organizations/{organization}/projects/{project}/mappings/{mapping}": {
+      "get": {
+        "tags": ["Environment Mapping"],
+        "description": "Gets a mapping.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MappingNameParameter"
+          }
+        ],
+        "operationId": "EnvironmentMappings_Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentMapping"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "EnvironmentMappings_Get": {
+            "$ref": "./examples/EnvironmentMappings_Get.json"
+          }
+        }
       },
       "put": {
-        "tags": ["Subscription Mapping"],
-        "description": "Creates or updates a subscription mapping",
+        "tags": ["Environment Mapping"],
+        "description": "Creates or updates a mapping.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -1001,24 +1336,24 @@
             "$ref": "#/parameters/ProjectNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/MappingNameParameter"
           },
           {
             "name": "body",
             "in": "body",
-            "description": "Represents a subscription mapping.",
+            "description": "Represents an Azure mapping.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AzureMapping"
+              "$ref": "#/definitions/EnvironmentMapping"
             }
           }
         ],
-        "operationId": "Subscriptions_CreateOrUpdate",
+        "operationId": "EnvironmentMappings_CreateOrUpdate",
         "responses": {
           "200": {
-            "description": "OK.",
+            "description": "Succeeded",
             "schema": {
-              "$ref": "#/definitions/AzureMapping"
+              "$ref": "#/definitions/EnvironmentMapping"
             }
           },
           "default": {
@@ -1028,11 +1363,15 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "EnvironmentMappings_CreateOrUpdate": {
+            "$ref": "./examples/EnvironmentMappings_Put.json"
+          }
+        }
       },
-      "delete": {
-        "tags": ["Subscription Mapping"],
-        "description": "Deletes a subscription mapping",
+      "patch": {
+        "tags": ["Environment Mapping"],
+        "description": "Partially updates a mapping.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -1044,13 +1383,60 @@
             "$ref": "#/parameters/ProjectNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/MappingNameParameter"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updatable Azure mapping properties.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentMappingUpdate"
+            }
           }
         ],
-        "operationId": "Subscriptions_Delete",
+        "operationId": "EnvironmentMappings_Update",
         "responses": {
           "200": {
-            "description": "The lab was deleted successfully."
+            "description": "The resource was updated.",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentMapping"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "EnvironmentMappings_Update": {
+            "$ref": "./examples/EnvironmentMappings_Patch.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Environment Mapping"],
+        "description": "Deletes a mapping.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/OrganizationNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ProjectNameParameter"
+          },
+          {
+            "$ref": "#/parameters/MappingNameParameter"
+          }
+        ],
+        "operationId": "EnvironmentMappings_Delete",
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "204": {
             "description": "Resource does not exist."
@@ -1062,13 +1448,17 @@
             }
           }
         },
-        "x-ms-examples": {}
+        "x-ms-examples": {
+          "EnvironmentMappings_Delete": {
+            "$ref": "./examples/EnvironmentMappings_Delete.json"
+          }
+        }
       }
     },
     "/providers/Microsoft.DevTestCenter/operations": {
       "get": {
         "tags": ["Operations"],
-        "description": "Lists all of the available RP operations.",
+        "description": "Lists all of the available resource provider operations.",
         "operationId": "Operations_List",
         "parameters": [
           {
@@ -1093,6 +1483,9 @@
           "Operations_Get": {
             "$ref": "./examples/Operations_Get.json"
           }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         }
       }
     }
@@ -1112,10 +1505,6 @@
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/OrganizationProperties"
         },
-        "identity": {
-          "description": "Managed identity properties",
-          "$ref": "#/definitions/IdentityProperties"
-        },
         "systemData": {
           "description": "Metadata pertaining to creation and last modification of the resource.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
@@ -1123,9 +1512,8 @@
         }
       }
     },
-    "OrganizationProperties": {
-      "description": "Properties of the organization.",
-      "type": "object",
+    "OrganizationUpdateProperties": {
+      "description": "Properties of the organization. These properties can be updated after the resource has been created.",
       "properties": {
         "displayName": {
           "description": "Display name for the organization.",
@@ -1135,25 +1523,37 @@
           "description": "Organization description.",
           "type": "string"
         },
+        "permissions": {
+          "description": "Permissions for organization's projects. This is intended for future use.",
+          "$ref": "#/definitions/OrganizationPermissions"
+        }
+      }
+    },
+    "OrganizationProperties": {
+      "description": "Properties of the organization.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/OrganizationUpdateProperties"
+        }
+      ],
+      "properties": {
         "provisioningState": {
-          "description": "The provisioning state of the Resource.",
+          "description": "The provisioning state of the resource.",
           "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
-        },
-        "permissions": {
-          "description": "Permissions for organization's projects",
-          "$ref": "#/definitions/OrganizationPermissions"
-        },
-        "githubOrganization": {
-          "description": "Github organization settings",
-          "type": "string"
         }
       }
     },
     "OrganizationUpdate": {
-      "description": "The organization resource for updates. TODO: Add other updatable properties (tags is required)",
+      "description": "The organization resource for partial updates. Properties not provided in the update request will not be changed.",
       "type": "object",
       "properties": {
+        "properties": {
+          "description": "Organization properties to be updated.",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/OrganizationUpdateProperties"
+        },
         "tags": {
           "type": "object",
           "additionalProperties": {
@@ -1165,7 +1565,7 @@
       }
     },
     "OrganizationListResult": {
-      "description": "Result of list organizations operation",
+      "description": "Result of the list organizations operation",
       "type": "object",
       "properties": {
         "value": {
@@ -1178,48 +1578,18 @@
         },
         "nextLink": {
           "description": "URL to get the next set of results if there are any.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         }
       }
     },
     "OrganizationPermissions": {
       "description": "Permission that are applied to projects within this organization.",
       "type": "object",
-      "properties": {
-        "allowProjectPublicRepositories": {
-          "description": "Enables/disables public repositories in the organization's projects",
-          "type": "boolean",
-          "default": false
-        },
-        "allowProjectCustomizedScheduleSettings": {
-          "description": "Enables/disables customized schedule settings in the organization's projects",
-          "type": "boolean",
-          "default": false
-        },
-        "allowProjectCustomizedDeletionSettings": {
-          "description": "Enables/disables customized deletion settings in the organization's projects",
-          "type": "boolean",
-          "default": false
-        },
-        "allowProjectCustomizedAzureMappings": {
-          "description": "Enables/disables customized azure mapping in the organization's projects",
-          "type": "boolean",
-          "default": false
-        },
-        "allowProjectCustomizedTags": {
-          "description": "Enables/disables customized tags in the organization's projects",
-          "type": "boolean",
-          "default": false
-        },
-        "allowProjectCustomizedRepositories": {
-          "description": "Enables/disables customized repositories in the organization's projects",
-          "type": "boolean",
-          "default": false
-        }
-      }
+      "properties": {}
     },
     "Project": {
-      "description": "Represent a project resource.",
+      "description": "Represents a project resource.",
       "type": "object",
       "allOf": [
         {
@@ -1230,12 +1600,16 @@
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/ProjectProperties",
-          "description": "TODO"
+          "description": "Properties of a project."
         },
         "systemData": {
           "description": "Metadata pertaining to creation and last modification of the resource.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
           "readOnly": true
+        },
+        "identity": {
+          "description": "Managed identity properties",
+          "$ref": "#/definitions/IdentityProperties"
         },
         "tags": {
           "type": "object",
@@ -1247,29 +1621,45 @@
         }
       }
     },
-    "ProjectProperties": {
-      "description": "Properties of a project.",
+    "ProjectUpdateProperties": {
+      "description": "Properties of a project. These properties can be updated after the resource has been created.",
       "type": "object",
       "properties": {
         "displayName": {
           "type": "string",
-          "description": "Project display name."
+          "description": "Display name of the project."
         },
         "description": {
           "type": "string",
           "description": "Description of the project."
-        },
+        }
+      }
+    },
+    "ProjectProperties": {
+      "description": "Properties of a project.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProjectUpdateProperties"
+        }
+      ],
+      "properties": {
         "provisioningState": {
-          "description": "The provisioning state of the Resource.",
+          "description": "The provisioning state of the resource.",
           "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
         }
       }
     },
     "ProjectUpdate": {
-      "description": "The project properties for update. TODO: Add other updatable properties (tags is required)",
+      "description": "The project properties for partial update. Properties not provided in the update request will not be changed.",
       "type": "object",
       "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ProjectUpdateProperties",
+          "description": "Properties of a project to be updated."
+        },
         "tags": {
           "type": "object",
           "additionalProperties": {
@@ -1281,7 +1671,7 @@
       }
     },
     "ProjectListResult": {
-      "description": "Results of the project list operaiton",
+      "description": "Results of the project list operation.",
       "type": "object",
       "properties": {
         "value": {
@@ -1311,52 +1701,63 @@
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/EnvironmentProperties",
-          "description": "TODO"
+          "description": "Environment properties."
         },
         "systemData": {
           "description": "Metadata pertaining to creation and last modification of the resource.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
           "readOnly": true
+        },
+        "tags": {
+          "description": "Resource tags.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": ["read", "create", "update"]
+        }
+      }
+    },
+    "EnvironmentUpdateProperties": {
+      "description": "Properties of an environment. These properties can be updated after the resource has been created.",
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the environment."
+        },
+        "type": {
+          "type": "string",
+          "description": "Environment type. This must an existing environment type of a mapping configured for this project."
+        },
+        "templateId": {
+          "type": "string",
+          "description": "Resource id of the template."
+        },
+        "deploymentParameters": {
+          "description": "Deployment parameters passed to template.",
+          "type": "object"
         }
       }
     },
     "EnvironmentProperties": {
       "description": "Properties of an environment.",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentUpdateProperties"
+        }
+      ],
       "properties": {
-        "displayName": {
-          "type": "string",
-          "description": "Name of the environment."
-        },
-        "environmentType": {
-          "type": "string",
-          "description": "Environment type (this must match one a value for a subscription mapping for this project)."
-        },
-        "templateRepositoryId": {
-          "type": "string",
-          "description": "The resource id of the repo containing the template."
-        },
-        "template": {
-          "type": "string",
-          "description": "The template in the repository to use for this environment."
-        },
-        "deploymentProperties": {
-          "$ref": "#/definitions/DeploymentProperties",
-          "description": "Deployment properties applied to template used for all deployments to this environment."
-        },
         "provisioningState": {
-          "description": "The provisioning state of the Resource.",
-          "$ref": "#/definitions/ProvisioningState"
+          "description": "The provisioning state of the environment.",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
         },
-        "environmentState": {
-          "enum": ["Active", "CostSaving", "Deallocated"],
-          "description": "Environment's resource state",
-          "readOnly": true,
-          "type": "string",
-          "x-ms-enum": {
-            "name": "EnvironmentState",
-            "modelAsString": true
-          }
+        "costSavingMode": {
+          "description": "Whether cost saving mode has been enabled. Defaults to disabled.",
+          "$ref": "#/definitions/EnableStatus",
+          "readOnly": true
         },
         "resources": {
           "type": "array",
@@ -1364,35 +1765,40 @@
             "$ref": "#/definitions/EnvironmentResource"
           },
           "readOnly": true,
-          "description": "list of resource info for the environment."
+          "description": "List of resource information for the environment."
         }
       }
     },
     "EnvironmentResource": {
-      "description": "Represents a resource deployed to an environment.",
+      "description": "Represents a resource deployed inside an environment.",
       "type": "object",
       "properties": {
-        "resourceName": {
-          "description": "Name of the resource",
+        "id": {
+          "description": "The resource's identifier.",
           "type": "string",
           "readOnly": true
         },
-        "resourceEndpoint": {
-          "description": "Resource specific endpoint.",
+        "endpoint": {
+          "description": "An entry point URL for the resource.",
           "type": "string",
           "readOnly": true
         },
-        "resourceType": {
-          "description": "The resource type",
+        "type": {
+          "description": "The Azure resource type.",
           "type": "string",
           "readOnly": true
         }
       }
     },
     "EnvironmentUpdate": {
-      "description": "The environment properties for update. TODO: Add other updatable properties (tags is required)",
+      "description": "The environment properties for partial update. Properties not provided in the update request will not be changed.",
       "type": "object",
       "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/EnvironmentUpdateProperties",
+          "description": "Environment properties to be updated."
+        },
         "tags": {
           "description": "Resource tags.",
           "type": "object",
@@ -1404,7 +1810,7 @@
       }
     },
     "EnvironmentListResult": {
-      "description": "Results from an list environments operation.",
+      "description": "Results of the environment list operation.",
       "type": "object",
       "properties": {
         "value": {
@@ -1422,8 +1828,8 @@
         }
       }
     },
-    "DeploymentProperties": {
-      "description": "Properties of an environment deployment",
+    "EnvironmentDeploy": {
+      "description": "An environment deployment",
       "type": "object",
       "properties": {
         "parameters": {
@@ -1432,100 +1838,8 @@
         }
       }
     },
-    "EnvironmentDeployment": {
-      "description": "An environment deployment",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/DeploymentProperties"
-        }
-      ]
-    },
-    "Repository": {
-      "description": "Represents a repository resource containing templates.",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/Resource"
-        }
-      ],
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/RepositoryProperties",
-          "description": "TODO"
-        },
-        "systemData": {
-          "description": "Metadata pertaining to creation and last modification of the resource.",
-          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
-          "readOnly": true
-        },
-        "tags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "x-ms-mutability": ["read", "create", "update"],
-          "description": "Resource tags."
-        }
-      }
-    },
-    "RepositoryProperties": {
-      "description": "Repository properties.",
-      "type": "object",
-      "properties": {
-        "displayName": {
-          "description": "The repository's display name.",
-          "type": "string"
-        },
-        "uri": {
-          "description": "The repository's URI.",
-          "type": "string"
-        },
-        "branch": {
-          "description": "The repository's branch.",
-          "type": "string"
-        },
-        "securityTokenId": {
-          "description": "A Key Vault reference to the security token to authenticate to the non-public repository.",
-          "type": "string"
-        },
-        "templatePath": {
-          "description": "Template folder path",
-          "type": "string"
-        },
-        "status": {
-          "description": "Indicates if the repository is enabled (values: Enabled, Disabled).",
-          "enum": ["Enabled", "Disabled"],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "EnableStatus",
-            "modelAsString": true
-          }
-        },
-        "provisioningState": {
-          "description": "The provisioning state of the resource.",
-          "$ref": "#/definitions/ProvisioningState",
-          "readOnly": true
-        }
-      }
-    },
-    "RepositoryUpdate": {
-      "description": "The repository properties for update. TODO: Add other updatable properties (tags is required)",
-      "type": "object",
-      "properties": {
-        "tags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "x-ms-mutability": ["read", "create", "update"],
-          "description": "Resource tags."
-        }
-      }
-    },
-    "RepositoryListResult": {
-      "description": "Results of a list repository operation.",
+    "DeploymentListResult": {
+      "description": "Results of the deployment list operation.",
       "type": "object",
       "properties": {
         "value": {
@@ -1533,7 +1847,7 @@
           "readOnly": true,
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Repository"
+            "$ref": "#/definitions/Deployment"
           }
         },
         "nextLink": {
@@ -1543,8 +1857,48 @@
         }
       }
     },
-    "AzureMapping": {
-      "description": "Represents a mapping between a subscription/management group and an environment type.",
+    "Deployment": {
+      "description": "Details of a specific deployment of an environment.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "description": "Deployment properties",
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/DeploymentProperties"
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "readOnly": true
+        }
+      }
+    },
+    "DeploymentProperties": {
+      "description": "Deployment properties.",
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "description": "Current provisioning state of the deployment.",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        },
+        "logs": {
+          "description": "Deployment logs.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "TemplateSource": {
+      "description": "Represents a resource containing environment templates.",
       "type": "object",
       "allOf": [
         {
@@ -1554,8 +1908,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/AzureMappingProperties",
-          "description": "TODO"
+          "$ref": "#/definitions/TemplateSourceProperties",
+          "description": "Template source properties."
         },
         "systemData": {
           "description": "Metadata pertaining to creation and last modification of the resource.",
@@ -1572,35 +1926,72 @@
         }
       }
     },
-    "AzureMappingProperties": {
-      "description": "Properties of an Azure mapping.",
+    "TemplateSourceUpdateProperties": {
+      "description": "Properties of a template source. These properties can be updated after the resource has been created.",
       "type": "object",
       "properties": {
-        "description": {
-          "type": "string",
-          "description": "Description of the azure mapping."
+        "displayName": {
+          "description": "Display name of the template source.",
+          "type": "string"
         },
-        "subscriptionId": {
-          "type": "string",
-          "description": "Subscription",
-          "x-ms-mutability": ["read", "create"]
+        "gitHub": {
+          "description": "Properties for a GitHub source type.",
+          "type": "object",
+          "$ref": "#/definitions/GitHubTemplateSource"
         },
-        "environmentType": {
-          "type": "string",
-          "description": "Environment type (e.g. Dev/Test)",
-          "x-ms-mutability": ["read", "create"]
-        },
+        "status": {
+          "description": "Indicates if the template source is enabled (values: Enabled, Disabled).",
+          "$ref": "#/definitions/EnableStatus"
+        }
+      }
+    },
+    "TemplateSourceProperties": {
+      "description": "Properties of a template source.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TemplateSourceUpdateProperties"
+        }
+      ],
+      "properties": {
         "provisioningState": {
-          "description": "The provisioning state of the Resource.",
+          "description": "The provisioning state of the resource.",
           "$ref": "#/definitions/ProvisioningState",
           "readOnly": true
         }
       }
     },
-    "AzureMappingUpdate": {
-      "description": "The Azure mapping properties for update. TODO: Add other updatable properties (tags is required)",
+    "GitHubTemplateSource": {
+      "description": "Properties for a GitHub repository template source.",
       "type": "object",
       "properties": {
+        "uri": {
+          "description": "GitHub URI.",
+          "type": "string"
+        },
+        "branch": {
+          "description": "GitHub branch.",
+          "type": "string"
+        },
+        "securityTokenId": {
+          "description": "A reference to the Key Vault secret containing a security token to authenticate to a non-public GitHub repository.",
+          "type": "string"
+        },
+        "templatePath": {
+          "description": "The folder where the templates can be found inside the repository.",
+          "type": "string"
+        }
+      }
+    },
+    "TemplateSourceUpdate": {
+      "description": "The template source's properties for parital update. Properties not provided in the update request will not be changed.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/TemplateSourceUpdateProperties",
+          "description": "Template source properties for update."
+        },
         "tags": {
           "type": "object",
           "additionalProperties": {
@@ -1611,8 +2002,8 @@
         }
       }
     },
-    "AzureMappingListResult": {
-      "description": "Result of an AzureMapping list operation.",
+    "TemplateSourceListResult": {
+      "description": "Results of the template source list operation.",
       "type": "object",
       "properties": {
         "value": {
@@ -1620,7 +2011,190 @@
           "readOnly": true,
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AzureMapping"
+            "$ref": "#/definitions/TemplateSource"
+          }
+        },
+        "nextLink": {
+          "description": "URL to get the next set of results if there are any.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "TemplateListResult": {
+      "description": "Results of the template list operation.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "Current page of results.",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Template"
+          }
+        },
+        "nextLink": {
+          "description": "URL to get the next set of results if there are any.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Template": {
+      "description": "A template.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/TemplateProperties",
+          "description": "Properties of a template."
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "readOnly": true
+        }
+      }
+    },
+    "TemplateProperties": {
+      "description": "Properties of a template.",
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "Description of the template.",
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "enum": ["Terraform", "Bicep"],
+          "description": "The type of template used to deploy the environment.",
+          "type": "string",
+          "readOnly": true,
+          "x-ms-enum": {
+            "name": "TemplateType",
+            "modelAsString": true
+          }
+        },
+        "parameters": {
+          "description": "Parameters that can be provided to the template.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemplateParameterProperties"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "TemplateParameterProperties": {
+      "description": "Properties of a template parameter.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the parameter.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type accepted for the parameter value.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the parameter.",
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentMapping": {
+      "description": "Represents a mapping between a subscription and an environment type, or between a management group and an environment type.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/Resource"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/EnvironmentMappingProperties",
+          "description": "Properties to configure a mapping between an environment type and a subscription or management group. Resources for environments of this configured type will be deployed to this subscription or management group."
+        },
+        "systemData": {
+          "description": "Metadata pertaining to creation and last modification of the resource.",
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData",
+          "readOnly": true
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": ["read", "create", "update"],
+          "description": "Resource tags."
+        }
+      }
+    },
+    "EnvironmentMappingUpdateProperties": {
+      "description": "Properties of an environment mapping. These properties can be updated after the resource has been created",
+      "type": "object",
+      "properties": {
+        "environmentTypes": {
+          "description": "Environment type (e.g. Dev/Test)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "EnvironmentMappingProperties": {
+      "description": "Properties of an environment mapping.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentMappingUpdateProperties"
+        }
+      ],
+      "properties": {
+        "subscriptionId": {
+          "description": "Id of a subscription that the environment type will be mapped to.",
+          "type": "string",
+          "x-ms-mutability": ["read", "create"]
+        }
+      }
+    },
+    "EnvironmentMappingUpdate": {
+      "description": "The environment mapping for partial update. Properties not provided in the update request will not be changed.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/EnvironmentMappingUpdateProperties",
+          "description": "Properties to configure a mapping between an environment type and a subscription or management group. Resources for environments of this configured type will be deployed to this subscription or management group."
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": ["read", "create", "update"],
+          "description": "Resource tags."
+        }
+      }
+    },
+    "EnvironmentMappingListResult": {
+      "description": "Result of the mapping list operation.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "Current page of results.",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentMapping"
           }
         },
         "nextLink": {
@@ -1635,13 +2209,8 @@
       "type": "object",
       "properties": {
         "type": {
-          "description": "Type of identity (SystemAssigned, UserAssigned, None)",
-          "enum": [
-            "None",
-            "SystemAssigned",
-            "UserAssigned",
-            "SystemAssigned,UserAssigned"
-          ],
+          "description": "Type of identity (None, SystemAssigned)",
+          "enum": ["None", "SystemAssigned"],
           "type": "string",
           "x-ms-enum": {
             "name": "ManagedIdentityType",
@@ -1655,13 +2224,6 @@
         "tenantId": {
           "description": "The tenant identifier of resource.",
           "type": "string"
-        },
-        "userAssignedIdentities": {
-          "description": "If Type is 'UserAssigned': List of user assigned identities.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "object"
-          }
         }
       }
     },
@@ -1718,11 +2280,13 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/OperationDetail"
-          }
+          },
+          "readOnly": true
         },
         "nextLink": {
           "description": "URL client should use to fetch the next page (per server side paging).",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         }
       }
     },
@@ -1771,7 +2335,7 @@
       }
     },
     "EnableStatus": {
-      "description": "Enabled/Disable status.",
+      "description": "Enable or disable status. Indicates whether the property applied to is either enabled or disabled.",
       "enum": ["Enabled", "Disabled"],
       "type": "string",
       "x-ms-enum": {
@@ -1805,12 +2369,62 @@
       "description": "The name of the environment.",
       "x-ms-parameter-location": "method"
     },
-    "RepositoryNameParameter": {
-      "name": "repository",
+    "TemplateSourceNameParameter": {
+      "name": "templateSource",
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name of the repository.",
+      "description": "The name of the Template Source.",
+      "x-ms-parameter-location": "method"
+    },
+    "TemplateNameParameter": {
+      "name": "template",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The name of the Template.",
+      "x-ms-parameter-location": "method"
+    },
+    "DeploymentNameParameter": {
+      "name": "deploymentName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The deployment id.",
+      "x-ms-parameter-location": "method"
+    },
+    "MappingNameParameter": {
+      "name": "mapping",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "Mapping name.",
+      "x-ms-parameter-location": "method"
+    },
+    "FilterParameter": {
+      "name": "$filter",
+      "in": "query",
+      "description": "The filter to apply to the operation. Example: '$filter=contains(name,'myName')",
+      "type": "string",
+      "required": false,
+      "x-ms-parameter-location": "method"
+    },
+    "SkipParameter": {
+      "name": "$skip",
+      "in": "query",
+      "description": "The number of resources to skip over before returning items in the collection. Example: '$skip=10'",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
+      "x-ms-parameter-location": "method"
+    },
+    "TopParameter": {
+      "name": "$top",
+      "in": "query",
+      "description": "The maximum number of resources to return from the operation. Example: '$top=10'",
+      "type": "integer",
+      "format": "int32",
+      "required": false,
       "x-ms-parameter-location": "method"
     }
   }
