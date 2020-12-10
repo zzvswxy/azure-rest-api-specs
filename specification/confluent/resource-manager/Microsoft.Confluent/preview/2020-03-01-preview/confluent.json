@@ -569,6 +569,10 @@
         "display": {
           "description": "The object that represents the operation.",
           "$ref": "#/definitions/OperationDisplay"
+        },
+        "isDataAction": {
+          "description": "Indicates whether the operation is a data action",
+          "type": "boolean"
         }
       }
     },
@@ -789,6 +793,9 @@
           "description": "The type of the resource.",
           "type": "string",
           "readOnly": true
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         },
         "properties": {
           "x-ms-client-flatten": true,
