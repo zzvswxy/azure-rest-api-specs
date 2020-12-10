@@ -372,12 +372,6 @@
           },
           "description": "Resource tags"
         },
-        "extendedLocations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "extendedLocation": {
           "type": "object",
           "properties": {
