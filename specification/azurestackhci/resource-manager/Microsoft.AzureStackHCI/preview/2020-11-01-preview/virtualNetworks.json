@@ -375,7 +375,7 @@
         "extendedLocations": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ExtendedLocationOptions"
+            "type": "string"
           }
         },
         "extendedLocation": {
