@@ -428,6 +428,11 @@
           "description": "The sql availability group name created in the service.",
           "type": "string"
         },
+        "error": {
+          "description": "Details of any errors during provisioning.",
+          "type": "string",
+          "readOnly": true
+        },
         "namespace": {
           "description": "The Kubernetes namespace that the service is created in.",
           "type": "string",
