@@ -159,7 +159,7 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/locations/{location}/vendors/{vendorName}/mobileNetworks/{serviceKey}/listSites": {
       "post": {
         "tags": [
-          "Sites"
+          "VendorSimProfiles"
         ],
         "operationId": "Sites_listsites",
         "description": "Lists all the sites in the mobile network",
