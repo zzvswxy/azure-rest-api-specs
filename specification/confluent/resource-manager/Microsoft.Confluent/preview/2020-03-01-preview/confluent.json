@@ -795,6 +795,7 @@
           "readOnly": true
         },
         "systemData": {
+          "description": "SystemData properties.",
           "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         },
         "properties": {
