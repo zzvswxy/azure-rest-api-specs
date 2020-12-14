@@ -2591,6 +2591,7 @@
     "PacketCore": {
       "properties": {
         "extendedLocation": {
+           "description": "The extended location of packet core."
            "type": "object",
             "properties": {
                "type": {
