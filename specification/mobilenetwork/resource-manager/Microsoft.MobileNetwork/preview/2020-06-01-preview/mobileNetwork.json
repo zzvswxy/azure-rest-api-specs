@@ -2590,6 +2590,19 @@
     },
     "PacketCore": {
       "properties": {
+        "extendedLocation": {
+           "type": "object",
+            "properties": {
+               "type": {
+                  "type": "string",
+                   "description": "The extended location type."
+                },
+                "name": {
+                  "type": "string",
+                   "description": "The extended location name."
+                 }
+             }
+        },
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/PacketCorePropertiesFormat",
