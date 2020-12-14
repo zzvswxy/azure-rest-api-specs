@@ -7,6 +7,10 @@
     "packetCoreName": "testPacketCore",
     "parameters": {
       "location": "eastus",
+      "extendedLocation": {
+        "type": "EdgeZone",
+        "name": "losangeles001"
+      },
       "properties": {
         "mobileNetwork": {
           "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork"
@@ -32,9 +36,14 @@
         "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork/packetCores/testPacketCore",
         "type": "Microsoft.MobileNetwork/mobileNetworks/packetCores",
         "location": "eastus",
+        
         "tags": {},
         "properties": {
           "provisioningState": "Succeeded",
+          "extendedLocation": {
+            "type": "EdgeZone",
+            "name": "losangeles001"
+          },
           "mobileNetwork": {
             "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork"
           },
@@ -58,6 +67,10 @@
         "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork/packetCores/testPacketCore",
         "type": "Microsoft.MobileNetwork/mobileNetworks/packetCores",
         "location": "eastus",
+        "extendedLocation": {
+          "type": "EdgeZone",
+          "name": "losangeles001"
+        },
         "tags": {},
         "properties": {
           "provisioningState": "Created",
