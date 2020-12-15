@@ -2857,7 +2857,7 @@
         "imageUriUserName": {
           "type": "string",
           "description": "Image Uri User Name"
-        }
+        },
         "imageUriPassword": {
           "type": "string",
           "x-ms-secret": true,
@@ -2869,7 +2869,7 @@
         }
       },
       "description": "Specifies the Image settings for the PacketCore."
-    }
+    },
     "PacketCoreListResult": {
       "properties": {
         "value": {
