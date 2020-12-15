@@ -2845,7 +2845,7 @@
         "image": {
           "description": "Specifies the image configurations.",
           "$ref": "#/definitions/Image"
-        },
+        }
       }
     },
     "Image": {
