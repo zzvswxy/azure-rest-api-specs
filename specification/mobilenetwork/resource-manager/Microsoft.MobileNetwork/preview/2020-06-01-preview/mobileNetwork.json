@@ -2620,37 +2620,43 @@
     "PacketCorePropertiesFormat": {
       "description": "PacketCore properties.",
       "properties": {
-        "resourceGuid": {
-          "type": "string",
-          "readOnly": true,
-          "description": "The resource GUID property of the PacketCore resource."
-        },
         "provisioningState": {
           "readOnly": true,
           "$ref": "./common.json#/definitions/ProvisioningState",
           "description": "The provisioning state of the packet core resource."
         },
-        "mobileNetwork": {
-          "$ref": "./common.json#/definitions/SubResource",
-          "description": "Reference to the mobile network"
-        },
-        "mobileNetworkSite": {
-          "$ref": "./common.json#/definitions/SubResource",
+        "networkFunctionId": {
+          "type": "string",
           "description": "Reference to the mobile network site"
         },
-        "networkFunction": {
-          "$ref": "./common.json#/definitions/SubResource",
-          "description": "The reference to the packet core network function"
+        "image": {
+          "description": "Specifies the image configurations.",
+          "$ref": "#/definitions/Image"
         },
-        "accessPointNames": {
-          "type": "array",
-          "items": {
-            "$ref": "./common.json#/definitions/SubResource"
-          },
-          "description": "An array of ids of the access point names associated with the packet core."
-        }
       }
     },
+    "Image": {
+      "properties": {
+        "imageUri": {
+          "type": "string",
+          "description": "Image Uri."
+        },
+        "imageUriUserName": {
+          "type": "string",
+          "description": "Image Uri User Name"
+        }
+        "imageUriPassword": {
+          "type": "string",
+          "x-ms-secret": true,
+          "x-ms-mutability": [
+            "create",
+            "update"
+          ],
+          "description": "Specifies the password of Image Uri."
+        }
+      },
+      "description": "Specifies the Image settings for the PacketCore."
+    }
     "PacketCoreListResult": {
       "properties": {
         "value": {
