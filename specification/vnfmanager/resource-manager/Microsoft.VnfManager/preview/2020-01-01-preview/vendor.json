@@ -157,12 +157,6 @@
               "$ref": "#/definitions/Vendor"
             }
           },
-          "202": {
-            "description": "Accepted. The header contains ‘Azure-AsyncOperation’ header pointing to an operations resource. The operation URI can be queried to find the current state of the operation.",
-            "schema": {
-              "$ref": "#/definitions/Vendor"
-            }
-          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -365,12 +359,6 @@
               "$ref": "#/definitions/VendorSku"
             }
           },
-          "202": {
-            "description": "Create successful. The operation returns the resulting Vendor Sku subresource.",
-            "schema": {
-              "$ref": "#/definitions/VendorSku"
-            }
-          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -537,12 +525,6 @@
         ],
         "responses": {
           "201": {
-            "description": "Update successful. The operation returns the resulting Vendor Vnf subresource.",
-            "schema": {
-              "$ref": "#/definitions/VendorVnf"
-            }
-          },
-          "202": {
             "description": "Update successful. The operation returns the resulting Vendor Vnf subresource.",
             "schema": {
               "$ref": "#/definitions/VendorVnf"

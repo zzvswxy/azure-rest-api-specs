@@ -179,12 +179,6 @@
               "$ref": "#/definitions/VnfManagerDevice"
             }
           },
-          "202": {
-            "description": "Accepted. The header contains ‘Azure-AsyncOperation’ header pointing to an operations resource. The operation URI can be queried to find the current state of the operation.",
-            "schema": {
-              "$ref": "#/definitions/VnfManagerDevice"
-            }
-          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
