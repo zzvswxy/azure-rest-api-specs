@@ -24,7 +24,7 @@
           "image":{
             "imageUri": "testImageUri",
             "imageUriUserName": "testUserName",
-            "imageUriPassworsd": "testPassword"
+            "imageUriPassword": "testPassword"
           }
         }
       }
