@@ -37,8 +37,7 @@
           "networkFunctionId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF",
           "image":{
             "imageUri": "testImageUri",
-            "imageUriUserName": "testUserName",
-            "imageUriPassword": "testPassword"
+            "imageUriUserName": "testUserName"
           }
         }
       }
@@ -59,8 +58,7 @@
           "networkFunctionId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF",
           "image":{
             "imageUri": "testImageUri",
-            "imageUriUserName": "testUserName",
-            "imageUriPassword": "testPassword"
+            "imageUriUserName": "testUserName"
           }
         }
       }
