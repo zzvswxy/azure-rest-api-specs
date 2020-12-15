@@ -373,11 +373,6 @@
 				"properties": {
 					"type": "object",
 					"properties": {
-						"shareName": {
-							"type": "string",
-							"description": "The workspace's Id",
-							"readOnly": true
-						},
 						"targetTenantId": {
 							"type": "string",
 							"readOnly": false
@@ -414,8 +409,11 @@
         "AccessAssignment": {
       "type": "object",
       "properties": {
-        "actionId": {
-          "type": "string"
+         "actionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "attributeConditions": {
           "type": "array",
@@ -441,22 +439,11 @@
           }
         },
         "attributeMatchingScheme": {
-          "$ref": "#/definitions/AttributeMatchingScheme"
+          "type": "string"
         }
       }
     },
-    "AttributeMatchingScheme": {
-      "type": "integer",
-      "description": "",
-      "x-enumNames": [
-        "ANYOFANY",
-        "ALLOFANY"
-      ],
-      "enum": [
-        0,
-        1
-      ]
-    },
+    
 
 		"ShareList": {
 			"description": "The list of workspace resources.",
