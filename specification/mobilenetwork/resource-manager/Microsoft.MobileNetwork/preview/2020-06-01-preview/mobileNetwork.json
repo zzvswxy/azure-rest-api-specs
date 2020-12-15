@@ -398,7 +398,7 @@
         },
         "x-ms-examples": {
           "Create packetCore": {
-            "$ref": "./examples/packetCoreCreate.json"
+            "$ref": "./examples/PacketCoreCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
