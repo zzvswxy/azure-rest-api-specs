@@ -252,7 +252,7 @@
         "tags": [
           "PacketCores"
         ],
-        "operationId": "PacketCores_Delete",
+        "operationId": "PacketCoresTest_Delete",
         "description": "Deletes the specified packet core.",
         "parameters": [
           {
@@ -303,7 +303,7 @@
         "tags": [
           "PacketCores"
         ],
-        "operationId": "PacketCores_Get",
+        "operationId": "PacketCoresTest_Get",
         "description": "Gets information about the specified PacketCore.",
         "parameters": [
           {
@@ -347,7 +347,7 @@
         "tags": [
           "PacketCores"
         ],
-        "operationId": "PacketCores_CreateOrUpdate",
+        "operationId": "PacketCoresTest_CreateOrUpdate",
         "description": "Creates or updates a packetCore.",
         "parameters": [
           {
@@ -410,7 +410,7 @@
         "tags": [
           "PacketCores"
         ],
-        "operationId": "PacketCores_UpdateTags",
+        "operationId": "PacketCoresTest_UpdateTags",
         "description": "Updates a packetCore update tags.",
         "parameters": [
           {
