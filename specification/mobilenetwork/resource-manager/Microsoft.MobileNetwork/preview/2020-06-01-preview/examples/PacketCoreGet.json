@@ -20,20 +20,12 @@
         "tags": {},
         "properties": {
           "provisioningState": "Accepted",
-          "mobileNetwork": {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork"
-          },
-          "mobileNetworkSite": {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork/sites/testSite"
-          },
-          "networkFunction": {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF"
-          },
-          "accessPointNames": [
-            {
-              "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork/accessPointNames/testAccessPoint"
-            }
-          ]
+          "networkFunctionId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF",
+          "image":{
+            "imageUri": "testImageUri",
+            "imageUriUserName": "testUserName",
+            "imageUriPassworsd": "testPassword"
+          }
         }
       }
     }
