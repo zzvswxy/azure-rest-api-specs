@@ -291,7 +291,7 @@
         },
         "x-ms-examples": {
           "Delete packetCore": {
-            "$ref": "./examples/PacketCoreDelete.json"
+            "$ref": "./examples/PacketCoreTestDelete.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -339,7 +339,7 @@
         },
         "x-ms-examples": {
           "Get packetCore": {
-            "$ref": "./examples/PacketCoreGet.json"
+            "$ref": "./examples/PacketCoreTestGet.json"
           }
         }
       },
@@ -398,7 +398,7 @@
         },
         "x-ms-examples": {
           "Create packetCore": {
-            "$ref": "./examples/PacketCoreCreate.json"
+            "$ref": "./examples/PacketCoreTestCreate.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -455,7 +455,7 @@
         },
         "x-ms-examples": {
           "Update packetCore tags": {
-            "$ref": "./examples/PacketCoreUpdateTags.json"
+            "$ref": "./examples/PacketCoreTestUpdateTags.json"
           }
         }
       }
@@ -1113,7 +1113,7 @@
         },
         "x-ms-examples": {
           "List all packet cores": {
-            "$ref": "./examples/PacketCoreListByMobileNetwork.json"
+            "$ref": "./examples/PacketCoreTestListByMobileNetwork.json"
           }
         },
         "x-ms-pageable": {
