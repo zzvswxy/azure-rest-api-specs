@@ -7,7 +7,6 @@ go:
   license-header: MICROSOFT_APACHE_NO_VERSION
   clear-output-folder: true
 ```
-
 ### Tag: package-2020-07-01-privatepreview and go
 
 These settings apply only when `--tag=package-2020-07-01-privatepreview --go` is specified on the command line.
