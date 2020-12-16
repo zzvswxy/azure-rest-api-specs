@@ -284,6 +284,7 @@
               "description": "Indicates whether feature unregistration requires manual approval."
             },
             "enrollmentDetails": {
+              "x-ms-client-flatten": true,
               "$ref": "#/definitions/EnrollmentDetails"
             },
             "featureOwners": {
