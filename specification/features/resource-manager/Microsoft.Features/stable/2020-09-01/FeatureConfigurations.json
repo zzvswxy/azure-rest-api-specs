@@ -300,6 +300,7 @@
     },
     "EnrollmentDetails": {
       "description": "Enrollment Details",
+      "type": "object",
       "properties": {
         "enrollmentType": {
           "description": "The EnrollmentType.",
