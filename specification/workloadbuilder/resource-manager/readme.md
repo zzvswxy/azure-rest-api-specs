@@ -27,7 +27,7 @@ These are the global settings for the cloudenvironment.
 ```yaml
 openapi-type: arm
 openapi-subtype: rpaas
-tag: package-2020-07-01-privatepreview
+tag: package-2021-03-01-privatepreview
 ```
 
 ### Tag: package-2020-07-01-privatepreview
@@ -37,6 +37,15 @@ These settings apply only when `--tag=package-2020-07-01-privatepreview` is spec
 ```yaml $(tag) == 'package-2020-07-01-privatepreview'
 input-file:
   - Microsoft.WorkloadBuilder\preview\2020-07-01-privatepreview\workloadbuilder.json
+```
+
+### Tag: package-2021-03-01-privatepreview
+
+These settings apply only when `--tag=package-2021-03-01-privatepreview` is specified on the command line.
+
+```yaml $(tag) == 'package-2021-03-01-privatepreview'
+input-file:
+  - Microsoft.WorkloadBuilder\preview\2021-03-01-privatepreview\workloadbuilder.json
 ```
 
 ---
