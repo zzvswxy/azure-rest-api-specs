@@ -1061,7 +1061,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/migrationAgents/{migrationAgent}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/migrationAgents/{migrationAgentName}": {
       "get": {
         "tags": [
           "MigrationAgents"

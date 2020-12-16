@@ -4,7 +4,7 @@
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
       "resourceGroupName": "dummyrg",
       "migrationAgentName": "wbma-appliance",
-      "WorkloadResource": {
+      "MigrationAgentResource": {
         "location": "westus",
         "properties": {
           "migrationApplianceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/wb-test/providers/microsoft.offazure/vmwaresites/appliance08c3csite",
