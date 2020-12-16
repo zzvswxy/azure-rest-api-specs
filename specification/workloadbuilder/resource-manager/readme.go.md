@@ -14,7 +14,7 @@ Please also specify `--go-sdks-folder=<path to the root directory of your azure-
 
 ```yaml $(tag) == 'package-2020-07-01-privatepreview' && $(go)
 namespace: workloadbuilder
-output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-07-01-privatepreview/$(namespace)
+output-folder: $(go-sdk-folder)/services/privatepreview/$(namespace)/mgmt/2020-07-01-privatepreview/$(namespace)
 ```
 
 ### Tag: package-2021-03-01-privatepreview and go
@@ -24,5 +24,5 @@ Please also specify `--go-sdks-folder=<path to the root directory of your azure-
 
 ```yaml $(tag) == 'package-2021-03-01-privatepreview' && $(go)
 namespace: workloadbuilder
-output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2021-03-01-privatepreview/$(namespace)
+output-folder: $(go-sdk-folder)/services/privatepreview/$(namespace)/mgmt/2021-03-01-privatepreview/$(namespace)
 ```
