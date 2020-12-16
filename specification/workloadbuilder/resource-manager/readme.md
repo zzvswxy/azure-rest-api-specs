@@ -26,6 +26,7 @@ These are the global settings for the cloudenvironment.
 
 ```yaml
 openapi-type: arm
+openapi-subtype: rpaas
 tag: package-2021-03-01-privatepreview
 ```
 
