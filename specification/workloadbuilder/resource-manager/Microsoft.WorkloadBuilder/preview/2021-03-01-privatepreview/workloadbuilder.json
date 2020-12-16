@@ -1056,7 +1056,7 @@
         },
         "x-ms-examples": {
           "MigrationAgents": {
-            "$ref": "./examples/MigrationAgent_ListByResourceGroup.json"
+            "$ref": "./examples/MigrationAgents_ListByResourceGroup.json"
           }
         }
       }
