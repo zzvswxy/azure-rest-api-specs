@@ -13,8 +13,8 @@ These settings apply only when `--tag=package-2020-07-01-privatepreview --go` is
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
 ```yaml $(tag) == 'package-2020-07-01-privatepreview' && $(go)
-namespace: microsoft.workloadbuilder
-output-folder: $(go-sdks-folder)/workloadbuilder/Generated
+namespace: workloadbuilder
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2020-07-01-privatepreview/$(namespace)
 ```
 
 ### Tag: package-2021-03-01-privatepreview and go
@@ -23,6 +23,6 @@ These settings apply only when `--tag=package-2021-03-01-privatepreview --go` is
 Please also specify `--go-sdks-folder=<path to the root directory of your azure-sdk-for-go clone>`.
 
 ```yaml $(tag) == 'package-2021-03-01-privatepreview' && $(go)
-namespace: microsoft.Workloadbuilder
-output-folder: $(go-sdks-folder)/workloadbuilder/Generated
+namespace: workloadbuilder
+output-folder: $(go-sdk-folder)/services/preview/$(namespace)/mgmt/2021-03-01-privatepreview/$(namespace)
 ```
