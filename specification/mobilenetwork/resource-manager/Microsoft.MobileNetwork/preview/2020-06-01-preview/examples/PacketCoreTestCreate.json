@@ -3,7 +3,6 @@
     "api-version": "2020-06-01-preview",
     "subscriptionId": "subid",
     "resourceGroupName": "rg1",
-    "mobileNetworkName": "testMobielNetwork",
     "packetCoreName": "testPacketCore",
     "parameters": {
       "location": "eastus",
@@ -14,9 +13,9 @@
       "properties": {
         "networkFunctionId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF",
         "image":{
-            "imageUri": "testImageUri",
-            "imageUriUserName": "testUserName",
-            "imageUriPassword": "testPassword"
+           "imageUri": "testImageUri",
+           "imageUriUserName": "testUserName",
+           "imageUriPassword": "testPassword"
         }
       }
     }
@@ -25,8 +24,8 @@
     "200": {
       "body": {
         "name": "testPacketCore",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork/packetCores/testPacketCore",
-        "type": "Microsoft.MobileNetwork/mobileNetworks/packetCores",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/testPacketCore",
+        "type": "Microsoft.MobileNetwork/packetCores",
         "location": "eastus",
         "extendedLocation": {
             "type": "EdgeZone",
@@ -38,15 +37,16 @@
           "networkFunctionId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF",
           "image":{
             "imageUri": "testImageUri",
-            "imageUriUserName": "testUserName"          }
+            "imageUriUserName": "testUserName"
+          }
         }
       }
     },
     "201": {
       "body": {
         "name": "testPacketCore",
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobielNetwork/packetCores/testPacketCore",
-        "type": "Microsoft.MobileNetwork/mobileNetworks/packetCores",
+        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCores/testPacketCore",
+        "type": "Microsoft.MobileNetwork/packetCores",
         "location": "eastus",
         "extendedLocation": {
           "type": "EdgeZone",
@@ -58,7 +58,8 @@
           "networkFunctionId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNF",
           "image":{
             "imageUri": "testImageUri",
-            "imageUriUserName": "testUserName"          }
+            "imageUriUserName": "testUserName"
+          }
         }
       }
     }
