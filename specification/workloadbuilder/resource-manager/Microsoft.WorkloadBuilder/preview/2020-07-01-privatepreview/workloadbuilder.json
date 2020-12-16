@@ -253,6 +253,7 @@
             }
           }
         },
+        "x-ms-long-running-operation": false,
         "x-ms-examples": {
           "Workloads": {
             "$ref": "./examples/Workloads_CreateOrUpdate.json"
@@ -509,6 +510,9 @@
           }
         },
         "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
           "Instances": {
             "$ref": "./examples/Instances_CreateOrUpdate.json"
@@ -713,6 +717,9 @@
           }
         },
         "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
         "x-ms-examples": {
           "Versions": {
             "$ref": "./examples/Versions_CreateOrUpdate.json"
@@ -925,6 +932,7 @@
             }
           }
         },
+        "x-ms-long-running-operation": false,
         "x-ms-examples": {
           "Artifacts": {
             "$ref": "./examples/Artifacts_CreateOrUpdate.json"
