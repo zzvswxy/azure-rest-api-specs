@@ -240,12 +240,6 @@
               "$ref": "#/definitions/WorkloadResource"
             }
           },
-          "201": {
-            "description": "Created -- Workload resource created",
-            "schema": {
-              "$ref": "#/definitions/WorkloadResource"
-            }
-          },
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
@@ -915,12 +909,6 @@
         "responses": {
           "200": {
             "description": "OK -- artifact resource retrieved",
-            "schema": {
-              "$ref": "#/definitions/ArtifactResource"
-            }
-          },
-          "201": {
-            "description": "Created -- Artifact resource created",
             "schema": {
               "$ref": "#/definitions/ArtifactResource"
             }
