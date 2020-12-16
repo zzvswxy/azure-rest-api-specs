@@ -113,8 +113,8 @@
               }
             },
             "x-ms-examples": {
-              "MarketplaceAgreements_Set": {
-                "$ref": "./examples/MarketplaceAgreements_Set.json"
+              "MarketplaceAgreements_Create": {
+                "$ref": "./examples/MarketplaceAgreements_Create.json"
               }
            }
        }
