@@ -7,69 +7,69 @@
       "body": {
         "value": [
           {
-            "name": "Microsoft.AzureArcData/operations/read",
+            "name": "Microsoft.AzureDataShul/operations/read",
             "display": {
               "resource": "Available REST operations"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/sqlManagedInstances/read",
+            "name": "Microsoft.AzureDataShul/sqlManagedInstances/read",
             "display": {
               "operation": "Get Sql Managed Instances details",
               "description": "Retrieves details of Sql Managed Instances"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/sqlManagedInstances/write",
+            "name": "Microsoft.AzureDataShul/sqlManagedInstances/write",
             "display": {
               "operation": "Create new or update existing Sql Managed Instances",
               "description": "Create a new or change properties of existing Sql Managed Instances"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/sqlManagedInstances/delete",
+            "name": "Microsoft.AzureDataShul/sqlManagedInstances/delete",
             "display": {
               "operation": "Delete exisiting Sql Managed Instances",
               "description": "Delete exisiting Sql Managed Instances"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/postgresInstances/read",
+            "name": "Microsoft.AzureDataShul/postgresInstances/read",
             "display": {
               "operation": "Get Postgres Instance details",
               "description": "Retrieves details of Postgres Instances"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/postgresInstances/write",
+            "name": "Microsoft.AzureDataShul/postgresInstances/write",
             "display": {
               "operation": "Create new or update existing Postgres Instances",
               "description": "Create a new or change properties of existing Postgres Instances"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/postgresInstances/delete",
+            "name": "Microsoft.AzureDataShul/postgresInstances/delete",
             "display": {
               "operation": "Delete exisiting Postgres Instances",
               "description": "Delete exisiting Postgres Instances"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/dataControllers/read",
+            "name": "Microsoft.AzureDataShul/dataControllers/read",
             "display": {
               "operation": "Get dataControllers details",
               "description": "Retrieves details of dataControllers"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/dataControllers/write",
+            "name": "Microsoft.AzureDataShul/dataControllers/write",
             "display": {
               "operation": "Create new or update existing dataControllers",
               "description": "Create a new or change properties of existing dataControllers"
             }
           },
           {
-            "name": "Microsoft.AzureArcData/dataControllers/delete",
+            "name": "Microsoft.AzureDataShul/dataControllers/delete",
             "display": {
               "operation": "Delete exisiting dataControllers",
               "description": "Delete exisiting dataControllers"

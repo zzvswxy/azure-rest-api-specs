@@ -30,9 +30,9 @@
         "tags": {
           "mytag": "myval"
         },
-        "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/PostgresInstance/testpostgresInstance",
+        "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureDataShul/PostgresInstance/testpostgresInstance",
         "name": "testpostgresInstance",
-        "type": "Microsoft.AzureArcData/PostgresInstance"
+        "type": "Microsoft.AzureDataShul/PostgresInstance"
       }
     }
   }

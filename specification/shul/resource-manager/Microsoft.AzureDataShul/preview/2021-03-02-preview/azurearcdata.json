@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "2021-03-02-preview",
-    "title": "AzureArcDataManagementClient",
-    "description": "The AzureArcData management API provides a RESTful set of web APIs to manage Azure Data Services on Azure Arc Resources."
+    "title": "AzureDataShulManagementClient",
+    "description": "The AzureDataShul management API provides a RESTful set of web APIs to manage Azure Data Services on Azure Arc Resources."
   },
   "host": "management.azure.com",
   "schemes": [
@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/providers/Microsoft.AzureArcData/operations": {
+    "/providers/Microsoft.AzureDataShul/operations": {
       "get": {
         "tags": [
           "Operations"
@@ -52,7 +52,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureArcData/sqlManagedInstances": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureDataShul/sqlManagedInstances": {
       "get": {
         "tags": [
           "SqlManagedInstances"
@@ -91,7 +91,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlManagedInstances": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/sqlManagedInstances": {
       "get": {
         "tags": [
           "SqlManagedInstances"
@@ -134,7 +134,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlManagedInstances/{sqlManagedInstanceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/sqlManagedInstances/{sqlManagedInstanceName}": {
       "get": {
         "tags": [
           "SqlManagedInstances"
@@ -344,7 +344,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureArcData/sqlServerInstances": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureDataShul/sqlServerInstances": {
       "get": {
         "tags": [
           "SqlServerInstances"
@@ -383,7 +383,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/sqlServerInstances": {
       "get": {
         "tags": [
           "SqlServerInstances"
@@ -426,7 +426,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/sqlServerInstances/{sqlServerInstanceName}": {
       "get": {
         "tags": [
           "SqlServerInstances"
@@ -636,7 +636,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureArcData/postgresInstances": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureDataShul/postgresInstances": {
       "get": {
         "tags": [
           "PostgresInstances"
@@ -675,7 +675,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/postgresInstances": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/postgresInstances": {
       "get": {
         "tags": [
           "PostgresInstances"
@@ -718,7 +718,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/postgresInstances/{postgresInstanceName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/postgresInstances/{postgresInstanceName}": {
       "get": {
         "tags": [
           "PostgresInstances"
@@ -928,7 +928,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureArcData/dataControllers": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureDataShul/dataControllers": {
       "get": {
         "tags": [
           "DataControllers"
@@ -967,7 +967,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/dataControllers": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/dataControllers": {
       "get": {
         "tags": [
           "DataControllers"
@@ -1009,7 +1009,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/dataControllers/{dataControllerName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataShul/dataControllers/{dataControllerName}": {
       "put": {
         "tags": [
           "DataControllers"
