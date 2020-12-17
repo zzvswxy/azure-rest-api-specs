@@ -8,7 +8,8 @@
         "location": "westus",
         "properties": {
           "workloadType": "Jboss",
-          "description": "My test JBoss application"
+          "description": "My test JBoss application",
+          "migrationAgentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/migrationAgents/wbma-appliance"
         },
         "tags": { }
       }
@@ -20,6 +21,7 @@
           "properties": {
             "workloadType": "Jboss",
             "description": "My Jboss workload",
+            "migrationAgentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/migrationAgents/wbma-appliance",
             "provisioningState": "Succeeded"
           },
           "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.WorkloadBuilder/Workloads/MyJBossApp",

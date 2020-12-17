@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "WorkloadBluilder Client",
-    "description": "Workload builder client provides access to workloads, versions, artifacts, instances and it's status operations.",
-    "version": "2020-07-01-privatepreview"
+    "description": "Workload builder client provides access to workloads, migrationAgents, versions, artifacts, instances and it's status operations.",
+    "version": "2021-03-01-privatepreview"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -40,20 +40,20 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/OperationPageList"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/OperationListResult"
             }
           },
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -79,10 +79,10 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -95,7 +95,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -121,13 +121,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -140,7 +140,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -166,13 +166,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -188,7 +188,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -212,13 +212,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -243,7 +243,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -268,13 +268,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -299,7 +299,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -317,13 +317,13 @@
         "operationId": "Workloads_Delete",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -339,7 +339,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -362,13 +362,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -384,7 +384,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -410,13 +410,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -435,7 +435,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -459,13 +459,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -499,7 +499,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -521,13 +521,13 @@
         "operationId": "Instances_Delete",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -546,7 +546,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -569,13 +569,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -591,7 +591,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -617,13 +617,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -642,7 +642,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -666,13 +666,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -706,7 +706,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -728,13 +728,13 @@
         "operationId": "Versions_Delete",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -753,7 +753,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -776,13 +776,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -801,7 +801,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -827,13 +827,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -855,7 +855,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -879,13 +879,13 @@
         ],
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -916,7 +916,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -935,13 +935,13 @@
         "operationId": "Artifacts_Delete",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/WorkloadNameParameter"
@@ -963,7 +963,7 @@
           "default": {
             "description": "Resource provider error response about the failure.",
             "schema": {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -973,68 +973,292 @@
           }
         }
       }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.WorkloadBuilder/migrationAgents": {
+      "get": {
+        "tags": [
+          "MigrationAgents"
+        ],
+        "description": "Lists MigrationAgent resources in a subscription.",
+        "operationId": "MigrationAgents_ListBySubscription",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentResourcePageList"
+            }
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "MigrationAgents": {
+            "$ref": "./examples/MigrationAgents_ListBySubscription.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/migrationAgents": {
+      "get": {
+        "tags": [
+          "MigrationAgents"
+        ],
+        "description": "Lists MigrationAgent resources in a resource group.",
+        "operationId": "MigrationAgents_ListByResourceGroup",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- list of workload resources retrieved",
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentResourcePageList"
+            }
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "MigrationAgents": {
+            "$ref": "./examples/MigrationAgents_ListByResourceGroup.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WorkloadBuilder/migrationAgents/{migrationAgentName}": {
+      "get": {
+        "tags": [
+          "MigrationAgents"
+        ],
+        "description": "Get a migrationAgent resource.",
+        "operationId": "MigrationAgents_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationAgentNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- MigrationAgent resource retrieved",
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentResource"
+            }
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Workloads": {
+            "$ref": "./examples/MigrationAgents_Get.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MigrationAgents"
+        ],
+        "description": "Create or update MigrationAgent resource.",
+        "operationId": "MigrationAgents_CreateOrUpdate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationAgentNameParameter"
+          },
+          {
+            "in": "body",
+            "name": "MigrationAgentResource",
+            "description": "MigrationAgent resource data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated -- MigrationAgent resource updated",
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentResource"
+            }
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": false,
+        "x-ms-examples": {
+          "MigrationAgents": {
+            "$ref": "./examples/MigrationAgents_CreateOrUpdate.json"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "MigrationAgents"
+        ],
+        "description": "Update MigrationAgent resource.",
+        "operationId": "MigrationAgents_Update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationAgentNameParameter"
+          },
+          {
+            "in": "body",
+            "name": "MigrationAgentPatchRequestBody",
+            "description": "MigrationAgent resource update data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentPatchRequestBody"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK -- resource updated",
+            "schema": {
+              "$ref": "#/definitions/MigrationAgentResource"
+            }
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "MigrationAgents": {
+            "$ref": "./examples/MigrationAgents_Update.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "MigrationAgents"
+        ],
+        "description": "Delete a MigrationAgent resource.",
+        "operationId": "MigrationAgents_Delete",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/MigrationAgentNameParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Resource not found"
+          },
+          "200": {
+            "description": "OK -- MigrationAgent resource deleted"
+          },
+          "default": {
+            "description": "Resource provider error response about the failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Workloads": {
+            "$ref": "./examples/MigrationAgents_Delete.json"
+          }
+        }
+      }
     }
   },
   "definitions": {
-    "OperationPageList": {
-      "description": "List of resources page result.",
-      "type": "object",
-      "properties": {
-        "value": {
-          "description": "List of resources in current page.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Operation"
-          },
-          "readOnly": true
-        },
-        "nextLink": {
-          "description": "Link to next page of resources.",
-          "type": "string",
-          "readOnly": true
-        }
-      }
-    },
-    "Operation": {
-      "description": "Workload builder operation",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Workload builder API operation.",
-          "type": "string"
-        },
-        "isDataAction": {
-          "description": "Indicates whether the operation is data action or not.",
-          "type": "boolean"
-        },
-        "display": {
-          "description": "Operation display information.",
-          "$ref": "#/definitions/OperationDisplayInfo"
-        }
-      }
-    },
-    "OperationDisplayInfo": {
-      "description": "Operation display details.",
-      "type": "object",
-      "properties": {
-        "provider": {
-          "description": "Resource Provider: Microsoft.WorkloadBuilder",
-          "type": "string"
-        },
-        "resource": {
-          "description": "Workload builder resource type",
-          "type": "string"
-        },
-        "operation": {
-          "description": "Operation on the resource type.",
-          "type": "string"
-        },
-        "description": {
-          "description": "Description of the operation.",
-          "type": "string"
-        }
-      }
-    },
     "ResourceBaseProperties": {
       "description": "Resource base properties.",
       "type": "object",
@@ -1074,11 +1298,14 @@
           "description": "Workload resource properties",
           "$ref": "#/definitions/WorkloadProperties",
           "x-ms-client-flatten": true
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         }
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/TrackedResource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
         }
       ]
     },
@@ -1101,6 +1328,14 @@
             "read"
           ],
           "$ref": "#/definitions/WorkloadType"
+        },
+        "migrationAgentId": {
+          "description": "MigrationAgent resource Arm Id.",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ],
+          "type": "string"
         }
       },
       "allOf": [
@@ -1108,6 +1343,138 @@
           "$ref":"#/definitions/ResourceBaseProperties"
         }
       ]
+    },
+    "MigrationAgentResourcePageList": {
+      "description": "List of resources page result.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "List of resources in current page.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MigrationAgentResource"
+          }
+        },
+        "nextLink": {
+          "description": "Link to next page of resources.",
+          "type": "string"
+        }
+      }
+    },
+    "MigrationAgentResource": {
+      "description": "MigrationAgent resource data.",
+      "required": [
+        "properties"
+      ],
+      "type": "object",
+      "properties": {
+        "properties": {
+          "description": "MigrationAgent resource properties",
+          "$ref": "#/definitions/MigrationAgentProperties",
+          "x-ms-client-flatten": true
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
+        }
+      ]
+    },
+    "MigrationAgentProperties": {
+      "description": "MigrationAgent resource properties.",
+      "required": [
+        "migrationApplianceId",
+        "storageAccountId",
+        "storageQueueName",
+        "storageTableName"
+      ],
+      "type": "object",
+      "properties": {
+        "migrationApplianceId": {
+          "description": "Migration appliance ARM Id where the agent is running.",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ],
+          "type": "string"
+        },
+        "storageAccountId": {
+          "description": "Customer storage account arm Id where Queue and Table will be created.",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ],
+          "type": "string"
+        },
+        "storageQueueName": {
+          "description": "Queue to be used for handshake between migration agent and workload builder service.",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ],
+          "minLength": 3,
+          "maxLength": 63,
+          "type": "string"
+        },
+        "storageTableName": {
+          "description": "Table to be used for storing information needed to generate spec for individual VMs.",
+          "x-ms-mutability": [
+            "create",
+            "read"
+          ],
+          "minLength": 3,
+          "maxLength": 63,
+          "type": "string"
+        },
+        "applicationInsightsInstrumentationKey": {
+          "description": "Application insights instrumentation key to emit the agent logs.",
+          "maxLength": 64,
+          "type": "string"
+        },
+        "agentLastHeartbeat": {
+          "description": "Agent last heartbeat time in UTC.",
+          "format":"date-time",
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref":"#/definitions/ResourceBaseProperties"
+        }
+      ]
+    },
+    "MigrationAgentPatchRequestBody": {
+      "description": "MigrationAgent patch request properties.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "description": "MigrationAgent PATCH request properties",
+          "$ref": "#/definitions/MigrationAgentPatchProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "allOf":[
+        {
+          "$ref":"#/definitions/ResourcePatchRequestBody"
+        }
+      ]
+    },
+    "MigrationAgentPatchProperties": {
+      "description": "MigrationAgent resource PATCH request properties.",
+      "required": [
+        "agentLastHeartbeat"
+      ],
+      "type": "object",
+      "properties": {
+        "agentLastHeartbeat": {
+          "description": "Agent last heartbeat time in UTC.",
+          "format":"date-time",
+          "type": "string"
+        }
+      }
     },
     "VersionResourcePageList": {
       "description": "List of resources page result.",
@@ -1136,11 +1503,14 @@
           "description": "Version resource properties",
           "$ref": "#/definitions/VersionProperties",
           "x-ms-client-flatten": true
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         }
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ProxyResource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
         }
       ]
     },
@@ -1148,8 +1518,7 @@
       "description": "Workload version resource properties.",
       "required": [
         "contentType",
-        "keyVaultId",
-        "appInsightsInstrumentationKey"
+        "keyVaultId"
       ],
       "type": "object",
       "properties": {
@@ -1187,14 +1556,6 @@
             "read"
           ]
         },
-        "appInsightsInstrumentationKey": {
-          "description": "AppInsights instrumentation key\r\n\r\nThe detailed progress logs will be pushed to this\r\napplication insights account which is owned by customer.",
-          "type": "string",
-          "x-ms-mutability": [
-            "create",
-            "read"
-          ]
-        },
         "migrationPreRequisites": {
           "description": "Migration scenario specific prerequisites.",
           "$ref": "#/definitions/VersionResourceMigrationPreReqs"
@@ -1218,18 +1579,6 @@
       "description": "Prerequisites for version resource creation in migration scenario.",
       "type": "object",
       "properties": {
-        "storageAccountId": {
-          "description": "Customer storage account arm Id where below referenced\r\nStorageQueueName and StorageTableName will be created.",
-          "type": "string"
-        },
-        "storageQueueName": {
-          "description": "Queue to be used for handshake between on-premise migration tool and workload builder service.",
-          "type": "string"
-        },
-        "storageTableName": {
-          "description": "Table to be used for storing information needed to generate spec for individual VMs.",
-          "type": "string"
-        },
         "vmDiscoveryIds": {
           "description": "Migrating VMs discovery Ids.",
           "type": "array",
@@ -1270,11 +1619,14 @@
           "description": "Artifact resource propeties",
           "$ref": "#/definitions/ArtifactProperties",
           "x-ms-client-flatten": true
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         }
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ProxyResource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
         }
       ]
     },
@@ -1354,11 +1706,14 @@
           "description": "Instance resource propeties",
           "$ref": "#/definitions/InstanceProperties",
           "x-ms-client-flatten": true
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         }
       },
       "allOf": [
         {
-          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ProxyResource"
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
         }
       ]
     },
@@ -1452,7 +1807,7 @@
         },
         "errorDetails": {
           "description": "Error details",
-          "$ref": "#/definitions/ErrorDetails",
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorDetail",
           "readOnly": true
         }
       }
@@ -1526,7 +1881,8 @@
         "AnsibleVarsFile",
         "Blueprint",
         "ShellScript",
-        "PowershellScript"
+        "PowershellScript",
+        "DataCopy"
       ],
       "type": "string",
       "x-ms-enum": {
@@ -1583,7 +1939,8 @@
         "Unknown",
         "Jboss",
         "Lamp",
-        "Custom"
+        "Custom",
+        "Moodle"
       ],
       "type": "string",
       "x-ms-enum": {
@@ -1627,30 +1984,6 @@
           }
         }
       }
-    },
-    "ErrorResponse": {
-      "description": "Api error response on failure.",
-      "type": "object",
-      "properties": {
-        "error": {
-          "description": "Error details",
-          "$ref": "#/definitions/ErrorDetails"
-        }
-      }
-    },
-    "ErrorDetails": {
-      "description": "Error details.",
-      "type": "object",
-      "properties": {
-        "code": {
-          "description": "Error code.",
-          "type": "string"
-        },
-        "message": {
-          "description": "Error message.",
-          "type": "string"
-        }
-      }
     }
   },
   "parameters": {
@@ -1658,6 +1991,14 @@
       "in": "path",
       "name": "workloadName",
       "description": "Workload name.",
+      "required": true,
+      "x-ms-parameter-location": "method",
+      "type": "string"
+    },
+    "MigrationAgentNameParameter": {
+      "in": "path",
+      "name": "migrationAgentName",
+      "description": "MigrationAgent name.",
       "required": true,
       "x-ms-parameter-location": "method",
       "type": "string"

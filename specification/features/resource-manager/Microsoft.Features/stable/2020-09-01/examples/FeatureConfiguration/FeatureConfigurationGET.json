@@ -13,7 +13,13 @@
         "properties": {
           "featureScope": "Subscription",
           "featureNotes": "This is a test feature",
-          "featureRequiredClaims": "RPAASPSA"
+          "featureRequiredClaims": "RPAASPSA",
+          "enrollmentDetails": {
+            "enrollmentType": "AutoApprove",
+            "maximumEnrollment": 10,
+            "signupStartDate": "2020-12-26T00:54:57.8106304Z",
+            "signupEndDate": "2021-01-05T00:54:57.8107057Z"
+          }
         }
       }
     }
