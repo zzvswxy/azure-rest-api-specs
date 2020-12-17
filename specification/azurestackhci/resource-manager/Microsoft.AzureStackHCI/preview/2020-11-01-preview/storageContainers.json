@@ -37,12 +37,12 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualharddisks/{virtualharddisksName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/storagecontainers/{storagecontainersName}": {
       "get": {
-        "operationId": "virtualharddisks_Retrieve",
+        "operationId": "storagecontainers_Retrieve",
         "x-ms-examples": {
-          "GetVirtualHardDisk": {
-            "$ref": "./examples/GetVirtualHardDisk.json"
+          "GetStorageContainer": {
+            "$ref": "./examples/GetStorageContainer.json"
           }
         },
         "parameters": [
@@ -53,7 +53,7 @@
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualharddisksNameParameter"
+            "$ref": "#/parameters/storagecontainersNameParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -67,18 +67,18 @@
             }
           },
           "200": {
-            "description": "Retrieves the virtualharddisks resource.",
+            "description": "Retrieves the storagecontainers resource.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisks"
+              "$ref": "#/definitions/storagecontainers"
             }
           }
         }
       },
       "put": {
-        "operationId": "virtualharddisks_CreateOrUpdate",
+        "operationId": "storagecontainers_CreateOrUpdate",
         "x-ms-examples": {
-          "PutVirtualHardDisk": {
-            "$ref": "./examples/PutVirtualHardDisk.json"
+          "PutStorageContainer": {
+            "$ref": "./examples/PutStorageContainer.json"
           }
         },
         "x-ms-long-running-operation": true,
@@ -93,17 +93,17 @@
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualharddisksNameParameter"
+            "$ref": "#/parameters/storagecontainersNameParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "name": "virtualharddisks",
+            "name": "storagecontainers",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/virtualharddisks"
+              "$ref": "#/definitions/storagecontainers"
             }
           }
         ],
@@ -115,24 +115,24 @@
             }
           },
           "200": {
-            "description": "Updates the virtualharddisks resource.",
+            "description": "Updates the storagecontainers resource.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisks"
+              "$ref": "#/definitions/storagecontainers"
             }
           },
           "201": {
-            "description": "Creates the virtualharddisks resource.",
+            "description": "Creates the storagecontainers resource.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisks"
+              "$ref": "#/definitions/storagecontainers"
             }
           }
         }
       },
       "delete": {
-        "operationId": "virtualharddisks_Delete",
+        "operationId": "storagecontainers_Delete",
         "x-ms-examples": {
-          "DeleteVirtualHardDisk": {
-            "$ref": "./examples/DeleteVirtualHardDisk.json"
+          "DeleteStorageContainer": {
+            "$ref": "./examples/DeleteStorageContainer.json"
           }
         },
         "parameters": [
@@ -143,7 +143,7 @@
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualharddisksNameParameter"
+            "$ref": "#/parameters/storagecontainersNameParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
@@ -157,7 +157,7 @@
             }
           },
           "200": {
-            "description": "Deletes the virtualharddisks resource."
+            "description": "Deletes the storagecontainers resource."
           },
           "204": {
             "description": "No content"
@@ -165,10 +165,10 @@
         }
       },
       "patch": {
-        "operationId": "virtualharddisks_Update",
+        "operationId": "storagecontainers_Update",
         "x-ms-examples": {
-          "UpdateVirtualHardDisk": {
-            "$ref": "./examples/UpdateVirtualHardDisk.json"
+          "UpdateStorageContainer": {
+            "$ref": "./examples/UpdateStorageContainer.json"
           }
         },
         "parameters": [
@@ -179,17 +179,17 @@
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualharddisksNameParameter"
+            "$ref": "#/parameters/storagecontainersNameParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "name": "virtualharddisks",
+            "name": "storagecontainers",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/virtualharddisksPatch"
+              "$ref": "#/definitions/storagecontainersPatch"
             }
           }
         ],
@@ -201,26 +201,26 @@
             }
           },
           "200": {
-            "description": "Updates the virtualharddisks resource.",
+            "description": "Updates the storagecontainers resource.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisks"
+              "$ref": "#/definitions/storagecontainers"
             }
           },
           "201": {
-            "description": "Updates the virtualharddisks resource.",
+            "description": "Updates the storagecontainers resource.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisks"
+              "$ref": "#/definitions/storagecontainers"
             }
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualharddisks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/storagecontainers": {
       "get": {
-        "operationId": "virtualharddisks_ListByResourceGroup",
+        "operationId": "storagecontainers_ListByResourceGroup",
         "x-ms-examples": {
-          "ListVirtualHardDiskByResourceGroup": {
-            "$ref": "./examples/ListVirtualHardDiskByResourceGroup.json"
+          "ListStorageContainerByResourceGroup": {
+            "$ref": "./examples/ListStorageContainerByResourceGroup.json"
           }
         },
         "parameters": [
@@ -242,9 +242,9 @@
             }
           },
           "200": {
-            "description": "Lists all virtualharddisks under the resource group.",
+            "description": "Lists all storagecontainers under the resource group.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisksListResult"
+              "$ref": "#/definitions/storagecontainersListResult"
             }
           }
         },
@@ -253,12 +253,12 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureStackHCI/virtualharddisks": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureStackHCI/storagecontainers": {
       "get": {
-        "operationId": "virtualharddisks_ListBySubscription",
+        "operationId": "storagecontainers_ListBySubscription",
         "x-ms-examples": {
-          "ListVirtualHardDiskByResourceGroup": {
-            "$ref": "./examples/ListVirtualHardDiskBySubscription.json"
+          "ListStorageContainerByResourceGroup": {
+            "$ref": "./examples/ListStorageContainerBySubscription.json"
           }
         },
         "parameters": [
@@ -277,9 +277,9 @@
             }
           },
           "200": {
-            "description": "Lists all virtualharddisks under the subscription.",
+            "description": "Lists all storagecontainers under the subscription.",
             "schema": {
-              "$ref": "#/definitions/virtualharddisksListResult"
+              "$ref": "#/definitions/storagecontainersListResult"
             }
           }
         },
@@ -290,46 +290,28 @@
     }
   },
   "definitions": {
-    "virtualharddisksProperties": {
+    "storagecontainersProperties": {
       "type": "object",
       "properties": {
-        "blockSizeBytes": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "diskSizeBytes": {
-          "type": "integer",
-          "format": "int64",
-          "description": "diskSizeBytes - size of the disk in GB"
-        },
-        "dynamic": {
-          "type": "boolean",
-          "description": "Boolean for enabling dynamic sizing on the virtual hard disk"
-        },
-        "logicalSectorBytes": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "physicalSectorBytes": {
-          "type": "integer",
-          "format": "int32"
+        "path": {
+          "type": "string",
+          "description": "location of the image the gallery image should be created from"
         },
         "provisioningState": {
           "type": "string"
         },
         "status": {
           "type": "object",
-          "description": "MOCVirtualHardDiskStatus defines the observed state of MOCVirtualHardDisk"
+          "description": "MOCStorageContainerStatus defines the observed state of MOCStorageContainer"
         }
-      },
-      "description": "MOCVirtualHardDiskSpec defines the desired state of MOCVirtualHardDisk"
+      }
     },
-    "virtualharddisks": {
+    "storagecontainers": {
       "type": "object",
       "x-ms-azure-resource": true,
       "properties": {
         "properties": {
-          "$ref": "#/definitions/virtualharddisksProperties"
+          "$ref": "#/definitions/storagecontainersProperties"
         },
         "id": {
           "type": "string",
@@ -377,9 +359,9 @@
       "required": [
         "location"
       ],
-      "description": "The virtualharddisks resource definition."
+      "description": "The storagecontainers resource definition."
     },
-    "virtualharddisksPatch": {
+    "storagecontainersPatch": {
       "type": "object",
       "properties": {
         "tags": {
@@ -390,15 +372,15 @@
           "description": "Resource tags"
         }
       },
-      "description": "The virtualharddisks resource patch definition."
+      "description": "The storagecontainers resource patch definition."
     },
-    "virtualharddisksListResult": {
+    "storagecontainersListResult": {
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/virtualharddisks"
+            "$ref": "#/definitions/storagecontainers"
           }
         },
         "nextLink": {
@@ -408,8 +390,8 @@
     }
   },
   "parameters": {
-    "virtualharddisksNameParameter": {
-      "name": "virtualharddisksName",
+    "storagecontainersNameParameter": {
+      "name": "storagecontainersName",
       "in": "path",
       "required": true,
       "type": "string",
