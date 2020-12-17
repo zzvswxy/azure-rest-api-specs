@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AzureStackHCI",
-    "description": "The Microsoft.AzureStackHCI Rest API spec.",
-    "version": "2020-03-01-preview",
+    "title": "UnityCloud",
+    "description": "The Microsoft.UnityCloud Rest API spec.",
+    "version": "2020-12-15-preview",
     "x-ms-code-generation-settings": {
-      "name": "AzureStackHCIClient"
+      "name": "UnityCloudClient"
     }
   },
   "host": "management.azure.com",
@@ -19,9 +19,9 @@
     "application/json"
   ],
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/galleryimages/{galleryimagesName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.UnityCloud/federation/{federationName}": {
       "get": {
-        "operationId": "galleryimages_Retrieve",
+        "operationId": "federation_Retrieve",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -30,7 +30,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/galleryimagesNameParameter"
+            "$ref": "#/parameters/federationNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -38,15 +38,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Retrieves the galleryimages resource.",
+            "description": "Retrieves the federation resource.",
             "schema": {
-              "$ref": "#/definitions/galleryimages"
+              "$ref": "#/definitions/federation"
             }
           }
         }
       },
       "put": {
-        "operationId": "galleryimages_CreateOrUpdate",
+        "operationId": "federation_CreateOrUpdate",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -55,37 +55,37 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/galleryimagesNameParameter"
+            "$ref": "#/parameters/federationNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "galleryimages",
+            "name": "federation",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/galleryimages"
+              "$ref": "#/definitions/federation"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the galleryimages resource.",
+            "description": "Updates the federation resource.",
             "schema": {
-              "$ref": "#/definitions/galleryimages"
+              "$ref": "#/definitions/federation"
             }
           },
           "201": {
-            "description": "Creates the galleryimages resource.",
+            "description": "Creates the federation resource.",
             "schema": {
-              "$ref": "#/definitions/galleryimages"
+              "$ref": "#/definitions/federation"
             }
           }
         }
       },
       "delete": {
-        "operationId": "galleryimages_Delete",
+        "operationId": "federation_Delete",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -94,7 +94,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/galleryimagesNameParameter"
+            "$ref": "#/parameters/federationNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -102,12 +102,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Deletes the galleryimages resource."
+            "description": "Deletes the federation resource."
           }
         }
       },
       "patch": {
-        "operationId": "galleryimages_Update",
+        "operationId": "federation_Update",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -116,39 +116,39 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/galleryimagesNameParameter"
+            "$ref": "#/parameters/federationNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "galleryimages",
+            "name": "federation",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/galleryimagesPatch"
+              "$ref": "#/definitions/federationPatch"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the galleryimages resource.",
+            "description": "Updates the federation resource.",
             "schema": {
-              "$ref": "#/definitions/galleryimages"
+              "$ref": "#/definitions/federation"
             }
           },
           "201": {
-            "description": "Updates the galleryimages resource.",
+            "description": "Updates the federation resource.",
             "schema": {
-              "$ref": "#/definitions/galleryimages"
+              "$ref": "#/definitions/federation"
             }
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/galleryimages": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.UnityCloud/federation": {
       "get": {
-        "operationId": "galleryimages_ListByResourceGroup",
+        "operationId": "federation_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -162,9 +162,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all galleryimages under the resouce group.",
+            "description": "Lists all federation under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/galleryimagesListResult"
+              "$ref": "#/definitions/federationListResult"
             }
           }
         },
@@ -173,9 +173,9 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureStackHCI/galleryimages": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.UnityCloud/federation": {
       "get": {
-        "operationId": "galleryimages_ListBySubscription",
+        "operationId": "federation_ListBySubscription",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -186,9 +186,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all galleryimages under the subscription.",
+            "description": "Lists all federation under the subscription.",
             "schema": {
-              "$ref": "#/definitions/galleryimagesListResult"
+              "$ref": "#/definitions/federationListResult"
             }
           }
         },
@@ -197,7 +197,7 @@
         }
       }
     },
-    "/providers/Microsoft.AzureStackHCI/operations": {
+    "/providers/Microsoft.UnityCloud/operations": {
       "get": {
         "operationId": "Operations_List",
         "parameters": [
@@ -220,27 +220,76 @@
     }
   },
   "definitions": {
-    "galleryimagesProperties": {
+    "federationProperties": {
       "type": "object",
       "properties": {
-        "imagePath": {
-          "type": "string",
-          "description": "location of the image the gallery image should be created from"
+        "chart": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "registry": {
+              "type": "string"
+            },
+            "repo": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "group": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "values": {
+          "type": "string"
         },
         "provisioningState": {
           "type": "string"
         },
         "status": {
           "type": "object",
-          "description": "MOCGalleryImageStatus defines the observed state of MOCGalleryImage"
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "status": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                },
+                "ready": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ready"
+              ],
+              "description": "ChartStatus denotes the current status of the FedInstance reconciliation"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "description": "FederationStatus defines the observed state of Federation"
         }
-      }
+      },
+      "description": "FederationSpec defines the desired state of Federation"
     },
-    "galleryimages": {
+    "federation": {
       "type": "object",
       "properties": {
         "properties": {
-          "$ref": "#/definitions/galleryimagesProperties"
+          "$ref": "#/definitions/federationProperties"
         },
         "id": {
           "type": "string",
@@ -285,9 +334,9 @@
       "required": [
         "location"
       ],
-      "description": "The galleryimages resource definition."
+      "description": "The federation resource definition."
     },
-    "galleryimagesPatch": {
+    "federationPatch": {
       "type": "object",
       "properties": {
         "tags": {
@@ -298,15 +347,15 @@
           "description": "Resource tags"
         }
       },
-      "description": "The galleryimages resource patch definition."
+      "description": "The federation resource patch definition."
     },
-    "galleryimagesListResult": {
+    "federationListResult": {
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/galleryimages"
+            "$ref": "#/definitions/federation"
           }
         },
         "nextLink": {
@@ -367,8 +416,8 @@
     }
   },
   "parameters": {
-    "galleryimagesNameParameter": {
-      "name": "galleryimagesName",
+    "federationNameParameter": {
+      "name": "federationName",
       "in": "path",
       "required": true,
       "type": "string",

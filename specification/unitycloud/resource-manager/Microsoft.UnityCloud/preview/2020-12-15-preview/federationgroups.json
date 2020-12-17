@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AzureStackHCI",
-    "description": "The Microsoft.AzureStackHCI Rest API spec.",
-    "version": "2020-03-01-preview",
+    "title": "UnityCloud",
+    "description": "The Microsoft.UnityCloud Rest API spec.",
+    "version": "2020-12-15-preview",
     "x-ms-code-generation-settings": {
-      "name": "AzureStackHCIClient"
+      "name": "UnityCloudClient"
     }
   },
   "host": "management.azure.com",
@@ -19,9 +19,9 @@
     "application/json"
   ],
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualnetworks/{virtualnetworksName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.UnityCloud/federationgroups/{federationgroupsName}": {
       "get": {
-        "operationId": "virtualnetworks_Retrieve",
+        "operationId": "federationgroups_Retrieve",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -30,7 +30,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/federationgroupsNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -38,15 +38,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Retrieves the virtualnetworks resource.",
+            "description": "Retrieves the federationgroups resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/federationgroups"
             }
           }
         }
       },
       "put": {
-        "operationId": "virtualnetworks_CreateOrUpdate",
+        "operationId": "federationgroups_CreateOrUpdate",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -55,37 +55,37 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/federationgroupsNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "virtualnetworks",
+            "name": "federationgroups",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/federationgroups"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the virtualnetworks resource.",
+            "description": "Updates the federationgroups resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/federationgroups"
             }
           },
           "201": {
-            "description": "Creates the virtualnetworks resource.",
+            "description": "Creates the federationgroups resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/federationgroups"
             }
           }
         }
       },
       "delete": {
-        "operationId": "virtualnetworks_Delete",
+        "operationId": "federationgroups_Delete",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -94,7 +94,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/federationgroupsNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -102,12 +102,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Deletes the virtualnetworks resource."
+            "description": "Deletes the federationgroups resource."
           }
         }
       },
       "patch": {
-        "operationId": "virtualnetworks_Update",
+        "operationId": "federationgroups_Update",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -116,39 +116,39 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/virtualnetworksNameParameter"
+            "$ref": "#/parameters/federationgroupsNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "name": "virtualnetworks",
+            "name": "federationgroups",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/virtualnetworksPatch"
+              "$ref": "#/definitions/federationgroupsPatch"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Updates the virtualnetworks resource.",
+            "description": "Updates the federationgroups resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/federationgroups"
             }
           },
           "201": {
-            "description": "Updates the virtualnetworks resource.",
+            "description": "Updates the federationgroups resource.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworks"
+              "$ref": "#/definitions/federationgroups"
             }
           }
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualnetworks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.UnityCloud/federationgroups": {
       "get": {
-        "operationId": "virtualnetworks_ListByResourceGroup",
+        "operationId": "federationgroups_ListByResourceGroup",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -162,9 +162,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all virtualnetworks under the resouce group.",
+            "description": "Lists all federationgroups under the resouce group.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworksListResult"
+              "$ref": "#/definitions/federationgroupsListResult"
             }
           }
         },
@@ -173,9 +173,9 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.AzureStackHCI/virtualnetworks": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.UnityCloud/federationgroups": {
       "get": {
-        "operationId": "virtualnetworks_ListBySubscription",
+        "operationId": "federationgroups_ListBySubscription",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -186,9 +186,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Lists all virtualnetworks under the subscription.",
+            "description": "Lists all federationgroups under the subscription.",
             "schema": {
-              "$ref": "#/definitions/virtualnetworksListResult"
+              "$ref": "#/definitions/federationgroupsListResult"
             }
           }
         },
@@ -197,7 +197,7 @@
         }
       }
     },
-    "/providers/Microsoft.AzureStackHCI/operations": {
+    "/providers/Microsoft.UnityCloud/operations": {
       "get": {
         "operationId": "Operations_List",
         "parameters": [
@@ -220,33 +220,88 @@
     }
   },
   "definitions": {
-    "virtualnetworksProperties": {
+    "federationgroupsProperties": {
       "type": "object",
       "properties": {
-        "subnet": {
-          "type": "object",
-          "description": "Subnet"
+        "federations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dependencies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
         },
-        "vlan": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Vlan"
+        "group": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
         },
         "provisioningState": {
           "type": "string"
         },
         "status": {
           "type": "object",
-          "description": "MOCVirtualNetworkStatus defines the observed state of MOCVirtualNetwork"
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "ready": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      },
+                      "ready": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "ready"
+                    ],
+                    "description": "ChartStatus denotes the current status of the FedInstance reconciliation"
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "description": "FederationStatus defines the observed state of Federation"
+              }
+            }
+          },
+          "required": [
+            "ready"
+          ],
+          "description": "FederationGroupStatus defines the observed state of FederationGroup"
         }
       },
-      "description": "MOCVirtualNetworkSpec defines the desired state of MOCVirtualNetwork"
+      "description": "FederationGroupSpec defines the desired state of FederationGroup"
     },
-    "virtualnetworks": {
+    "federationgroups": {
       "type": "object",
       "properties": {
         "properties": {
-          "$ref": "#/definitions/virtualnetworksProperties"
+          "$ref": "#/definitions/federationgroupsProperties"
         },
         "id": {
           "type": "string",
@@ -291,9 +346,9 @@
       "required": [
         "location"
       ],
-      "description": "The virtualnetworks resource definition."
+      "description": "The federationgroups resource definition."
     },
-    "virtualnetworksPatch": {
+    "federationgroupsPatch": {
       "type": "object",
       "properties": {
         "tags": {
@@ -304,15 +359,15 @@
           "description": "Resource tags"
         }
       },
-      "description": "The virtualnetworks resource patch definition."
+      "description": "The federationgroups resource patch definition."
     },
-    "virtualnetworksListResult": {
+    "federationgroupsListResult": {
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/virtualnetworks"
+            "$ref": "#/definitions/federationgroups"
           }
         },
         "nextLink": {
@@ -373,8 +428,8 @@
     }
   },
   "parameters": {
-    "virtualnetworksNameParameter": {
-      "name": "virtualnetworksName",
+    "federationgroupsNameParameter": {
+      "name": "federationgroupsName",
       "in": "path",
       "required": true,
       "type": "string",
