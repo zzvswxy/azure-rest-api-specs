@@ -1,0 +1,2083 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "SmartML Resource Provider",
+    "version": "2019-11-06-preview"
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/dataProvider/{childResourceName}": {
+      "put": {
+        "tags": [
+          "DataProviderResource"
+        ],
+        "summary": "Creates or updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DataProviderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "DataProviderResource"
+        ],
+        "summary": "Updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DataProviderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DataProviderResource"
+        ],
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/modelProvider/{childResourceName}": {
+      "put": {
+        "tags": [
+          "ModelProviderResource"
+        ],
+        "summary": "Creates or updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ModelProviderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ModelProviderResource"
+        ],
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ModelProviderResource"
+        ],
+        "summary": "Updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ModelProviderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.IntelliCode/operations/{operationId}": {
+      "get": {
+        "tags": [
+          "Operations"
+        ],
+        "summary": "Gets the current async-operation status for the specified operation id.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "operationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/sandbox/{childResourceName}": {
+      "put": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Creates or updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SandboxRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SandboxRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/sandbox/{childResourceName}/experiment/{grandchildResourceName}": {
+      "put": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Creates or updates an Experiment of the sandbox resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "grandchildResourceName",
+            "description": "The name of the 2nd level child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExperimentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Deletes an existing Experiment of the Sandbox resource.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "grandchildResourceName",
+            "description": "The name of the 2nd level child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Updates an Experiment of the Sandbox resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "grandchildResourceName",
+            "description": "The name of the 2nd level child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExperimentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/sandbox/{childResourceName}/config": {
+      "get": {
+        "tags": [
+          "SandboxResource"
+        ],
+        "summary": "Endpoint to get the configuration for a SmartML sandbox.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}": {
+      "put": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Updates the resource provider's subscription records.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The Azure subscription id.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "The ResourceProvider.API.Models.AzureSubscription.AzureSubscription request body.",
+            "schema": {
+              "$ref": "#/definitions/AzureSubscription"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}": {
+      "put": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Creates or updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TrainingServicesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Updates an instance of the resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TrainingServicesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/experiment/{childResourceName}": {
+      "put": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Creates or updates an Experiment of the Instance resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExperimentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Deletes an existing Experiment of the Instance resource.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Updates an Experiment of the Instance resource.",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ExperimentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/swap": {
+      "patch": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Endpoint to swap the active and inactive resources.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/config": {
+      "get": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Endpoint to get the configuration for a SmartML instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}/batchSizes/{childResourceName}": {
+      "get": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Endpoint to get the list of valid VM sizes for an instance for a SmartML instance",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "childResourceName",
+            "description": "The name of the child resource, if applicable.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "subscriptionId",
+            "description": "The id of the subscription that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "api-version",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DataProviderKind": {
+      "format": "int32",
+      "description": "The type of data provider.",
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "DataProviderDataTypeAdfPipeline": {
+      "description": "Represents a definition identifying the ADF pipeline associated with a ResourceProvider.API.Models.DataProviders.DataProviderDataType.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets the name of the ADF Pipeline that produces this data type.",
+          "type": "string"
+        },
+        "inputName": {
+          "description": "The name of the input parameter of the ADF pipeline.",
+          "type": "string"
+        }
+      }
+    },
+    "DataProviderDataType": {
+      "description": "Represents a definition of a DataType that is produced by this ResourceProvider.API.Models.DataProviders.DataProviderResource",
+      "type": "object",
+      "properties": {
+        "dataFamilyId": {
+          "description": "Gets the id of this data family.",
+          "type": "string"
+        },
+        "descriptors": {
+          "description": "A collection of descriptors that can describe inventory items of this type.\r\nThe collection can also include a friendly name for the main descriptor which can be used as an alternative in Get operations.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "friendlyDescriptorName": {
+          "description": "The friendly name of the main descriptor that can be used in Get operations instead of a descriptor that can be hard to know.",
+          "type": "string"
+        },
+        "providerPipeline": {
+          "description": "The specification of the ADF pipeline that produces the ResourceProvider.API.Models.DataProviders.DataProviderDataType.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataProviderDataTypeAdfPipeline"
+            }
+          ]
+        },
+        "mainDescriptor": {
+          "description": "Gets the main descriptor of this data family.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets the name of the data type.",
+          "type": "string"
+        }
+      }
+    },
+    "DataProviderAdfPipelineProperties": {
+      "description": "Represents the definition of properties of a ResourceProvider.API.Models.DataProviders.DataProviderAdfPipelineProperties.",
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "description": "Optional list of tags associated with the pipeline.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "activities": {
+          "description": "One or more Activites that make up the pipeline.\r\n<see href=\"https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities#pipeline-json\" />",
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "concurrency": {
+          "format": "int32",
+          "description": "Optional maximum number of concurrent runs the pipeline can have. By default, there is no maximum. If the concurrency limit is reached,\r\nadditional pipeline runs will be queued until earlier ones complete.",
+          "type": "integer"
+        },
+        "description": {
+          "description": "Optional text describing what the pipeline does.",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "Any pipeline specific ARM parameters following key-value pair format from templates.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "variables": {
+          "description": "Any pipeline specific ARM variables following key-value pair format from templates.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "DataProviderAdfPipeline": {
+      "description": "Represents the definition of an Azure Data Factory pipeline.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the pipeline. Max of 140 characters, must start with letter, number, or underscore and not contain\r\n\".\", \"+\", \"?\", \"/\", \"<\", \">\", \"*\", \"%\", \"&\", \":\", \"\\\"",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The ADF pipeline properties with activity details.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataProviderAdfPipelineProperties"
+            }
+          ]
+        }
+      }
+    },
+    "DataProviderResourceProperties": {
+      "description": "Represents the definition of properties of a ResourceProvider.API.Models.DataProviders.DataProviderResourceProperties.",
+      "type": "object",
+      "properties": {
+        "dataType": {
+          "description": "Gets or sets the ResourceProvider.API.Models.DataProviders.DataProviderDataType to register for this data provider.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataProviderDataType"
+            }
+          ]
+        },
+        "pipeline": {
+          "description": "Gets or sets the ADF pipeline that produces this data provider's data.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataProviderAdfPipeline"
+            }
+          ]
+        }
+      }
+    },
+    "DataProviderRequest": {
+      "description": "Represents the requested specifications for a ResourceProvider.API.Models.DataProviders.DataProviderResource. Implements ResourceProvider.API.Models.IResourceRequest.",
+      "type": "object",
+      "properties": {
+        "isRequestForChildResource": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "kind": {
+          "description": "Gets or sets the ResourceProvider.API.Models.DataProviders.DataProviderKind of data provider (custom or built-in).",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataProviderKind"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Gets or sets the properties associated with this instance.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataProviderResourceProperties"
+            }
+          ]
+        },
+        "id": {
+          "description": "Gets or sets the fully qualified id for this resource.\r\nE.g. something like /subscriptions/{id}/resourcegroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{name}",
+          "type": "string"
+        },
+        "instance": {
+          "description": "The name of the instance the resource belongs to.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the Azure Location (AKA region, AKA geo).  The region of a resource never changes after it is created.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of resource (e.g. Microsoft.IntelliCode/trainingServices).",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).\r\nThe resource provider is expected to store these tags with the resource.\r\nMax Tag Count: 10\r\nMax Key Length: 128\r\nMax Value Length: 256",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ModelProviderKind": {
+      "format": "int32",
+      "description": "The type of model provider.",
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "BatchPoolApp": {
+      "description": "Represents the definition of a 3rd Party app that can be installed into a Batch VM Pool.",
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "description": "Gets the name of the file for the application.",
+          "type": "string",
+          "readOnly": true
+        },
+        "format": {
+          "description": "Gets or sets the format of the app within the store. Optional, defaults to zip.",
+          "type": "string"
+        },
+        "hasStartTask": {
+          "description": "Gets or sets a value indicating if this app contains a start task to include in the VM Pool.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Gets or sets the name of the app within the store.",
+          "type": "string"
+        },
+        "store": {
+          "description": "Gets or sets the name of the store in the RP that contains the specified app.",
+          "type": "string"
+        }
+      }
+    },
+    "ModelProviderStatelessProperties": {
+      "description": "The stateless model provider properties.",
+      "type": "object",
+      "properties": {
+        "poolId": {
+          "description": "The id of the associated pool.",
+          "type": "string"
+        },
+        "command": {
+          "description": "The command to run when tasks are executed for the associated job.",
+          "type": "string"
+        },
+        "apps": {
+          "description": "Gets or sets the ResourceProvider.API.Models.BatchPoolApp to install into the pool.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchPoolApp"
+          }
+        }
+      }
+    },
+    "ModelProviderStatefulProperties": {
+      "description": "Not used yet",
+      "type": "object"
+    },
+    "ModelProviderResourceProperties": {
+      "description": "The outer Model Provider Properties.",
+      "type": "object",
+      "properties": {
+        "statelessProperties": {
+          "description": "Stateless model provider properties.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelProviderStatelessProperties"
+            }
+          ]
+        },
+        "statefulProperties": {
+          "description": "Stateful model provider properties.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelProviderStatefulProperties"
+            }
+          ]
+        }
+      }
+    },
+    "ModelProviderRequest": {
+      "description": "Represents the requested specifications for a ResourceProvider.API.Models.ModelProviders.ModelProviderResource. Implements ResourceProvider.API.Models.IResourceRequest.",
+      "type": "object",
+      "properties": {
+        "isRequestForChildResource": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "kind": {
+          "description": "Gets or sets the ResourceProvider.API.Models.ModelProviders.ModelProviderKind of model provider (stateful or stateless).",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelProviderKind"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The properties of the model provider request.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ModelProviderResourceProperties"
+            }
+          ]
+        },
+        "skipReleasesUpload": {
+          "description": "Gets or sets a value indicating if uploading the latest releases to the instance storage account should be skipped.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Gets or sets the fully qualified id for this resource.\r\nE.g. something like /subscriptions/{id}/resourcegroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{name}",
+          "type": "string"
+        },
+        "instance": {
+          "description": "The name of the instance the resource belongs to.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the Azure Location (AKA region, AKA geo).  The region of a resource never changes after it is created.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of resource (e.g. Microsoft.IntelliCode/trainingServices).",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).\r\nThe resource provider is expected to store these tags with the resource.\r\nMax Tag Count: 10\r\nMax Key Length: 128\r\nMax Value Length: 256",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BatchPoolScaleMode": {
+      "format": "int32",
+      "description": "The different kinds of Scale modes for a ResourceProvider.API.Models.BatchPoolScale instance.",
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "BatchPoolScale": {
+      "description": "Represents the definition of the Scale strategy for a Batch VM Pool.",
+      "type": "object",
+      "properties": {
+        "dedicatedNodeCount": {
+          "format": "int32",
+          "description": "Gets or sets the number of nodes to have in the VM Pool when configured to use ResourceProvider.API.Models.BatchPoolScaleMode.Fixed scaling.",
+          "type": "integer"
+        },
+        "evaluationPeriodMinutes": {
+          "format": "int32",
+          "description": "Gets or sets the number of minutes to wait before evaluating the scaling formula when configured to use ResourceProvider.API.Models.BatchPoolScaleMode.Auto scaling.",
+          "type": "integer"
+        },
+        "formula": {
+          "description": "Gets or sets the scaling formula to use when configured to use ResourceProvider.API.Models.BatchPoolScaleMode.Auto scaling.",
+          "type": "string"
+        },
+        "mode": {
+          "description": "Gets or sets the kind of scaling the VM Pool instance will use.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPoolScaleMode"
+            }
+          ]
+        }
+      }
+    },
+    "OsType": {
+      "format": "int32",
+      "description": "An enum representing the different OS Platforms supported by SmartML.",
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "BatchPoolVmSize": {
+      "format": "int32",
+      "description": "The available sizes for Batch Pool Virtual Machines.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "type": "integer"
+    },
+    "BatchPool": {
+      "description": "Represents the definition of a Batch VM Pool for an instance.",
+      "type": "object",
+      "properties": {
+        "apps": {
+          "description": "Gets or sets the ResourceProvider.API.Models.BatchPoolApp to install into the pool.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchPoolApp"
+          }
+        },
+        "name": {
+          "description": "Gets or sets the  name of the VM Pool.",
+          "type": "string"
+        },
+        "scale": {
+          "description": "Gets or sets the ResourceProvider.API.Models.BatchPoolScale to use for the pool.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPoolScale"
+            }
+          ]
+        },
+        "vmOsType": {
+          "description": "Gets or sets the OS to be used in the Pool. Default is ResourceProvider.API.OsType.Windows",
+          "allOf": [
+            {
+              "$ref": "#/definitions/OsType"
+            }
+          ]
+        },
+        "vmSize": {
+          "description": "Gets or sets the size of the VM to be used in the Pool. Default is ResourceProvider.API.Models.BatchPoolVmSize.STANDARD_A2.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BatchPoolVmSize"
+            }
+          ]
+        },
+        "maxTasksPerNode": {
+          "format": "int32",
+          "description": "Gets or sets the maximum number of parallel tasks to run on a node.",
+          "type": "integer"
+        }
+      }
+    },
+    "SandboxResourceProperties": {
+      "description": "Represents the definition of properties of a ResourceProvider.API.Models.Sandbox.SandboxResource.",
+      "type": "object",
+      "properties": {
+        "notificationEmail": {
+          "description": "The notification alias for the instance.",
+          "type": "string"
+        },
+        "batchMachinePools": {
+          "description": "Gets or sets the Batch VM Pools the instance will contain. There must be at least one.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchPool"
+          }
+        }
+      }
+    },
+    "SandboxRequest": {
+      "description": "Represents the requested specifications for a ResourceProvider.API.Models.Sandbox.SandboxResource. Implements ResourceProvider.API.Models.IResourceRequest.",
+      "type": "object",
+      "properties": {
+        "isRequestForChildResource": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "properties": {
+          "description": "Gets or sets the properties associated with this Sandbox.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/SandboxResourceProperties"
+            }
+          ]
+        },
+        "skipReleasesUpload": {
+          "description": "Gets or sets a value indicating if uploading the latest releases to the instance storage account should be skipped.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Gets or sets the fully qualified id for this resource.\r\nE.g. something like /subscriptions/{id}/resourcegroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{name}",
+          "type": "string"
+        },
+        "instance": {
+          "description": "The name of the instance the resource belongs to.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the Azure Location (AKA region, AKA geo).  The region of a resource never changes after it is created.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of resource (e.g. Microsoft.IntelliCode/trainingServices).",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).\r\nThe resource provider is expected to store these tags with the resource.\r\nMax Tag Count: 10\r\nMax Key Length: 128\r\nMax Value Length: 256",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ExperimentResourceProperties": {
+      "description": "Represents the definition of properties of a ResourceProvider.API.Models.Experiments.ExperimentResource.",
+      "type": "object",
+      "properties": {
+        "sandbox": {
+          "description": "The name of the Sandbox the experiment belongs to, if any.",
+          "type": "string"
+        },
+        "instance": {
+          "description": "The name of the instance the experiment belongs to.",
+          "type": "string"
+        },
+        "template": {
+          "description": "The template to use to create the experiment.",
+          "type": "string"
+        }
+      }
+    },
+    "ExperimentRequest": {
+      "description": "Represents the requested specifications for a ResourceProvider.API.Models.Experiments.ExperimentResource. Implements ResourceProvider.API.Models.IResourceRequest.",
+      "type": "object",
+      "properties": {
+        "isRequestForChildResource": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "properties": {
+          "description": "Gets or sets the properties associated with this experiment.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExperimentResourceProperties"
+            }
+          ]
+        },
+        "skipReleasesUpload": {
+          "description": "Gets or sets a value indicating if uploading the latest releases to the instance storage account should be skipped.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Gets or sets the fully qualified id for this resource.\r\nE.g. something like /subscriptions/{id}/resourcegroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{name}",
+          "type": "string"
+        },
+        "instance": {
+          "description": "The name of the instance the resource belongs to.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the Azure Location (AKA region, AKA geo).  The region of a resource never changes after it is created.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of resource (e.g. Microsoft.IntelliCode/trainingServices).",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).\r\nThe resource provider is expected to store these tags with the resource.\r\nMax Tag Count: 10\r\nMax Key Length: 128\r\nMax Value Length: 256",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RegisteredFeature": {
+      "description": "Represents an AFEC feature registered for the subscription.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the feature.",
+          "type": "string"
+        },
+        "state": {
+          "description": "The state (e.g. Registered) of the feature for the subscription.",
+          "type": "string"
+        }
+      }
+    },
+    "AzureSubscriptionProperties": {
+      "description": "Represents the typical properties on subscription requests for the resource provider.",
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "description": "The AAD directory/tenant to which the subscription belongs.",
+          "type": "string"
+        },
+        "locationPlacementId": {
+          "description": "The placement requirement for the subscription based on its country of origin / offer type / offer category / etc. This is used in\r\ngeo-fencing of certain regions or regulatory boundaries (e.g. Australia ring-fencing).",
+          "type": "string"
+        },
+        "quotaId": {
+          "description": "The quota requirement for the subscription based on the offer type / category (e.g. free vs. pay-as-you-go). This can be used to\r\ninform quota information for the subscription (e.g. max # of resource groups or max # of virtual machines.",
+          "type": "string"
+        },
+        "registeredFeatures": {
+          "description": "All AFEC features that the subscriptions has been registered under RP namespace and platform namespace (Microsoft.Resources). Null\r\nor an empty array would mean that there are no registered features in the subscription.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegisteredFeature"
+          }
+        }
+      }
+    },
+    "AzureSubscription": {
+      "description": "Represents the request body of a subscription create or update request to the resource provider.\r\n<see href=\"https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#request\" />",
+      "type": "object",
+      "properties": {
+        "state": {
+          "description": "A ResourceProvider.API.Models.AzureSubscription.AzureSubscriptionState value used to indicate the current state of the subscription.",
+          "type": "string"
+        },
+        "registrationDate": {
+          "format": "date-time",
+          "description": "The System.DateTime of this subscription registration request to the resource provider.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Property bag contains other name/value pairs that can be used for telemetry and logging. The resource provider should handle unexpected property\r\nkey/value pairs without issue, as we will introduce new metadata without updating the contract version. The value inside the properties envelope\r\nmay be a complex type / object / token itself.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AzureSubscriptionProperties"
+            }
+          ]
+        }
+      }
+    },
+    "TrainingServicesApiTier": {
+      "format": "int32",
+      "description": "The different kinds of Tiers for the API of an instance.",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "type": "integer"
+    },
+    "TrainingServicesPermissions": {
+      "description": "Represents the permissions that can be granted in a ResourceProvider.API.Models.TrainingServices.TrainingServicesResource.",
+      "type": "object",
+      "properties": {
+        "appServiceCallers": {
+          "description": "The principal ids to grant access to call instance app service.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blobContributors": {
+          "description": "The principal ids to grant contributor access to public and internal blob data.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blobReaders": {
+          "description": "The principal ids to grant read access to public and internal blob data.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secretsGetters": {
+          "description": "The principal ids to grant access to get keyvault secrets.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TrainingServicesTrafficManager": {
+      "description": "Represents the definition of a Traffic Manager resource associated with a ResourceProvider.API.Models.TrainingServices.TrainingServicesResource.",
+      "type": "object",
+      "properties": {
+        "enableEndpoint": {
+          "description": "Gets or sets a value indicating if the endpoint should be enabled at the completion of deployment. Default is true.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Gets or sets the name of the associated Traffic Manager resource.",
+          "type": "string"
+        },
+        "resourceGroupName": {
+          "description": "Gets or sets the resource group name of the associated Traffic Manager resource.",
+          "type": "string"
+        }
+      }
+    },
+    "TrainingServicesResourceProperties": {
+      "description": "Represents the definition of properties of a ResourceProvider.API.Models.TrainingServices.TrainingServicesResource.",
+      "type": "object",
+      "properties": {
+        "apiTier": {
+          "description": "Gets or sets the ResourceProvider.API.Models.TrainingServices.TrainingServicesApiTier needed for this instance's expected workload. Default is ResourceProvider.API.Models.TrainingServices.TrainingServicesApiTier.S1.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrainingServicesApiTier"
+            }
+          ]
+        },
+        "enableDatabricks": {
+          "description": "Gets or sets a value that indicates if this instance should support Azure Databricks. Default is false.",
+          "type": "boolean"
+        },
+        "enableNotebooks": {
+          "description": "Gets or sets a value that indicates if this instance should support Azure Notebooks. Default is false.",
+          "type": "boolean"
+        },
+        "hostname": {
+          "description": "The shared SSL Hostname for the instance, if any. Must only include root of hostname and it must be a subdomain of *.smltenant.microsoft.com.",
+          "type": "string"
+        },
+        "instanceConfiguration": {
+          "description": "A collection of instance specific configuration values that are available to consume in the instance's resources.\r\nIn an update, the values are not remembered from so they should be included every time.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "notificationEmail": {
+          "description": "The notification alias for the instance.",
+          "type": "string"
+        },
+        "securityGroupPermissions": {
+          "description": "The permissions associated with the ResourceProvider.API.Models.TrainingServices.TrainingServicesResource granted to security groups.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrainingServicesPermissions"
+            }
+          ]
+        },
+        "servicePrincipalPermissions": {
+          "description": "The permissions associated with the ResourceProvider.API.Models.TrainingServices.TrainingServicesResource granted to service principals.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrainingServicesPermissions"
+            }
+          ]
+        },
+        "privateBuildRoot": {
+          "description": "The root folder for a private build drop.",
+          "type": "string"
+        },
+        "trafficManager": {
+          "description": "The Traffic Manager resource associated with the ResourceProvider.API.Models.TrainingServices.TrainingServicesResource.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrainingServicesTrafficManager"
+            }
+          ]
+        },
+        "virtualMachinePools": {
+          "description": "Gets or sets the Batch VM Pools the instance will contain. There must be at least one.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchPool"
+          }
+        }
+      }
+    },
+    "TrainingServicesRequest": {
+      "description": "Represents the requested specifications for a ResourceProvider.API.Models.TrainingServices.TrainingServicesResource. Implements ResourceProvider.API.Models.IResourceRequest.",
+      "type": "object",
+      "properties": {
+        "isRequestForChildResource": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "properties": {
+          "description": "Gets or sets the properties associated with this instance.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TrainingServicesResourceProperties"
+            }
+          ]
+        },
+        "skipReleasesUpload": {
+          "description": "Gets or sets a value indicating if uploading the latest releases to the instance storage account should be skipped.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Gets or sets the fully qualified id for this resource.\r\nE.g. something like /subscriptions/{id}/resourcegroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{name}",
+          "type": "string"
+        },
+        "instance": {
+          "description": "The name of the instance the resource belongs to.",
+          "type": "string"
+        },
+        "location": {
+          "description": "Gets or sets the Azure Location (AKA region, AKA geo).  The region of a resource never changes after it is created.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of resource (e.g. Microsoft.IntelliCode/trainingServices).",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).\r\nThe resource provider is expected to store these tags with the resource.\r\nMax Tag Count: 10\r\nMax Key Length: 128\r\nMax Value Length: 256",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
