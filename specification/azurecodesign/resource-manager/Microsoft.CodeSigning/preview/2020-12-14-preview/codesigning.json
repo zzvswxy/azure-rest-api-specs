@@ -536,26 +536,26 @@
     "CertificateProfile": {
       "type": "object",
       "properties": {
-          "name": {
+        "name": {
+          "type": "string"
+        },
+        "createDate": {
+          "readOnly": true,
+          "type": "string",
+          "format": "date-time"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "dnsNames": {
+          "type": "array",
+          "items": {
             "type": "string"
-          },
-          "createDate": {
-            "readOnly": true,
-            "type": "string",
-            "format": "date-time"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "dnsNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "rotationPolicy": {
-            "$ref": "#/definitions/RotationPolicy"
           }
+        },
+        "rotationPolicy": {
+          "$ref": "#/definitions/RotationPolicy"
+        }
       },
       "allOf": [
         {
