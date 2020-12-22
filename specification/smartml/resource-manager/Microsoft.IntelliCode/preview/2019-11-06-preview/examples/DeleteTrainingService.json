@@ -1,17 +1,17 @@
 {
   "parameters": {
-    "subscriptionId": "{subscriptionId}",
-    "resourceGroupName": "testRP-rg",
-    "resourceName": "testRP_SMLService",
-    "api-version": "2019-11-06-preview"
+    "subscriptionId": "aaaaaaaaaaaaaaaaaaa",
+    "api-version": "2019-11-06-preview",
+    "resourceGroupName": "rgintellicode",
+    "resourceName": "aaaaaaaaaaaaaaaaaaaaaaaaaaa"
   },
-  "response": {
+  "responses": {
+    "200": {},
     "202": {
-      "description": "The request has been accepted for processing and the training service will be configured asynchronously.",
       "headers": {
-        "Azure-AsyncOperation": "https://management.azure.com/providers/Microsoft.IntelliCode/locations/WESTUS2/operationStatuses/{operationStatusId}?api-version=2020-06-01",
-        "retry-after": "5"
+        "Azure-AsyncOperation": "LocationURl"
       }
-    }
+    },
+    "204": {}
   }
 }

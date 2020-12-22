@@ -1,81 +1,98 @@
 {
   "parameters": {
-    "subscriptionId": "{subscriptionId}",
-    "resourceGroupName": "testRP-rg",
-    "resourceName": "testRP_SMLService",
+    "subscriptionId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "api-version": "2019-11-06-preview",
+    "resourceGroupName": "rgintellicode",
+    "resourceName": "aaaaaaaaaaaaaaaaaa",
     "body": {
       "properties": {
-        "apiTier": "S1",
-        "enableDatabricks": false,
-        "enableNotebooks": false,
-        "hostname": "smlsampledev",
+        "apiTier": "S0",
+        "enableDatabricks": true,
+        "enableNotebooks": true,
+        "hostname": "aaaaaaa",
         "instanceConfiguration": {
-          "name": "value"
+          "key3025": "aaa"
         },
-        "notificationEmail": "foo@microsoft.com",
+        "notificationEmail": "aaaaaaaaaaaaaa",
         "securityGroupPermissions": {
           "appServiceCallers": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaaaaaaa"
           ],
-          "dataReaders": [
-            "00000000-0000-0000-0000-000000000000"
+          "blobContributors": [
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           ],
-          "dataContributors": [
-            "00000000-0000-0000-0000-000000000000"
+          "blobReaders": [
+            "aaaaa"
           ],
           "secretsGetters": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           ]
         },
         "servicePrincipalPermissions": {
           "appServiceCallers": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaaaaaaa"
           ],
-          "dataReaders": [
-            "00000000-0000-0000-0000-000000000000"
+          "blobContributors": [
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           ],
-          "dataContributors": [
-            "00000000-0000-0000-0000-000000000000"
+          "blobReaders": [
+            "aaaaa"
           ],
           "secretsGetters": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           ]
         },
+        "privateBuildRoot": "aaaaaaaaaaaaaaaaaaaaaaaaa",
         "trafficManager": {
           "enableEndpoint": true,
-          "name": "smlsampledev",
-          "resourceGroupName": "sml-sample-dev-global"
+          "name": "aaaaaaaaaaaaaaaaaa",
+          "resourceGroupName": "aaaaaaaaaaaa"
         },
         "virtualMachinePools": [
           {
-            "name": "General_F4S_b",
-            "vmSize": "STANDARD_F4S_V2",
-            "maxTasksPerNode": 8,
             "apps": [
               {
-                "store": "Pythia",
-                "name": "PythiaModel",
-                "hasStartTask": true
+                "format": "aaaaaaaaaaaaaaaaaaaaa",
+                "hasStartTask": true,
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "store": "aaaaaaaaaaaaaaaaa"
               }
             ],
+            "name": "aaaaaaaaaaaaaa",
             "scale": {
-              "mode": "Fixed",
-              "dedicatedNodeCount": 1
+              "dedicatedNodeCount": 20,
+              "evaluationPeriodMinutes": 9,
+              "formula": "a",
+              "mode": "Auto"
             },
-            "vmOsType": "Windows"
+            "vmOsType": "Windows",
+            "vmSize": "STANDARD_A2",
+            "maxTasksPerNode": 28
           }
         ]
+      },
+      "skipReleasesUpload": true,
+      "instance": "aaaaaaaaaa",
+      "location": "aaaaaaaaaaaaaaaaaaaaa",
+      "name": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "type": "aaaaaaaaaaaaaaaaa",
+      "tags": {
+        "key4485": "aaaa"
       }
     }
   },
-  "response": {
-    "202": {
-      "description": "The request has been accepted for processing and the training service will be configured asynchronously.",
+  "responses": {
+    "200": {},
+    "201": {
       "headers": {
-        "Azure-AsyncOperation": "https://management.azure.com/providers/Microsoft.IntelliCode/locations/WESTUS2/operationStatuses/{operationStatusId}?api-version=2020-06-01",
-        "retry-after": "5"
+        "Azure-AsyncOperation": "LocationURl"
+      }
+    },
+    "202": {
+      "headers": {
+        "Azure-AsyncOperation": "LocationURl"
       }
     }
   }
 }
+
