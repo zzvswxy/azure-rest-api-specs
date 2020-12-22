@@ -1,0 +1,81 @@
+{
+  "parameters": {
+    "subscriptionId": "{subscriptionId}",
+    "resourceGroupName": "testRP-rg",
+    "resourceName": "testRP_SMLService",
+    "api-version": "2019-11-06-preview",
+    "body": {
+      "properties": {
+        "apiTier": "S1",
+        "enableDatabricks": false,
+        "enableNotebooks": false,
+        "hostname": "smlsampledev",
+        "instanceConfiguration": {
+          "name": "value"
+        },
+        "notificationEmail": "foo@microsoft.com",
+        "securityGroupPermissions": {
+          "appServiceCallers": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "dataReaders": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "dataContributors": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "secretsGetters": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        },
+        "servicePrincipalPermissions": {
+          "appServiceCallers": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "dataReaders": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "dataContributors": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "secretsGetters": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        },
+        "trafficManager": {
+          "enableEndpoint": true,
+          "name": "smlsampledev",
+          "resourceGroupName": "sml-sample-dev-global"
+        },
+        "virtualMachinePools": [
+          {
+            "name": "General_F4S_b",
+            "vmSize": "STANDARD_F4S_V2",
+            "maxTasksPerNode": 8,
+            "apps": [
+              {
+                "store": "Pythia",
+                "name": "PythiaModel",
+                "hasStartTask": true
+              }
+            ],
+            "scale": {
+              "mode": "Fixed",
+              "dedicatedNodeCount": 1
+            },
+            "vmOsType": "Windows"
+          }
+        ]
+      }
+    }
+  },
+  "response": {
+    "202": {
+      "description": "The request has been accepted for processing and the training service will be configured asynchronously.",
+      "headers": {
+        "Azure-AsyncOperation": "https://management.azure.com/providers/Microsoft.IntelliCode/locations/WESTUS2/operationStatuses/{operationStatusId}?api-version=2020-06-01",
+        "retry-after": "5"
+      }
+    }
+  }
+}
