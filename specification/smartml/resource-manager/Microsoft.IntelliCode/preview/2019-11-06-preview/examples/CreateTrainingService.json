@@ -52,16 +52,16 @@
             "name": "General_F4S_b",
             "vmSize": "STANDARD_F4S_V2",
             "maxTasksPerNode": 8,
-            "apps": [
+            "apps": [
               {
-                "store": "Pythia",
-                "name": "PythiaModel",
-                "hasStartTask": true
+                "store": "Pythia",
+                "name": "PythiaModel",
+                "hasStartTask": true
               }
             ],
-            "scale": {
-              "mode": "Fixed",
-              "dedicatedNodeCount": 1
+            "scale": {
+              "mode": "Fixed",
+              "dedicatedNodeCount": 1
             },
             "vmOsType": "Windows"
           }
