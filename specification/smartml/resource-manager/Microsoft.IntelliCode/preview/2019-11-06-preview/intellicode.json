@@ -168,6 +168,9 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
         },
+        "x-ms-examples": {
+          "Delete a training service": { "$ref": "./examples/DeleteTrainingService.json" }
+        },
         "parameters": [
           { "$ref": "#/parameters/subscriptionId" },
           { "$ref": "#/parameters/apiVersion" },
