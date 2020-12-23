@@ -2,7 +2,7 @@
 
 > see https://aka.ms/autorest
 
-This is the AutoRest configuration file for Code Sign service.
+This is the AutoRest configuration file for Code Signing service.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ For other options on installation see [Installing AutoRest](https://aka.ms/autor
 
 ### Basic Information
 
-These are the global settings for the Code Sign RP.
+These are the global settings for the Code Signing RP.
 
 ```yaml
 openapi-type: arm
