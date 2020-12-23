@@ -164,7 +164,7 @@
         "description": "Create a code sign account",
         "x-ms-examples": {
           "CreateCodeSignAccount": {
-            "$ref": "./examples/CreateCodeSignAccount.json"
+            "$ref": "./examples/Put.json"
           }
         },
         "parameters": [
