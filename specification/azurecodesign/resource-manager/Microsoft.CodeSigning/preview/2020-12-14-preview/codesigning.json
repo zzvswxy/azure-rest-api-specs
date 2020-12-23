@@ -41,6 +41,11 @@
           "CodeSignAccount"
         ],
         "description": "Lists Code Sign accounts within a subscription",
+        "x-ms-examples": {
+          "CodeSignAccountListBySubscription": {
+            "$ref": "./examples/GetBySubscription.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -75,6 +80,11 @@
           "CodeSignAccount"
         ],
         "description": "List code sign accounts within a resource group",
+        "x-ms-examples": {
+          "ResourceGet": {
+            "$ref": "./examples/GetByResourceGroup.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -112,6 +122,11 @@
           "CodeSignAccount"
         ],
         "description": "Gets the specified code sign account",
+        "x-ms-examples": {
+          "ResourceGet": {
+            "$ref": "./examples/Get.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -147,6 +162,11 @@
           "CodeSignAccount"
         ],
         "description": "Create a code sign account",
+        "x-ms-examples": {
+          "CreateCodeSignAccount": {
+            "$ref": "./examples/CreateCodeSignAccount.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -195,6 +215,11 @@
           "CodeSignAccount"
         ],
         "description": "Update a code sign account",
+        "x-ms-examples": {
+          "Update code sign account": {
+            "$ref": "./examples/Patch.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -237,6 +262,11 @@
           "CodeSignAccount"
         ],
         "description": "Delete code sign account",
+        "x-ms-examples": {
+          "ResourceDelete": {
+            "$ref": "./examples/Delete.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -288,6 +318,7 @@
             "$ref": "#/parameters/accountName"
           }
         ],
+        "x-ms-examples": {},
         "responses": {
           "200": {
             "description": "Gets all code sign accounts in the specified resource group",
@@ -314,6 +345,7 @@
           "CertificateProfile"
         ],
         "description": "Get details of particular certificate profile",
+        "x-ms-examples": {},
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -352,6 +384,7 @@
           "CertificateProfile"
         ],
         "description": "Create a certificate profile",
+        "x-ms-examples": {},
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -403,6 +436,7 @@
           "CertificateProfile"
         ],
         "description": "Update certificate profile",
+        "x-ms-examples": {},
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -448,6 +482,7 @@
           "CertificateProfile"
         ],
         "description": "Disable certificate profile",
+        "x-ms-examples": {},
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
@@ -485,6 +520,11 @@
       "get": {
         "description": "Lists all of the available API operations for code signing resource.",
         "operationId": "Operations_Get",
+        "x-ms-examples": {
+          "OperationList": {
+            "$ref": "./examples/GetOperationList.json"
+          }
+        },
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"

@@ -1,0 +1,50 @@
+{
+  "parameters": {
+    "api-version": "2020-12-14-preview"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "name": "Microsoft.CodeSigning/register/action",
+            "display": {
+              "provider": "Microsoft.CodeSigning",
+              "resource": "Code Signing resource provider",
+              "operation": "Registers the Code Signing resource provider",
+              "description": "Registers a subscription for the Mixed Reality resource provider."
+            }
+          },
+          {
+            "name": "Microsoft.CodeSigning/CodeSignAccounts/delete",
+            "display": {
+              "provider": "Microsoft.CodeSigning",
+              "resource": "CodeSignAccounts",
+              "operation": "Delete Code Sign Accounts",
+              "description": "Deletes the resource for Microsoft.CodeSigning/CodeSignAccounts"
+            }
+          },
+          {
+            "name": "Microsoft.CodeSigning/CodeSignAccounts/read",
+            "display": {
+              "provider": "Microsoft.CodeSigning",
+              "resource": "CodeSignAccounts",
+              "operation": "Get Spatial Anchors Accounts",
+              "description": "Gets the resource for Microsoft.CodeSigning/CodeSignAccounts"
+            }
+          },
+          {
+            "name": "Microsoft.CodeSigning/SpatialAnchorsAccounts/write",
+            "display": {
+              "provider": "Microsoft.CodeSigning",
+              "resource": "CodeSignAccounts",
+              "operation": "Update Code Sign Accounts",
+              "description": "Updates the resource for Microsoft.CodeSigning/CodeSignAccounts"
+            }
+          }
+        ],
+        "nextLink": null
+      }
+    }
+  }
+}
