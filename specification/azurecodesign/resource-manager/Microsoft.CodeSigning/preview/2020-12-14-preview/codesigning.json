@@ -211,6 +211,7 @@
           {
             "in": "body",
             "name": "CodeSignAccount",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CodeSignAccount"
             }
@@ -422,6 +423,7 @@
           {
             "in": "body",
             "name": "CertificateProfile",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CertificateProfile"
             }
@@ -477,6 +479,34 @@
           }
         }
       }
+    },
+    "/providers/Microsoft.CodeSigning/operations": {
+      "get": {
+        "description": "Lists all of the available API operations for code signing resource.",
+        "operationId": "Operations_Get",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationList"
+            }
+          },
+          "default": {
+            "description": "Resource Provider error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
     }
   },
   "definitions": {
@@ -517,6 +547,21 @@
     "CodeSignAccount": {
       "type": "object",
       "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/CodeSignAccountProperties"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
+        }
+      ]
+    },
+    "CodeSignAccountProperties": {
+      "description": "Code sign account properties",
+      "type": "object",
+      "properties": {
         "name": {
           "type": "string"
         },
@@ -526,23 +571,28 @@
             "$ref": "#/definitions/CertificateProfile"
           }
         }
-      },
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
-        }
-      ]
+      }
     },
     "CertificateProfile": {
       "type": "object",
       "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/CertificateProfileProperties"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "CertificateProfileProperties": {
+      "description": "Certificate profile properties",
+      "type": "object",
+      "properties": {
         "name": {
           "type": "string"
-        },
-        "createDate": {
-          "readOnly": true,
-          "type": "string",
-          "format": "date-time"
         },
         "subject": {
           "type": "string"
@@ -556,12 +606,7 @@
         "rotationPolicy": {
           "$ref": "#/definitions/RotationPolicy"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/TrackedResource"
-        }
-      ]
+      }
     },
     "RotationPolicy": {
       "enum": [
@@ -570,6 +615,56 @@
         "Yearly"
       ],
       "type": "string"
+    },
+    "OperationList": {
+      "description": "The paginated list of code signing API operations.",
+      "properties": {
+        "value": {
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "description": "The list of code signing API operations."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "The link to fetch the next page of code signing API operations."
+        }
+      }
+    },
+    "Operation": {
+      "type": "object",
+      "description": "The code signing API operation",
+      "properties": {
+        "name": {
+          "readOnly": true,
+          "type": "string",
+          "description": "Operation name: {Microsoft.Kubernetes}/{resource}/{operation}"
+        },
+        "display": {
+          "readOnly": true,
+          "description": "The object that represents the operation.",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "Service provider: Microsoft.codeSignAccounts"
+            },
+            "resource": {
+              "type": "string",
+              "description": "Code sign resource on which the operation is performed"
+            },
+            "operation": {
+              "type": "string",
+              "description": "Operation type: Read, write, delete, etc."
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of the operation."
+            }
+          }
+        }
+      }
     }
   },
   "parameters": {
@@ -583,10 +678,11 @@
     },
     "profileName": {
       "name": "profileName",
-      "description": "code signing certificate profile name",
+      "description": "Certificate profile name",
       "in": "path",
       "required": true,
-      "type": "string"
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   }
 }
