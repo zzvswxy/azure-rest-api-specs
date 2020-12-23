@@ -547,7 +547,6 @@
     },
     "CodeSignAccount": {
       "type": "object",
-      "required": [ "properties" ],
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -580,7 +579,6 @@
     },
     "CertificateProfile": {
       "type": "object",
-      "required": [ "properties" ],
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
