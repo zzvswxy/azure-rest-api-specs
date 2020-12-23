@@ -471,6 +471,9 @@
           "200": {
             "description": "Success"
           },
+          "204": {
+            "description": "The resource was not found"
+          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -546,10 +549,14 @@
     },
     "CodeSignAccount": {
       "type": "object",
+      "required": [ "properties" ],
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/CodeSignAccountProperties"
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         }
       },
       "allOf": [
@@ -575,10 +582,14 @@
     },
     "CertificateProfile": {
       "type": "object",
+      "required": [ "properties" ],
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
           "$ref": "#/definitions/CertificateProfileProperties"
+        },
+        "systemData": {
+          "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/systemData"
         }
       },
       "allOf": [
