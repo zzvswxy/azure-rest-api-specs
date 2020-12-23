@@ -247,7 +247,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/mobileNetworks": {
+	"/subscriptions/{subscriptionId}/providers/Microsoft.MobileNetwork/mobileNetworks": {
       "get": {
         "tags": [
           "MobileNetworks"
@@ -1193,7 +1193,7 @@
           }
         },
         "x-ms-examples": {
-          "List all packet cores": {
+          "List all packet cores in a mobile network": {
             "$ref": "./examples/PacketCoreListByMobileNetwork.json"
           }
         },
@@ -2892,18 +2892,18 @@
     "PacketCore": {
       "properties": {
         "extendedLocation": {
-          "description": "The extended location of packet core.",
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The extended location type."
-            },
-            "name": {
-              "type": "string",
-              "description": "The extended location name."
-            }
-          }
+           "description": "The extended location of packet core.",
+           "type": "object",
+            "properties": {
+               "type": {
+                  "type": "string",
+                   "description": "The extended location type."
+                },
+                "name": {
+                  "type": "string",
+                   "description": "The extended location name."
+                 }
+             }
         },
         "properties": {
           "x-ms-client-flatten": true,
