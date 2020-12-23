@@ -96,20 +96,20 @@ swagger-to-sdk:
 
 ## Python
 
-See configuration in [readme.python.md](./readme.python.md)
+See configuration in [readme.python.md](readme.python.md)
 
 ## Ruby
 
-See configuration in [readme.ruby.md](./readme.ruby.md)
+See configuration in [readme.ruby.md](readme.ruby.md)
 
 ## TypeScript
 
-See configuration in [readme.typescript.md](./readme.typescript.md)
+See configuration in [readme.typescript.md](readme.typescript.md)
 
 ## CSharp
 
-See configuration in [readme.csharp.md](./readme.csharp.md)
+See configuration in [readme.csharp.md](readme.csharp.md)
 
 ## GO
 
-See configuration in [readme.go.md](./readme.go.md)
+See configuration in [readme.go.md](readme.go.md)
