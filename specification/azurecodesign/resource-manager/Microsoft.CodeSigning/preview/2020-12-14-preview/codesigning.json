@@ -76,11 +76,7 @@
           "CodeSignAccount"
         ],
         "description": "List code sign accounts within a resource group",
-        "x-ms-examples": {
-          "ResourceGet": {
-            "$ref": "./examples/GetByResourceGroup.json"
-          }
-        },
+        "x-ms-examples": {},
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
