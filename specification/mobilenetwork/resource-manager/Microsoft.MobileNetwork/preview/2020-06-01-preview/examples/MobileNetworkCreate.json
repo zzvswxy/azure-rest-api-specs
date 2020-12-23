@@ -30,7 +30,7 @@
           "spectrumAccessProvider": "testSpectrumAccessProvider",
           "sites": [],
           "sims": [],
-		  "packetCores": []
+          "packetCores": []
         }
       }
     },
@@ -50,7 +50,7 @@
           "spectrumAccessProvider": "testSpectrumAccessProvider",
           "sites": [],
           "sims": [],
-		  "packetCores": []
+          "packetCores": []
         }
       }
     }
