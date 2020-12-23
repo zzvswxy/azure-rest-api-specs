@@ -1,13 +1,19 @@
 {
   "swagger": "2.0",
   "host": "management.azure.com",
-  "schemes": [ "https" ],
+  "schemes": [
+    "https"
+  ],
   "info": {
     "title": "SmartML Resource Provider",
     "version": "2019-11-06-preview"
   },
-  "consumes": [ "application/json" ],
-  "produces": [ "application/json" ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "security": [
     {
       "azure_auth": [
@@ -43,7 +49,134 @@
     }
   },
   "paths": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.IntelliCode/trainingServices": {
+      "get": {
+        "tags": [
+          "TrainingServiceResource"
+        ],
+        "summary": "List training services in the subscription.",
+        "operationId": "GetTrainingServicesBySubscription",
+        "x-ms-examples": {
+          "List training services by subscription": {
+            "$ref": "./examples/ListTrainingServiceBySubscription.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/apiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TrainingServicesListResult"
+            }
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices": {
+      "get": {
+        "tags": [
+          "TrainingServiceResource"
+        ],
+        "summary": "List training services in the resource group.",
+        "operationId": "GetTrainingServicesByResourceGroup",
+        "x-ms-examples": {
+          "List training services by resource group": {
+            "$ref": "./examples/ListTrainingServiceByResourceGroup.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/apiVersion"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TrainingServicesListResult"
+            }
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntelliCode/trainingServices/{resourceName}": {
+      "get": {
+        "tags": [
+          "TrainingServicesResource"
+        ],
+        "summary": "Gets an instance of the resource.",
+        "operationId": "GetTrainingService",
+        "x-ms-examples": {
+          "Get a training service": {
+            "$ref": "./examples/GetTrainingService.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/apiVersion"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "description": "The name of the resource group that contains this ARM resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "resourceName",
+            "description": "The name of the resource.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TrainingServicesRequest"
+            }
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "TrainingServicesResource"
@@ -55,11 +188,17 @@
           "final-state-via": "azure-async-operation"
         },
         "x-ms-examples": {
-          "Create a training service": { "$ref": "./examples/CreateTrainingService.json" }
+          "Create a training service": {
+            "$ref": "./examples/CreateTrainingService.json"
+          }
         },
         "parameters": [
-          { "$ref": "#/parameters/subscriptionId" },
-          { "$ref": "#/parameters/apiVersion" },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/apiVersion"
+          },
           {
             "in": "path",
             "name": "resourceGroupName",
@@ -84,12 +223,6 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "Default error response.",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
-            }
-          },
           "200": {
             "description": "Success"
           },
@@ -98,6 +231,12 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
           }
         }
       },
@@ -112,11 +251,17 @@
           "final-state-via": "azure-async-operation"
         },
         "x-ms-examples": {
-          "Update a training service": { "$ref": "./examples/UpdateTrainingService.json" }
+          "Update a training service": {
+            "$ref": "./examples/UpdateTrainingService.json"
+          }
         },
         "parameters": [
-          { "$ref": "#/parameters/subscriptionId" },
-          { "$ref": "#/parameters/apiVersion" },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/apiVersion"
+          },
           {
             "in": "path",
             "name": "resourceGroupName",
@@ -141,12 +286,6 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "Default error response.",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
-            }
-          },
           "200": {
             "description": "Success"
           },
@@ -155,6 +294,12 @@
           },
           "202": {
             "description": "Accepted"
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
           }
         }
       },
@@ -169,11 +314,17 @@
           "final-state-via": "azure-async-operation"
         },
         "x-ms-examples": {
-          "Delete a training service": { "$ref": "./examples/DeleteTrainingService.json" }
+          "Delete a training service": {
+            "$ref": "./examples/DeleteTrainingService.json"
+          }
         },
         "parameters": [
-          { "$ref": "#/parameters/subscriptionId" },
-          { "$ref": "#/parameters/apiVersion" },
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "$ref": "#/parameters/apiVersion"
+          },
           {
             "in": "path",
             "name": "resourceGroupName",
@@ -190,12 +341,6 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "Default error response.",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
-            }
-          },
           "200": {
             "description": "Success"
           },
@@ -204,6 +349,12 @@
           },
           "204": {
             "description": "NoContent"
+          },
+          "default": {
+            "description": "Default error response.",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderDefaultErrorResponse"
+            }
           }
         }
       }
@@ -216,7 +367,9 @@
         "summary": "Lists all the operations available in the resource provieder",
         "operationId": "Operations_List",
         "parameters": [
-          { "$ref": "#/parameters/apiVersion" }
+          {
+            "$ref": "#/parameters/apiVersion"
+          }
         ],
         "responses": {
           "200": {
@@ -577,6 +730,23 @@
           "additionalProperties": {
             "type": "string"
           }
+        }
+      }
+    },
+    "TrainingServicesListResult": {
+      "description": "Result of the request to list TrainingServices.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TrainingServicesRequest"
+          },
+          "description": "List of training services the Resource Provider created."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to get the next set of training service list results if there are any."
         }
       }
     },
