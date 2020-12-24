@@ -211,7 +211,7 @@
             "in": "body",
             "name": "CodeSignAccount",
             "schema": {
-              "$ref": "#/definitions/CodeSignAccount"
+              "$ref": "#/parameters/CodeSignAccountPatchBodyParam"
             }
           }
         ],
@@ -577,6 +577,19 @@
         }
       }
     },
+    "CodeSignAccountPatch": {
+      "type": "object",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags."
+        }
+      },
+      "description": "Object containing updates for patch operations."
+    },
     "CertificateProfile": {
       "type": "object",
       "properties": {
@@ -697,6 +710,15 @@
       "in": "path",
       "required": true,
       "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "CodeSignAccountPatchBodyParam": {
+      "in": "body",
+      "name": "CodeSignAccountPatch",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/CodeSignAccountPatch"
+      },
       "x-ms-parameter-location": "method"
     }
   }
