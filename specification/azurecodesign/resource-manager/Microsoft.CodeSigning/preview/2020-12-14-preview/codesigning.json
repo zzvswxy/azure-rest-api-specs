@@ -208,11 +208,7 @@
             "$ref": "#/parameters/accountName"
           },
           {
-            "in": "body",
-            "name": "CodeSignAccount",
-            "schema": {
-              "$ref": "#/parameters/CodeSignAccountPatchBodyParam"
-            }
+            "$ref": "#/parameters/CodeSignAccountPatchBodyParam"
           }
         ],
         "responses": {
