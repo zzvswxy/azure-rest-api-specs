@@ -44,7 +44,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -79,7 +79,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -117,7 +117,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -126,7 +126,7 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           }
         ],
         "responses": {
@@ -153,7 +153,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -162,7 +162,7 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           },
           {
             "in": "body",
@@ -196,7 +196,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -205,7 +205,7 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           },
           {
             "$ref": "#/parameters/CodeSignAccountPatchBodyParam"
@@ -235,7 +235,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -244,7 +244,7 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           }
         ],
         "responses": {
@@ -272,7 +272,7 @@
         "description": "List certificate profiles within a code sign account",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -281,7 +281,7 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           }
         ],
         "x-ms-examples": {},
@@ -314,7 +314,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -323,10 +323,10 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           },
           {
-            "$ref": "#/parameters/profileName"
+            "$ref": "#/parameters/ProfileNameParam"
           }
         ],
         "responses": {
@@ -353,7 +353,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -362,10 +362,10 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           },
           {
-            "$ref": "#/parameters/profileName"
+            "$ref": "#/parameters/ProfileNameParam"
           },
           {
             "in": "body",
@@ -399,7 +399,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -408,10 +408,10 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           },
           {
-            "$ref": "#/parameters/profileName"
+            "$ref": "#/parameters/ProfileNameParam"
           },
           {
             "in": "body",
@@ -445,7 +445,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -454,10 +454,10 @@
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/accountName"
+            "$ref": "#/parameters/AccountNameParam"
           },
           {
-            "$ref": "#/parameters/profileName"
+            "$ref": "#/parameters/ProfileNameParam"
           }
         ],
         "responses": {
@@ -483,7 +483,7 @@
         "x-ms-examples": {},
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+            "$ref": "#/parameters/ApiVersionParam"
           }
         ],
         "responses": {
@@ -692,7 +692,7 @@
     }
   },
   "parameters": {
-    "accountName": {
+    "AccountNameParam": {
       "name": "accountName",
       "description": "ACS account name",
       "in": "path",
@@ -700,7 +700,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "profileName": {
+    "ProfileNameParam": {
       "name": "profileName",
       "description": "Certificate profile name",
       "in": "path",
@@ -716,6 +716,13 @@
         "$ref": "#/definitions/CodeSignAccountPatch"
       },
       "x-ms-parameter-location": "method"
+    },
+    "ApiVersionParam": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "Version of the API called"
     }
   }
 }
