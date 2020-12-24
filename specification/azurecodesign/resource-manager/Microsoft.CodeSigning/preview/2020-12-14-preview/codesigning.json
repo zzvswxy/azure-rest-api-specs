@@ -179,12 +179,6 @@
               "$ref": "#/definitions/CodeSignAccount"
             }
           },
-          "201": {
-            "description": "Create code sign account",
-            "schema": {
-              "$ref": "#/definitions/CodeSignAccount"
-            }
-          },
           "default": {
             "description": "Error response describing why the operation failed.",
             "schema": {
@@ -390,12 +384,6 @@
             "description": "Create a certificate profile",
             "schema": {
               "$ref": "#/definitions/CertificateProfile"
-            }
-          },
-          "201": {
-            "description": "Create a certificate profile",
-            "schema": {
-              "$ref": "#/definitions/CodeSignAccount"
             }
           },
           "default": {
