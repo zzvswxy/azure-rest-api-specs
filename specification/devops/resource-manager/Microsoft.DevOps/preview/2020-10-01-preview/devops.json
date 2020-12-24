@@ -436,6 +436,16 @@
           "type": "string",
           "description": "Target resource name"
         },
+        "readOnlyProp1": {
+          "type": "string",
+          "description": "Test ReadOnly property",
+          "readOnly": true
+        },
+        "secretProp1": {
+          "type": "string",
+          "description": "Test Secret property",
+          "x-ms-secret": true
+        },
         "location": {
           "type": "string",
           "description": "Target resource location"
