@@ -122,6 +122,9 @@
           },
           {
             "$ref": "#/parameters/metricsPostBody"
+          },
+          {
+            "$ref": "#/parameters/metricsFilter"
           }
         ],
         "responses": {
