@@ -40,7 +40,7 @@
         "operationId": "Workbooks_ListByResourceGroup",
         "parameters": [
           {
-            "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
@@ -612,6 +612,14 @@
       "collectionFormat": "csv",
       "description": "Tags presents on each workbook returned.",
       "x-ms-parameter-location": "method"
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "The subscription ID that identifies an azure subscription.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "client"
     }
   }
 }
