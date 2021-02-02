@@ -369,6 +369,12 @@
             "modelAsString": true
           }
         },
+        "tags": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "Resource tags"
+        },
         "properties": {
           "x-ms-client-flatten": true,
           "description": "Metadata describing a workbook for an Azure resource.",
