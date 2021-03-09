@@ -235,6 +235,10 @@
         "globalAcsRPRealm": {
           "description": "Global ACS namespace RP realm.",
           "type": "string"
+        },
+        "testAddingProperty": {
+          "description": "Global ACS namespace RP realm.",
+          "type": "string"
         }
       },
       "x-ms-discriminator-value": "AccessControlService"
