@@ -110,6 +110,7 @@
             "description": "NoContent"
           }
         },
+        "x-ms-long-running-operation":true,
         "deprecated": false,
         "x-ms-examples": {
           "Delete registered Identity": {
