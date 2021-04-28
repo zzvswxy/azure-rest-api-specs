@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "ApiManagementClient",
-    "description": "Use these REST APIs for performing operations on Certificate entity in your Azure API Management deployment. Certificates can be used to setup mutual authentication with your Backend in API Management. For more information refer to [How to secure backend using Mutual Auth Certificate](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).",
-    "version": "2020-12-01"
+    "description": "Use these REST APIs for performing operations on Cache entity in your Azure API Management deployment. Azure API Management also allows for caching responses in an external Azure Cache for Redis. For more information refer to [External Redis Cache in ApiManagement](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-cache-external).",
+    "version": "2020-12-02"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -34,16 +34,16 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/caches": {
       "get": {
         "tags": [
-          "Certificate"
+          "Cache"
         ],
-        "operationId": "Certificate_ListByService",
-        "description": "Lists a collection of all certificates in the specified service instance.",
+        "operationId": "Cache_ListByService",
+        "description": "Lists a collection of all external Caches in the specified service instance.",
         "x-ms-examples": {
-          "ApiManagementListCertificates": {
-            "$ref": "./examples/ApiManagementListCertificates.json"
+          "ApiManagementListCaches": {
+            "$ref": "./examples/ApiManagementListCaches.json"
           }
         },
         "parameters": [
@@ -54,24 +54,10 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "name": "$filter",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| subject | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| thumbprint | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| expirationDate | filter | ge, le, eq, ne, gt, lt |     |</br>"
-          },
-          {
             "$ref": "./apimanagement.json#/parameters/TopQueryParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/SkipQueryParameter"
-          },
-          {
-            "name": "isKeyVaultRefreshFailed",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "description": "When set to true, the response contains only certificates entities which failed refresh."
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -82,9 +68,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a collection of Certificate entity.",
+            "description": "Returns a collection of Cache entity.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCollection"
+              "$ref": "./definitions.json#/definitions/CacheCollection"
             }
           },
           "default": {
@@ -96,20 +82,19 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-odata": "./definitions.json#/definitions/CertificateContract"
+        }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/caches/{cacheId}": {
       "head": {
         "tags": [
-          "Certificate"
+          "Cache"
         ],
-        "operationId": "Certificate_GetEntityTag",
-        "description": "Gets the entity state (Etag) version of the certificate specified by its identifier.",
+        "operationId": "Cache_GetEntityTag",
+        "description": "Gets the entity state (Etag) version of the Cache specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementHeadCertificate": {
-            "$ref": "./examples/ApiManagementHeadCertificate.json"
+          "ApiManagementHeadCache": {
+            "$ref": "./examples/ApiManagementHeadCache.json"
           }
         },
         "parameters": [
@@ -120,7 +105,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/CacheIdParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -131,7 +116,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Specified certificate entity exists and current entity state version is present in the ETag header.",
+            "description": "Specified Cache entity exists and current entity state version is present in the ETag header.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -149,16 +134,13 @@
       },
       "get": {
         "tags": [
-          "Certificate"
+          "Cache"
         ],
-        "operationId": "Certificate_Get",
-        "description": "Gets the details of the certificate specified by its identifier.",
+        "operationId": "Cache_Get",
+        "description": "Gets the details of the Cache specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementGetCertificate": {
-            "$ref": "./examples/ApiManagementGetCertificate.json"
-          },
-          "ApiManagementGetCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementGetCertificateWithKeyVault.json"
+          "ApiManagementGetCache": {
+            "$ref": "./examples/ApiManagementGetCache.json"
           }
         },
         "parameters": [
@@ -169,7 +151,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/CacheIdParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -180,9 +162,9 @@
         ],
         "responses": {
           "200": {
-            "description": "The response body contains the specified Certificate entity.",
+            "description": "The response body contains the specified Cache entity.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/CacheContract"
             },
             "headers": {
               "ETag": {
@@ -201,20 +183,17 @@
       },
       "put": {
         "tags": [
-          "Certificate"
+          "Cache"
         ],
-        "operationId": "Certificate_CreateOrUpdate",
-        "description": "Creates or updates the certificate being used for authentication with the backend.",
+        "operationId": "Cache_CreateOrUpdate",
+        "description": "Creates or updates an External Cache to be used in Api Management instance.",
         "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
+          "description": "Use an external cache in Azure API Management",
+          "url": "https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-cache-external"
         },
         "x-ms-examples": {
-          "ApiManagementCreateCertificate": {
-            "$ref": "./examples/ApiManagementCreateCertificate.json"
-          },
-          "ApiManagementCreateCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementCreateCertificateWithKeyVault.json"
+          "ApiManagementCreateCache": {
+            "$ref": "./examples/ApiManagementCreateCache.json"
           }
         },
         "parameters": [
@@ -225,14 +204,14 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/CacheIdParameter"
           },
           {
             "name": "parameters",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCreateOrUpdateParameters"
+              "$ref": "./definitions.json#/definitions/CacheContract"
             },
             "description": "Create or Update parameters."
           },
@@ -248,7 +227,7 @@
         ],
         "responses": {
           "201": {
-            "description": "The new certificate was successfully added.",
+            "description": "The new Cache was successfully added.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -256,11 +235,11 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/CacheContract"
             }
           },
           "200": {
-            "description": "The certificate details were successfully updated.",
+            "description": "The Cache details were successfully updated.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -268,7 +247,7 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/CacheContract"
             }
           },
           "default": {
@@ -279,15 +258,15 @@
           }
         }
       },
-      "delete": {
+      "patch": {
         "tags": [
-          "Certificate"
+          "Cache"
         ],
-        "operationId": "Certificate_Delete",
-        "description": "Deletes specific certificate.",
+        "operationId": "Cache_Update",
+        "description": "Updates the details of the cache specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementDeleteCertificate": {
-            "$ref": "./examples/ApiManagementDeleteCertificate.json"
+          "ApiManagementUpdateCache": {
+            "$ref": "./examples/ApiManagementUpdateCache.json"
           }
         },
         "parameters": [
@@ -298,7 +277,16 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/CacheIdParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions.json#/definitions/CacheUpdateParameters"
+            },
+            "description": "Update parameters."
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
@@ -312,10 +300,16 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate was successfully deleted."
-          },
-          "204": {
-            "description": "The certificate was successfully deleted."
+            "description": "The Cache details were successfully updated.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "./definitions.json#/definitions/CacheContract"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -324,22 +318,16 @@
             }
           }
         }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret": {
-      "post": {
+      },
+      "delete": {
         "tags": [
-          "Certificate"
+          "Cache"
         ],
-        "operationId": "Certificate_RefreshSecret",
-        "description": "From KeyVault, Refresh the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
+        "operationId": "Cache_Delete",
+        "description": "Deletes specific Cache.",
         "x-ms-examples": {
-          "ApiManagementRefreshCertificate": {
-            "$ref": "./examples/ApiManagementRefreshCertificate.json"
+          "ApiManagementDeleteCache": {
+            "$ref": "./examples/ApiManagementDeleteCache.json"
           }
         },
         "parameters": [
@@ -350,7 +338,10 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/CacheIdParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -361,16 +352,10 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate details were successfully updated.",
-            "headers": {
-              "ETag": {
-                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
-            }
+            "description": "The Cache was successfully deleted."
+          },
+          "204": {
+            "description": "The Cache was successfully deleted."
           },
           "default": {
             "description": "Error response describing why the operation failed.",

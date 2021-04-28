@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "ApiManagementClient",
-    "description": "Use these REST APIs for performing operations on Certificate entity in your Azure API Management deployment. Certificates can be used to setup mutual authentication with your Backend in API Management. For more information refer to [How to secure backend using Mutual Auth Certificate](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).",
-    "version": "2020-12-01"
+    "description": "Use these REST APIs for performing operations on Tag entity in your Azure API Management deployment. Tags can be assigned to APIs, Operations and Products.",
+    "version": "2020-12-02"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -27,23 +27,23 @@
       "type": "oauth2",
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
       "flow": "implicit",
-      "description": "Azure Active Directory  Flow.",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "scopes": {
         "user_impersonation": "impersonate your user account"
       }
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags": {
       "get": {
         "tags": [
-          "Certificate"
+          "Tag"
         ],
-        "operationId": "Certificate_ListByService",
-        "description": "Lists a collection of all certificates in the specified service instance.",
+        "operationId": "Tag_ListByService",
+        "description": "Lists a collection of tags defined within a service instance.",
         "x-ms-examples": {
-          "ApiManagementListCertificates": {
-            "$ref": "./examples/ApiManagementListCertificates.json"
+          "ApiManagementListTags": {
+            "$ref": "./examples/ApiManagementListTags.json"
           }
         },
         "parameters": [
@@ -58,7 +58,7 @@
             "in": "query",
             "required": false,
             "type": "string",
-            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| subject | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| thumbprint | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| expirationDate | filter | ge, le, eq, ne, gt, lt |     |</br>"
+            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>"
           },
           {
             "$ref": "./apimanagement.json#/parameters/TopQueryParameter"
@@ -67,11 +67,11 @@
             "$ref": "./apimanagement.json#/parameters/SkipQueryParameter"
           },
           {
-            "name": "isKeyVaultRefreshFailed",
+            "name": "scope",
             "in": "query",
             "required": false,
-            "type": "boolean",
-            "description": "When set to true, the response contains only certificates entities which failed refresh."
+            "type": "string",
+            "description": "Scope like 'apis', 'products' or 'apis/{apiId}"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -82,9 +82,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a collection of Certificate entity.",
+            "description": "Lists a collection of Tag entities.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCollection"
+              "$ref": "./definitions.json#/definitions/TagCollection"
             }
           },
           "default": {
@@ -97,19 +97,19 @@
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         },
-        "x-ms-odata": "./definitions.json#/definitions/CertificateContract"
+        "x-ms-odata": "./definitions.json#/definitions/TagContract"
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}": {
       "head": {
         "tags": [
-          "Certificate"
+          "Tag"
         ],
-        "operationId": "Certificate_GetEntityTag",
-        "description": "Gets the entity state (Etag) version of the certificate specified by its identifier.",
+        "operationId": "Tag_GetEntityState",
+        "description": "Gets the entity state version of the tag specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementHeadCertificate": {
-            "$ref": "./examples/ApiManagementHeadCertificate.json"
+          "ApiManagementHeadTag": {
+            "$ref": "./examples/ApiManagementHeadTag.json"
           }
         },
         "parameters": [
@@ -120,7 +120,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TagIdParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -131,7 +131,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Specified certificate entity exists and current entity state version is present in the ETag header.",
+            "description": "Empty response body, ETag header entity state version.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -149,16 +149,13 @@
       },
       "get": {
         "tags": [
-          "Certificate"
+          "Tag"
         ],
-        "operationId": "Certificate_Get",
-        "description": "Gets the details of the certificate specified by its identifier.",
+        "operationId": "Tag_Get",
+        "description": "Gets the details of the tag specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementGetCertificate": {
-            "$ref": "./examples/ApiManagementGetCertificate.json"
-          },
-          "ApiManagementGetCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementGetCertificateWithKeyVault.json"
+          "ApiManagementGetTag": {
+            "$ref": "./examples/ApiManagementGetTag.json"
           }
         },
         "parameters": [
@@ -169,7 +166,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TagIdParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -180,9 +177,9 @@
         ],
         "responses": {
           "200": {
-            "description": "The response body contains the specified Certificate entity.",
+            "description": "The response body contains the specified Tag entity.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/TagContract"
             },
             "headers": {
               "ETag": {
@@ -201,20 +198,13 @@
       },
       "put": {
         "tags": [
-          "Certificate"
+          "Tag"
         ],
-        "operationId": "Certificate_CreateOrUpdate",
-        "description": "Creates or updates the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
+        "operationId": "Tag_CreateOrUpdate",
+        "description": "Creates a tag.",
         "x-ms-examples": {
-          "ApiManagementCreateCertificate": {
-            "$ref": "./examples/ApiManagementCreateCertificate.json"
-          },
-          "ApiManagementCreateCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementCreateCertificateWithKeyVault.json"
+          "ApiManagementCreateTag": {
+            "$ref": "./examples/ApiManagementCreateTag.json"
           }
         },
         "parameters": [
@@ -225,16 +215,16 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TagIdParameter"
           },
           {
             "name": "parameters",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCreateOrUpdateParameters"
+              "$ref": "./definitions.json#/definitions/TagCreateUpdateParameters"
             },
-            "description": "Create or Update parameters."
+            "description": "Create parameters."
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
@@ -248,7 +238,7 @@
         ],
         "responses": {
           "201": {
-            "description": "The new certificate was successfully added.",
+            "description": "Tag was created successfully.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -256,11 +246,11 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/TagContract"
             }
           },
           "200": {
-            "description": "The certificate details were successfully updated.",
+            "description": "Tag already exists.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -268,7 +258,7 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/TagContract"
             }
           },
           "default": {
@@ -279,15 +269,15 @@
           }
         }
       },
-      "delete": {
+      "patch": {
         "tags": [
-          "Certificate"
+          "Tag"
         ],
-        "operationId": "Certificate_Delete",
-        "description": "Deletes specific certificate.",
+        "operationId": "Tag_Update",
+        "description": "Updates the details of the tag specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementDeleteCertificate": {
-            "$ref": "./examples/ApiManagementDeleteCertificate.json"
+          "ApiManagementUpdateTag": {
+            "$ref": "./examples/ApiManagementUpdateTag.json"
           }
         },
         "parameters": [
@@ -298,7 +288,16 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TagIdParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions.json#/definitions/TagCreateUpdateParameters"
+            },
+            "description": "Update parameters."
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
@@ -312,10 +311,16 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate was successfully deleted."
-          },
-          "204": {
-            "description": "The certificate was successfully deleted."
+            "description": "The tag details were successfully updated.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "./definitions.json#/definitions/TagContract"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -324,22 +329,16 @@
             }
           }
         }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret": {
-      "post": {
+      },
+      "delete": {
         "tags": [
-          "Certificate"
+          "Tag"
         ],
-        "operationId": "Certificate_RefreshSecret",
-        "description": "From KeyVault, Refresh the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
+        "operationId": "Tag_Delete",
+        "description": "Deletes specific tag of the API Management service instance.",
         "x-ms-examples": {
-          "ApiManagementRefreshCertificate": {
-            "$ref": "./examples/ApiManagementRefreshCertificate.json"
+          "ApiManagementDeleteTag": {
+            "$ref": "./examples/ApiManagementDeleteTag.json"
           }
         },
         "parameters": [
@@ -350,7 +349,10 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TagIdParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -361,16 +363,10 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate details were successfully updated.",
-            "headers": {
-              "ETag": {
-                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
-            }
+            "description": "Tag successfully removed"
+          },
+          "204": {
+            "description": "Tag successfully removed by previous request or does not exist"
           },
           "default": {
             "description": "Error response describing why the operation failed.",

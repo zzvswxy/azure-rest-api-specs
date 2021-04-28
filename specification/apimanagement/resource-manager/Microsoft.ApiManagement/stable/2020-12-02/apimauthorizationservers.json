@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "ApiManagementClient",
-    "description": "Use these REST APIs for performing operations on Certificate entity in your Azure API Management deployment. Certificates can be used to setup mutual authentication with your Backend in API Management. For more information refer to [How to secure backend using Mutual Auth Certificate](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).",
-    "version": "2020-12-01"
+    "description": "Use these REST APIs for managing OAuth2 servers configuration in your Azure API Management deployment. OAuth 2.0 can be used to authorize developer accounts for Azure API Management. For more information refer to [How to OAuth2](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-oauth2).",
+    "version": "2020-12-02"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -27,23 +27,23 @@
       "type": "oauth2",
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
       "flow": "implicit",
-      "description": "Azure Active Directory  Flow.",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "scopes": {
         "user_impersonation": "impersonate your user account"
       }
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers": {
       "get": {
         "tags": [
-          "Certificate"
+          "AuthorizationServer"
         ],
-        "operationId": "Certificate_ListByService",
-        "description": "Lists a collection of all certificates in the specified service instance.",
+        "operationId": "AuthorizationServer_ListByService",
+        "description": "Lists a collection of authorization servers defined within a service instance.",
         "x-ms-examples": {
-          "ApiManagementListCertificates": {
-            "$ref": "./examples/ApiManagementListCertificates.json"
+          "ApiManagementListAuthorizationServers": {
+            "$ref": "./examples/ApiManagementListAuthorizationServers.json"
           }
         },
         "parameters": [
@@ -58,20 +58,13 @@
             "in": "query",
             "required": false,
             "type": "string",
-            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| subject | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| thumbprint | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| expirationDate | filter | ge, le, eq, ne, gt, lt |     |</br>"
+            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>"
           },
           {
             "$ref": "./apimanagement.json#/parameters/TopQueryParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/SkipQueryParameter"
-          },
-          {
-            "name": "isKeyVaultRefreshFailed",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "description": "When set to true, the response contains only certificates entities which failed refresh."
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -82,9 +75,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a collection of Certificate entity.",
+            "description": "A Collection of the Authorization Server entities for the specified API Management service instance.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCollection"
+              "$ref": "./definitions.json#/definitions/AuthorizationServerCollection"
             }
           },
           "default": {
@@ -97,19 +90,19 @@
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         },
-        "x-ms-odata": "./definitions.json#/definitions/CertificateContract"
+        "x-ms-odata": "./definitions.json#/definitions/AuthorizationServerContract"
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}": {
       "head": {
         "tags": [
-          "Certificate"
+          "AuthorizationServer"
         ],
-        "operationId": "Certificate_GetEntityTag",
-        "description": "Gets the entity state (Etag) version of the certificate specified by its identifier.",
+        "operationId": "AuthorizationServer_GetEntityTag",
+        "description": "Gets the entity state (Etag) version of the authorizationServer specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementHeadCertificate": {
-            "$ref": "./examples/ApiManagementHeadCertificate.json"
+          "ApiManagementHeadAuthorizationServer": {
+            "$ref": "./examples/ApiManagementHeadAuthorizationServer.json"
           }
         },
         "parameters": [
@@ -120,7 +113,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/AuthenticationServerIdParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -131,7 +124,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Specified certificate entity exists and current entity state version is present in the ETag header.",
+            "description": "Specified authorization server entity exists and current entity state version is present in the ETag header.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -149,16 +142,13 @@
       },
       "get": {
         "tags": [
-          "Certificate"
+          "AuthorizationServer"
         ],
-        "operationId": "Certificate_Get",
-        "description": "Gets the details of the certificate specified by its identifier.",
+        "operationId": "AuthorizationServer_Get",
+        "description": "Gets the details of the authorization server specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementGetCertificate": {
-            "$ref": "./examples/ApiManagementGetCertificate.json"
-          },
-          "ApiManagementGetCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementGetCertificateWithKeyVault.json"
+          "ApiManagementGetAuthorizationServer": {
+            "$ref": "./examples/ApiManagementGetAuthorizationServer.json"
           }
         },
         "parameters": [
@@ -169,7 +159,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/AuthenticationServerIdParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -180,9 +170,9 @@
         ],
         "responses": {
           "200": {
-            "description": "The response body contains the specified Certificate entity.",
+            "description": "Gets the details of the specified authorization server. No secrets included.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/AuthorizationServerContract"
             },
             "headers": {
               "ETag": {
@@ -201,20 +191,13 @@
       },
       "put": {
         "tags": [
-          "Certificate"
+          "AuthorizationServer"
         ],
-        "operationId": "Certificate_CreateOrUpdate",
-        "description": "Creates or updates the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
+        "operationId": "AuthorizationServer_CreateOrUpdate",
+        "description": "Creates new authorization server or updates an existing authorization server.",
         "x-ms-examples": {
-          "ApiManagementCreateCertificate": {
-            "$ref": "./examples/ApiManagementCreateCertificate.json"
-          },
-          "ApiManagementCreateCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementCreateCertificateWithKeyVault.json"
+          "ApiManagementCreateAuthorizationServer": {
+            "$ref": "./examples/ApiManagementCreateAuthorizationServer.json"
           }
         },
         "parameters": [
@@ -225,16 +208,16 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/AuthenticationServerIdParameter"
           },
           {
             "name": "parameters",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCreateOrUpdateParameters"
+              "$ref": "./definitions.json#/definitions/AuthorizationServerContract"
             },
-            "description": "Create or Update parameters."
+            "description": "Create or update parameters."
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
@@ -248,7 +231,7 @@
         ],
         "responses": {
           "201": {
-            "description": "The new certificate was successfully added.",
+            "description": "Authorization server was successfully registered.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -256,11 +239,11 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/AuthorizationServerContract"
             }
           },
           "200": {
-            "description": "The certificate details were successfully updated.",
+            "description": "Authorization server is already registered.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -268,7 +251,7 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/AuthorizationServerContract"
             }
           },
           "default": {
@@ -279,15 +262,15 @@
           }
         }
       },
-      "delete": {
+      "patch": {
         "tags": [
-          "Certificate"
+          "AuthorizationServer"
         ],
-        "operationId": "Certificate_Delete",
-        "description": "Deletes specific certificate.",
+        "operationId": "AuthorizationServer_Update",
+        "description": "Updates the details of the authorization server specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementDeleteCertificate": {
-            "$ref": "./examples/ApiManagementDeleteCertificate.json"
+          "ApiManagementUpdateAuthorizationServer": {
+            "$ref": "./examples/ApiManagementUpdateAuthorizationServer.json"
           }
         },
         "parameters": [
@@ -298,7 +281,16 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/AuthenticationServerIdParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions.json#/definitions/AuthorizationServerUpdateContract"
+            },
+            "description": "OAuth2 Server settings Update parameters."
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
@@ -312,10 +304,16 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate was successfully deleted."
-          },
-          "204": {
-            "description": "The certificate was successfully deleted."
+            "description": "The authorization server settings were successfully updated.",
+            "headers": {
+              "ETag": {
+                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "./definitions.json#/definitions/AuthorizationServerContract"
+            }
           },
           "default": {
             "description": "Error response describing why the operation failed.",
@@ -324,22 +322,16 @@
             }
           }
         }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret": {
-      "post": {
+      },
+      "delete": {
         "tags": [
-          "Certificate"
+          "AuthorizationServer"
         ],
-        "operationId": "Certificate_RefreshSecret",
-        "description": "From KeyVault, Refresh the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
+        "operationId": "AuthorizationServer_Delete",
+        "description": "Deletes specific authorization server instance.",
         "x-ms-examples": {
-          "ApiManagementRefreshCertificate": {
-            "$ref": "./examples/ApiManagementRefreshCertificate.json"
+          "ApiManagementDeleteAuthorizationServer": {
+            "$ref": "./examples/ApiManagementDeleteAuthorizationServer.json"
           }
         },
         "parameters": [
@@ -350,7 +342,10 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/AuthenticationServerIdParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -361,15 +356,60 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate details were successfully updated.",
+            "description": "The authorization server settings were successfully deleted."
+          },
+          "204": {
+            "description": "The authorization server settings were successfully deleted."
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./apimanagement.json#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}/listSecrets": {
+      "post": {
+        "tags": [
+          "AuthorizationServer"
+        ],
+        "operationId": "AuthorizationServer_ListSecrets",
+        "description": "Gets the client secret details of the authorization server.",
+        "x-ms-examples": {
+          "ApiManagementAuthorizationServerListSecrets": {
+            "$ref": "./examples/ApiManagementAuthorizationServerListSecrets.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "./apimanagement.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/AuthenticationServerIdParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gets the secrets of the specified authorization server.",
+            "schema": {
+              "$ref": "./definitions.json#/definitions/AuthorizationServerSecretsContract"
+            },
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
                 "type": "string"
               }
-            },
-            "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
             }
           },
           "default": {

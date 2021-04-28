@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "ApiManagementClient",
-    "description": "Use these REST APIs for performing operations on Certificate entity in your Azure API Management deployment. Certificates can be used to setup mutual authentication with your Backend in API Management. For more information refer to [How to secure backend using Mutual Auth Certificate](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).",
-    "version": "2020-12-01"
+    "description": "Use these REST APIs for performing operations on Email Templates associated with your Azure API Management deployment.",
+    "version": "2020-12-02"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -27,23 +27,23 @@
       "type": "oauth2",
       "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
       "flow": "implicit",
-      "description": "Azure Active Directory  Flow.",
+      "description": "Azure Active Directory OAuth2 Flow.",
       "scopes": {
         "user_impersonation": "impersonate your user account"
       }
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/templates": {
       "get": {
         "tags": [
-          "Certificate"
+          "EmailTemplate"
         ],
-        "operationId": "Certificate_ListByService",
-        "description": "Lists a collection of all certificates in the specified service instance.",
+        "operationId": "EmailTemplate_ListByService",
+        "description": "Gets all email templates",
         "x-ms-examples": {
-          "ApiManagementListCertificates": {
-            "$ref": "./examples/ApiManagementListCertificates.json"
+          "ApiManagementListTemplates": {
+            "$ref": "./examples/ApiManagementListTemplates.json"
           }
         },
         "parameters": [
@@ -58,20 +58,13 @@
             "in": "query",
             "required": false,
             "type": "string",
-            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| subject | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| thumbprint | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| expirationDate | filter | ge, le, eq, ne, gt, lt |     |</br>"
+            "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>"
           },
           {
             "$ref": "./apimanagement.json#/parameters/TopQueryParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/SkipQueryParameter"
-          },
-          {
-            "name": "isKeyVaultRefreshFailed",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "description": "When set to true, the response contains only certificates entities which failed refresh."
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -82,9 +75,9 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a collection of Certificate entity.",
+            "description": "A Collection of the Email Template for the specified API Management service instance.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCollection"
+              "$ref": "./definitions.json#/definitions/EmailTemplateCollection"
             }
           },
           "default": {
@@ -96,20 +89,19 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-odata": "./definitions.json#/definitions/CertificateContract"
+        }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/templates/{templateName}": {
       "head": {
         "tags": [
-          "Certificate"
+          "EmailTemplates"
         ],
-        "operationId": "Certificate_GetEntityTag",
-        "description": "Gets the entity state (Etag) version of the certificate specified by its identifier.",
+        "operationId": "EmailTemplate_GetEntityTag",
+        "description": "Gets the entity state (Etag) version of the email template specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementHeadCertificate": {
-            "$ref": "./examples/ApiManagementHeadCertificate.json"
+          "ApiManagementHeadEmailTemplate": {
+            "$ref": "./examples/ApiManagementHeadEmailTemplate.json"
           }
         },
         "parameters": [
@@ -120,7 +112,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TemplateNameParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -131,7 +123,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Specified certificate entity exists and current entity state version is present in the ETag header.",
+            "description": "Specified email template entity exists and current entity state version is present in the ETag header.",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -149,16 +141,13 @@
       },
       "get": {
         "tags": [
-          "Certificate"
+          "EmailTemplates"
         ],
-        "operationId": "Certificate_Get",
-        "description": "Gets the details of the certificate specified by its identifier.",
+        "operationId": "EmailTemplate_Get",
+        "description": "Gets the details of the email template specified by its identifier.",
         "x-ms-examples": {
-          "ApiManagementGetCertificate": {
-            "$ref": "./examples/ApiManagementGetCertificate.json"
-          },
-          "ApiManagementGetCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementGetCertificateWithKeyVault.json"
+          "ApiManagementGetTemplate": {
+            "$ref": "./examples/ApiManagementGetTemplate.json"
           }
         },
         "parameters": [
@@ -169,7 +158,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TemplateNameParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
@@ -180,9 +169,9 @@
         ],
         "responses": {
           "200": {
-            "description": "The response body contains the specified Certificate entity.",
+            "description": "The response body contains the specified Email template.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/EmailTemplateContract"
             },
             "headers": {
               "ETag": {
@@ -201,20 +190,13 @@
       },
       "put": {
         "tags": [
-          "Certificate"
+          "EmailTemplates"
         ],
-        "operationId": "Certificate_CreateOrUpdate",
-        "description": "Creates or updates the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
+        "operationId": "EmailTemplate_CreateOrUpdate",
+        "description": "Updates an Email Template.",
         "x-ms-examples": {
-          "ApiManagementCreateCertificate": {
-            "$ref": "./examples/ApiManagementCreateCertificate.json"
-          },
-          "ApiManagementCreateCertificateWithKeyVault": {
-            "$ref": "./examples/ApiManagementCreateCertificateWithKeyVault.json"
+          "ApiManagementCreateTemplate": {
+            "$ref": "./examples/ApiManagementCreateTemplate.json"
           }
         },
         "parameters": [
@@ -225,16 +207,16 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TemplateNameParameter"
           },
           {
             "name": "parameters",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateCreateOrUpdateParameters"
+              "$ref": "./definitions.json#/definitions/EmailTemplateUpdateParameters"
             },
-            "description": "Create or Update parameters."
+            "description": "Email Template update parameters."
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
@@ -248,19 +230,68 @@
         ],
         "responses": {
           "201": {
-            "description": "The new certificate was successfully added.",
-            "headers": {
-              "ETag": {
-                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
-                "type": "string"
-              }
-            },
+            "description": "Email Template was successfully updated.",
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/EmailTemplateContract"
             }
           },
           "200": {
-            "description": "The certificate details were successfully updated.",
+            "description": "Email Template was successfully updated.",
+            "schema": {
+              "$ref": "./definitions.json#/definitions/EmailTemplateContract"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./apimanagement.json#/definitions/ErrorResponse"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "EmailTemplates"
+        ],
+        "operationId": "EmailTemplate_Update",
+        "description": "Updates API Management email template",
+        "x-ms-examples": {
+          "ApiManagementUpdateTemplate": {
+            "$ref": "./examples/ApiManagementUpdateTemplate.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "./apimanagement.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/TemplateNameParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions.json#/definitions/EmailTemplateUpdateParameters"
+            },
+            "description": "Update parameters."
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "./apimanagement.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "email template successfully updated",
             "headers": {
               "ETag": {
                 "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
@@ -268,7 +299,7 @@
               }
             },
             "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
+              "$ref": "./definitions.json#/definitions/EmailTemplateContract"
             }
           },
           "default": {
@@ -281,13 +312,13 @@
       },
       "delete": {
         "tags": [
-          "Certificate"
+          "EmailTemplates"
         ],
-        "operationId": "Certificate_Delete",
-        "description": "Deletes specific certificate.",
+        "operationId": "EmailTemplate_Delete",
+        "description": "Reset the Email Template to default template provided by the API Management service instance.",
         "x-ms-examples": {
-          "ApiManagementDeleteCertificate": {
-            "$ref": "./examples/ApiManagementDeleteCertificate.json"
+          "ApiManagementDeleteTemplate": {
+            "$ref": "./examples/ApiManagementDeleteTemplate.json"
           }
         },
         "parameters": [
@@ -298,7 +329,7 @@
             "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
           },
           {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
+            "$ref": "./apimanagement.json#/parameters/TemplateNameParameter"
           },
           {
             "$ref": "./apimanagement.json#/parameters/IfMatchRequiredParameter"
@@ -312,65 +343,10 @@
         ],
         "responses": {
           "200": {
-            "description": "The certificate was successfully deleted."
+            "description": "Email Template was successfully reset to default."
           },
           "204": {
-            "description": "The certificate was successfully deleted."
-          },
-          "default": {
-            "description": "Error response describing why the operation failed.",
-            "schema": {
-              "$ref": "./apimanagement.json#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret": {
-      "post": {
-        "tags": [
-          "Certificate"
-        ],
-        "operationId": "Certificate_RefreshSecret",
-        "description": "From KeyVault, Refresh the certificate being used for authentication with the backend.",
-        "externalDocs": {
-          "description": "How to secure back-end services using client certificate authentication in Azure API Management",
-          "url": "https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-mutual-certificates/"
-        },
-        "x-ms-examples": {
-          "ApiManagementRefreshCertificate": {
-            "$ref": "./examples/ApiManagementRefreshCertificate.json"
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "./apimanagement.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/CertificateIdParameter"
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "./apimanagement.json#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The certificate details were successfully updated.",
-            "headers": {
-              "ETag": {
-                "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "$ref": "./definitions.json#/definitions/CertificateContract"
-            }
+            "description": "Email Template was successfully reset to default."
           },
           "default": {
             "description": "Error response describing why the operation failed.",
