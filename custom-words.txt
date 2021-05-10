@@ -4,6 +4,7 @@ A256CBCPAD
 AADDS
 aadiam
 AADP
+aapl
 AATP
 abcxyz
 ABFS
@@ -55,6 +56,7 @@ alertrules
 alertsmanagement
 alertstate
 Alexa
+Algo
 allowlist
 Alon
 amazonservices
@@ -134,8 +136,8 @@ artifacturi
 asciifolding
 Asns
 aspnet
-Asturian
 assessmentprojects
+Asturian
 asyncinfo
 asyncoperation
 atascada
@@ -445,6 +447,8 @@ CUTOVER
 CVEs
 CVSS
 Cyrl
+dailyforecast
+dailyhistorical
 darkgrey
 databox
 Databricks
@@ -577,6 +581,8 @@ Dsms
 DTDL
 Dtus
 duration'PT
+dwgzippackage
+dynamicpersongroups
 EAPMSCHA
 EAPMSCHAP
 EAPTLS
@@ -655,13 +661,15 @@ failover
 failovers
 Fairplay
 Fanout
+farmBeats
+FarmBeats
 fatherable
 faultable
 fconfig
 FDID
-FDID
 fearthecowboy
 featurecapabilities
+featurestate
 Featurization
 featurized
 Featurizer
@@ -917,6 +925,7 @@ JSONLD
 Jtoken
 jumpbox
 jwts
+K’iche
 Kabuverdianu
 Kachin
 kafkarest
@@ -957,8 +966,8 @@ Kubelet
 kubenet
 kubernetes
 kusto
+kustooperations
 kvset
-K’iche
 l'avion
 labaccounts
 labelset
@@ -1047,6 +1056,7 @@ managecontacts
 managedapplications
 managedclusters
 managedeployments
+managedHSMs
 managedserviceidentity
 managedservices
 managee
@@ -1075,6 +1085,7 @@ MCAS
 MDATP
 mebibytes
 mediaservices
+Merkle
 Meru
 Mesos
 messagingplan
@@ -1090,6 +1101,8 @@ metricnamespace
 metricsadvisor
 metrictype
 mgmt
+MHSM
+MHSMIP
 Mibps
 microservices
 microsofttranslator
@@ -1178,6 +1191,8 @@ nbformat
 Nccl
 nchar
 ndjson
+ndvi
+NDVI
 Neighbourhood
 netapp
 netdev
@@ -1243,6 +1258,7 @@ octokit
 Odata
 odatatype
 ODBC
+oeverify
 offboard
 offboards
 officedocument
@@ -1255,6 +1271,7 @@ ondemandgc
 onmachine
 onmicrosoft
 ONNX
+Onprem
 onpremises
 oobe
 Oozie
@@ -1388,6 +1405,8 @@ privatelinkservice
 privatepreview
 projectable
 propogation
+Propagations
+propagations
 Protectable
 Providerhub
 provisioner
@@ -1433,8 +1452,8 @@ racyscore
 RAGRS
 RAGZRS
 randint
-randomnumbers
 Rankable
+rasterize
 ratelimit
 ravbhatnagar
 rawwebsockets
@@ -1658,6 +1677,7 @@ setvpnclientipsecparameters
 sfhealthid
 sfpkg
 shamir_share
+shapefile
 sharded
 sharedkey
 sharename
@@ -1841,6 +1861,7 @@ tagname
 tagsandregions
 tagvalue
 TARGETDURATION
+targetv
 taskcompletion
 taskcounts
 taskfailure
@@ -1859,6 +1880,7 @@ Termlist
 termlists
 testall
 testallroutes
+testfailover
 testnew
 testnewroute
 testpl
@@ -2088,6 +2110,8 @@ webhostingplans
 webjob
 webjobs
 webproxy
+webpubsub
+WebPubSub
 websearch
 webservices
 Webspace
@@ -2142,3 +2166,27 @@ ziplist
 Zoho
 zoneinfo
 zset
+classificationdef
+entitydef
+termtemplatedef
+enumdef
+relationshipdef
+structdef
+typedefs
+testfailover
+Orignal
+Onprem
+targetv
+Seleted
+classificationrules
+Unparented
+scanrulesets
+Ruleset
+Rulesets
+XLSB
+Miti
+DOCM
+PPSX
+PPTM
+XLSM
+DOCM
