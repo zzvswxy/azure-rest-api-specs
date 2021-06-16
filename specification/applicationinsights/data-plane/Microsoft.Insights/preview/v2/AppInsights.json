@@ -47,7 +47,7 @@
   "paths": {
     "/apps/{appId}/metrics/{metricId}": {
       "get": {
-        "operationId": "Metrics_Get",
+        "operationId": "Metric_Get",
         "summary": "Retrieve metric data",
         "description": "Gets metric values for a single metric",
         "x-ms-examples": {
