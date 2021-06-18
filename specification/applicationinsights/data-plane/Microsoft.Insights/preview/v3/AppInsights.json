@@ -91,12 +91,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/metricsResult"
-            }
-          },
           "default": {
             "description": "An error response object.",
             "schema": {
