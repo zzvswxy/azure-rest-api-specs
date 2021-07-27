@@ -8,6 +8,7 @@ It will be also used as a reference by SDK teams and API reviewers when reviewin
 At a high level, changes to the contract of an API constitute a breaking change. Changes that impact backwards compatibility of an API is also considered a breaking change. Teams MAY define backwards compatibility as their business needs require. For example, Azure defines the addition of a new JSON field in a response to be not backwards compatible. Anything that would violate the _**Principle of Least Astonishment**_ is considered a breaking change in Azure. Below are some concrete examples of what constitutes a breaking change. In the below breaking change scenarios, the API version **must** be changed.
 
 ### Existing property is removed
+
 If a property called "foo" was present in v1 of the API need to be removed, it should be done in a newer api-version
 Property name has changed
 
