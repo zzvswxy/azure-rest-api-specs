@@ -19,7 +19,6 @@
           }
         ],
         "nextLink": "providers/Microsoft.SignalRService?$skipToken={opaqueString}"
-        
       }
     }
   }
