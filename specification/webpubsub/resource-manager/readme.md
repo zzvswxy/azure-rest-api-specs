@@ -65,7 +65,7 @@ These settings apply only when `--tag=package-2022-11-01-preview` is specified o
 
 ``` yaml $(tag) == 'package-2022-11-01-preview'
 input-file:
-- Microsoft.SignalRService/stable/2022-11-01-preview/webpubsub.json
+- Microsoft.SignalRService/preview/2022-11-01-preview/webpubsub.json
 ```
 
 ### Tag: package-2021-10-01
