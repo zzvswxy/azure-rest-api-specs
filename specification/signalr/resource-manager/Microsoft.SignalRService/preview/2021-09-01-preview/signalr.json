@@ -21,7 +21,7 @@
         "tags": [
           "SignalR"
         ],
-        
+
         "description": "Lists all of the available REST API operations of the Microsoft.SignalRService provider.",
         "operationId": "Operations_List",
         "parameters": [
@@ -37,7 +37,7 @@
             }
           },
           "default": {
-            "description": "Error response describing why the operation failed.",
+            "description": "Error response describing why the operation failed. update.",
             "schema": {
               "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
             }
