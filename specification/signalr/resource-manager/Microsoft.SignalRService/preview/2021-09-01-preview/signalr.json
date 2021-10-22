@@ -21,8 +21,8 @@
         "tags": [
           "SignalR"
         ],
-        "description": "Lists all of the available REST API operations of the Microsoft.SignalRService provider. Test for api readiness.",
-        "operationId": "Operations_List",
+       "description": "Lists all of the available REST API operations of the Microsoft.SignalRService provider. Test for api readiness.",
+       "operationId": "Operations_List",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionParameter"
