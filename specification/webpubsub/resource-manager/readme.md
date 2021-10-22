@@ -59,6 +59,15 @@ directive:
     reason: It's required by spec of enumerating SKUs for an existing resource
 ```
 
+### Tag: package-2022-11-01-preview
+
+These settings apply only when `--tag=package-2022-11-01-preview` is specified on the command line.
+
+``` yaml $(tag) == 'package-2022-11-01-preview'
+input-file:
+- Microsoft.SignalRService/stable/2022-11-01/webpubsub.json
+```
+
 ### Tag: package-2021-10-01
 
 These settings apply only when `--tag=package-2021-10-01` is specified on the command line.
