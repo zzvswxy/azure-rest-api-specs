@@ -28,15 +28,72 @@ These are the global settings for the Network API.
 title: NetworkManagementClient
 description: Network Client
 openapi-type: arm
-tag: package-2021-05
+tag: package-2021-11
 ```
 
 
+### Tag: package-2021-11
+
+These settings apply only when `--tag=package-2021-11` is specified on the command line.
+
+```yaml $(tag) == 'package-2021-11'
+input-file:
+  - Microsoft.Network/stable/2021-11-24.5/applicationGateway.json
+  - Microsoft.Network/stable/2021-11-24.5/applicationSecurityGroup.json
+  - Microsoft.Network/stable/2021-11-24.5/availableDelegations.json
+  - Microsoft.Network/stable/2021-11-24.5/availableServiceAliases.json
+  - Microsoft.Network/stable/2021-11-24.5/azureFirewall.json
+  - Microsoft.Network/stable/2021-11-24.5/azureFirewallFqdnTag.json
+  - Microsoft.Network/stable/2021-11-24.5/azureWebCategory.json
+  - Microsoft.Network/stable/2021-11-24.5/bastionHost.json
+  - Microsoft.Network/stable/2021-11-24.5/checkDnsAvailability.json
+  - Microsoft.Network/stable/2021-11-24.5/cloudServiceNetworkInterface.json
+  - Microsoft.Network/stable/2021-11-24.5/cloudServicePublicIpAddress.json
+  - Microsoft.Network/stable/2021-11-24.5/customIpPrefix.json
+  - Microsoft.Network/stable/2021-11-24.5/ddosCustomPolicy.json
+  - Microsoft.Network/stable/2021-11-24.5/ddosProtectionPlan.json
+  - Microsoft.Network/stable/2021-11-24.5/dscpConfiguration.json
+  - Microsoft.Network/stable/2021-11-24.5/endpointService.json
+  - Microsoft.Network/stable/2021-11-24.5/expressRouteCircuit.json
+  - Microsoft.Network/stable/2021-11-24.5/expressRouteCrossConnection.json
+  - Microsoft.Network/stable/2021-11-24.5/expressRoutePort.json
+  - Microsoft.Network/stable/2021-11-24.5/firewallPolicy.json
+  - Microsoft.Network/stable/2021-11-24.5/ipAllocation.json
+  - Microsoft.Network/stable/2021-11-24.5/ipGroups.json
+  - Microsoft.Network/stable/2021-11-24.5/loadBalancer.json
+  - Microsoft.Network/stable/2021-11-24.5/natGateway.json
+  - Microsoft.Network/stable/2021-11-24.5/network.json
+  - Microsoft.Network/stable/2021-11-24.5/networkInterface.json
+  - Microsoft.Network/stable/2021-11-24.5/networkProfile.json
+  - Microsoft.Network/stable/2021-11-24.5/networkSecurityGroup.json
+  - Microsoft.Network/stable/2021-11-24.5/networkVirtualAppliance.json
+  - Microsoft.Network/stable/2021-11-24.5/networkWatcher.json
+  - Microsoft.Network/stable/2021-11-24.5/operation.json
+  - Microsoft.Network/stable/2021-11-24.5/privateEndpoint.json
+  - Microsoft.Network/stable/2021-11-24.5/privateLinkService.json
+  - Microsoft.Network/stable/2021-11-24.5/publicIpAddress.json
+  - Microsoft.Network/stable/2021-11-24.5/publicIpPrefix.json
+  - Microsoft.Network/stable/2021-11-24.5/routeFilter.json
+  - Microsoft.Network/stable/2021-11-24.5/routeTable.json
+  - Microsoft.Network/stable/2021-11-24.5/securityPartnerProvider.json
+  - Microsoft.Network/stable/2021-11-24.5/serviceCommunity.json
+  - Microsoft.Network/stable/2021-11-24.5/serviceEndpointPolicy.json
+  - Microsoft.Network/stable/2021-11-24.5/serviceTags.json
+  - Microsoft.Network/stable/2021-11-24.5/usage.json
+  - Microsoft.Network/stable/2021-11-24.5/virtualNetwork.json
+  - Microsoft.Network/stable/2021-11-24.5/virtualNetworkGateway.json
+  - Microsoft.Network/stable/2021-11-24.5/virtualNetworkTap.json
+  - Microsoft.Network/stable/2021-11-24.5/virtualRouter.json
+  - Microsoft.Network/stable/2021-11-24.5/virtualWan.json
+  - Microsoft.Network/stable/2021-11-24.5/vmssNetworkInterface.json
+  - Microsoft.Network/stable/2021-11-24.5/vmssPublicIpAddress.json
+  - Microsoft.Network/stable/2021-11-24.5/webapplicationfirewall.json
+```
 ### Tag: package-2021-05
 
 These settings apply only when `--tag=package-2021-05` is specified on the command line.
 
-```yaml $(tag) == 'package-2021-05'
+``` yaml $(tag) == 'package-2021-05'
 input-file:
   - Microsoft.Network/stable/2021-05-01/applicationGateway.json
   - Microsoft.Network/stable/2021-05-01/applicationSecurityGroup.json
@@ -89,6 +146,7 @@ input-file:
   - Microsoft.Network/stable/2021-05-01/vmssPublicIpAddress.json
   - Microsoft.Network/stable/2021-05-01/webapplicationfirewall.json
 ```
+
 ### Tag: package-2021-03
 
 These settings apply only when `--tag=package-2021-03` is specified on the command line.
