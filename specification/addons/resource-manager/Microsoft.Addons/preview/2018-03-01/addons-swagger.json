@@ -5,7 +5,7 @@
     "description": "The service for managing third party addons.",
     "version": "2018-03-01"
   },
-  "host": "management.azure.com",
+  "host": "management.azure.cn",
   "schemes": [
     "https"
   ],
