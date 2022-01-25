@@ -1,0 +1,84 @@
+main:
+  commentGroups:
+    - name: Default
+      title: "Swagger Validation Report"
+      order: 1
+    - name: SdkAuto
+      title: "Swagger Generation Artifacts"
+      order: 2
+  envs:
+    - name: ppe
+      prefix: "~[Staging] "
+
+tasks:
+  - name: "BreakingChange"
+    commentShowName: "BreakingChange"
+    checkShowName: "Swagger BreakingChange"
+    state: "enabled"
+    suppressionLabel: "Approved-BreakingChange"
+    passNote: "There are no breaking changes."
+  - name: "LintDiff"
+    commentShowName: "LintDiff"
+    checkShowName: "Swagger LintDiff"
+    state: "enabled"
+    passNote: "Validation passes for LintDiff."
+  - name: "LintRPaaS"
+    commentShowName: "[Staging] Lint(RPaaS)"
+    checkShowName: "Swagger Lint(RPaaS)"
+    state: "enabled"
+    passNote: "Validation passes for Lint(RPaaS)."
+    baseBranchFilter:
+      include:
+        - RPSaaSMaster
+        - adl-rpaas
+        - RPaaSDev
+        - RPSaaSDev
+  - name: "ModelValidation"
+    commentShowName: "ModelValidation"
+    checkShowName: "Swagger ModelValidation"
+    state: "enabled"
+    passNote: "Validation passes for ModelValidation."
+  - name: "SemanticValidation"
+    commentShowName: "SemanticValidation"
+    checkShowName: "Swagger SemanticValidation"
+    state: "enabled"
+    passNote: "Validation passes for SemanticValidation."
+  - name: "ApiDocPreview"
+    commentShowName: "[Staging] ApiDocPreview"
+    checkShowName: "Swagger ApiDocPreview"
+    state: "disabled"
+    commentGroupName: "SdkAuto"
+  - name: "PrettierCheck"
+    commentShowName: "[Staging] PrettierCheck"
+    checkShowName: "Swagger PrettierCheck"
+    state: enabled
+    env:
+      - prod
+    passNote: "Validation passes for PrettierCheck."
+  - name: "SpellCheck"
+    commentShowName: "[Staging] SpellCheck"
+    checkShowName: "Swagger SpellCheck"
+    labelsOnTaskFailure:
+      - CI-FixRequiredOnFailure
+    state: enabled
+    env:
+      - prod
+    passNote: "Validation passes for SpellCheck."
+  - name: "CrossVersionBreakingChange"
+    commentShowName: "Cross-Version Breaking Changes"
+    checkShowName: "Cross-Version Breaking Changes"
+    showName: "Cross-Version Breaking Changes"
+    state: "enabled"
+    suppressionLabel: "Approved-BreakingChange"
+    passNote: "There are no breaking changes."
+    resultGroups:
+      groups:
+        - name: "stable"
+          title: "The following breaking changes are detected by comparison with the latest stable version:"
+          order: 1
+        - name: "preview"
+          title: "The following breaking changes are detected by comparison with latest preview version:"
+          order: 2
+      required: 
+        - "stable"
+        - "preview"
