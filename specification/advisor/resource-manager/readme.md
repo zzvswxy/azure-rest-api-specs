@@ -56,6 +56,15 @@ input-file:
   - Microsoft.Advisor/stable/2020-01-01/advisor.json
 ```
 
+### Tag: package-2022-01
+
+These settings apply only when `--tag=package-2022-01` is specified on the command line.
+
+``` yaml $(tag) == 'package-2020-01'
+input-file:
+  - Microsoft.Advisor/stable/2022-01-01/advisor.json
+```
+
 ### Tag: package-2017-04
 
 These settings apply only when `--tag=package-2017-04` is specified on the command line.
