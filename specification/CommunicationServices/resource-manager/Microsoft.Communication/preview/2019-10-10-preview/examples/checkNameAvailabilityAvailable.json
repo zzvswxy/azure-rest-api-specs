@@ -14,6 +14,13 @@
         "reason": "NameAvailable",
         "message": "Requested name is available for the requested type in the requested region"
       }
+    },
+    "404": {
+      "body": {
+        "nameAvailable": true,
+        "reason": "TestNameAvailable",
+        "message": "Requested name is available for the requested type in the requested region"
+      }
     }
   }
 }
