@@ -73,7 +73,7 @@
             "$ref": "./examples/ListClustersBySubscription.json"
           }
         },
-        "description": "List all HCI clusters in a subscription.",
+        "description": "List all HCI  in a subscription.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/SubscriptionIdParameter"
