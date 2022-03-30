@@ -13,7 +13,7 @@
         "properties": {
           "provisioningState": "Cancelling"
         },
-        "type": "Microsoft.Addons/supportProvider"
+        "type": "Microsoft.Addons/supportProvider/edit/edit"
       }
     },
     "204": {}
