@@ -14,7 +14,7 @@
         "resourceType": "farmoperationapplicationdata",
         "id": "Job123",
         "status": "Waiting",
-        "message": "Created cascade delete job for 'farmoperationapplicationdata' resource with id 'Application123' and farmerId 'Farmer123'.",
+        "message": "Created cascade delete job for 'farmoperationapplicationdata' resource with id 'Application123' and farmerId 'Farmer123'.dataplane",
         "createdDateTime": "2021-06-19T09:39:37Z",
         "lastActionDateTime": "2021-06-19T09:39:37Z",
         "startTime": "2021-06-19T09:39:37Z"
