@@ -39,7 +39,7 @@
           "items": {
             "$ref": "#/definitions/ErrorAdditionalInfo"
           },
-          "description": "The error additional info."
+          "description": "The error additional info. dataplane"
         }
       }
     },
