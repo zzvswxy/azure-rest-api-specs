@@ -33,7 +33,7 @@
             "actionStatus": {
               "isSuppressed": false
             },
-            "description": "description of the alert"
+            "description": "description of the alert resoucemanager"
           },
           "egressConfig": {},
           "context": {}
