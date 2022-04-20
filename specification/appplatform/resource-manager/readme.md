@@ -56,8 +56,17 @@ These settings apply only when `--tag=package-preview-2022-01` is specified on t
 
 ```yaml $(tag) == 'package-preview-2022-01'
 input-file:
+  - Microsoft.AppPlatform/preview/2022-01-09/appplatform.json
+```
+### Tag: package-preview-2022-01
+
+These settings apply only when `--tag=package-preview-2022-01` is specified on the command line.
+
+``` yaml $(tag) == 'package-preview-2022-01'
+input-file:
   - Microsoft.AppPlatform/preview/2022-01-01/appplatform.json
 ```
+
 ### Tag: package-preview-2022-03
 
 These settings apply only when `--tag=package-preview-2022-03` is specified on the command line.
