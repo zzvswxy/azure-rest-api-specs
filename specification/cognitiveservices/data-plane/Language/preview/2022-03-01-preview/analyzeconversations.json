@@ -30,7 +30,7 @@
   "paths": {
     "/:analyze-conversations": {
       "post": {
-        "operationId": "ConversationAnalysis_AnalyzeConversation",
+        "operationId": "ConversationAnalysis_Analyze",
         "description": "Analyzes the input conversation utterance.",
         "parameters": [
           {
