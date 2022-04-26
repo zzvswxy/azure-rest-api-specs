@@ -38,7 +38,6 @@
       "get": {
         "deprecated": false,
         "description": "Returns list of Linkers which connects to the resource.",
-        "operationId": "Linker_List",
         "x-ms-examples": {
           "LinkList": {
             "$ref": "./examples/LinkList.json"
