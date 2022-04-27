@@ -225,7 +225,8 @@
         }
       },
       "required": [
-        "enabled"
+        "enabled",
+        "category"
       ],
       "description": "Part of Management Group diagnostic setting. Specifies the settings for a particular log."
     },
