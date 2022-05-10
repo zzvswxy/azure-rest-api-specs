@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Azure Addons Resource Provider",
-    "description": "The service for managing third party addons test.",
+    "description": "The service for managing third party addons tests.",
     "version": "2017-05-15"
   },
   "host": "management.azure.com",
