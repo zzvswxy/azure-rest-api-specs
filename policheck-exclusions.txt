@@ -1,3 +1,2 @@
-
 policheck-exclusions.xml
 custom-words.txt
