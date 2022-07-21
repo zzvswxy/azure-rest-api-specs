@@ -117,7 +117,7 @@
         },
         "azure-sdk-for-python": {	
           "mainRepository": "openapi-env-test/azure-sdk-for-python",	
-          "mainBranch": "dpg-readme"	
+          "mainBranch": "dpg-readme-sdkGeneration"
         },
         "azure-sdk-for-js": {
           "mainRepository": "openapi-env-test/azure-sdk-for-js",

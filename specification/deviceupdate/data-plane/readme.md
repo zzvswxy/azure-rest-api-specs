@@ -26,7 +26,10 @@ These are the global settings for the deviceupdate.
 
 ``` yaml
 openapi-type: data-plane
-tag: package-preview-2022-07
+tag: package-2022-07-03
+title: DeviceUpdateClient
+security: AADToken
+security-scopes:  https://api.adu.microsoft.com/.default
 ```
 
 
@@ -65,6 +68,15 @@ input-file:
   - Microsoft.DeviceUpdate/preview/2022-07-01-preview/deviceupdate.json
 ```
 
+### Tag: package-2022-07-03
+
+These settings apply only when `--tag=package-2022-07-03` is specified on the command line.
+
+``` yaml $(tag) == 'package-2022-07-03'
+input-file:
+  - Microsoft.DeviceUpdate/preview/2022-07-03/deviceupdate.json
+```
+
 ## Suppressions
 
 ``` yaml
@@ -90,7 +102,7 @@ This is not used by Autorest itself.
 
 ``` yaml $(swagger-to-sdk)
 swagger-to-sdk:
-  - repo: azure-sdk-for-python-track2
+  - repo: azure-sdk-for-python
   - repo: azure-sdk-for-java
   - repo: azure-sdk-for-js
     after_scripts:
@@ -117,7 +129,7 @@ require: $(this-folder)/../../../../profiles/readme.md
 
 # all the input files across all versions
 input-file:
-  - $(this-folder)/Microsoft.DeviceUpdate/preview/2022-07-01-preview/deviceupdate.json
+  - $(this-folder)/Microsoft.DeviceUpdate/preview/2022-07-03/deviceupdate.json
 
 ```
 
