@@ -2,7 +2,7 @@
   "parameters": {
     "endpoint": "{endpoint}",
     "collectionName": "myCollection1",
-    "api-version": "2019-11-01-preview"
+    "api-version": "2022-07-29-preview"
   },
   "responses": {
     "200": {
