@@ -21,15 +21,24 @@ To see additional help and options, run:
 ## Configuration
 
 ### Basic Information
+
 These are the global settings for the Azure Purview Account API.
 
 ``` yaml
 openapi-type: data-plane
-tag: package-2019-11-01-preview
+tag: package-preview-2022-07
 title: PurviewAccountClient
 ```
 
 
+### Tag: package-preview-2022-07
+
+These settings apply only when `--tag=package-preview-2022-07` is specified on the command line.
+
+```yaml $(tag) == 'package-preview-2022-07'
+input-file:
+  - preview/2022-07-29-preview/account.json
+```
 ### Tag: package-2019-11-01-preview
 
 These settings apply only when `--tag=package-2019-11-01-preview` is specified on the command line.
