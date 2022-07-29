@@ -125,7 +125,7 @@
         },
         "azure-sdk-for-java": {
           "mainRepository": "openapi-env-test/azure-sdk-for-java",
-          "mainBranch": "feature/java-dpg",
+          "mainBranch": "dpg-readme-codegen",
           "configFilePath": "eng/mgmt/automation/swagger_to_sdk_config.json"
         },
         "azure-cli-extensions": {
